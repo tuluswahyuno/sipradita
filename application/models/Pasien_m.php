@@ -35,6 +35,14 @@
 	    }
 
 
+	    public function hasil_diagnosa($idanamnesis)
+	    {
+
+	    	$query = $this->db->query("SELECT * FROM data_anamnesis da, sistem_pernafasan sp, sistem_moskuloskelental sm, data_pasien dp where da.id_anamnesis = '$idanamnesis' AND da.id_anamnesis = sp.id_anamnesis AND da.id_anamnesis = sm.id_anamnesis AND da.id_pasien = dp.id_pasien;");
+
+	        return $query->row();
+		}
+
 	    public function get_id_anamnesis($idanamnesis)
 	    {
 	        
@@ -62,6 +70,112 @@
 
 	        return $query->row();
 	    }
+
+
+	    public function data_pemeriksaan($idanamnesis)
+	    {
+	        $query = $this->db->query("SELECT * FROM data_anamnesis da, data_pemeriksaan sp, data_pasien dp where da.id_anamnesis = '$idanamnesis' AND da.id_anamnesis = sp.id_anamnesis AND da.id_pasien = dp.id_pasien;");
+
+	        return $query->row();
+	    }
+
+
+	    public function data_pernafasan($idanamnesis)
+	    {
+	        $query = $this->db->query("SELECT * FROM data_anamnesis da, sistem_pernafasan sp, data_pasien dp where da.id_anamnesis = '$idanamnesis' AND da.id_anamnesis = sp.id_anamnesis AND da.id_pasien = dp.id_pasien;");
+
+	        return $query->row();
+	    }
+
+
+	    public function data_moskuloskelental($idanamnesis)
+	    {
+	        $query = $this->db->query("SELECT * FROM data_anamnesis da, sistem_moskuloskelental sp, data_pasien dp where da.id_anamnesis = '$idanamnesis' AND da.id_anamnesis = sp.id_anamnesis AND da.id_pasien = dp.id_pasien;");
+
+	        return $query->row();
+	    }
+
+
+	    public function data_proteksi($idanamnesis)
+	    {
+	        $query = $this->db->query("SELECT * FROM data_anamnesis da, sistem_proteksi sp, data_pasien dp where da.id_anamnesis = '$idanamnesis' AND da.id_anamnesis = sp.id_anamnesis AND da.id_pasien = dp.id_pasien;");
+
+	        return $query->result();
+	    }
+
+
+	    public function data_nyeri($idanamnesis)
+	    {
+	        $query = $this->db->query("SELECT * FROM data_anamnesis da, pengkajian_nyeri sp, data_pasien dp where da.id_anamnesis = '$idanamnesis' AND da.id_anamnesis = sp.id_anamnesis AND da.id_pasien = dp.id_pasien;");
+
+	        return $query->result();
+	    }
+
+
+	    public function cek($idanamnesis)
+	    {
+	        
+	        $hasil = $this->db->query("SELECT * FROM data_pemeriksaan WHERE id_anamnesis = '$idanamnesis';");
+
+	        if($hasil->num_rows() > 0){
+	            return $hasil->row();
+	        }else{
+	            return false;
+	        }
+	    }
+
+
+	    public function cek_pernafasan($idanamnesis)
+	    {
+	        
+	        $hasil = $this->db->query("SELECT * FROM sistem_pernafasan WHERE id_anamnesis = '$idanamnesis';");
+
+	        if($hasil->num_rows() > 0){
+	            return $hasil->row();
+	        }else{
+	            return false;
+	        }
+	    }
+
+
+	    public function cek_moskuloskelental($idanamnesis)
+	    {
+	        
+	        $hasil = $this->db->query("SELECT * FROM sistem_moskuloskelental WHERE id_anamnesis = '$idanamnesis';");
+
+	        if($hasil->num_rows() > 0){
+	            return $hasil->row();
+	        }else{
+	            return false;
+	        }
+	    }
+
+
+	    public function cek_proteksi($idanamnesis)
+	    {
+	        
+	        $hasil = $this->db->query("SELECT * FROM sistem_proteksi WHERE id_anamnesis = '$idanamnesis';");
+
+	        if($hasil->num_rows() > 0){
+	            return $hasil->row();
+	        }else{
+	            return false;
+	        }
+	    }
+
+
+	    public function cek_nyeri($idanamnesis)
+	    {
+	        
+	        $hasil = $this->db->query("SELECT * FROM pengkajian_nyeri WHERE id_anamnesis = '$idanamnesis';");
+
+	        if($hasil->num_rows() > 0){
+	            return $hasil->row();
+	        }else{
+	            return false;
+	        }
+	    }
+
 
 
 	    public function get_data_keluhan($id)

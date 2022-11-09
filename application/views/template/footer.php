@@ -38,6 +38,8 @@
 <script src="<?php echo base_url() ?>assets/template/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="<?php echo base_url() ?>assets/template/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
+<script src="<?php echo base_url() ?>assets/template/plugins/bs-stepper/js/bs-stepper.min.js"></script>
+
 
 
 <!-- Select2 -->
@@ -174,6 +176,11 @@ $(function () {
       type: 'line',
       data: areaChartData,
       options: areaChartOptions
+    })
+
+    // BS-Stepper Init
+    document.addEventListener('DOMContentLoaded', function () {
+      window.stepper = new Stepper(document.querySelector('.bs-stepper'))
     })
 })
 

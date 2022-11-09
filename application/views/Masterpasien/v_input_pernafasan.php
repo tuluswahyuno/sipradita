@@ -20,6 +20,22 @@
           <a class="nav-link active" aria-current="page" href="<?php echo base_url('Ass/MasterPasien/pernafasan/').$detail->id_anamnesis ?>">Pernafasan</a>
         </li>
 
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/moskuloskelental/').$detail->id_anamnesis ?>">Moskuloskelental</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/proteksi/').$detail->id_anamnesis ?>">Proteksi</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/nyeri/').$detail->id_anamnesis ?>">Nyeri</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/hasil/').$detail->id_anamnesis ?>">Hasil</a>
+        </li>
+
       </ul>
     </div> 
   </section>
@@ -35,7 +51,7 @@
 
       <div class="card card-info">
         <div class="card-header">
-          <h3 class="card-title">Pemeriksaan Umum</h3>
+          <h3 class="card-title">Sistem Pernafasan</h3>
         </div>
 
         <div class="card-body">

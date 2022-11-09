@@ -4,19 +4,15 @@
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <div class="col-sm-12">
+    <!-- <div class="col-sm-12">
       <ul class="nav nav-tabs">
 
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="<?php echo base_url('Ass/MasterPasien/detail_pasien/').$detail->id_pasien ?>">Anamesis</a>
         </li>
 
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/pemeriksaan/').$detail->id_pasien ?>">Pemeriksaan</a>
-        </li> -->
-
       </ul>
-    </div> 
+    </div>  -->
   </section>
 
   <!-- Main content -->

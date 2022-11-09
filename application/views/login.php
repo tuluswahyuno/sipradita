@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SI POLI | Login</title>
+  <title>Si Pradita | Login</title>
 
   <link rel="icon" type="image/x-icon" href="<?php echo base_url() ?>assets/landing/assets/ico.ico" />
 
