@@ -25,11 +25,11 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/proteksi/').$detail->id_anamnesis ?>">Proteksi</a>
+          <a class="nav-link active" aria-current="page" href="<?php echo base_url('Ass/MasterPasien/proteksi/').$detail->id_anamnesis ?>">Proteksi</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<?php echo base_url('Ass/MasterPasien/nyeri/').$detail->id_anamnesis ?>">Nyeri</a>
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/nyeri/').$detail->id_anamnesis ?>">Nyeri</a>
         </li>
 
         <li class="nav-item">
@@ -51,88 +51,75 @@
 
       <div class="card card-info">
         <div class="card-header">
-          <h3 class="card-title">Pengkajian Nyeri</h3>
+          <h3 class="card-title">Proteksi dan Perlindungan</h3>
         </div>
 
         <div class="card-body">
 
-          <form method="POST" action="<?php echo base_url('Ass/MasterPasien/tambah_nyeri_aksi') ?>" enctype="multipart/form-data">
+          <form method="POST" action="<?php echo base_url('Ass/MasterPasien/update_proteksi_aksi') ?>" enctype="multipart/form-data">
 
             <div class="row">
 
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="form-group">
-                  <label>Nyeri</label>
+                  <label>Suhu</label>
                   <input type="hidden" name="id_anamnesis" value="<?php echo $detail->id_anamnesis; ?>">
-                  <select class="form-control" name="nyeri">
-                    <option value="Tidak">Tidak</option>
-                    <option value="Ada">Ada</option>
+                  <input type="hidden" name="id_proteksi" value="<?php echo $proteksi->id_proteksi; ?>">
+                  <select class="form-control" name="suhu">
+                    <option value="<?php echo $proteksi->suhu; ?>"><?php echo $proteksi->suhu."&deg C"; ?></option>
+                    <option value="<36,5">< 36,5&deg C</option>
+                    <option value="36,5-37,5">36,5&deg C - 37,5&deg C</option>
+                    <option value=">37,5">> 37,5&deg C</option>
                   </select>
                 </div>
             </div>
 
             <div class="col-sm-2">
                 <div class="form-group">
-                  <label>Deskripsi</label>
-                  <select class="form-control" name="deskripsi">
-                    <option value="Benturan">Benturan</option>
-                    <option value="Tindakan">Tindakan</option>
-                    <option value="Proses Penyakit">Proses Penyakit</option>
-                  </select>
-                </div>
-            </div>
-
-            <div class="col-sm-2">
-                <div class="form-group">
-                  <label>Lainnya</label>
-                  <input type="text" name="lainnya" class="form-control" placeholder="Lainnya ..." required>
-                </div>
-            </div>
-
-            <div class="col-sm-4">
-                <div class="form-group">
-                  <label>Quality</label>
-                  <select class="form-control" name="quality">
-                    <option value="Seperti tertusuk-tusuk benda tajam/tumpul">Seperti tertusuk-tusuk benda tajam/tumpul</option>
-                    <option value="Berdenyut">Berdenyut</option>
-                    <option value="Terbakar">Terbakar</option>
-                    <option value="Diremas">Diremas</option>
-                    <option value="Teriris">Teriris</option>
-                    <option value="Terindih benda berat">Terindih benda berat</option>
-                  </select>
-                </div>
-            </div>
-
-
-            <div class="col-sm-2">
-                <div class="form-group">
-                  <label>Region</label>
-                  <input type="text" name="region" class="form-control" placeholder="Lokasi ..." required>
-                </div>
-            </div>
-
-
-            <div class="col-sm-2">
-                <div class="form-group">
-                  <label>Menyebar</label>
-                  <select class="form-control" name="menyebar">
+                  <label>Terdapat Luka</label>
+                  <select class="form-control" name="terdapat_luka">
+                    <option value="<?php echo $proteksi->terdapat_luka; ?>"><?php echo $proteksi->terdapat_luka; ?></option>
                     <option value="Ya">Ya</option>
                     <option value="Tidak">Tidak</option>
                   </select>
                 </div>
             </div>
 
+            <div class="col-sm-2">
+                <div class="form-group">
+                  <label>Lokasi</label>
+                  <input type="text" name="lokasi_luka" class="form-control" value="<?php echo $proteksi->lokasi_luka; ?>" required>
+                </div>
+            </div>
+
+
+            <div class="col-sm-3">
+                <div class="form-group">
+                  <label>Kondisi Luka</label>
+                  <input type="text" name="kondisi_luka" class="form-control" value="<?php echo $proteksi->kondisi_luka; ?>" required>
+                </div>
+            </div>
+
 
             <div class="col-sm-2">
                 <div class="form-group">
-                  <label>Skala</label>
-                  <select class="form-control" name="skala">
-                    <option value="0">Tidak Sakit</option>
-                    <option value="2">Sedikit Sakit</option>
-                    <option value="4">Agak Mengganggu</option>
-                    <option value="6">Mengganggu Aktivitas</option>
-                    <option value="8">Sangat Mengganggu</option>
-                    <option value="10">Tak Tertahankan</option>
+                  <label>Kebersihan Luka</label>
+                  <select class="form-control" name="kebersihan_luka">
+                    <option value="<?php echo $proteksi->kebersihan_luka; ?>"><?php echo $proteksi->kebersihan_luka; ?></option>
+                    <option value="Bersih">Bersih</option>
+                    <option value="Tidak">Tidak</option>
+                  </select>
+                </div>
+            </div>
+
+
+            <div class="col-sm-2">
+                <div class="form-group">
+                  <label>Riwayat Alergi</label>
+                  <select class="form-control" name="riwayat_alergi">
+                    <option value="<?php echo $proteksi->riwayat_alergi; ?>"><?php echo $proteksi->riwayat_alergi; ?></option>
+                    <option value="Ada">Ada</option>
+                    <option value="Tidak">Tidak</option>
                   </select>
                 </div>
             </div>
@@ -140,22 +127,26 @@
 
             <div class="col-sm-3">
                 <div class="form-group">
-                  <label>Hasil</label>
-                  <input type="text" name="hasil" class="form-control" placeholder="Hasil....." required>
+                  <label>Jenis Alergi</label>
+                  <input type="text" name="nama_alergi" class="form-control" value="<?php echo $proteksi->nama_alergi; ?>" required>
                 </div>
             </div>
 
 
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="form-group">
-                  <label>Time</label>
-                  <select class="form-control" name="waktu">
-                    <option value="< 6 Bulan">< 6 Bulan</option>
-                    <option value="> 6 Bulan">> 6 Bulan</option>
-                  </select>
+                  <label>Nilai Leokosit</label>
+                  <input type="text" name="nilai_leokosit" class="form-control" value="<?php echo $proteksi->nilai_leokosit; ?>" required>
                 </div>
             </div>
 
+
+            <div class="col-sm-3">
+                <div class="form-group">
+                  <label>GDS</label>
+                  <input type="text" name="gds" class="form-control" value="<?php echo $proteksi->gds; ?>" required>
+                </div>
+            </div>
           
           </div>
 

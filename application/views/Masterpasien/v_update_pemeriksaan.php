@@ -13,7 +13,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<?php echo base_url('Ass/MasterPasien/pemeriksaan/').$detail->id_anamnesis ?>">Pemeriksaan</a>
+          <a class="nav-link active" aria-current="page" href="<?php echo base_url('Ass/MasterPasien/pemeriksaan/').$detail->id_anamnesis ?>">Pemeriksaan Umum</a>
         </li>
 
         <li class="nav-item">
@@ -22,6 +22,14 @@
 
         <li class="nav-item">
           <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/moskuloskelental/').$detail->id_anamnesis ?>">Moskuloskelental</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/proteksi/').$detail->id_anamnesis ?>">Proteksi</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/nyeri/').$detail->id_anamnesis ?>">Nyeri</a>
         </li>
 
         <li class="nav-item">
@@ -48,33 +56,34 @@
 
         <div class="card-body">
 
-          <form method="POST" action="<?php echo base_url('Ass/MasterPasien/tambah_pemeriksaan_aksi') ?>" enctype="multipart/form-data">
+          <form method="POST" action="<?php echo base_url('Ass/MasterPasien/update_pemeriksaan_aksi') ?>" enctype="multipart/form-data">
 
             <div class="row">
 
               <div class="col-sm-12">
                 <label>1. GCS</label><br>
                 <input type="hidden" name="id_anamnesis" value="<?php echo $detail->id_anamnesis; ?>">
+                <input type="hidden" name="id_pemeriksaan" value="<?php echo $pemeriksaan->id_pemeriksaan; ?>">
               </div>
 
               <div class="col-sm-2">
                 <div class="form-group">
                   <label>E</label>
-                  <input type="text" name="e" class="form-control" placeholder="Input E ..." required>
+                  <input type="text" name="e" class="form-control" value="<?php echo $pemeriksaan->e; ?>" required>
                 </div>
               </div>
 
               <div class="col-sm-2">
                 <div class="form-group">
                   <label>V</label>
-                  <input type="text" name="v" class="form-control" placeholder="Input V ..." required>
+                  <input type="text" name="v" class="form-control" value="<?php echo $pemeriksaan->v; ?>" required>
                 </div>
               </div>
 
               <div class="col-sm-2">
                 <div class="form-group">
                   <label>M</label>
-                  <input type="text" name="m" class="form-control" placeholder="Input M ..." required>
+                  <input type="text" name="m" class="form-control" value="<?php echo $pemeriksaan->m; ?>" required>
                 </div>
               </div>
 
@@ -82,14 +91,14 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>BB</label>
-                  <input type="text" name="bb" class="form-control" placeholder="Berat Badan ... kg" required>
+                  <input type="text" name="bb" class="form-control" value="<?php echo $pemeriksaan->bb; ?>" required>
                 </div>
               </div>
 
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>TB</label>
-                  <input type="text" name="tb" class="form-control" placeholder="Tinggi Badan ... cm" required>
+                  <input type="text" name="tb" class="form-control" value="<?php echo $pemeriksaan->tb; ?>" required>
                 </div>
               </div>
 
@@ -97,6 +106,7 @@
                 <div class="form-group">
                   <label>2. Kesadaran</label>
                   <select class="form-control" name="kesadaran">
+                    <option value="<?php echo $pemeriksaan->kesadaran; ?>"><?php echo $pemeriksaan->kesadaran; ?></option>
                     <option value="Compos Mentis (GCS 14-15)">Compos Mentis (GCS 14-15)</option>
                     <option value="Apatis (GCS 12-13)">Apatis (GCS 12-13)</option>
                     <option value="Somnolen (GCS 10-11)">Somnolen (GCS 10-11)</option>
@@ -114,35 +124,35 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>TD</label>
-                  <input type="text" name="td" class="form-control" placeholder="Input TD ... MmHg" required>
+                  <input type="text" name="td" class="form-control" value="<?php echo $pemeriksaan->td; ?>" required>
                 </div>
               </div>
 
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>RR</label>
-                  <input type="text" name="rr" class="form-control" placeholder="RR ... x/menit" required>
+                  <input type="text" name="rr" class="form-control" value="<?php echo $pemeriksaan->rr; ?>" required>
                 </div>
               </div>
 
               <div class="col-sm-2">
                 <div class="form-group">
                   <label>N</label>
-                  <input type="text" name="n" class="form-control" placeholder="N ... x/menit" required>
+                  <input type="text" name="n" class="form-control" value="<?php echo $pemeriksaan->n; ?>" required>
                 </div>
               </div>
 
               <div class="col-sm-2">
                 <div class="form-group">
                   <label>S</label>
-                  <input type="text" name="s" class="form-control" placeholder="S ... C" required>
+                  <input type="text" name="s" class="form-control" value="<?php echo $pemeriksaan->s; ?>" required>
                 </div>
               </div>
 
               <div class="col-sm-2">
                 <div class="form-group">
                   <label>Spo2</label>
-                  <input type="text" name="spo" class="form-control" placeholder="Spo2 ... %" required>
+                  <input type="text" name="spo" class="form-control" value="<?php echo $pemeriksaan->spo; ?>" required>
                 </div>
               </div>
 
@@ -172,7 +182,7 @@
             <div class="col-sm-4">
                 <div class="form-group">
                   <label>a. IV Line, Terpasang di</label>
-                  <input type="text" name="ivline_terpasangdi" class="form-control" placeholder=" ... " required>
+                  <input type="text" name="ivline_terpasangdi" class="form-control" value="<?php echo $pemeriksaan->ivline_terpasangdi; ?>" required>
                 </div>
             </div>
 
@@ -189,7 +199,7 @@
             <div class="col-sm-4">
                 <div class="form-group">
                   <label>Tanggal</label>
-                  <input type="date" name="tanggal" class="form-control" required>
+                  <input type="date" name="tanggal" class="form-control" value="<?php echo $pemeriksaan->tanggal; ?>" required>
                 </div>
             </div>
 
@@ -197,7 +207,7 @@
             <div class="col-sm-6">
                 <div class="form-group">
                   <label>b. Kateter Urine, Terpasang Tanggal</label>
-                  <input type="date" name="kateter_terpasang_tgl" class="form-control" required>
+                  <input type="date" name="kateter_terpasang_tgl" class="form-control" value="<?php echo $pemeriksaan->kateter_terpasang_tgl; ?>" required>
                 </div>
             </div>
 
@@ -205,7 +215,7 @@
             <div class="col-sm-6">
                 <div class="form-group">
                   <label>c. NGT/OGT, Terpasang Tanggal </label>
-                  <input type="date" name="ngtogt_terpasang_tgl" class="form-control" required>
+                  <input type="date" name="ngtogt_terpasang_tgl" class="form-control" value="<?php echo $pemeriksaan->ngtogt_terpasang_tgl; ?>"required>
                 </div>
             </div>
               

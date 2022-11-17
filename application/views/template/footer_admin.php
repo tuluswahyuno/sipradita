@@ -2,7 +2,7 @@
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 1.0
     </div>
-    <strong>Copyright &copy; IT RSUD dr. Soeratno Gemolong Kab. Sragen 2022 <!-- <a href="https://adminlte.io">AdminLTE.io</a>. --></strong> - All rights reserved.
+    <strong>Copyright &copy; IT RSUD dr. Soeratno Gemolong Kab. Sragen 2022 </strong> - All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->
@@ -23,6 +23,12 @@
 <script src="<?php echo base_url() ?>assets/template/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url() ?>assets/template/dist/js/demo.js"></script>
+
+<script src="<?php echo base_url() ?>assets/template/dist/js/adminlte.js?v=3.2.0"></script>
+
+<script src="<?php echo base_url() ?>assets/template/plugins/chart.js/Chart.min.js"></script>
+
+<script src="<?php echo base_url() ?>assets/template/dist/js/pages/dashboard3.js"></script>
 
 <!-- DataTables  & Plugins -->
 <script src="<?php echo base_url() ?>assets/template/plugins/datatables/jquery.dataTables.min.js"></script>
@@ -78,6 +84,96 @@
 <script src="<?php echo base_url() ?>assets/js/sweetalert2.all.min.js"></script>
 <script src="<?php echo base_url() ?>assets/js/myscript.js"></script>
 <link rel="stylesheet" href="<?php echo base_url() ?>assets/js/sweetalert2.min.css">
+
+
+<script> 
+$(function () { 
+  
+//-------------
+    //- DONUT CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+
+    var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+    var donutData        = {
+      labels: [
+          'Laki-laki',
+          'Perempuan',      
+          ],
+      datasets: [
+        {
+          data: <?php echo json_encode($grafik1) ?>,
+          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef'],
+        }
+      ]
+    }
+    var donutOptions     = {
+      maintainAspectRatio : false,
+      responsive : true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    new Chart(donutChartCanvas, {
+      type: 'doughnut',
+      data: donutData,
+      options: donutOptions
+    })
+    //--------------
+    //- AREA CHART -
+    //--------------
+
+    // Get context with jQuery - using jQuery's .get() method.
+    var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
+
+    var areaChartData = {
+      labels  : ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober','November','Desember'],
+      datasets: [
+        {
+          label               : 'Orang',
+          backgroundColor: 'rgb(23, 162, 184)',
+          borderColor: 'rgb(244, 246, 249)',
+         
+          data                : <?php echo json_encode($grafik); ?>
+        },
+        
+      ]
+    }
+
+    var areaChartOptions = {
+      maintainAspectRatio : false,
+      responsive : true,
+      legend: {
+        display: false
+      },
+      scales: {
+        xAxes: [{
+          gridLines : {
+            display : false,
+          }
+        }],
+        yAxes: [{
+          gridLines : {
+            display : false,
+          }
+        }]
+      }
+    }
+
+    // This will get the first returned node in the jQuery collection.
+    new Chart(areaChartCanvas, {
+      type: 'line',
+      data: areaChartData,
+      options: areaChartOptions
+    })
+
+    // BS-Stepper Init
+    document.addEventListener('DOMContentLoaded', function () {
+      window.stepper = new Stepper(document.querySelector('.bs-stepper'))
+    })
+})
+
+</script>
+
 
 </body>
 </html>

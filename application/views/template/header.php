@@ -37,8 +37,7 @@
 
       
 
-    <!-- <img src="<?php echo base_url() ?>assets/template/dist/img/user2-160x160.jpg" class="user-image img-circle elevation-2" alt="User Image"> -->
-    <!-- <span class="d-none d-md-inline"><?php echo $this->fungsi->user_login()->nama_lengkap ?> </span> -->
+    
     </a>
     <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 
@@ -46,24 +45,10 @@
 
     <img src="<?php echo base_url() ?>uploads/foto/bwa.jpg" class="img-circle elevation-2" alt="User Image">
 
-    <p>
-    <?php echo $this->fungsi->user_login()->nama_lengkap ?> 
-    <small><?php echo $this->fungsi->user_login()->email ?></small>
-    </p>
+  
     </li>
 
-    <!-- <li class="user-body">
-    <div class="row">
-    <div class="col-4 text-center">
-    <a href="#">Pendidikan</a>
-    </div>
-    <div class="col-4 text-center">
-    <a href="#">Pangkat</a>
-    </div>
-    <div class="col-4 text-center">
-    <a href="#">Jabatan</a>
-    </div>
-    </div> -->
+    
 
     </li>
 

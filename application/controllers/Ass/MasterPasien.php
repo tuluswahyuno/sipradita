@@ -36,6 +36,22 @@ class MasterPasien extends CI_Controller
     }
 
 
+    public function update_anamnesis($idanamnesis)
+    {
+        check_not_login();
+
+        // $data['detail'] = $this->pasien_m->get_id_pasien($id);
+        $data['anamnesis'] = $this->pasien_m->get_anamnesis($idanamnesis);
+
+        $data['title'] = " Update Data Anamnesis Pasien ";
+
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar',$data);
+        $this->load->view('Masterpasien/v_update_anamnesis',$data);
+        $this->load->view('template/footer');
+    }
+
+
     public function tambah_anamnesis_aksi()
     {
         check_not_login();
@@ -102,6 +118,76 @@ class MasterPasien extends CI_Controller
     }
 
 
+    public function update_anamnesis_aksi()
+    {
+        check_not_login();
+
+        $id_anamnesis                   = $this->input->post('id_anamnesis');
+        $keluhan_utama                  = $this->input->post('keluhan_utama');
+        $riw_penyakit_sekarang          = $this->input->post('riw_penyakit_sekarang');
+        $pernah_rawat                   = $this->input->post('pernah_rawat');
+        $pernah_rawat_diagnosa          = $this->input->post('pernah_rawat_diagnosa');
+        $pernah_rawat_kapan             = $this->input->post('pernah_rawat_kapan');
+        $pernah_rawat_di                = $this->input->post('pernah_rawat_di');
+        $pernah_operasi                 = $this->input->post('pernah_operasi');
+        $pernah_operasi_jenis           = $this->input->post('pernah_operasi_jenis');
+        $pernah_operasi_kapan           = $this->input->post('pernah_operasi_kapan');
+        $pernah_operasi_di              = $this->input->post('pernah_operasi_di');
+        $obatygdikonsumsi               = $this->input->post('obatygdikonsumsi');
+        $obatygdikonsumsi_jenis         = $this->input->post('obatygdikonsumsi_jenis');
+        $riwayat_penyakit_keluarga      = $this->input->post('riwayat_penyakit_keluarga');
+        $riwayat_penyakit_jenis         = $this->input->post('riwayat_penyakit_jenis');
+        $penyakit_jenis_lainnya         = $this->input->post('penyakit_jenis_lainnya');
+        $riwayat_alergi                 = $this->input->post('riwayat_alergi');
+        $alergi_makanan                 = $this->input->post('alergi_makanan');
+        $alergi_obat                    = $this->input->post('alergi_obat');
+        $alergi_lainnya                 = $this->input->post('alergi_lainnya');
+        $agama                          = $this->input->post('agama');
+        $pendidikan                     = $this->input->post('pendidikan');
+        $kewarganegaraan                = $this->input->post('kewarganegaraan');
+        $pekerjaan                      = $this->input->post('pekerjaan');
+        $status_pernikahan              = $this->input->post('status_pernikahan');
+        $tinggal_bersama_keluarga       = $this->input->post('tinggal_bersama_keluarga');
+        
+        $data = array(
+            'keluhan_utama'             => $keluhan_utama,
+            'riw_penyakit_sekarang'     => $riw_penyakit_sekarang,
+            'pernah_rawat'              => $pernah_rawat,
+            'pernah_rawat_diagnosa'     => $pernah_rawat_diagnosa,
+            'pernah_rawat_kapan'        => $pernah_rawat_kapan,
+            'pernah_rawat_di'           => $pernah_rawat_di,
+            'pernah_operasi'            => $pernah_operasi,
+            'pernah_operasi_jenis'      => $pernah_operasi_jenis,
+            'pernah_operasi_kapan'      => $pernah_operasi_kapan,
+            'pernah_operasi_di'         => $pernah_operasi_di,
+            'obatygdikonsumsi'          => $obatygdikonsumsi,
+            'obatygdikonsumsi_jenis'    => $obatygdikonsumsi_jenis,
+            'riwayat_penyakit_keluarga' => $riwayat_penyakit_keluarga,
+            'riwayat_penyakit_jenis'    => $riwayat_penyakit_jenis,
+            'penyakit_jenis_lainnya'    => $penyakit_jenis_lainnya,
+            'riwayat_alergi'            => $riwayat_alergi,
+            'alergi_makanan'            => $alergi_makanan,
+            'alergi_obat'               => $alergi_obat,
+            'alergi_lainnya'            => $alergi_lainnya,
+            'agama'                     => $agama,
+            'pendidikan'                => $pendidikan,
+            'kewarganegaraan'           => $kewarganegaraan,
+            'pekerjaan'                 => $pekerjaan,
+            'status_pernikahan'         => $status_pernikahan,
+            'tinggal_bersama_keluarga'  => $tinggal_bersama_keluarga,
+        );
+
+
+        $where = array(
+            'id_anamnesis'    => $id_anamnesis
+        );
+
+        $this->pasien_m->update_data('data_anamnesis',$data,$where);
+        $this->session->set_flashdata('flash', 'Diupdate');
+        redirect('Ass/MasterPasien/detail_anamnesis/'.$id_anamnesis);
+    }
+
+
     public function tambah_pemeriksaan_aksi()
     {
         check_not_login();
@@ -152,6 +238,61 @@ class MasterPasien extends CI_Controller
     }
 
 
+    public function update_pemeriksaan_aksi()
+    {
+        check_not_login();
+
+        $id_anamnesis           = $this->input->post('id_anamnesis');
+        $id_pemeriksaan         = $this->input->post('id_pemeriksaan');
+        $e                      = $this->input->post('e');
+        $v                      = $this->input->post('v');
+        $m                      = $this->input->post('m');
+        $bb                     = $this->input->post('bb');
+        $tb                     = $this->input->post('tb');
+        $kesadaran              = $this->input->post('kesadaran');
+        $td                     = $this->input->post('td');
+        $rr                     = $this->input->post('rr');
+        $n                      = $this->input->post('n');
+        $s                      = $this->input->post('s');
+        $spo                    = $this->input->post('spo');
+        $keadaan_umum           = $this->input->post('keadaan_umum');
+        $ivline_terpasangdi     = $this->input->post('ivline_terpasangdi');
+        $lokasi                 = $this->input->post('lokasi');
+        $tanggal                = $this->input->post('tanggal');
+        $kateter_terpasang_tgl  = $this->input->post('kateter_terpasang_tgl');
+        $ngtogt_terpasang_tgl   = $this->input->post('ngtogt_terpasang_tgl');
+        
+        $data = array(
+            'e'                     => $e,
+            'v'                     => $v,
+            'm'                     => $m,
+            'bb'                    => $bb,
+            'tb'                    => $tb,
+            'kesadaran'             => $kesadaran,
+            'td'                    => $td,
+            'rr'                    => $rr,
+            'n'                     => $n,
+            's'                     => $s,
+            'spo'                   => $spo,
+            'keadaan_umum'          => $keadaan_umum,
+            'ivline_terpasangdi'    => $ivline_terpasangdi,
+            'lokasi'                => $lokasi,
+            'tanggal'               => $tanggal,
+            'kateter_terpasang_tgl' => $kateter_terpasang_tgl,
+            'ngtogt_terpasang_tgl'  => $ngtogt_terpasang_tgl,  
+        );
+
+
+        $where = array(
+            'id_pemeriksaan'    => $id_pemeriksaan
+        );
+
+        $this->pasien_m->update_data('data_pemeriksaan',$data,$where);
+        $this->session->set_flashdata('flash', 'Diupdate');
+        redirect('Ass/MasterPasien/pemeriksaan/'.$id_anamnesis);
+    }
+
+
     public function tambah_pernafasan_aksi()
     {
         check_not_login();
@@ -181,10 +322,10 @@ class MasterPasien extends CI_Controller
 
         if ($pola_nafas == "Tachipneu" && $irama_nafas == "Tidak Teratur" && $retraksi == "Ya" && $kesulitan_bernafas == "Ya" && $kesulitan_bernafas_ya == "Dispneu" && $suara_nafas == "Whizing" && $perkusi == "Sonor" && $agd == "PH 7,35-7,45") {
             $diagnosa_penafasan = 'Pola Nafas Tidak Efektif';
-        }elseif ($pola_nafas == "Tachipneu" && $irama_nafas == "Tidak Teratur" && $retraksi == "Ya" && $kesulitan_bernafas == "Ya" && $kesulitan_bernafas_ya == "Dispneu" && $batukdansekresi == "Ya" && $batukdansekresi_ya == "Produktif" || "Non Produktif" && $warna_sputum == "Putih" || "Kuning" || "Merah" && $perkusi == "Redup") {
+        }elseif ($pola_nafas == "Tachipneu" && $irama_nafas == "Tidak Teratur" && $retraksi == "Ya" && $kesulitan_bernafas == "Ya" && $kesulitan_bernafas_ya == "Dispneu" && $batukdansekresi == "Ya" && $batukdansekresi_ya == "Produktif" || $batukdansekresi_ya == "Non Produktif" && $warna_sputum == "Putih" || $warna_sputum == "Kuning" || $warna_sputum == "Merah" && $perkusi == "Redup") {
             $diagnosa_penafasan = 'Bersihan Jalan Nafas Tidak Efektif';
         }else{ 
-            echo "$diagnosa_penafasan = 'Tidak Terdiagnosa Masalah Pernafasan;";
+           $diagnosa_penafasan = 'Tidak Terdiagnosa Masalah Pernafasan';
          }
         
         $data = array(
@@ -214,6 +355,75 @@ class MasterPasien extends CI_Controller
 
         $this->pasien_m->insert_data($data,'sistem_pernafasan');
         $this->session->set_flashdata('flash', 'Ditambahkan');
+        redirect('Ass/MasterPasien/pernafasan/'.$id_anamnesis);
+    }
+
+
+    public function update_pernafasan_aksi()
+    {
+        check_not_login();
+
+        $id_anamnesis           = $this->input->post('id_anamnesis');
+        $id_sistempernafasan    = $this->input->post('id_sistempernafasan');
+        $pola_nafas             = $this->input->post('pola_nafas');
+        $irama_nafas            = $this->input->post('irama_nafas');
+        $retraksi               = $this->input->post('retraksi');
+        $jenis_retraksi         = $this->input->post('jenis_retraksi');
+        $jenis_pernafasan       = $this->input->post('jenis_pernafasan');
+        $alat_bantu             = $this->input->post('alat_bantu');
+        $alat_bantu_lainnya     = $this->input->post('alat_bantu_lainnya');
+        $tekanan                = $this->input->post('tekanan');
+        $terpasang_wsd          = $this->input->post('terpasang_wsd');
+        $produksi               = $this->input->post('produksi');
+        $kesulitan_bernafas     = $this->input->post('kesulitan_bernafas');
+        $kesulitan_bernafas_ya  = $this->input->post('kesulitan_bernafas_ya');
+        $lain_lain              = $this->input->post('lain_lain');
+        $saat                   = $this->input->post('saat');
+        $batukdansekresi        = $this->input->post('batukdansekresi');
+        $batukdansekresi_ya     = $this->input->post('batukdansekresi_ya');
+        $warna_sputum           = $this->input->post('warna_sputum');
+        $suara_nafas            = $this->input->post('suara_nafas');
+        $perkusi                = $this->input->post('perkusi');
+        $agd                    = $this->input->post('agd');
+
+        if ($pola_nafas == "Tachipneu" && $irama_nafas == "Tidak Teratur" && $retraksi == "Ya" && $kesulitan_bernafas == "Ya" && $kesulitan_bernafas_ya == "Dispneu" && $suara_nafas == "Whizing" && $perkusi == "Sonor" && $agd == "PH 7,35-7,45") {
+            $diagnosa_penafasan = 'Pola Nafas Tidak Efektif';
+        }elseif ($pola_nafas == "Tachipneu" && $irama_nafas == "Tidak Teratur" && $retraksi == "Ya" && $kesulitan_bernafas == "Ya" && $kesulitan_bernafas_ya == "Dispneu" && $batukdansekresi == "Ya" && $batukdansekresi_ya == "Produktif" || $batukdansekresi_ya == "Non Produktif" && $warna_sputum == "Putih" || $warna_sputum == "Kuning" || $warna_sputum == "Merah" && $perkusi == "Redup") {
+            $diagnosa_penafasan = 'Bersihan Jalan Nafas Tidak Efektif';
+        }else{ 
+           $diagnosa_penafasan = 'Tidak Terdiagnosa Masalah Pernafasan';
+         }
+        
+        $data = array(
+            'pola_nafas'                => $pola_nafas,
+            'irama_nafas'               => $irama_nafas,
+            'retraksi'                  => $retraksi,
+            'jenis_retraksi'            => $jenis_retraksi,
+            'jenis_pernafasan'          => $jenis_pernafasan,
+            'alat_bantu'                => $alat_bantu,
+            'alat_bantu_lainnya'        => $alat_bantu_lainnya,
+            'tekanan'                   => $tekanan,
+            'terpasang_wsd'             => $terpasang_wsd,
+            'produksi'                  => $produksi,
+            'kesulitan_bernafas'        => $kesulitan_bernafas,
+            'kesulitan_bernafas_ya'     => $kesulitan_bernafas_ya,
+            'lain_lain'                 => $lain_lain,
+            'saat'                      => $saat,
+            'batukdansekresi'           => $batukdansekresi,
+            'batukdansekresi_ya'        => $batukdansekresi_ya,
+            'warna_sputum'              => $warna_sputum,
+            'suara_nafas'               => $suara_nafas,
+            'perkusi'                   => $perkusi,
+            'agd'                       => $agd,
+            'diagnosa_penafasan'        => $diagnosa_penafasan,
+        );
+
+        $where = array(
+            'id_sistempernafasan'    => $id_sistempernafasan
+        );
+
+        $this->pasien_m->update_data('sistem_pernafasan',$data,$where);
+        $this->session->set_flashdata('flash', 'Diupdate');
         redirect('Ass/MasterPasien/pernafasan/'.$id_anamnesis);
     }
 
@@ -270,6 +480,62 @@ class MasterPasien extends CI_Controller
     }
 
 
+    public function update_moskuloskelental_aksi()
+    {
+        check_not_login();
+
+        $id_anamnesis           = $this->input->post('id_anamnesis');
+        $id_moskuloskelental    = $this->input->post('id_moskuloskelental');
+        $pergerakan_sendi       = $this->input->post('pergerakan_sendi');
+        $mudah_lelah            = $this->input->post('mudah_lelah');
+        $kekuatan_otot          = $this->input->post('kekuatan_otot');
+        $hasil                  = $this->input->post('hasil');
+        $fraktur                = $this->input->post('fraktur');
+        $fraktur_lokasi         = $this->input->post('fraktur_lokasi');
+        $postur_tubuh           = $this->input->post('postur_tubuh');
+        $skore_resiko_jatuh     = $this->input->post('skore_resiko_jatuh');
+        $aktivitas_seharihari   = $this->input->post('aktivitas_seharihari');
+        $berjalan               = $this->input->post('berjalan');
+        $alat_ambulasi          = $this->input->post('alat_ambulasi');
+        $kebiasaan_tidur        = $this->input->post('kebiasaan_tidur');
+        $jam_tidur_sebelumsakit = $this->input->post('jam_tidur_sebelumsakit');
+        $jam_tidur_sesudahsakit = $this->input->post('jam_tidur_sesudahsakit');
+
+        if ($pergerakan_sendi == "Terbatas" && $mudah_lelah =="Ya" && $kekuatan_otot < "4" && $fraktur == "Ada" && $aktivitas_seharihari == "Ketergantungan Total" && $berjalan == "Kelumpuhan")
+        {$diagnosa_moskuloskelental = "Gangguan Mobilitas Fisik";}
+        else
+        {
+            $diagnosa_moskuloskelental = "Tidak Terdiagnosa Moskuloskelental";
+        }
+     
+        $data = array(
+            'pergerakan_sendi'          => $pergerakan_sendi,
+            'mudah_lelah'               => $mudah_lelah,
+            'kekuatan_otot'             => $kekuatan_otot,
+            'hasil'                     => $hasil,
+            'fraktur'                   => $fraktur,
+            'fraktur_lokasi'            => $fraktur_lokasi,
+            'postur_tubuh'              => $postur_tubuh,
+            'skore_resiko_jatuh'        => $skore_resiko_jatuh,
+            'aktivitas_seharihari'      => $aktivitas_seharihari,
+            'berjalan'                  => $berjalan,
+            'alat_ambulasi'             => $alat_ambulasi,
+            'kebiasaan_tidur'           => $kebiasaan_tidur,
+            'jam_tidur_sebelumsakit'    => $jam_tidur_sebelumsakit,
+            'jam_tidur_sesudahsakit'    => $jam_tidur_sesudahsakit,
+            'diagnosa_moskuloskelental' => $diagnosa_moskuloskelental,
+        );
+
+        $where = array(
+            'id_moskuloskelental'    => $id_moskuloskelental
+        );
+
+        $this->pasien_m->update_data('sistem_moskuloskelental',$data,$where);
+        $this->session->set_flashdata('flash', 'Diupdate');
+        redirect('Ass/MasterPasien/moskuloskelental/'.$id_anamnesis);
+    }
+
+
 
     public function tambah_proteksi_aksi()
     {
@@ -285,12 +551,11 @@ class MasterPasien extends CI_Controller
         $nama_alergi        = $this->input->post('nama_alergi');
         $nilai_leokosit     = $this->input->post('nilai_leokosit');
         $gds                = $this->input->post('gds');
-        // $diagnosa_proteksi  = $this->input->post('diagnosa_proteksi');
 
-        if ($suhu = ">37,5" && $nilai_leokosit>"10000") {
-            $diagnosa_penafasan = 'Hipertermia';
+        if ($suhu == ">37,5" && $nilai_leokosit>="10000") {
+            $diagnosa_proteksi = 'Hipertermia';
         }else{ 
-            echo "$diagnosa_penafasan = 'Tidak Terdiagnosa Masalah Proteksi dan Perlindungan;";
+            echo "$diagnosa_proteksi = 'Tidak Terdiagnosa Masalah Proteksi dan Perlindungan;";
          }
      
         $data = array(
@@ -313,6 +578,51 @@ class MasterPasien extends CI_Controller
     }
 
 
+    public function update_proteksi_aksi()
+    {
+        check_not_login();
+
+        $id_anamnesis       = $this->input->post('id_anamnesis');
+        $id_proteksi        = $this->input->post('id_proteksi');
+        $suhu               = $this->input->post('suhu');
+        $terdapat_luka      = $this->input->post('terdapat_luka');
+        $lokasi_luka        = $this->input->post('lokasi_luka');
+        $kondisi_luka       = $this->input->post('kondisi_luka');
+        $kebersihan_luka    = $this->input->post('kebersihan_luka');
+        $riwayat_alergi     = $this->input->post('riwayat_alergi');
+        $nama_alergi        = $this->input->post('nama_alergi');
+        $nilai_leokosit     = $this->input->post('nilai_leokosit');
+        $gds                = $this->input->post('gds');
+
+        if ($suhu == ">37,5" && $nilai_leokosit>="10000") {
+            $diagnosa_proteksi = 'Hipertermia';
+        }else{ 
+            $diagnosa_proteksi = 'Tidak Terdiagnosa Masalah Proteksi dan Perlindungan';
+         }
+     
+        $data = array(
+            'suhu'             => $suhu,
+            'terdapat_luka'    => $terdapat_luka,
+            'lokasi_luka'      => $lokasi_luka,
+            'kondisi_luka'     => $kondisi_luka,
+            'kebersihan_luka'  => $kebersihan_luka,
+            'riwayat_alergi'   => $riwayat_alergi,
+            'nama_alergi'      => $nama_alergi,
+            'nilai_leokosit'   => $nilai_leokosit,
+            'gds'              => $gds,
+            'diagnosa_proteksi'=> $diagnosa_proteksi,
+        );
+
+        $where = array(
+            'id_proteksi' => $id_proteksi
+        );
+
+        $this->pasien_m->update_data('sistem_proteksi',$data,$where);
+        $this->session->set_flashdata('flash', 'Diupdate');
+        redirect('Ass/MasterPasien/proteksi/'.$id_anamnesis);
+    }
+
+
 
     public function tambah_nyeri_aksi()
     {
@@ -330,10 +640,10 @@ class MasterPasien extends CI_Controller
         $waktu          = $this->input->post('waktu');
         // $diagnosa_proteksi  = $this->input->post('diagnosa_proteksi');
 
-        if ($nyeri == "Ya" && $deskripsi == "Benturan" || "Tindakan" || "Proses Penyakit" && $quality == "Seperti tertusuk-tusuk benda tajam/tumpul" || "Berdenyut" || "Terbakar" || "Diremas" || "Teriris" || "Terindih benda berat" && $menyebar == "Tidak" && $hasil < "6" && $waktu == "< 6 Bulan") {
+        if ($nyeri == "Ada" && $deskripsi == "Benturan" || $deskripsi == "Tindakan" || $deskripsi == "Proses Penyakit" && $quality == "Seperti tertusuk-tusuk benda tajam/tumpul" || $quality == "Berdenyut" || $quality == "Terbakar" || $quality == "Diremas" || $quality == "Teriris" || $quality == "Terindih benda berat" && $menyebar == "Tidak" && $hasil < "6" && $waktu == "< 6 Bulan") {
             $diagnosa_nyeri = 'Nyeri Akut ';
         }else{ 
-            echo "$diagnosa_nyeri = 'Tidak Terdiagnosa Nyeri Akut";
+            $diagnosa_nyeri = 'Tidak Terdiagnosa Nyeri Akut';
          }
      
         $data = array(
@@ -357,6 +667,58 @@ class MasterPasien extends CI_Controller
 
 
 
+    public function update_nyeri_aksi()
+    {
+        check_not_login();
+
+        $id_anamnesis   = $this->input->post('id_anamnesis');
+        $id_nyeri       = $this->input->post('id_nyeri');
+        $nyeri          = $this->input->post('nyeri');
+        $deskripsi      = $this->input->post('deskripsi');
+        $lainnya        = $this->input->post('lainnya');
+        $quality        = $this->input->post('quality');
+        $region         = $this->input->post('region');
+        $menyebar       = $this->input->post('menyebar');
+        $skala          = $this->input->post('skala');
+        $hasil          = $this->input->post('hasil');
+        $waktu          = $this->input->post('waktu');
+
+        // if ($nyeri == "Ada" && $menyebar == "Tidak" && $hasil < "6" && $waktu == "< 6 Bulan") {
+        //     $diagnosa_nyeri = 'Nyeri Akut ';
+        // }else{ 
+        //     $diagnosa_nyeri = 'Tidak Terdiagnosa Nyeri Akut';
+        //  }
+
+        if ($nyeri == "Ada" && $deskripsi == "Benturan" || $deskripsi == "Tindakan" || $deskripsi == "Proses Penyakit" && $quality == "Seperti tertusuk-tusuk benda tajam/tumpul" || $quality == "Berdenyut" || $quality == "Terbakar" || $quality == "Diremas" || $quality == "Teriris" || $quality == "Terindih benda berat" && $menyebar == "Tidak" && $hasil < "6" && $waktu == "< 6 Bulan") {
+            $diagnosa_nyeri = 'Nyeri Akut ';
+        }else{ 
+            $diagnosa_nyeri = 'Tidak Terdiagnosa Nyeri Akut';
+         }
+     
+        $data = array(
+            'nyeri'            => $nyeri,
+            'deskripsi'        => $deskripsi,
+            'lainnya'          => $lainnya,
+            'quality'          => $quality,
+            'region'           => $region,
+            'menyebar'         => $menyebar,
+            'skala'            => $skala,
+            'hasil'            => $hasil,
+            'waktu'            => $waktu,
+            'diagnosa_nyeri'   => $diagnosa_nyeri,
+        );
+
+        $where = array(
+            'id_nyeri' => $id_nyeri
+        );
+
+        $this->pasien_m->update_data('pengkajian_nyeri',$data,$where);
+        $this->session->set_flashdata('flash', 'Diupdate');
+        redirect('Ass/MasterPasien/nyeri/'.$id_anamnesis);
+    }
+
+
+
     public function detail_pasien($id)
     {
         check_not_login();
@@ -371,6 +733,22 @@ class MasterPasien extends CI_Controller
         $this->load->view('template/header');
         $this->load->view('template/sidebar',$data);
         $this->load->view('Masterpasien/v_data_detail_pasien',$data);
+        $this->load->view('template/footer');
+    }
+
+
+    public function tekanandarah($idanamnesis)
+    {
+        check_not_login();
+
+        $data['detail'] = $this->pasien_m->detail_anamnesis($idanamnesis);
+        $data['tekanan'] = $this->pasien_m->get_data_tekanandarah($idanamnesis);
+
+        $data['title'] = " Data Tekanan Darah dan Suhu ";
+
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar',$data);
+        $this->load->view('Masterpasien/v_tekanandarah',$data);
         $this->load->view('template/footer');
     }
 
@@ -414,7 +792,6 @@ class MasterPasien extends CI_Controller
     {
         check_not_login();
 
-        // $data['pemeriksaan'] = $this->pasien_m->detail_pemeriksaan($idanamnesis);
         $data['detail'] = $this->pasien_m->get_id_anamnesis($idanamnesis);
         $data['anamnesis'] = $this->pasien_m->detail_anamnesis($idanamnesis);
         $data['aaaa'] = $this->pasien_m->data_pemeriksaan($idanamnesis);
@@ -433,11 +810,26 @@ class MasterPasien extends CI_Controller
 
         $this->load->view('template/header');
         $this->load->view('template/sidebar');
-        // $this->load->view('Masterpasien/v_input_pemeriksaan',$data);
         $this->load->view('Masterpasien/v_detail_pemeriksaan',$data);
         $this->load->view('template/footer');
     }
 
+
+    public function update_pemeriksaan($idanamnesis)
+    {
+        check_not_login();
+
+        // $data['anamnesis'] = $this->pasien_m->get_anamnesis($idanamnesis);
+        $data['detail'] = $this->pasien_m->get_id_anamnesis($idanamnesis);
+        $data['pemeriksaan'] = $this->pasien_m->data_pemeriksaan($idanamnesis);
+
+        $data['title'] = " Update Data Pemeriksaan Pasien ";
+
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar',$data);
+        $this->load->view('Masterpasien/v_update_pemeriksaan',$data);
+        $this->load->view('template/footer');
+    }
 
 
 
@@ -501,13 +893,52 @@ class MasterPasien extends CI_Controller
     }
 
 
+    public function update_pernafasan($idanamnesis)
+    {
+        check_not_login();
+
+        $data['detail'] = $this->pasien_m->get_id_anamnesis($idanamnesis);
+        $data['anamnesis'] = $this->pasien_m->detail_anamnesis($idanamnesis);
+        $data['pernafasan'] = $this->pasien_m->data_pernafasan($idanamnesis);
+        
+        $data['title'] = " Sistem Pernafasan ";
+
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar',$data);
+        $this->load->view('Masterpasien/v_update_pernafasan',$data);
+        $this->load->view('template/footer');
+    }
+
+
     public function hasil($idanamnesis)
     {
         check_not_login();
 
         $data['detail'] = $this->pasien_m->get_id_anamnesis($idanamnesis);
-        $data['hasil'] = $this->pasien_m->hasil_diagnosa($idanamnesis);
+        $data['hasil_nafas'] = $this->pasien_m->hasil_pernafasan($idanamnesis);
+        $data['hasil_mol'] = $this->pasien_m->hasil_mol($idanamnesis);
+        $data['hasil_proteksi'] = $this->pasien_m->hasil_proteksi($idanamnesis);
+        $data['hasil_nyeri'] = $this->pasien_m->hasil_nyeri($idanamnesis);
         $data['anamnesis'] = $this->pasien_m->detail_anamnesis($idanamnesis);
+
+        $nafas = $this->pasien_m->cek_diagnosapersafasan($idanamnesis);
+        if ($nafas != null) {
+            $hasil = 1;
+        }else{
+            $hasil = 0;
+        }
+        $data['nafas'] = $hasil;
+
+
+        $sistemnafas = $this->pasien_m->cek_sistempersafasan($idanamnesis);
+        if ($sistemnafas != null) {
+            $hasilnafas = 1;
+        }else{
+            $hasilnafas = 0;
+        }
+        $data['sistemnafas'] = $hasilnafas;
+
+        $data['nafass'] = $this->pasien_m->intervensi_nafas($idanamnesis);
         
         $data['title'] = " Hasil Diagnosa ";
 
@@ -515,6 +946,25 @@ class MasterPasien extends CI_Controller
         $this->load->view('template/sidebar');
         $this->load->view('Masterpasien/v_hasil_diagnosa',$data);
         $this->load->view('template/footer');
+    }
+
+
+    public function grafik($idanamnesis)
+    {
+        check_not_login();
+
+        $data['title'] = " Dashboard ";
+
+        $data['detail'] = $this->pasien_m->get_id_anamnesis($idanamnesis);
+        $data['anamnesis'] = $this->pasien_m->detail_anamnesis($idanamnesis);
+
+        $data['yes'] = $this->pasien_m->gr_nadi($idanamnesis);
+        
+        
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar');
+        $this->load->view('Masterpasien/v_grafik',$data);
+        $this->load->view('template/footer_grafik',$data);
     }
 
 
@@ -529,6 +979,23 @@ class MasterPasien extends CI_Controller
         $this->load->view('template/header');
         $this->load->view('template/sidebar',$data);
         $this->load->view('Masterpasien/v_input_moskuloskelental',$data);
+        $this->load->view('template/footer');
+    }
+
+
+    public function update_moskuloskelental($idanamnesis)
+    {
+        check_not_login();
+
+        $data['detail'] = $this->pasien_m->get_id_anamnesis($idanamnesis);
+        $data['anamnesis'] = $this->pasien_m->detail_anamnesis($idanamnesis);
+        $data['mos'] = $this->pasien_m->data_moskuloskelental($idanamnesis);
+        
+        $data['title'] = " Sistem Moskuloskelental ";
+
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar',$data);
+        $this->load->view('Masterpasien/v_update_moskuloskelental',$data);
         $this->load->view('template/footer');
     }
 
@@ -575,6 +1042,23 @@ class MasterPasien extends CI_Controller
     }
 
 
+    public function update_proteksi($idanamnesis)
+    {
+        check_not_login();
+
+        $data['detail'] = $this->pasien_m->get_id_anamnesis($idanamnesis);
+        $data['anamnesis'] = $this->pasien_m->detail_anamnesis($idanamnesis);
+        $data['proteksi'] = $this->pasien_m->data_proteksi($idanamnesis);
+        
+        $data['title'] = " Proteksi dan Perlindungan ";
+
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar');
+        $this->load->view('Masterpasien/v_update_proteksi',$data);
+        $this->load->view('template/footer');
+    }
+
+
     public function proteksi($idanamnesis)
     {
         check_not_login();
@@ -613,6 +1097,23 @@ class MasterPasien extends CI_Controller
         $this->load->view('template/header');
         $this->load->view('template/sidebar');
         $this->load->view('Masterpasien/v_input_nyeri',$data);
+        $this->load->view('template/footer');
+    }
+
+
+    public function update_nyeri($idanamnesis)
+    {
+        check_not_login();
+
+        $data['detail'] = $this->pasien_m->get_id_anamnesis($idanamnesis);
+        $data['anamnesis'] = $this->pasien_m->detail_anamnesis($idanamnesis);
+        $data['nyeri'] = $this->pasien_m->data_nyeri($idanamnesis);
+        
+        $data['title'] = " Pengkajian Nyeri ";
+
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar');
+        $this->load->view('Masterpasien/v_update_nyeri',$data);
         $this->load->view('template/footer');
     }
 
@@ -664,6 +1165,47 @@ class MasterPasien extends CI_Controller
     }
 
 
+    public function tambah_tekanandarah()
+    {
+        $id_anamnesis   = $this->input->post('id_anamnesis');
+        $nadi           = $this->input->post('nadi');
+        $suhu           = $this->input->post('suhu');
+        
+        
+        $data = array(
+            'id_anamnesis'  => $id_anamnesis,
+            'nadi'          => $nadi,
+            'suhu'          => $suhu,
+        );
+
+        $this->pasien_m->insert_data($data,'grafik');
+        $this->session->set_flashdata('flash', 'Ditambahkan');
+        redirect('Ass/MasterPasien/tekanandarah/'.$id_anamnesis);  
+    }
+
+
+    public function update_tekanandarah()
+    {
+        $id_anamnesis   = $this->input->post('id_anamnesis');
+        $id_grafik      = $this->input->post('id_grafik');
+        $nadi           = $this->input->post('nadi');
+        $suhu           = $this->input->post('suhu');
+        
+        $data = array(
+            'nadi'          => $nadi,
+            'suhu'          => $suhu,
+        );
+
+        $where = array(
+            'id_grafik' => $id_grafik
+        );
+
+        $this->pasien_m->update_data('grafik',$data,$where);
+        $this->session->set_flashdata('flash', 'Diupdate');
+        redirect('Ass/MasterPasien/tekanandarah/'.$id_anamnesis);  
+    }
+
+
     public function tambah_data()
     {
         $no_rm          = $this->input->post('no_rm');
@@ -688,9 +1230,54 @@ class MasterPasien extends CI_Controller
             'alamat'        => $alamat,
         );
 
-        $this->master_m->insert_data($data,'data_pasien');
+        $this->pasien_m->insert_data($data,'data_pasien');
         $this->session->set_flashdata('flash', 'Ditambahkan');
         redirect('Ass/MasterPasien');  
+    }
+
+
+
+    public function tambah_intervensi()
+    {
+        $id_anamnesis   = $this->input->post('id_anamnesis');
+        $id_pernafasan  = $this->input->post('id_pernafasan');
+        $satu           = $this->input->post('satu');
+        $dua            = $this->input->post('dua');
+        $tiga           = $this->input->post('tiga');
+        $empat          = $this->input->post('empat');
+        $lima           = $this->input->post('lima');
+        $enam           = $this->input->post('enam');
+        $tujuh          = $this->input->post('tujuh');
+        $delapan        = $this->input->post('delapan');
+        $sembilan       = $this->input->post('sembilan');
+        $sepuluh        = $this->input->post('sepuluh');
+        $sebelas        = $this->input->post('sebelas');
+        $duabelas       = $this->input->post('duabelas');
+        $tigabelas      = $this->input->post('tigabelas');
+        $empatbelas     = $this->input->post('empatbelas');
+        
+        $data = array(
+            'id_anamnesis'     => $id_anamnesis,
+            'id_pernafasan'    => $id_pernafasan,
+            'satu'             => $satu,
+            'dua'              => $dua,
+            'tiga'             => $tiga,
+            'empat'            => $empat,
+            'lima'             => $lima,
+            'enam'             => $enam,
+            'tujuh'            => $tujuh,
+            'delapan'          => $delapan,
+            'sembilan'         => $sembilan,
+            'sepuluh'          => $sepuluh,
+            'sebelas'          => $sebelas,
+            'duabelas'         => $duabelas,
+            'tigabelas'        => $tigabelas,
+            'empatbelas'       => $empatbelas,
+        );
+
+        $this->pasien_m->insert_data($data,'intervensi_pernafasan');
+        $this->session->set_flashdata('flash', 'Ditambahkan');
+        redirect('Ass/MasterPasien/hasil/'.$id_anamnesis);
     }
 
 
@@ -723,20 +1310,88 @@ class MasterPasien extends CI_Controller
             'id_pasien'    => $id_pasien
         );
 
-        $this->master_m->update_data('data_pasien',$data,$where);
+        $this->pasien_m->update_data('data_pasien',$data,$where);
         $this->session->set_flashdata('flash', 'Diupdate');
         redirect('Ass/MasterPasien/detail_pasien/'.$id_pasien);
     }
 
-    public function delete_data($id)
+
+    public function delete_tekanandarah($id)
     {
-        $where = array('id_periksa' => $id);
+        $asdf = $this->pasien_m->get_data_tkd_by_id($id)->id_anamnesis;
 
-        $this->master_m->delete_data($where, 'data_periksa');
+        $where = array('id_grafik' => $id);
+
+        $this->pasien_m->delete_data($where, 'grafik');
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('admin/Profesi');
-
+        redirect('Ass/MasterPasien/tekanandarah/'.$asdf);
     }
+
+
+
+    
+    public function update_intervensipernafasan($id)
+    {
+        check_not_login();
+
+        $data['detail'] = $this->pasien_m->get_data_innafas_by_id($id);
+        // $data['innafas'] = $this->pasien_m->show_innafas($id);
+        
+        $data['title'] = " Update Intervensi Pernafasan ";
+
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar');
+        $this->load->view('Masterpasien/v_update_innafas',$data);
+        $this->load->view('template/footer');
+    }
+
+
+    public function update_intervensi_aksi()
+    {
+        $id_anamnesis   = $this->input->post('id_anamnesis');
+        $id_ip          = $this->input->post('id_ip');
+        $satu           = $this->input->post('satu');
+        $dua            = $this->input->post('dua');
+        $tiga           = $this->input->post('tiga');
+        $empat          = $this->input->post('empat');
+        $lima           = $this->input->post('lima');
+        $enam           = $this->input->post('enam');
+        $tujuh          = $this->input->post('tujuh');
+        $delapan        = $this->input->post('delapan');
+        $sembilan       = $this->input->post('sembilan');
+        $sepuluh        = $this->input->post('sepuluh');
+        $sebelas        = $this->input->post('sebelas');
+        $duabelas       = $this->input->post('duabelas');
+        $tigabelas      = $this->input->post('tigabelas');
+        $empatbelas     = $this->input->post('empatbelas');
+        
+        $data = array(
+            'satu'             => $satu,
+            'dua'              => $dua,
+            'tiga'             => $tiga,
+            'empat'            => $empat,
+            'lima'             => $lima,
+            'enam'             => $enam,
+            'tujuh'            => $tujuh,
+            'delapan'          => $delapan,
+            'sembilan'         => $sembilan,
+            'sepuluh'          => $sepuluh,
+            'sebelas'          => $sebelas,
+            'duabelas'         => $duabelas,
+            'tigabelas'        => $tigabelas,
+            'empatbelas'       => $empatbelas,
+        );
+
+
+        $where = array(
+            'id_ip'     => $id_ip
+        );
+
+        $this->pasien_m->update_data('intervensi_pernafasan',$data,$where);
+        $this->session->set_flashdata('flash', 'Diupdate');
+        redirect('Ass/MasterPasien/hasil/'.$id_anamnesis);
+    }
+
 
 }
 

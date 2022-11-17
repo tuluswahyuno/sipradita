@@ -56,7 +56,7 @@
 
         <div class="card-body">
 
-          <form method="POST" action="<?php echo base_url('Ass/MasterPasien/tambah_moskuloskelental_aksi') ?>" enctype="multipart/form-data">
+          <form method="POST" action="<?php echo base_url('Ass/MasterPasien/update_moskuloskelental_aksi') ?>" enctype="multipart/form-data">
 
             <div class="row">
 
@@ -64,7 +64,9 @@
                 <div class="form-group">
                   <label>Pergerakan Sendi</label>
                   <input type="hidden" name="id_anamnesis" value="<?php echo $detail->id_anamnesis; ?>">
+                  <input type="hidden" name="id_moskuloskelental" value="<?php echo $mos->id_moskuloskelental; ?>">
                   <select class="form-control" name="pergerakan_sendi">
+                    <option value="<?php echo $mos->pergerakan_sendi; ?>"><?php echo $mos->pergerakan_sendi; ?></option>
                     <option value="Bebas">Bebas</option>
                     <option value="Terbatas">Terbatas</option>
                   </select>
@@ -75,6 +77,7 @@
                 <div class="form-group">
                   <label>Mudah Lelah</label>
                   <select class="form-control" name="mudah_lelah">
+                    <option value="<?php echo $mos->mudah_lelah; ?>"><?php echo $mos->mudah_lelah; ?></option>
                     <option value="Ya">Ya</option>
                     <option value="Tidak">Tidak</option>
                   </select>
@@ -86,6 +89,7 @@
                 <div class="form-group">
                   <label>Kekuatan Otot</label>
                   <select class="form-control" name="kekuatan_otot">
+                    <option value="<?php echo $mos->kekuatan_otot; ?>"><?php echo $mos->kekuatan_otot; ?></option>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -100,7 +104,7 @@
             <div class="col-sm-5">
                 <div class="form-group">
                   <label>Hasil</label>
-                  <input type="text" name="hasil" class="form-control" placeholder="Hasil ..." required>
+                  <input type="text" name="hasil" class="form-control" value="<?php echo $mos->hasil; ?>" required>
                 </div>
             </div>
 
@@ -109,6 +113,7 @@
                 <div class="form-group">
                   <label>Fraktur</label>
                   <select class="form-control" name="fraktur">
+                    <option value="<?php echo $mos->fraktur; ?>"><?php echo $mos->fraktur; ?></option>
                     <option value="Tidak">Tidak</option>
                     <option value="Ada">Ada</option>
                   </select>
@@ -119,7 +124,7 @@
             <div class="col-sm-2">
                 <div class="form-group">
                   <label>Lokasi</label>
-                  <input type="text" name="fraktur_lokasi" class="form-control" placeholder="Lokasi ..." required>
+                  <input type="text" name="fraktur_lokasi" class="form-control" value="<?php echo $mos->fraktur_lokasi; ?>" required>
                 </div>
             </div>
 
@@ -128,6 +133,7 @@
                 <div class="form-group">
                   <label>Postur Tubuh</label>
                   <select class="form-control" name="postur_tubuh">
+                    <option value="<?php echo $mos->postur_tubuh; ?>"><?php echo $mos->postur_tubuh; ?></option>
                     <option value="Normal">Normal</option>
                     <option value="Skoliosis">Skoliosis</option>
                     <option value="Lordosis">Lordosis</option>
@@ -140,7 +146,7 @@
             <div class="col-sm-3">
                 <div class="form-group">
                   <label>Skore Resiko jatuh</label>
-                  <input type="text" name="skore_resiko_jatuh" class="form-control" placeholder="Skore Resiko jatuh ..." required>
+                  <input type="text" name="skore_resiko_jatuh" class="form-control" value="<?php echo $mos->skore_resiko_jatuh; ?>" required>
                 </div>
             </div>
 
@@ -149,6 +155,7 @@
                 <div class="form-group">
                   <label>Aktivitas Sehari-hari </label>
                   <select class="form-control" name="aktivitas_seharihari">
+                    <option value="<?php echo $mos->aktivitas_seharihari; ?>"><?php echo $mos->aktivitas_seharihari; ?></option>
                     <option value="Mandiri">Mandiri</option>
                     <option value="Dibantu Minimal">Dibantu Minimal</option>
                     <option value="Dibantu Sebagian">Dibantu Sebagian</option>
@@ -161,6 +168,7 @@
                 <div class="form-group">
                   <label>Berjalan</label>
                   <select class="form-control" name="berjalan">
+                    <option value="<?php echo $mos->berjalan; ?>"><?php echo $mos->berjalan; ?></option>
                     <option value="Tidak ada kesulitan">Tidak ada kesulitan</option>
                     <option value="Perlu Bantuan">Perlu Bantuan</option>
                     <option value="Kelumpuhan">Kelumpuhan</option>
@@ -175,6 +183,7 @@
                 <div class="form-group">
                   <label>Alat Ambulasi</label>
                   <select class="form-control" name="alat_ambulasi">
+                    <option value="<?php echo $mos->alat_ambulasi; ?>"><?php echo $mos->alat_ambulasi; ?></option>
                     <option value="Walker">Walker</option>
                     <option value="Tongkat">Tongkat</option>
                     <option value="Kursi Roda">Kursi Roda</option>
@@ -189,6 +198,7 @@
                 <div class="form-group">
                   <label>Kebiasaan Tidur</label>
                   <select class="form-control" name="kebiasaan_tidur">
+                    <option value="<?php echo $mos->kebiasaan_tidur; ?>"><?php echo $mos->kebiasaan_tidur; ?></option>
                     <option value="Tidak">Tidak</option>
                     <option value="Ada">Ada</option>
                   </select>
@@ -197,16 +207,16 @@
 
             <div class="col-sm-2">
                 <div class="form-group">
-                  <label>Jam Tdr Sblm Sakit</label>
-                  <input type="time" name="jam_tidur_sebelumsakit" class="form-control" required>
+                  <label>Lama Tdr Sblm Sakit</label>
+                  <input type="number" name="jam_tidur_sebelumsakit" class="form-control" value="<?php echo $mos->jam_tidur_sebelumsakit; ?>" required>
                 </div>
             </div>
 
 
             <div class="col-sm-2">
                 <div class="form-group">
-                  <label>Jam Tdr Ssdh Sakit</label>
-                  <input type="time" name="jam_tidur_sesudahsakit" class="form-control" required>
+                  <label>Lama Tdr Ssdh Sakit</label>
+                  <input type="number" name="jam_tidur_sesudahsakit" class="form-control" value="<?php echo $mos->jam_tidur_sesudahsakit; ?>" required>
                 </div>
             </div>
 

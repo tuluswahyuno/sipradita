@@ -69,21 +69,34 @@
               <div id="collapseOne" class="collapse show" data-parent="#accordion">
                 <div class="card-body">
 
+                  <?php 
+
+                  if ($sistemnafas != "0") {?>
                      
-                    Dari pengkajian sistem pernafasan yang dilakukan diagnosanya adalah : <strong> <?php echo $hasil_nafas->diagnosa_penafasan; ?></strong><br>
+                    Dari pengkajian sistem pernafasan yang dilakukan diagnosanya adalah : <strong> <?php echo $hasil_nafas->diagnosa_penafasan; ?></strong><br><hr>
 
-                    <?php 
-                    if ($hasil_nafas->diagnosa_penafasan == "Tidak Terdiagnosa Masalah Pernafasan") {?>
+                    <?php if ($hasil_nafas->diagnosa_penafasan == "Tidak Terdiagnosa Masalah Pernafasan") {?>
 
-                      <p></p>
+                      <p>tidak ada pilihan</p>
 
-                    <?php }elseif($nafas == "0" && $hasil_nafas->diagnosa_penafasan != "Tidak Terdiagnosa Masalah Pernafasan"){?>
+                    <?php } else { ?>
 
-                      <hr><button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#tambah-datapenafasan"> <i class="fas fa-plus-square"> </i> Pilih Tindakan yang akan Dilakukan </a> </button>
-
-                   <?php  }elseif($nafas != "0" && $hasil_nafas->diagnosa_penafasan != "Tidak Terdiagnosa Masalah Pernafasan"){?>
+                    <?php if ($nafas == "0") {?>
                       
-                      <hr><p>Tindakan yang akan dilakukan adalah sebagai berikut :</p>
+                    <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#tambah-datapenafasan"> <i class="fas fa-plus-square"> </i> Pilih Tindakan yang akan Dilakukan </a> </button>
+                    
+                    <?php }else{ ?>
+
+                      <div align="right">
+                    <a class="btn btn-success btn-sm" data-toggle="modal" data-target="#editmodal">
+                    <i class="fas fa-edit"></i> Update Tindakan </a>
+                    </div>
+
+                    <?php } ?>
+
+                    <p>Tindakan yang akan dilakukan adalah sebagai berikut :</p>
+
+                    <hr>
 
                     <?php 
                     $satu = $nafass->satu;
@@ -149,7 +162,7 @@
 
                     <div class="custom-control custom-checkbox">
                       <input class="custom-control-input" name="tujuh" type="checkbox" id="customCheckbox3" checked>
-                      <label for="customCheckbox3" class="custom-control-label">Berikan minum hangat</label>
+                      <label for="customCheckbox3" class="custom-control-label">Lakukan Fisioterapi dada. Jika perlu</label>
                     </div> <?php }else{} ?>
 
                     <?php 
@@ -215,10 +228,19 @@
                       <label for="customCheckbox3" class="custom-control-label">Kolaborasi pemberian Bronkodilator, ekspektoran, mukolitik, jika perlu </label>
                     </div> <?php }else{} ?>
 
-                    <div align="right">
-                    <a href="<?php echo base_url('Ass/MasterPasien/update_intervensipernafasan/').$nafass->id_ip ?>" class="btn btn-sm btn-success"><i class="fas fa-pencil-alt"> </i> Update Tindakan</a>
+                    
+
+                  <?php } ?>
+
+                  <?php }else{ ?>
+
+                    <div class="alert alert-info" role="alert">
+                      <center>Pengkajian Belum Diinput!</center>
                     </div>
-                    <?php }?>
+
+                  <?php } ?>
+
+                  
 
 
                 </div>
@@ -398,7 +420,7 @@
 
 
 <!-- MODAL UPDATE DATA SISTEM PERNAFASAN -->
-  <!-- <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="editmodal" class="modal fade">
+  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="editmodal" class="modal fade">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -448,7 +470,7 @@
 
                   <div class="custom-control custom-checkbox">
                     <input class="custom-control-input" name="tujuh" type="checkbox" id="a7" <?= ($nafass->tujuh == "Yes" ? "checked" : "") ?>>
-                    <label for="a7" class="custom-control-label">Berikan minum hangat</label>
+                    <label for="a7" class="custom-control-label">Lakukan Fisioterapi dada. Jika perlu</label>
                   </div>
 
                   <div class="custom-control custom-checkbox">
@@ -500,5 +522,5 @@
         </form>
       </div>
     </div>
-  </div> -->
+  </div>
   <!-- AKHIR MODAL UPDATE DATA SISTEM PERNAFASAN -->
