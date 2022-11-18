@@ -152,6 +152,12 @@ $db['default'] = array(
 
 	'dsn'	=> '',
 
+	// 'hostname' => '192.168.100.4',
+
+	// 'username' => 'admin',
+
+	// 'password' => 'S!MRSGos2',
+
 	'hostname' => 'localhost',
 
 	'username' => 'root',

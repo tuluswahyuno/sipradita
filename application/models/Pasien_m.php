@@ -28,10 +28,73 @@ class Pasien_m extends CI_Model
 	}
 
 
-	public function cek_diagnosapersafasan($idanamnesis)
+	public function intervensi_mol($idanamnesis)
+	{
+
+		$query = $this->db->query("SELECT * FROM intervensi_moskuloskelental WHERE id_anamnesis = '$idanamnesis';");
+
+		return $query->row();
+	}
+
+	public function kriteria_mol($idanamnesis)
+	{
+
+		$query = $this->db->query("SELECT * FROM kriteria_moskuloskelental WHERE id_anamnesis = '$idanamnesis';");
+
+		return $query->row();
+	}
+
+	public function kriteria_nafas($idanamnesis)
+	{
+
+		$query = $this->db->query("SELECT * FROM kriteria_pernafasan WHERE id_anamnesis = '$idanamnesis';");
+
+		return $query->row();
+	}
+
+
+	public function cek_intervensipersafasan($idanamnesis)
 	{
 
 		$hasil = $this->db->query("SELECT * FROM intervensi_pernafasan WHERE id_anamnesis = '$idanamnesis';");
+
+		if($hasil->num_rows() > 0){
+			return $hasil->row();
+		}else{
+			return false;
+		}
+	}
+
+
+	public function cek_intervensimos($idanamnesis)
+	{
+
+		$hasil = $this->db->query("SELECT * FROM intervensi_moskuloskelental WHERE id_anamnesis = '$idanamnesis';");
+
+		if($hasil->num_rows() > 0){
+			return $hasil->row();
+		}else{
+			return false;
+		}
+	}
+
+
+	public function cek_kriteriapersafasan($idanamnesis)
+	{
+
+		$hasil = $this->db->query("SELECT * FROM kriteria_pernafasan WHERE id_anamnesis = '$idanamnesis';");
+
+		if($hasil->num_rows() > 0){
+			return $hasil->row();
+		}else{
+			return false;
+		}
+	}
+
+	public function cek_kriteriamol($idanamnesis)
+	{
+
+		$hasil = $this->db->query("SELECT * FROM kriteria_moskuloskelental WHERE id_anamnesis = '$idanamnesis';");
 
 		if($hasil->num_rows() > 0){
 			return $hasil->row();
@@ -44,6 +107,18 @@ class Pasien_m extends CI_Model
 	{
 
 		$hasil = $this->db->query("SELECT * FROM sistem_pernafasan WHERE id_anamnesis = '$idanamnesis';");
+
+		if($hasil->num_rows() > 0){
+			return $hasil->row();
+		}else{
+			return false;
+		}
+	}
+
+	public function cek_sistemmol($idanamnesis)
+	{
+
+		$hasil = $this->db->query("SELECT * FROM sistem_moskuloskelental WHERE id_anamnesis = '$idanamnesis';");
 
 		if($hasil->num_rows() > 0){
 			return $hasil->row();
@@ -441,6 +516,61 @@ class Pasien_m extends CI_Model
 	{
 		$query = $this->db->query("SELECT * FROM intervensi_pernafasan where id_ip = $id;");
 		return $query->row();
+	}
+
+
+	public function get_data_kriterianafas_by_id($id)
+	{
+		$query = $this->db->query("SELECT * FROM kriteria_pernafasan where id_kriterianafas = $id;");
+		return $query->row();
+	}
+
+
+	public function get_data_inmos_by_id($id)
+	{
+		$query = $this->db->query("SELECT * FROM intervensi_moskuloskelental where id_imos = $id;");
+		return $query->row();
+	}
+
+	public function get_data_kriteriamol_by_id($id)
+	{
+		$query = $this->db->query("SELECT * FROM kriteria_moskuloskelental where id_kriteriamos = $id;");
+		return $query->row();
+	}
+
+
+	public function get_data_soapnafas($idanamnesis)
+	{
+		$query = $this->db->query("SELECT * FROM soap_pernafasan sp, intervensi_pernafasan ip WHERE sp.id_anamnesis = '$idanamnesis' AND sp.id_anamnesis = ip.id_anamnesis;");
+
+		return $query->result();
+	}
+
+
+	public function data_pasien_all()
+	{
+
+	$query = $this->db->query("
+	SELECT pasien.nama,
+	pasien.norm,
+	pasien.tempat_lahir,
+	pasien.tanggal_lahir,
+	referensi.deskripsi as pekerjaan,
+	pasien.jenis_kelamin,
+	pasien.alamat,
+	kontak_pasien.nomor as nohp,
+	kartu_identitas_pasien.nomor as nik,
+	pasien.agama
+	from master.pasien pasien
+	left outer join master.kartu_identitas_pasien kartu_identitas_pasien
+	on kartu_identitas_pasien.norm = pasien.norm
+	left outer join master.kontak_pasien kontak_pasien
+	on kontak_pasien.norm = pasien.norm
+	left outer join master.referensi referensi 
+	on referensi.jenis = '4' and referensi.id = pasien.pekerjaan
+	where pasien.status = '1';");
+
+	return $query->result();
 	}
 
 }

@@ -54,23 +54,31 @@
 
 <!-- digunakan untuk menampilkan datatables yaitu search dan pagination pada setiap tabel -->
 <script>
-  $(function () {
-    $("#table1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#table1_wrapper .col-md-6:eq(0)');
-    
-  });
-</script>
-
-<script>
-  $(function () {
-    $("#table2").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#table1_wrapper .col-md-6:eq(0)');
-    
-  });
+  var dttb = $('#table1').DataTable({
+      processing: true,
+      serverSide: true,
+      paging: true,
+      initComplete: function(settings, json){
+      },
+      lengthMenu: [20, 40, 60, 80, 100],
+      responsive: true, 
+      buttons: ["pdf", "colvis"],
+      select: true,
+      ajax:{
+        url: '<?= site_url('Ass/MasterPasien/json_pasien') ?>',
+        // type: 'post'
+      },
+      columns: [
+        {data: 'nama', name: 'nama', searchable: true, width: '7%'},
+        {data: 'norm', name: 'norm', searchable: true, width: '15%'},
+        {data: 'tempat_lahir', name: 'tempat_lahir', searchable: true, width: '20%'},
+        {data: 'tanggal_lahir', name: 'tanggal_lahir', searchable: true},
+        // {data: 'tanggal_mulai', name: 'tanggal_mulai', searchable: true, width: '7%'},
+        // {data: 'tanggal_selesai', name: 'tanggal_selesai', searchable: true, width: '7%'},
+        {data: 'pekerjaan', name: 'pekerjaan', searchable: true},
+        
+      ],
+    });
 </script>
 
 
