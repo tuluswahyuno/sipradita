@@ -37,11 +37,11 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<?php echo base_url('Ass/MasterPasien/tekanandarah/').$detail->id_anamnesis ?>">Tekanan Darah</a>
+          <a class="nav-link active" aria-current="page" href="<?php echo base_url('Ass/MasterPasien/tekanandarah/').$detail->id_anamnesis ?>">Vital Sign</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/grafik/').$detail->id_anamnesis ?>">Vital Sign</a>
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/grafik/').$detail->id_anamnesis ?>">Grafik</a>
         </li>
 
         <li class="nav-item">
@@ -60,7 +60,7 @@
     <div class="card">
       <div class="card-header">
         <h3 class="card-title"></h3>
-        <a>Data Anamnesis Pasien An. <?php echo "<strong>".$detail->nama." (".$detail->no_rm.")"."</strong>" ?></a>
+        <a>Vital Sign Pasien An. <?php echo "<strong>".$detail->nama." (".$detail->no_rm.")"."</strong>" ?></a>
       </div>
       <div class="card-body">
 
@@ -71,6 +71,7 @@
         <table class="table table-hover table-striped table-bordered" id="table1">
           <thead style="text-align: center;">
             <th>#</th>
+            <th>Tekanan Darah</th>
             <th>Denyut Nadi</th>
             <th>Suhu Tubuh</th>
             <th>Tgl Input</th>
@@ -87,7 +88,8 @@
               <tr>
                 <td><?php echo $no++; ?></td>
                 
-                <td align="center"><?php echo $us->nadi ?></td>
+                <td align="center"><?php echo $us->tensi." mmHg" ?></td>
+                <td align="center"><?php echo $us->nadi." x permenit" ?></td>
                 <td align="center"><?php echo $us->suhu." &deg C" ?></td>
                 <td align="center"><span class="badge badge-secondary"><?php echo $us->create_at ?></span></td>
 
@@ -129,7 +131,7 @@
 
 <!-- MODAL TAMBAH DATA -->
           <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="tambah-data" class="modal fade">
-            <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">Tambah Data</h5>
@@ -143,6 +145,12 @@
 
                   <div class="row">
                     <div class="col-md-12">
+                    <div class="form-group">
+                    <label>Tekanan Darah</label>
+                    <input type="text" name="tensi" class="form-control" placeholder="Tekanan Darah" required>
+                    </div>
+
+
                     <div class="form-group">
                     <label>Denyut Nadi</label>
                     <input type="hidden" name="id_anamnesis" value="<?php echo $detail->id_anamnesis; ?>" class="form-control">
@@ -188,10 +196,16 @@
                   <div class="row">
             
                     <div class="col-md-12">
+
+                    <div class="form-group">
+                    <label>Tekanan Darah</label>
+                    <input type="text" name="tensi" class="form-control" value="<?php echo $us->tensi; ?>" required>
+                    </div>
+
                     <div class="form-group">
                     <label>Denyut Nadi</label>
-                    <input type="hidden" name="id_grafik" value="<?php echo $us->id_grafik; ?>" class="form-control">
                     <input type="hidden" name="id_anamnesis" value="<?php echo $detail->id_anamnesis; ?>" class="form-control">
+                    <input type="hidden" name="id_grafik" value="<?php echo $us->id_grafik; ?>" class="form-control">
                     <input type="number" name="nadi" class="form-control" value="<?php echo $us->nadi; ?>" required>
                     </div>
 

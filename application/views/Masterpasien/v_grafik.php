@@ -36,11 +36,11 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/tekanandarah/').$detail->id_anamnesis ?>">Tekanan Darah</a>
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/tekanandarah/').$detail->id_anamnesis ?>">Vital Sign</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<?php echo base_url('Ass/MasterPasien/grafik/').$detail->id_anamnesis ?>">Vital Sign</a>
+          <a class="nav-link active" aria-current="page" href="<?php echo base_url('Ass/MasterPasien/grafik/').$detail->id_anamnesis ?>">Grafik</a>
         </li>
 
         <li class="nav-item">
@@ -85,7 +85,7 @@
                             <i class="fas fa-square text-primary"></i> Nadi
                           </span>
                           <span>
-                            <i class="fas fa-square text-gray"></i> Suhu
+                            <i class="fas fa-square text-red"></i> Suhu
                           </span>
                         </div>
                       </div>

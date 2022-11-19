@@ -3,11 +3,11 @@
 class MasterPasien extends CI_Controller
 {
 
-    // public function __construct()
-    // {
-    //     parent::__construct();
-    //     $this->load->model('caramel', 'caramel');
-    // }
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('caramel', 'caramel');
+    }
 
 	public function data_pasien_gos()
 	{
@@ -49,7 +49,9 @@ class MasterPasien extends CI_Controller
         on kontak_pasien.norm = pasien.norm
         left outer join master.referensi referensi 
         on referensi.jenis = 4 and referensi.id = pasien.pekerjaan
-        where pasien.status = 1";
+        where pasien.status = 1
+        AND pasien.norm = '$input';
+        ";
         echo $this->caramel->get_json($plain_query);
     }
 
@@ -603,10 +605,10 @@ public function tambah_proteksi_aksi()
     $nilai_leokosit     = $this->input->post('nilai_leokosit');
     $gds                = $this->input->post('gds');
 
-    if ($suhu == ">37,5" && $nilai_leokosit>="10000") {
+    if ($suhu == ">37,5" || $nilai_leokosit>="10000") {
         $diagnosa_proteksi = 'Hipertermia';
     }else{ 
-        echo "$diagnosa_proteksi = 'Tidak Terdiagnosa Masalah Proteksi dan Perlindungan;";
+        $diagnosa_proteksi = 'Tidak Terdiagnosa Masalah Proteksi dan Perlindungan';
     }
 
     $data = array(
@@ -645,7 +647,7 @@ public function update_proteksi_aksi()
     $nilai_leokosit     = $this->input->post('nilai_leokosit');
     $gds                = $this->input->post('gds');
 
-    if ($suhu == ">37,5" && $nilai_leokosit>="10000") {
+    if ($suhu == ">37,5" || $nilai_leokosit>="10000") {
         $diagnosa_proteksi = 'Hipertermia';
     }else{ 
         $diagnosa_proteksi = 'Tidak Terdiagnosa Masalah Proteksi dan Perlindungan';
@@ -1020,10 +1022,66 @@ public function hasil($idanamnesis)
     $data['kmol'] = $hamol;
 
 
+    $sistempro = $this->pasien_m->cek_sistempro($idanamnesis);
+    if ($sistempro != null) {
+        $aa = 1;
+    }else{
+        $aa = 0;
+    }
+    $data['sistempro'] = $aa;
+
+
+    $pro = $this->pasien_m->cek_intervensipro($idanamnesis);
+    if ($pro != null) {
+        $bb = 1;
+    }else{
+        $bb = 0;
+    }
+    $data['pro'] = $bb;
+
+
+    $kpro = $this->pasien_m->cek_kriteriapro($idanamnesis);
+    if ($kpro != null) {
+        $cc = 1;
+    }else{
+        $cc = 0;
+    }
+    $data['kpro'] = $cc;
+
+
+    $sistemnyeri = $this->pasien_m->cek_sistemnyeri($idanamnesis);
+    if ($sistemnyeri != null) {
+        $dd = 1;
+    }else{
+        $dd = 0;
+    }
+    $data['sistemnyeri'] = $dd;
+
+    $nyeri = $this->pasien_m->cek_intervensinyeri($idanamnesis);
+    if ($nyeri != null) {
+        $ee = 1;
+    }else{
+        $ee = 0;
+    }
+    $data['nyeri'] = $ee;
+
+    $knyeri = $this->pasien_m->cek_kriterianyeri($idanamnesis);
+    if ($knyeri != null) {
+        $ff = 1;
+    }else{
+        $ff = 0;
+    }
+    $data['knyeri'] = $ff;
+
+
     $data['nafass'] = $this->pasien_m->intervensi_nafas($idanamnesis);
     $data['kriterianafas'] = $this->pasien_m->kriteria_nafas($idanamnesis);
     $data['moll'] = $this->pasien_m->intervensi_mol($idanamnesis);
     $data['kriteriamoll'] = $this->pasien_m->kriteria_mol($idanamnesis);
+    $data['protek'] = $this->pasien_m->intervensi_proteksi($idanamnesis);
+    $data['kriteriapro'] = $this->pasien_m->kriteria_pro($idanamnesis);
+    $data['nyeri'] = $this->pasien_m->intervensi_nyeri($idanamnesis);
+    $data['kriterianyeri'] = $this->pasien_m->kriteria_nyeri($idanamnesis);
 
     $data['title'] = " Hasil Diagnosa ";
 
@@ -1042,14 +1100,7 @@ public function evaluasi($idanamnesis)
 
     $data['detail'] = $this->pasien_m->get_id_anamnesis($idanamnesis);
     $data['anamnesis'] = $this->pasien_m->detail_anamnesis($idanamnesis);
-
-        // $data['hasil_nafas'] = $this->pasien_m->hasil_pernafasan($idanamnesis);
-        // $data['hasil_mol'] = $this->pasien_m->hasil_mol($idanamnesis);
-        // $data['hasil_proteksi'] = $this->pasien_m->hasil_proteksi($idanamnesis);
-        // $data['hasil_nyeri'] = $this->pasien_m->hasil_nyeri($idanamnesis);
-
-        // $data['tekanan'] = $this->pasien_m->get_data_tekanandarah($idanamnesis);
-    $data['tekanan'] = $this->pasien_m->get_data_soapnafas($idanamnesis);
+    $data['evaluasi'] = $this->pasien_m->get_data_soapnafas($idanamnesis);
 
     $this->load->view('template/header');
     $this->load->view('template/sidebar');
@@ -1277,12 +1328,14 @@ public function riwayat_periksa($id)
 public function tambah_tekanandarah()
 {
     $id_anamnesis   = $this->input->post('id_anamnesis');
+    $tensi           = $this->input->post('tensi');
     $nadi           = $this->input->post('nadi');
     $suhu           = $this->input->post('suhu');
 
 
     $data = array(
         'id_anamnesis'  => $id_anamnesis,
+        'tensi'          => $tensi,
         'nadi'          => $nadi,
         'suhu'          => $suhu,
     );
@@ -1293,14 +1346,35 @@ public function tambah_tekanandarah()
 }
 
 
+public function tambah_evaluasi()
+{
+    $id_anamnesis   = $this->input->post('id_anamnesis');
+    $s              = $this->input->post('s');
+    $o              = $this->input->post('o');
+
+
+    $data = array(
+        'id_anamnesis'  => $id_anamnesis,
+        's'             => $s,
+        'o'             => $o,
+    );
+
+    $this->pasien_m->insert_data($data,'soap_pernafasan');
+    $this->session->set_flashdata('flash', 'Ditambahkan');
+    redirect('Ass/MasterPasien/evaluasi/'.$id_anamnesis);  
+}
+
+
 public function update_tekanandarah()
 {
     $id_anamnesis   = $this->input->post('id_anamnesis');
     $id_grafik      = $this->input->post('id_grafik');
+    $tensi           = $this->input->post('tensi');
     $nadi           = $this->input->post('nadi');
     $suhu           = $this->input->post('suhu');
 
     $data = array(
+        'tensi'          => $tensi,
         'nadi'          => $nadi,
         'suhu'          => $suhu,
     );
@@ -1491,17 +1565,47 @@ public function update_intervensipernafasan($id)
 }
 
 
+public function update_intervensinyeri($id)
+{
+    check_not_login();
+
+    $data['detail'] = $this->pasien_m->get_data_innyeri_by_id($id);
+
+    $data['title'] = " Update Intervensi Nyeri ";
+
+    $this->load->view('template/header');
+    $this->load->view('template/sidebar');
+    $this->load->view('Masterpasien/v_update_innyeri',$data);
+    $this->load->view('template/footer');
+}
+
+
 public function update_kriteriapernafasan($id)
 {
     check_not_login();
 
     $data['detail'] = $this->pasien_m->get_data_kriterianafas_by_id($id);
 
-    $data['title'] = " Update Kriteria Hasil Pernafasan ";
+    $data['title'] = " Update Kriteria Pernafasan ";
 
     $this->load->view('template/header');
     $this->load->view('template/sidebar');
     $this->load->view('Masterpasien/v_update_kriterianafas',$data);
+    $this->load->view('template/footer');
+}
+
+
+public function update_kriterianyeri($id)
+{
+    check_not_login();
+
+    $data['detail'] = $this->pasien_m->get_data_kriterianyeri_by_id($id);
+
+    $data['title'] = " Update Kriteria Nyeri ";
+
+    $this->load->view('template/header');
+    $this->load->view('template/sidebar');
+    $this->load->view('Masterpasien/v_update_kriterianyeri',$data);
     $this->load->view('template/footer');
 }
 
@@ -1532,6 +1636,37 @@ public function update_kriteriamol($id)
     $this->load->view('template/header');
     $this->load->view('template/sidebar');
     $this->load->view('Masterpasien/v_update_kriteriamol',$data);
+    $this->load->view('template/footer');
+}
+
+
+public function update_kriteriapro($id)
+{
+    check_not_login();
+
+    $data['detail'] = $this->pasien_m->get_data_kriteriapro_by_id($id);
+
+    $data['title'] = " Update Kriteria Hasil Proteksi ";
+
+    $this->load->view('template/header');
+    $this->load->view('template/sidebar');
+    $this->load->view('Masterpasien/v_update_kriteriapro',$data);
+    $this->load->view('template/footer');
+}
+
+
+
+public function update_intervensipro($id)
+{
+    check_not_login();
+
+    $data['detail'] = $this->pasien_m->get_data_inpro_by_id($id);
+
+    $data['title'] = " Update Intervensi Proteksi ";
+
+    $this->load->view('template/header');
+    $this->load->view('template/sidebar');
+    $this->load->view('Masterpasien/v_update_intervensipro',$data);
     $this->load->view('template/footer');
 }
 
@@ -1583,20 +1718,27 @@ public function update_intervensi_aksi()
 }
 
 
-public function update_kriterianfas_aksi()
+public function update_kriteriapro_aksi()
 {
-    $id_anamnesis       = $this->input->post('id_anamnesis');
-    $id_kriterianafas   = $this->input->post('id_kriterianafas');
-    $satu               = $this->input->post('satu');
-    $dua            = $this->input->post('dua');
-    $tiga           = $this->input->post('tiga');
-    $empat          = $this->input->post('empat');
-    $lima           = $this->input->post('lima');
-    $enam           = $this->input->post('enam');
-    $tujuh          = $this->input->post('tujuh');
-    $delapan        = $this->input->post('delapan');
-    $sembilan       = $this->input->post('sembilan');
-    $sepuluh        = $this->input->post('sepuluh');
+    $id_anamnesis           = $this->input->post('id_anamnesis');
+    $id_kriteriaproteksi    = $this->input->post('id_kriteriaproteksi');
+    $satu                   = $this->input->post('satu');
+    $dua                    = $this->input->post('dua');
+    $tiga                   = $this->input->post('tiga');
+    $empat                  = $this->input->post('empat');
+    $lima                   = $this->input->post('lima');
+    $enam                   = $this->input->post('enam');
+    $tujuh                  = $this->input->post('tujuh');
+    $delapan                = $this->input->post('delapan');
+    $sembilan               = $this->input->post('sembilan');
+    $sepuluh                = $this->input->post('sepuluh');
+    $sebelas                = $this->input->post('sebelas');
+    $duabelas               = $this->input->post('duabelas');
+    $tigabelas              = $this->input->post('tigabelas');
+    $empatbelas             = $this->input->post('empatbelas');
+    $limabelas              = $this->input->post('limabelas');
+    $enambelas              = $this->input->post('enambelas');
+    $tujuhbelas             = $this->input->post('tujuhbelas');
 
     $data = array(
         'satu'             => $satu,
@@ -1609,159 +1751,509 @@ public function update_kriterianfas_aksi()
         'delapan'          => $delapan,
         'sembilan'         => $sembilan,
         'sepuluh'          => $sepuluh,
+        'sebelas'          => $sebelas,
+        'duabelas'         => $duabelas,
+        'tigabelas'        => $tigabelas,
+        'empatbelas'       => $empatbelas,
+        'limabelas'        => $limabelas,
+        'enambelas'        => $enambelas,
+        'tujuhbelas'       => $tujuhbelas,
     );
-
 
     $where = array(
-        'id_kriterianafas'     => $id_kriterianafas
+        'id_kriteriaproteksi'     => $id_kriteriaproteksi
     );
 
-    $this->pasien_m->update_data('kriteria_pernafasan',$data,$where);
+    $this->pasien_m->update_data('kriteria_proteksi',$data,$where);
     $this->session->set_flashdata('flash', 'Diupdate');
     redirect('Ass/MasterPasien/hasil/'.$id_anamnesis);
 }
 
 
-public function tambah_intervensimol()
-{
-    $id_anamnesis           = $this->input->post('id_anamnesis');
-    $id_moskuloskelental    = $this->input->post('id_moskuloskelental');
-    $satu                   = $this->input->post('satu');
-    $dua                    = $this->input->post('dua');
-    $tiga                   = $this->input->post('tiga');
-    $empat                  = $this->input->post('empat');
-    $lima                   = $this->input->post('lima');
-    $enam                   = $this->input->post('enam');
-    $tujuh                  = $this->input->post('tujuh');
-    $delapan                = $this->input->post('delapan');
-    $sembilan               = $this->input->post('sembilan');
+    public function update_kriterianfas_aksi()
+    {
+        $id_anamnesis       = $this->input->post('id_anamnesis');
+        $id_kriterianafas   = $this->input->post('id_kriterianafas');
+        $satu               = $this->input->post('satu');
+        $dua                = $this->input->post('dua');
+        $tiga               = $this->input->post('tiga');
+        $empat              = $this->input->post('empat');
+        $lima               = $this->input->post('lima');
+        $enam               = $this->input->post('enam');
+        $tujuh              = $this->input->post('tujuh');
+        $delapan            = $this->input->post('delapan');
+        $sembilan           = $this->input->post('sembilan');
+        $sepuluh            = $this->input->post('sepuluh');
 
-    $data = array(
-        'id_anamnesis'          => $id_anamnesis,
-        'id_moskuloskelental'   => $id_moskuloskelental,
-        'satu'                  => $satu,
-        'dua'                   => $dua,
-        'tiga'                  => $tiga,
-        'empat'                 => $empat,
-        'lima'                  => $lima,
-        'enam'                  => $enam,
-        'tujuh'                 => $tujuh,
-        'delapan'               => $delapan,
-        'sembilan'              => $sembilan,
-    );
-
-    $this->pasien_m->insert_data($data,'intervensi_moskuloskelental');
-    $this->session->set_flashdata('flash', 'Ditambahkan');
-    redirect('Ass/MasterPasien/hasil/'.$id_anamnesis);
-}
+        $data = array(
+            'satu'             => $satu,
+            'dua'              => $dua,
+            'tiga'             => $tiga,
+            'empat'            => $empat,
+            'lima'             => $lima,
+            'enam'             => $enam,
+            'tujuh'            => $tujuh,
+            'delapan'          => $delapan,
+            'sembilan'         => $sembilan,
+            'sepuluh'          => $sepuluh,
+        );
 
 
-public function update_intervensimos_aksi()
-{
-    $id_anamnesis   = $this->input->post('id_anamnesis');
-    $id_imos        = $this->input->post('id_imos');
-    $satu           = $this->input->post('satu');
-    $dua            = $this->input->post('dua');
-    $tiga           = $this->input->post('tiga');
-    $empat          = $this->input->post('empat');
-    $lima           = $this->input->post('lima');
-    $enam           = $this->input->post('enam');
-    $tujuh          = $this->input->post('tujuh');
-    $delapan        = $this->input->post('delapan');
-    $sembilan       = $this->input->post('sembilan');
+        $where = array(
+            'id_kriterianafas'     => $id_kriterianafas
+        );
 
-    $data = array(
-        'satu'             => $satu,
-        'dua'              => $dua,
-        'tiga'             => $tiga,
-        'empat'            => $empat,
-        'lima'             => $lima,
-        'enam'             => $enam,
-        'tujuh'            => $tujuh,
-        'delapan'          => $delapan,
-        'sembilan'         => $sembilan,
-    );
+        $this->pasien_m->update_data('kriteria_pernafasan',$data,$where);
+        $this->session->set_flashdata('flash', 'Diupdate');
+        redirect('Ass/MasterPasien/hasil/'.$id_anamnesis);
+    }
 
 
-    $where = array(
-        'id_imos'     => $id_imos
-    );
+    public function tambah_intervensimol()
+    {
+        $id_anamnesis           = $this->input->post('id_anamnesis');
+        $id_moskuloskelental    = $this->input->post('id_moskuloskelental');
+        $satu                   = $this->input->post('satu');
+        $dua                    = $this->input->post('dua');
+        $tiga                   = $this->input->post('tiga');
+        $empat                  = $this->input->post('empat');
+        $lima                   = $this->input->post('lima');
+        $enam                   = $this->input->post('enam');
+        $tujuh                  = $this->input->post('tujuh');
+        $delapan                = $this->input->post('delapan');
+        $sembilan               = $this->input->post('sembilan');
 
-    $this->pasien_m->update_data('intervensi_moskuloskelental',$data,$where);
-    $this->session->set_flashdata('flash', 'Diupdate');
-    redirect('Ass/MasterPasien/hasil/'.$id_anamnesis);
-}
+        $data = array(
+            'id_anamnesis'          => $id_anamnesis,
+            'id_moskuloskelental'   => $id_moskuloskelental,
+            'satu'                  => $satu,
+            'dua'                   => $dua,
+            'tiga'                  => $tiga,
+            'empat'                 => $empat,
+            'lima'                  => $lima,
+            'enam'                  => $enam,
+            'tujuh'                 => $tujuh,
+            'delapan'               => $delapan,
+            'sembilan'              => $sembilan,
+        );
 
-
-public function tambah_kriteriamol()
-{
-    $id_anamnesis           = $this->input->post('id_anamnesis');
-    $id_moskuloskelental    = $this->input->post('id_moskuloskelental');
-    $satu                   = $this->input->post('satu');
-    $dua                    = $this->input->post('dua');
-    $tiga                   = $this->input->post('tiga');
-    $empat                  = $this->input->post('empat');
-    $lima                   = $this->input->post('lima');
-    $enam                   = $this->input->post('enam');
-    $tujuh                  = $this->input->post('tujuh');
-    $delapan                = $this->input->post('delapan');
-    $sembilan               = $this->input->post('sembilan');
-
-    $data = array(
-        'id_anamnesis'          => $id_anamnesis,
-        'id_moskuloskelental'   => $id_moskuloskelental,
-        'satu'                  => $satu,
-        'dua'                   => $dua,
-        'tiga'                  => $tiga,
-        'empat'                 => $empat,
-        'lima'                  => $lima,
-        'enam'                  => $enam,
-        'tujuh'                 => $tujuh,
-        'delapan'               => $delapan,
-        'sembilan'              => $sembilan,
-    );
-
-    $this->pasien_m->insert_data($data,'kriteria_moskuloskelental');
-    $this->session->set_flashdata('flash', 'Ditambahkan');
-    redirect('Ass/MasterPasien/hasil/'.$id_anamnesis);
-}
+        $this->pasien_m->insert_data($data,'intervensi_moskuloskelental');
+        $this->session->set_flashdata('flash', 'Ditambahkan');
+        redirect('Ass/MasterPasien/hasil/'.$id_anamnesis);
+    }
 
 
-public function update_kriteriamol_aksi()
-{
-    $id_anamnesis   = $this->input->post('id_anamnesis');
-    $id_kriteriamos = $this->input->post('id_kriteriamos');
-    $satu           = $this->input->post('satu');
-    $dua            = $this->input->post('dua');
-    $tiga           = $this->input->post('tiga');
-    $empat          = $this->input->post('empat');
-    $lima           = $this->input->post('lima');
-    $enam           = $this->input->post('enam');
-    $tujuh          = $this->input->post('tujuh');
-    $delapan        = $this->input->post('delapan');
-    $sembilan       = $this->input->post('sembilan');
+    public function update_intervensimos_aksi()
+    {
+        $id_anamnesis   = $this->input->post('id_anamnesis');
+        $id_imos        = $this->input->post('id_imos');
+        $satu           = $this->input->post('satu');
+        $dua            = $this->input->post('dua');
+        $tiga           = $this->input->post('tiga');
+        $empat          = $this->input->post('empat');
+        $lima           = $this->input->post('lima');
+        $enam           = $this->input->post('enam');
+        $tujuh          = $this->input->post('tujuh');
+        $delapan        = $this->input->post('delapan');
+        $sembilan       = $this->input->post('sembilan');
 
-    $data = array(
-        'satu'             => $satu,
-        'dua'              => $dua,
-        'tiga'             => $tiga,
-        'empat'            => $empat,
-        'lima'             => $lima,
-        'enam'             => $enam,
-        'tujuh'            => $tujuh,
-        'delapan'          => $delapan,
-        'sembilan'         => $sembilan,
-    );
+        $data = array(
+            'satu'             => $satu,
+            'dua'              => $dua,
+            'tiga'             => $tiga,
+            'empat'            => $empat,
+            'lima'             => $lima,
+            'enam'             => $enam,
+            'tujuh'            => $tujuh,
+            'delapan'          => $delapan,
+            'sembilan'         => $sembilan,
+        );
 
 
-    $where = array(
-        'id_kriteriamos'     => $id_kriteriamos
-    );
+        $where = array(
+            'id_imos'     => $id_imos
+        );
 
-    $this->pasien_m->update_data('kriteria_moskuloskelental',$data,$where);
-    $this->session->set_flashdata('flash', 'Diupdate');
-    redirect('Ass/MasterPasien/hasil/'.$id_anamnesis);
-}
+        $this->pasien_m->update_data('intervensi_moskuloskelental',$data,$where);
+        $this->session->set_flashdata('flash', 'Diupdate');
+        redirect('Ass/MasterPasien/hasil/'.$id_anamnesis);
+    }
+
+
+    public function tambah_kriteriamol()
+    {
+        $id_anamnesis           = $this->input->post('id_anamnesis');
+        $id_moskuloskelental    = $this->input->post('id_moskuloskelental');
+        $satu                   = $this->input->post('satu');
+        $dua                    = $this->input->post('dua');
+        $tiga                   = $this->input->post('tiga');
+        $empat                  = $this->input->post('empat');
+        $lima                   = $this->input->post('lima');
+        $enam                   = $this->input->post('enam');
+        $tujuh                  = $this->input->post('tujuh');
+        $delapan                = $this->input->post('delapan');
+        $sembilan               = $this->input->post('sembilan');
+
+        $data = array(
+            'id_anamnesis'          => $id_anamnesis,
+            'id_moskuloskelental'   => $id_moskuloskelental,
+            'satu'                  => $satu,
+            'dua'                   => $dua,
+            'tiga'                  => $tiga,
+            'empat'                 => $empat,
+            'lima'                  => $lima,
+            'enam'                  => $enam,
+            'tujuh'                 => $tujuh,
+            'delapan'               => $delapan,
+            'sembilan'              => $sembilan,
+        );
+
+        $this->pasien_m->insert_data($data,'kriteria_moskuloskelental');
+        $this->session->set_flashdata('flash', 'Ditambahkan');
+        redirect('Ass/MasterPasien/hasil/'.$id_anamnesis);
+    }
+
+
+    public function update_kriteriamol_aksi()
+    {
+        $id_anamnesis   = $this->input->post('id_anamnesis');
+        $id_kriteriamos = $this->input->post('id_kriteriamos');
+        $satu           = $this->input->post('satu');
+        $dua            = $this->input->post('dua');
+        $tiga           = $this->input->post('tiga');
+        $empat          = $this->input->post('empat');
+        $lima           = $this->input->post('lima');
+        $enam           = $this->input->post('enam');
+        $tujuh          = $this->input->post('tujuh');
+        $delapan        = $this->input->post('delapan');
+        $sembilan       = $this->input->post('sembilan');
+
+        $data = array(
+            'satu'             => $satu,
+            'dua'              => $dua,
+            'tiga'             => $tiga,
+            'empat'            => $empat,
+            'lima'             => $lima,
+            'enam'             => $enam,
+            'tujuh'            => $tujuh,
+            'delapan'          => $delapan,
+            'sembilan'         => $sembilan,
+        );
+
+
+        $where = array(
+            'id_kriteriamos'     => $id_kriteriamos
+        );
+
+        $this->pasien_m->update_data('kriteria_moskuloskelental',$data,$where);
+        $this->session->set_flashdata('flash', 'Diupdate');
+        redirect('Ass/MasterPasien/hasil/'.$id_anamnesis);
+    }
+
+
+    public function tambah_intervensipro()
+    {
+        $id_anamnesis           = $this->input->post('id_anamnesis');
+        $id_proteksi            = $this->input->post('id_proteksi');
+        $satu                   = $this->input->post('satu');
+        $dua                    = $this->input->post('dua');
+        $tiga                   = $this->input->post('tiga');
+        $empat                  = $this->input->post('empat');
+        $lima                   = $this->input->post('lima');
+        $enam                   = $this->input->post('enam');
+        $tujuh                  = $this->input->post('tujuh');
+        $delapan                = $this->input->post('delapan');
+        $sembilan               = $this->input->post('sembilan');
+        $sepuluh                = $this->input->post('sepuluh');
+        $sebelas                = $this->input->post('sebelas');
+
+        $data = array(
+            'id_anamnesis'          => $id_anamnesis,
+            'id_proteksi'           => $id_proteksi,
+            'satu'                  => $satu,
+            'dua'                   => $dua,
+            'tiga'                  => $tiga,
+            'empat'                 => $empat,
+            'lima'                  => $lima,
+            'enam'                  => $enam,
+            'tujuh'                 => $tujuh,
+            'delapan'               => $delapan,
+            'sembilan'              => $sembilan,
+            'sepuluh'               => $sepuluh,
+            'sebelas'               => $sebelas,
+        );
+
+        $this->pasien_m->insert_data($data,'intervensi_proteksi');
+        $this->session->set_flashdata('flash', 'Ditambahkan');
+        redirect('Ass/MasterPasien/hasil/'.$id_anamnesis);
+    }
+
+    public function update_intervensipro_aksi()
+    {
+        $id_anamnesis   = $this->input->post('id_anamnesis');
+        $id_ipro          = $this->input->post('id_ipro');
+        $satu           = $this->input->post('satu');
+        $dua            = $this->input->post('dua');
+        $tiga           = $this->input->post('tiga');
+        $empat          = $this->input->post('empat');
+        $lima           = $this->input->post('lima');
+        $enam           = $this->input->post('enam');
+        $tujuh          = $this->input->post('tujuh');
+        $delapan        = $this->input->post('delapan');
+        $sembilan       = $this->input->post('sembilan');
+        $sepuluh        = $this->input->post('sepuluh');
+        $sebelas        = $this->input->post('sebelas');
+
+        $data = array(
+            'satu'             => $satu,
+            'dua'              => $dua,
+            'tiga'             => $tiga,
+            'empat'            => $empat,
+            'lima'             => $lima,
+            'enam'             => $enam,
+            'tujuh'            => $tujuh,
+            'delapan'          => $delapan,
+            'sembilan'         => $sembilan,
+            'sepuluh'          => $sepuluh,
+            'sebelas'          => $sebelas,
+        );
+
+
+        $where = array(
+            'id_ipro'     => $id_ipro
+        );
+
+        $this->pasien_m->update_data('intervensi_proteksi',$data,$where);
+        $this->session->set_flashdata('flash', 'Diupdate');
+        redirect('Ass/MasterPasien/hasil/'.$id_anamnesis);
+    }
+
+
+    public function tambah_kriteriapro()
+    {
+        $id_anamnesis           = $this->input->post('id_anamnesis');
+        $id_proteksi            = $this->input->post('id_proteksi');
+        $satu                   = $this->input->post('satu');
+        $dua                    = $this->input->post('dua');
+        $tiga                   = $this->input->post('tiga');
+        $empat                  = $this->input->post('empat');
+        $lima                   = $this->input->post('lima');
+        $enam                   = $this->input->post('enam');
+        $tujuh                  = $this->input->post('tujuh');
+        $delapan                = $this->input->post('delapan');
+        $sembilan               = $this->input->post('sembilan');
+        $sepuluh                = $this->input->post('sembilan');
+        $sebelas                = $this->input->post('sebelas');
+        $duabelas               = $this->input->post('duabelas');
+        $tigabelas              = $this->input->post('tigabelas');
+        $empatbelas             = $this->input->post('empatbelas');
+        $limabelas              = $this->input->post('limabelas');
+        $enambelas              = $this->input->post('enambelas');
+        $tujuhbelas             = $this->input->post('tujuhbelas');
+
+        $data = array(
+            'id_anamnesis'          => $id_anamnesis,
+            'id_proteksi'           => $id_proteksi,
+            'satu'                  => $satu,
+            'dua'                   => $dua,
+            'tiga'                  => $tiga,
+            'empat'                 => $empat,
+            'lima'                  => $lima,
+            'enam'                  => $enam,
+            'tujuh'                 => $tujuh,
+            'delapan'               => $delapan,
+            'sembilan'              => $sembilan,
+            'sepuluh'               => $sepuluh,
+            'sebelas'               => $sebelas,
+            'duabelas'              => $duabelas,
+            'tigabelas'             => $tigabelas,
+            'empatbelas'            => $empatbelas,
+            'limabelas'             => $limabelas,
+            'enambelas'             => $enambelas,
+            'tujuhbelas'            => $tujuhbelas,
+        );
+
+        $this->pasien_m->insert_data($data,'kriteria_proteksi');
+        $this->session->set_flashdata('flash', 'Ditambahkan');
+        redirect('Ass/MasterPasien/hasil/'.$id_anamnesis);
+    }
+
+
+    public function tambah_intervensinyeri()
+    {
+        $id_anamnesis   = $this->input->post('id_anamnesis');
+        $id_nyeri       = $this->input->post('id_nyeri');
+        $satu           = $this->input->post('satu');
+        $dua            = $this->input->post('dua');
+        $tiga           = $this->input->post('tiga');
+        $empat          = $this->input->post('empat');
+        $lima           = $this->input->post('lima');
+        $enam           = $this->input->post('enam');
+        $tujuh          = $this->input->post('tujuh');
+        $delapan        = $this->input->post('delapan');
+        $sembilan       = $this->input->post('sembilan');
+        $sepuluh        = $this->input->post('sepuluh');
+        $sebelas        = $this->input->post('sebelas');
+        $duabelas       = $this->input->post('duabelas');
+        $tigabelas      = $this->input->post('tigabelas');
+        $empatbelas     = $this->input->post('empatbelas');
+        $limabelas     = $this->input->post('limabelas');
+        $enambelas     = $this->input->post('enambelas');
+        $tujuhbelas     = $this->input->post('tujuhbelas');
+        $delapanbelas     = $this->input->post('delapanbelas');
+        $sembilanbelas     = $this->input->post('sembilanbelas');
+
+        $data = array(
+            'id_anamnesis'     => $id_anamnesis,
+            'id_nyeri'         => $id_nyeri,
+            'satu'             => $satu,
+            'dua'              => $dua,
+            'tiga'             => $tiga,
+            'empat'            => $empat,
+            'lima'             => $lima,
+            'enam'             => $enam,
+            'tujuh'            => $tujuh,
+            'delapan'          => $delapan,
+            'sembilan'         => $sembilan,
+            'sepuluh'          => $sepuluh,
+            'sebelas'          => $sebelas,
+            'duabelas'         => $duabelas,
+            'tigabelas'        => $tigabelas,
+            'empatbelas'       => $empatbelas,
+            'limabelas'       => $limabelas,
+            'enambelas'       => $enambelas,
+            'tujuhbelas'       => $tujuhbelas,
+            'delapanbelas'       => $delapanbelas,
+            'sembilanbelas'       => $sembilanbelas,
+        );
+
+        $this->pasien_m->insert_data($data,'intervensi_nyeri');
+        $this->session->set_flashdata('flash', 'Ditambahkan');
+        redirect('Ass/MasterPasien/hasil/'.$id_anamnesis);
+    }
+
+
+
+
+    public function update_intervensinyeri_aksi()
+    {
+        $id_anamnesis   = $this->input->post('id_anamnesis');
+        $id_inyeri      = $this->input->post('id_inyeri');
+        $satu           = $this->input->post('satu');
+        $dua            = $this->input->post('dua');
+        $tiga           = $this->input->post('tiga');
+        $empat          = $this->input->post('empat');
+        $lima           = $this->input->post('lima');
+        $enam           = $this->input->post('enam');
+        $tujuh          = $this->input->post('tujuh');
+        $delapan        = $this->input->post('delapan');
+        $sembilan       = $this->input->post('sembilan');
+        $sepuluh        = $this->input->post('sepuluh');
+        $sebelas        = $this->input->post('sebelas');
+        $duabelas       = $this->input->post('duabelas');
+        $tigabelas      = $this->input->post('tigabelas');
+        $empatbelas     = $this->input->post('empatbelas');
+        $limabelas     = $this->input->post('limabelas');
+        $enambelas     = $this->input->post('enambelas');
+        $tujuhbelas     = $this->input->post('tujuhbelas');
+        $delapanbelas     = $this->input->post('delapanbelas');
+        $sembilanbelas     = $this->input->post('sembilanbelas');
+
+        $data = array(
+            'satu'             => $satu,
+            'dua'              => $dua,
+            'tiga'             => $tiga,
+            'empat'            => $empat,
+            'lima'             => $lima,
+            'enam'             => $enam,
+            'tujuh'            => $tujuh,
+            'delapan'          => $delapan,
+            'sembilan'         => $sembilan,
+            'sepuluh'          => $sepuluh,
+            'sebelas'          => $sebelas,
+            'duabelas'         => $duabelas,
+            'tigabelas'        => $tigabelas,
+            'empatbelas'       => $empatbelas,
+            'limabelas'       => $limabelas,
+            'enambelas'       => $enambelas,
+            'tujuhbelas'       => $tujuhbelas,
+            'delapanbelas'       => $delapanbelas,
+            'sembilanbelas'       => $sembilanbelas,
+        );
+
+
+        $where = array(
+            'id_inyeri'     => $id_inyeri
+        );
+
+        $this->pasien_m->update_data('intervensi_nyeri',$data,$where);
+        $this->session->set_flashdata('flash', 'Diupdate');
+        redirect('Ass/MasterPasien/hasil/'.$id_anamnesis);
+    }
+
+
+
+
+    public function tambah_kriterianyeri()
+    {
+        $id_anamnesis   = $this->input->post('id_anamnesis');
+        $id_nyeri       = $this->input->post('id_nyeri');
+        $satu           = $this->input->post('satu');
+        $dua            = $this->input->post('dua');
+        $tiga           = $this->input->post('tiga');
+        $empat          = $this->input->post('empat');
+        $lima           = $this->input->post('lima');
+        $enam           = $this->input->post('enam');
+
+        $data = array(
+            'id_anamnesis'     => $id_anamnesis,
+            'id_nyeri'         => $id_nyeri,
+            'satu'             => $satu,
+            'dua'              => $dua,
+            'tiga'             => $tiga,
+            'empat'            => $empat,
+            'lima'             => $lima,
+            'enam'             => $enam,
+
+        );
+
+        $this->pasien_m->insert_data($data,'kriteria_nyeri');
+        $this->session->set_flashdata('flash', 'Ditambahkan');
+        redirect('Ass/MasterPasien/hasil/'.$id_anamnesis);
+    }
+
+
+    public function update_kriterianyeri_aksi()
+    {
+        $id_anamnesis   = $this->input->post('id_anamnesis');
+        $id_kriterianyeri      = $this->input->post('id_kriterianyeri');
+        $satu           = $this->input->post('satu');
+        $dua            = $this->input->post('dua');
+        $tiga           = $this->input->post('tiga');
+        $empat          = $this->input->post('empat');
+        $lima           = $this->input->post('lima');
+        $enam           = $this->input->post('enam');
+
+        $data = array(
+            'satu'             => $satu,
+            'dua'              => $dua,
+            'tiga'             => $tiga,
+            'empat'            => $empat,
+            'lima'             => $lima,
+            'enam'             => $enam,
+        );
+
+
+        $where = array(
+            'id_kriterianyeri'     => $id_kriterianyeri
+        );
+
+        $this->pasien_m->update_data('kriteria_nyeri',$data,$where);
+        $this->session->set_flashdata('flash', 'Diupdate');
+        redirect('Ass/MasterPasien/hasil/'.$id_anamnesis);
+    }
+
+
 
 
 }

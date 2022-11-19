@@ -36,10 +36,44 @@ class Pasien_m extends CI_Model
 		return $query->row();
 	}
 
+	public function intervensi_proteksi($idanamnesis)
+	{
+
+		$query = $this->db->query("SELECT * FROM intervensi_proteksi WHERE id_anamnesis = '$idanamnesis';");
+
+		return $query->row();
+	}
+
+
+	public function intervensi_nyeri($idanamnesis)
+	{
+
+		$query = $this->db->query("SELECT * FROM intervensi_nyeri WHERE id_anamnesis = '$idanamnesis';");
+
+		return $query->row();
+	}
+
 	public function kriteria_mol($idanamnesis)
 	{
 
 		$query = $this->db->query("SELECT * FROM kriteria_moskuloskelental WHERE id_anamnesis = '$idanamnesis';");
+
+		return $query->row();
+	}
+
+	public function kriteria_pro($idanamnesis)
+	{
+
+		$query = $this->db->query("SELECT * FROM kriteria_proteksi WHERE id_anamnesis = '$idanamnesis';");
+
+		return $query->row();
+	}
+
+
+	public function kriteria_nyeri($idanamnesis)
+	{
+
+		$query = $this->db->query("SELECT * FROM kriteria_nyeri WHERE id_anamnesis = '$idanamnesis';");
 
 		return $query->row();
 	}
@@ -79,6 +113,32 @@ class Pasien_m extends CI_Model
 	}
 
 
+	public function cek_intervensipro($idanamnesis)
+	{
+
+		$hasil = $this->db->query("SELECT * FROM intervensi_proteksi WHERE id_anamnesis = '$idanamnesis';");
+
+		if($hasil->num_rows() > 0){
+			return $hasil->row();
+		}else{
+			return false;
+		}
+	}
+
+
+	public function cek_intervensinyeri($idanamnesis)
+	{
+
+		$hasil = $this->db->query("SELECT * FROM intervensi_nyeri WHERE id_anamnesis = '$idanamnesis';");
+
+		if($hasil->num_rows() > 0){
+			return $hasil->row();
+		}else{
+			return false;
+		}
+	}
+
+
 	public function cek_kriteriapersafasan($idanamnesis)
 	{
 
@@ -103,6 +163,31 @@ class Pasien_m extends CI_Model
 		}
 	}
 
+	public function cek_kriteriapro($idanamnesis)
+	{
+
+		$hasil = $this->db->query("SELECT * FROM kriteria_proteksi WHERE id_anamnesis = '$idanamnesis';");
+
+		if($hasil->num_rows() > 0){
+			return $hasil->row();
+		}else{
+			return false;
+		}
+	}
+
+
+	public function cek_kriterianyeri($idanamnesis)
+	{
+
+		$hasil = $this->db->query("SELECT * FROM kriteria_nyeri WHERE id_anamnesis = '$idanamnesis';");
+
+		if($hasil->num_rows() > 0){
+			return $hasil->row();
+		}else{
+			return false;
+		}
+	}
+
 	public function cek_sistempersafasan($idanamnesis)
 	{
 
@@ -119,6 +204,31 @@ class Pasien_m extends CI_Model
 	{
 
 		$hasil = $this->db->query("SELECT * FROM sistem_moskuloskelental WHERE id_anamnesis = '$idanamnesis';");
+
+		if($hasil->num_rows() > 0){
+			return $hasil->row();
+		}else{
+			return false;
+		}
+	}
+
+	public function cek_sistempro($idanamnesis)
+	{
+
+		$hasil = $this->db->query("SELECT * FROM sistem_proteksi WHERE id_anamnesis = '$idanamnesis';");
+
+		if($hasil->num_rows() > 0){
+			return $hasil->row();
+		}else{
+			return false;
+		}
+	}
+
+
+	public function cek_sistemnyeri($idanamnesis)
+	{
+
+		$hasil = $this->db->query("SELECT * FROM pengkajian_nyeri WHERE id_anamnesis = '$idanamnesis';");
 
 		if($hasil->num_rows() > 0){
 			return $hasil->row();
@@ -519,9 +629,23 @@ class Pasien_m extends CI_Model
 	}
 
 
+	public function get_data_innyeri_by_id($id)
+	{
+		$query = $this->db->query("SELECT * FROM intervensi_nyeri where id_inyeri = $id;");
+		return $query->row();
+	}
+
+
 	public function get_data_kriterianafas_by_id($id)
 	{
 		$query = $this->db->query("SELECT * FROM kriteria_pernafasan where id_kriterianafas = $id;");
+		return $query->row();
+	}
+
+
+	public function get_data_kriterianyeri_by_id($id)
+	{
+		$query = $this->db->query("SELECT * FROM kriteria_nyeri where id_kriterianyeri = $id;");
 		return $query->row();
 	}
 
@@ -532,6 +656,12 @@ class Pasien_m extends CI_Model
 		return $query->row();
 	}
 
+	public function get_data_inpro_by_id($id)
+	{
+		$query = $this->db->query("SELECT * FROM intervensi_proteksi where id_ipro = $id;");
+		return $query->row();
+	}
+
 	public function get_data_kriteriamol_by_id($id)
 	{
 		$query = $this->db->query("SELECT * FROM kriteria_moskuloskelental where id_kriteriamos = $id;");
@@ -539,9 +669,39 @@ class Pasien_m extends CI_Model
 	}
 
 
+	public function get_data_kriteriapro_by_id($id)
+	{
+		$query = $this->db->query("SELECT * FROM kriteria_proteksi where id_kriteriaproteksi = $id;");
+		return $query->row();
+	}
+
+
 	public function get_data_soapnafas($idanamnesis)
 	{
-		$query = $this->db->query("SELECT * FROM soap_pernafasan sp, intervensi_pernafasan ip WHERE sp.id_anamnesis = '$idanamnesis' AND sp.id_anamnesis = ip.id_anamnesis;");
+		$query = $this->db->query("
+
+			SELECT sp.s, sp.o, sp.create_at, sp.id_soapnafas,
+			kp.satu AS siji, kp.dua AS loro,kp.tiga AS telu,
+			kp.empat AS papat, kp.lima AS limo,kp.enam AS enem,
+			kp.tujuh AS pitu, kp.delapan AS wolu,kp.sembilan AS songo,
+			kp.sepuluh AS sepuloh,	
+			ip.satu,ip.dua,ip.tiga,ip.empat,ip.lima,
+			ip.enam,ip.tujuh,ip.delapan,ip.sembilan,ip.sepuluh,
+			ip.sebelas,ip.duabelas,ip.tigabelas,ip.empatbelas
+		  	FROM soap_pernafasan sp
+		  	INNER JOIN kriteria_pernafasan kp
+		  	ON sp.id_anamnesis = kp.id_anamnesis
+		  	INNER JOIN intervensi_pernafasan ip
+		  	ON kp.id_anamnesis = ip.id_anamnesis
+		  	WHERE sp.id_anamnesis = '$idanamnesis';
+
+		  -- SELECT * FROM soap_pernafasan sp, 
+			-- intervensi_pernafasan ip, 
+			-- kriteria_pernafasan kp 
+			-- WHERE sp.id_anamnesis = '$idanamnesis' 
+			-- AND sp.id_anamnesis = ip.id_anamnesis
+			-- AND sp.id_anamnesis = kp.id_anamnesis;
+		");
 
 		return $query->result();
 	}

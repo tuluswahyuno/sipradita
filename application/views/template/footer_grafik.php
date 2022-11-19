@@ -104,9 +104,9 @@
           type: 'line',
           data: [34, 38, 36, 40, 34, 36, 37],
           backgroundColor: 'tansparent',
-          borderColor: '#ced4da',
-          pointBorderColor: '#ced4da',
-          pointBackgroundColor: '#ced4da',
+          borderColor: '#FF0000',
+          pointBorderColor: '#FF0000',
+          pointBackgroundColor: '#FF0000',
           fill: false
         // pointHoverBackgroundColor: '#ced4da',
         // pointHoverBorderColor    : '#ced4da'
