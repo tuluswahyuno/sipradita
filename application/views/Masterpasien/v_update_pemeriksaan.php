@@ -8,32 +8,9 @@
     <div class="col-sm-12">
       <ul class="nav nav-tabs">
 
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/detail_anamnesis/').$detail->id_anamnesis ?>">Anamesis</a>
-        </li>
-
+      
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="<?php echo base_url('Ass/MasterPasien/pemeriksaan/').$detail->id_anamnesis ?>">Pemeriksaan Umum</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/pernafasan/').$detail->id_anamnesis ?>">Pernafasan</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/moskuloskelental/').$detail->id_anamnesis ?>">Moskuloskelental</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/proteksi/').$detail->id_anamnesis ?>">Proteksi</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/nyeri/').$detail->id_anamnesis ?>">Nyeri</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/hasil/').$detail->id_anamnesis ?>">Hasil</a>
         </li>
 
       </ul>
@@ -69,21 +46,21 @@
               <div class="col-sm-2">
                 <div class="form-group">
                   <label>E</label>
-                  <input type="text" name="e" class="form-control" value="<?php echo $pemeriksaan->e; ?>" required>
+                  <input type="number" name="e" class="form-control" value="<?php echo $pemeriksaan->e; ?>" required>
                 </div>
               </div>
 
               <div class="col-sm-2">
                 <div class="form-group">
                   <label>V</label>
-                  <input type="text" name="v" class="form-control" value="<?php echo $pemeriksaan->v; ?>" required>
+                  <input type="number" name="v" class="form-control" value="<?php echo $pemeriksaan->v; ?>" required>
                 </div>
               </div>
 
               <div class="col-sm-2">
                 <div class="form-group">
                   <label>M</label>
-                  <input type="text" name="m" class="form-control" value="<?php echo $pemeriksaan->m; ?>" required>
+                  <input type="number" name="m" class="form-control" value="<?php echo $pemeriksaan->m; ?>" required>
                 </div>
               </div>
 
@@ -91,75 +68,61 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>BB</label>
-                  <input type="text" name="bb" class="form-control" value="<?php echo $pemeriksaan->bb; ?>" required>
+                  <input type="number" name="bb" class="form-control" value="<?php echo $pemeriksaan->bb; ?>" required>
                 </div>
               </div>
 
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>TB</label>
-                  <input type="text" name="tb" class="form-control" value="<?php echo $pemeriksaan->tb; ?>" required>
+                  <input type="number" name="tb" class="form-control" value="<?php echo $pemeriksaan->tb; ?>" required>
                 </div>
               </div>
 
-              <div class="col-sm-12">
-                <div class="form-group">
-                  <label>2. Kesadaran</label>
-                  <select class="form-control" name="kesadaran">
-                    <option value="<?php echo $pemeriksaan->kesadaran; ?>"><?php echo $pemeriksaan->kesadaran; ?></option>
-                    <option value="Compos Mentis (GCS 14-15)">Compos Mentis (GCS 14-15)</option>
-                    <option value="Apatis (GCS 12-13)">Apatis (GCS 12-13)</option>
-                    <option value="Somnolen (GCS 10-11)">Somnolen (GCS 10-11)</option>
-                    <option value="Delirium (GCS 9-7)">Delirium (GCS 9-7)</option>
-                    <option value="Soporos Coma (GCS 4-6)">Soporos Coma (GCS 4-6)</option>
-                    <option value="Coma (GCS 3)">Coma (GCS 3)</option>
-                  </select>
-                </div>
-              </div>
 
               <div class="col-sm-12">
-                <label>3. Tanda-Tanda Vital</label><br>
+                <label>2. Tanda-Tanda Vital</label><br>
               </div>
 
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>TD</label>
-                  <input type="text" name="td" class="form-control" value="<?php echo $pemeriksaan->td; ?>" required>
+                  <input type="number" name="td" class="form-control" value="<?php echo $pemeriksaan->td; ?>" required>
                 </div>
               </div>
 
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>RR</label>
-                  <input type="text" name="rr" class="form-control" value="<?php echo $pemeriksaan->rr; ?>" required>
+                  <input type="number" name="rr" class="form-control" value="<?php echo $pemeriksaan->rr; ?>" required>
                 </div>
               </div>
 
               <div class="col-sm-2">
                 <div class="form-group">
                   <label>N</label>
-                  <input type="text" name="n" class="form-control" value="<?php echo $pemeriksaan->n; ?>" required>
+                  <input type="number" name="n" class="form-control" value="<?php echo $pemeriksaan->n; ?>" required>
                 </div>
               </div>
 
               <div class="col-sm-2">
                 <div class="form-group">
                   <label>S</label>
-                  <input type="text" name="s" class="form-control" value="<?php echo $pemeriksaan->s; ?>" required>
+                  <input type="number" name="s" class="form-control" value="<?php echo $pemeriksaan->s; ?>" required>
                 </div>
               </div>
 
               <div class="col-sm-2">
                 <div class="form-group">
                   <label>Spo2</label>
-                  <input type="text" name="spo" class="form-control" value="<?php echo $pemeriksaan->spo; ?>" required>
+                  <input type="number" name="spo" class="form-control" value="<?php echo $pemeriksaan->spo; ?>" required>
                 </div>
               </div>
 
 
               <div class="col-sm-12">
                 <div class="form-group">
-                  <label>4. Keadaan Umum </label>
+                  <label>3. Keadaan Umum </label>
                   <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#exampleModalCenter">
                     Catatan Pengisian <i class="fas fa-info-circle"></i>
                   </button>
@@ -175,7 +138,7 @@
 
 
             <div class="col-sm-12">
-                <label>5. Prosedur Invasif</label><br>
+                <label>4. Prosedur Invasif</label><br>
             </div>
 
 

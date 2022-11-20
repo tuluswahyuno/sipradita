@@ -198,7 +198,7 @@
             <div class="col-sm-2">
                 <div class="form-group">
                   <label>Jam Tdr Sblm Sakit</label>
-                  <input type="time" name="jam_tidur_sebelumsakit" class="form-control" required>
+                  <input type="number" name="jam_tidur_sebelumsakit" class="form-control" required>
                 </div>
             </div>
 
@@ -206,7 +206,7 @@
             <div class="col-sm-2">
                 <div class="form-group">
                   <label>Jam Tdr Ssdh Sakit</label>
-                  <input type="time" name="jam_tidur_sesudahsakit" class="form-control" required>
+                  <input type="number" name="jam_tidur_sesudahsakit" class="form-control" required>
                 </div>
             </div>
 

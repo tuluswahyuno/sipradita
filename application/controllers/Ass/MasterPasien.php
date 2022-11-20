@@ -283,7 +283,7 @@ class MasterPasien extends CI_Controller
         $m                      = $this->input->post('m');
         $bb                     = $this->input->post('bb');
         $tb                     = $this->input->post('tb');
-        $kesadaran              = $this->input->post('kesadaran');
+        // $kesadaran              = $this->input->post('kesadaran');
         $td                     = $this->input->post('td');
         $rr                     = $this->input->post('rr');
         $n                      = $this->input->post('n');
@@ -295,6 +295,25 @@ class MasterPasien extends CI_Controller
         $tanggal                = $this->input->post('tanggal');
         $kateter_terpasang_tgl  = $this->input->post('kateter_terpasang_tgl');
         $ngtogt_terpasang_tgl   = $this->input->post('ngtogt_terpasang_tgl');
+
+        $jumlah = $e+$v+$m;
+
+        if ($jumlah == '14' || $jumlah == '15') {
+            $kesadaran = ' Compos Mentis (GCS 14-15)';
+        }elseif ($jumlah == '12' || $jumlah == '13') {
+            $kesadaran = 'Apatis (GCS 12-13)';
+        }elseif ($jumlah == '11' || $jumlah == '10') {
+            $kesadaran = 'Somnolen (GCS 10-11)';
+        }elseif ($jumlah == '9' || $jumlah == '8'|| $jumlah == '7') {
+            $kesadaran = 'Delirium (GCS 9-7)';
+        }elseif ($jumlah == '4' || $jumlah == '6'|| $jumlah == '5') {
+            $kesadaran = 'Soporos Coma (GCS 4-6)';
+        }elseif ($jumlah == '3' || $jumlah == '2'|| $jumlah == '1') {
+            $kesadaran = 'Coma (GCS 3) ';
+        }else{
+            $kesadaran = 'Tidak sesuai';
+        }
+
         
         $data = array(
             'id_anamnesis'          => $id_anamnesis,
@@ -334,7 +353,7 @@ class MasterPasien extends CI_Controller
         $m                      = $this->input->post('m');
         $bb                     = $this->input->post('bb');
         $tb                     = $this->input->post('tb');
-        $kesadaran              = $this->input->post('kesadaran');
+        // $kesadaran              = $this->input->post('kesadaran');
         $td                     = $this->input->post('td');
         $rr                     = $this->input->post('rr');
         $n                      = $this->input->post('n');
@@ -346,6 +365,24 @@ class MasterPasien extends CI_Controller
         $tanggal                = $this->input->post('tanggal');
         $kateter_terpasang_tgl  = $this->input->post('kateter_terpasang_tgl');
         $ngtogt_terpasang_tgl   = $this->input->post('ngtogt_terpasang_tgl');
+
+        $jumlah = $e+$v+$m;
+
+        if ($jumlah == '14' || $jumlah == '15') {
+            $kesadaran = ' Compos Mentis (GCS 14-15)';
+        }elseif ($jumlah == '12' || $jumlah == '13') {
+            $kesadaran = 'Apatis (GCS 12-13)';
+        }elseif ($jumlah == '11' || $jumlah == '10') {
+            $kesadaran = 'Somnolen (GCS 10-11)';
+        }elseif ($jumlah == '9' || $jumlah == '8'|| $jumlah == '7') {
+            $kesadaran = 'Delirium (GCS 9-7)';
+        }elseif ($jumlah == '4' || $jumlah == '6'|| $jumlah == '5') {
+            $kesadaran = 'Soporos Coma (GCS 4-6)';
+        }elseif ($jumlah == '3' || $jumlah == '2'|| $jumlah == '1') {
+            $kesadaran = 'Coma (GCS 3) ';
+        }else{
+            $kesadaran = 'Tidak sesuai';
+        }
         
         $data = array(
             'e'                     => $e,

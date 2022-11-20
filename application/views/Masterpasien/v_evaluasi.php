@@ -97,7 +97,7 @@
 
                               <?php }else{ ?>
                               
-                              Sistem Pernafasan :  <strong><?php echo $hasil_nafas->diagnosa_penafasan; ?></strong><hr>
+                              Sistem Pernafasan :  <strong><?php echo $hasil_nafas->diagnosa_penafasan; ?></strong>
 
                               <?php 
                               if ($hasil_nafas->diagnosa_penafasan == "Tidak Terdiagnosa Masalah Pernafasan") {?>
@@ -193,7 +193,7 @@
 
                                <?php if ($sistemmol == "0") { ?>
 
-                              <p>Pengkajian Belum Selesai Diinput</p>
+                              <hr><p>Pengkajian <strong>sistem moskuloskeletal</strong> belum selesai diinput</p>
 
                             <?php }else{ ?>
                             
@@ -286,7 +286,7 @@
 
                               <?php if ($sistempro == "0") { ?>
 
-                              <p>Pengkajian belum selesai diinput</p>
+                              <hr><p>Pengkajian <strong>sistem proteksi</strong> belum selesai diinput</p>
 
                             <?php }else{ ?>
                             
@@ -442,7 +442,7 @@
 
                               <?php if ($sistemnyeri == "0") { ?>
 
-                              <p>Pengkajian belum selesai diinput</p>
+                              <hr><p><strong>Pengkajian nyeri</strong> belum selesai diinput</p>
 
                             <?php }else{ ?>
                             
@@ -519,7 +519,7 @@
 
                               <?php }else{ ?>
                               
-                              Sistem Pernafasan : <strong> <?php echo $hasil_nafas->diagnosa_penafasan; ?></strong> <br><hr>
+                              Sistem Pernafasan : <strong> <?php echo $hasil_nafas->diagnosa_penafasan; ?></strong> <br>
 
                               <?php 
                               if ($hasil_nafas->diagnosa_penafasan == "Tidak Terdiagnosa Masalah Pernafasan") {?>
@@ -528,8 +528,6 @@
 
                              <?php  }elseif($nafas != "0" && $hasil_nafas->diagnosa_penafasan != "Tidak Terdiagnosa Masalah Pernafasan"){?>
                                 
-                                <hr><p><strong>Sistem Pernafasan</strong></p>
-
                               <?php 
                               $satu = $nafass->satu;
                               if ($satu == "Yes") {?>
@@ -667,7 +665,7 @@
 
                                <?php if ($sistemmol == "0") { ?>
 
-                                <p>Pengkajian Belum Selesai Diinput</p>
+                                <hr><p>Pengkajian <strong>sistem soskuloskeletal</strong> belum selesai diinput</p>
 
                               <?php }else{ ?>
                               
@@ -773,7 +771,7 @@
 
                                 <?php if ($sistempro == "0") { ?>
 
-                                <p>Pengkajian belum selesai diinput</p>
+                                <hr><p>Pengkajian <strong>sistem proteksi </strong>belum selesai diinput</p>
 
                               <?php }else{ ?>
                               
@@ -896,7 +894,7 @@
 
                                 <?php if ($sistemnyeri == "0") { ?>
 
-                                <p>Pengkajian belum selesai diinput</p>
+                                <hr><p><strong>Pengkajian nyeri</strong> belum selesai diinput</p>
 
                               <?php }else{ ?>
                               

@@ -70,284 +70,122 @@
             <div class="card-header p-2">
               <ul class="nav nav-pills">
                 <li class="nav-item"><a class="nav-link active" href="#satu" data-toggle="tab">Keluhan</a></li>
-                <li class="nav-item"><a class="nav-link" href="#dua" data-toggle="tab">Riwayat Penyakit Dahulu</a></li>
-                <li class="nav-item"><a class="nav-link" href="#tiga" data-toggle="tab">Riwayat Penyakit Keluarga</a></li>
-                <li class="nav-item"><a class="nav-link" href="#empat" data-toggle="tab">Riwayat Alergi</a></li>
-                <li class="nav-item"><a class="nav-link" href="#lima" data-toggle="tab">Psikososial</a></li>
+                <li class="nav-item"><a class="nav-link" href="#dua" data-toggle="tab"> Riwayat Penyakit</a></li>
+                <li class="nav-item"><a class="nav-link" href="#tiga" data-toggle="tab">Riwayat Operasi</a></li>
+                <li class="nav-item"><a class="nav-link" href="#empat" data-toggle="tab">Obat Dikonsumsi</a></li>
+                <li class="nav-item"><a class="nav-link" href="#lima" data-toggle="tab">Penyakit Keluarga</a></li>
+                <li class="nav-item"><a class="nav-link" href="#enam" data-toggle="tab">Alergi</a></li>
+                <li class="nav-item"><a class="nav-link" href="#tujuh" data-toggle="tab">Psikososial</a></li>
               </ul>
             </div>
             <div class="card-body">
               <div class="tab-content">
                 <div class="active tab-pane" id="satu">
 
-
-                 <div class="timeline timeline-inverse">
-
-                  <div class="time-label">
-                    <span class="bg-primary">
-                      Keluhan Utama <i class="fas fa-info-circle bg-primary"></i>
-                    </span>
-                  </div>
-
-
-                  <div>
-                    <div class="timeline-item">
-                      <h3 class="timeline-header"><a href="#">Apakah Keluhan Utama Pasien?</a></h3>
-                      <div class="timeline-body">
-                        <?php echo $anamnesis->keluhan_utama ?>
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <div class="time-label">
-                    <span class="bg-primary">
-                      Riwayat Penyakit Sekarang <i class="fas fa-info-circle bg-primary"></i>
-                    </span>
-                  </div>
-
-
-                  <div>
-                    <div class="timeline-item">
-                      <h3 class="timeline-header"><a href="#">Apakah Riwayat Penyakit Pasien Sekarang?</a></h3>
-                      <div class="timeline-body">
-                        <?php echo $anamnesis->riw_penyakit_sekarang ?>
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <div>
-                    <i class="fas fa-info-circle bg-primary"></i>
-                  </div>
+                <div class="form-group row">
+                <label class="col-sm-12 col-form-label">Keluhan Utama</label>
+                <div class="col-sm-12">
+                  <textarea type="text" class="form-control"><?php echo $anamnesis->keluhan_utama ?></textarea>
+                </div>
                 </div>
 
-
+                <div class="form-group row">
+                <label class="col-sm-12 col-form-label">Riwayat Penyakit Sekarang</label>
+                <div class="col-sm-12">
+                  <textarea type="text" class="form-control"><?php echo $anamnesis->riw_penyakit_sekarang ?></textarea>
+                </div>
+                </div>
 
               </div>
 
               <div class="tab-pane" id="dua">
 
-                <div class="timeline timeline-inverse">
-
-                  <div class="time-label">
-                    <span class="bg-primary">
-                      Riwayat Perawatan Pasien <i class="fas fa-info-circle bg-primary"></i>
-                    </span>
-                  </div>
-
-
-                  <div>
-                    <div class="timeline-item">
-                      <h3 class="timeline-header"><a href="#">Apakah Pasien Pernah Dirawat?</a></h3>
-                      <div class="timeline-body">
-                        <?php echo $anamnesis->pernah_rawat ?>
-                      </div>
-                    </div>
-                  </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Pernah dirawat?</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control" value="<?php echo $anamnesis->pernah_rawat; ?>">  
+              </div>
+              </div>
 
 
-                  <div>
-                    <div class="timeline-item">
-                      <h3 class="timeline-header"><a href="#">Apa Diagnosa Pada Pasien Tersebut?</a></h3>
-                      <div class="timeline-body">
-                        <?php echo $anamnesis->pernah_rawat_diagnosa ?>
-                      </div>
-                    </div>
-                  </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Diagnosa?</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control" value="<?php echo $anamnesis->pernah_rawat_diagnosa; ?>">  
+              </div>
+              </div>
 
-                  <div>
-                    <div class="timeline-item">
-                      <h3 class="timeline-header"><a href="#">Kapan Pasien Tersebut Pernah Dirawat?</a></h3>
-                      <div class="timeline-body">
-                        <?php echo $anamnesis->pernah_rawat_kapan ?>
-                      </div>
-                    </div>
-                  </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Kapan?</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control" value="<?php if ($anamnesis->pernah_rawat_kapan== "0000-00-00") {
+                          echo "-";
+                        }else{
+                          echo tgl_indo(date($anamnesis->pernah_rawat_kapan));
+                        } ?> ">  
+              </div>
+              </div>
 
-                  <div>
-                    <div class="timeline-item">
-                      <h3 class="timeline-header"><a href="#">Dimana Tersebut Pernah Dirawat??</a></h3>
-                      <div class="timeline-body">
-                        <?php echo $anamnesis->pernah_rawat_di ?>
-                      </div>
-                    </div>
-                  </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Dimana?</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control" value="<?php echo $anamnesis->pernah_rawat_di; ?>">  
+              </div>
+              </div>
 
-
-                  <div class="time-label">
-                    <span class="bg-primary">
-                      Riwayat Operasi Pasien <i class="fas fa-info-circle bg-primary"></i>
-                    </span>
-                  </div>
-
-
-                  <div>
-                    <div class="timeline-item">
-                      <h3 class="timeline-header"><a href="#">Apakah Pasien Pernah Dioperasi?</a></h3>
-                      <div class="timeline-body">
-                        <?php echo $anamnesis->pernah_operasi ?>
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <div>
-                    <div class="timeline-item">
-                      <h3 class="timeline-header"><a href="#">Jika Ya, Apa Jenis Operasi Pasien Tersebut?</a></h3>
-                      <div class="timeline-body">
-                        <?php echo $anamnesis->pernah_operasi_jenis ?>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <div class="timeline-item">
-                      <h3 class="timeline-header"><a href="#">Kapan Pasien Pernah Dioperasi?</a></h3>
-                      <div class="timeline-body">
-                        <?php echo tgl_indo(date($anamnesis->pernah_operasi_kapan)) ?>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <div class="timeline-item">
-                      <h3 class="timeline-header"><a href="#">Dimana Pasien Pernah Dioperasi?</a></h3>
-                      <div class="timeline-body">
-                        <?php echo $anamnesis->pernah_operasi_di ?>
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <div class="time-label">
-                    <span class="bg-primary">
-                      Obat-obatan yang Dikonsumsi Pasien <i class="fas fa-info-circle bg-primary"></i>
-                    </span>
-                  </div>
-
-
-                  <div>
-                    <div class="timeline-item">
-                      <h3 class="timeline-header"><a href="#">Apakah Saat Ini Ada Obat yang Dikonsumsi?</a></h3>
-                      <div class="timeline-body">
-                        <?php echo $anamnesis->obatygdikonsumsi ?>
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <div>
-                    <div class="timeline-item">
-                      <h3 class="timeline-header"><a href="#">Nama Obat yang Dikonsumsi?</a></h3>
-                      <div class="timeline-body">
-                        <?php echo $anamnesis->obatygdikonsumsi_jenis ?>
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <div>
-                    <i class="fas fa-info-circle bg-primary"></i>
-                  </div>
-                </div>
               </div>
 
               <div class="tab-pane" id="tiga">
 
-               <div class="timeline timeline-inverse">
+               <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Pernah operasi?</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control" value="<?php echo $anamnesis->pernah_operasi; ?>">  
+              </div>
+              </div>
 
-                <div class="time-label">
-                  <span class="bg-primary">
-                    Riwayat Penyakit Keluarga <i class="fas fa-info-circle bg-primary"></i>
-                  </span>
-                </div>
 
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Operasi Apa?</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control" value="<?php echo $anamnesis->pernah_operasi_jenis; ?>">  
+              </div>
+              </div>
 
-                <div>
-                  <div class="timeline-item">
-                    <h3 class="timeline-header"><a href="#">Apakah Pasien Memiliki Riwayat Penyakit Keluarga?</a></h3>
-                    <div class="timeline-body">
-                      <?php echo $anamnesis->riwayat_penyakit_keluarga ?>
-                    </div>
-                  </div>
-                </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Kapan?</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control" value="<?php if ($anamnesis->pernah_operasi_kapan== "0000-00-00") {
+                          echo "-";
+                        }else{
+                          echo tgl_indo(date($anamnesis->pernah_operasi_kapan));
+                        } ?> ">  
+              </div>
+              </div>
 
-                <div>
-                  <div class="timeline-item">
-                    <h3 class="timeline-header"><a href="#">Jenis Penyakit?</a></h3>
-                    <div class="timeline-body">
-                      <?php echo $anamnesis->riwayat_penyakit_jenis ?>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <div class="timeline-item">
-                    <h3 class="timeline-header"><a href="#">Nama Penyakit?</a></h3>
-                    <div class="timeline-body">
-                      <?php echo $anamnesis->penyakit_jenis_lainnya ?>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <i class="fas fa-info-circle bg-primary"></i>
-                </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Dimana?</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control" value="<?php echo $anamnesis->pernah_operasi_di; ?>">  
+              </div>
               </div>
 
             </div>
 
             <div class="tab-pane" id="empat">
 
-              <div class="timeline timeline-inverse">
+               <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Mengkonsumi Obat?</label>
+                <div class="col-sm-9">
+                <input type="text" class="form-control" value="<?php echo $anamnesis->obatygdikonsumsi; ?>">  
+              </div>
+              </div>
 
-                <div class="time-label">
-                  <span class="bg-primary">
-                    Riwayat Alergi <i class="fas fa-info-circle bg-primary"></i>
-                  </span>
-                </div>
-
-
-                <div>
-                  <div class="timeline-item">
-                    <h3 class="timeline-header"><a href="#">Apakah Pasien Memiliki Riwayat Alergi?</a></h3>
-                    <div class="timeline-body">
-                      <?php echo $anamnesis->riwayat_alergi ?>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <div class="timeline-item">
-                    <h3 class="timeline-header"><a href="#">Alergi Makanan?</a></h3>
-                    <div class="timeline-body">
-                      <?php echo $anamnesis->alergi_makanan ?>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <div class="timeline-item">
-                    <h3 class="timeline-header"><a href="#">Alergi Obat?</a></h3>
-                    <div class="timeline-body">
-                      <?php echo $anamnesis->alergi_obat ?>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <div class="timeline-item">
-                    <h3 class="timeline-header"><a href="#">Alergi Lainnya?</a></h3>
-                    <div class="timeline-body">
-                      <?php echo $anamnesis->alergi_lainnya ?>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <i class="fas fa-info-circle bg-primary"></i>
-                </div>
+               <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Nama Obat?</label>
+                <div class="col-sm-9">
+                <input type="text" class="form-control" value="<?php echo $anamnesis->obatygdikonsumsi_jenis; ?>">  
+              </div>
               </div>
 
 
@@ -356,77 +194,107 @@
 
             <div class="tab-pane" id="lima">
 
-
-              <div class="timeline timeline-inverse">
-
-                <div class="time-label">
-                  <span class="bg-primary">
-                    Psikososial <i class="fas fa-info-circle bg-primary"></i>
-                  </span>
-                </div>
-
-
-                <div>
-                  <div class="timeline-item">
-                    <h3 class="timeline-header"><a href="#">Agama Pasien?</a></h3>
-                    <div class="timeline-body">
-                      <?php echo $anamnesis->agama ?>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <div class="timeline-item">
-                    <h3 class="timeline-header"><a href="#">Pendidikan Pasien?</a></h3>
-                    <div class="timeline-body">
-                      <?php echo $anamnesis->pendidikan ?>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <div class="timeline-item">
-                    <h3 class="timeline-header"><a href="#">Kewarganegaraan Pasien?</a></h3>
-                    <div class="timeline-body">
-                      <?php echo $anamnesis->kewarganegaraan ?>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <div class="timeline-item">
-                    <h3 class="timeline-header"><a href="#">Pekerjaan Pasien?</a></h3>
-                    <div class="timeline-body">
-                      <?php echo $anamnesis->pekerjaan ?>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div>
-                  <div class="timeline-item">
-                    <h3 class="timeline-header"><a href="#">Status Kawin?</a></h3>
-                    <div class="timeline-body">
-                      <?php echo $anamnesis->status_pernikahan ?>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <div class="timeline-item">
-                    <h3 class="timeline-header"><a href="#">Tinggal Dengan Keluarga?</a></h3>
-                    <div class="timeline-body">
-                      <?php echo $anamnesis->tinggal_bersama_keluarga ?>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <i class="fas fa-info-circle bg-primary"></i>
-                </div>
+              <div class="form-group row">
+                <label class="col-sm-5 col-form-label">Apakah Memiliki Riwayat Penyakit Keluarga?</label>
+                <div class="col-sm-7">
+                <input type="text" class="form-control" value="<?php echo $anamnesis->riwayat_penyakit_keluarga; ?>">  
+              </div>
               </div>
 
 
+              <div class="form-group row">
+                <label class="col-sm-5 col-form-label">Jenis Penyakit?</label>
+                <div class="col-sm-7">
+                <input type="text" class="form-control" value="<?php echo $anamnesis->riwayat_penyakit_jenis; ?>">  
+              </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-5 col-form-label">Nama Penyakit?</label>
+                <div class="col-sm-7">
+                <input type="text" class="form-control" value="<?php echo $anamnesis->penyakit_jenis_lainnya; ?>">  
+              </div>
+              </div>
+              
+            </div> 
+
+
+            <div class="tab-pane" id="enam">
+
+             <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Apakah Memiliki Alergi?</label>
+                <div class="col-sm-9">
+                <input type="text" class="form-control" value="<?php echo $anamnesis->riwayat_alergi; ?>">  
+              </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Alergi Makanan?</label>
+                <div class="col-sm-9">
+                <input type="text" class="form-control" value="<?php echo $anamnesis->alergi_makanan; ?>">  
+              </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Alergi Obat?</label>
+                <div class="col-sm-9">
+                <input type="text" class="form-control" value="<?php echo $anamnesis->alergi_obat; ?>">  
+              </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Alergi Lainnya?</label>
+                <div class="col-sm-9">
+                <input type="text" class="form-control" value="<?php echo $anamnesis->alergi_lainnya; ?>">  
+              </div>
+            </div>
+              
+            </div>  
+
+            <div class="tab-pane" id="tujuh">
+
+             <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Agama</label>
+                <div class="col-sm-9">
+                <input type="text" class="form-control" value="<?php echo $anamnesis->agama; ?>">  
+              </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Pendidikan</label>
+                <div class="col-sm-9">
+                <input type="text" class="form-control" value="<?php echo $anamnesis->pendidikan; ?>">  
+              </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Kewarganegaraan</label>
+                <div class="col-sm-9">
+                <input type="text" class="form-control" value="<?php echo $anamnesis->kewarganegaraan; ?>">  
+              </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Pekerjaan</label>
+                <div class="col-sm-9">
+                <input type="text" class="form-control" value="<?php echo $anamnesis->pekerjaan; ?>">  
+              </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Status Pernikahan</label>
+                <div class="col-sm-9">
+                <input type="text" class="form-control" value="<?php echo $anamnesis->status_pernikahan; ?>">  
+              </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Tinggal Dengan Keluarga?</label>
+                <div class="col-sm-9">
+                <input type="text" class="form-control" value="<?php echo $anamnesis->tinggal_bersama_keluarga; ?>">  
+              </div>
+            </div>
+              
             </div>  
 
           </div>
@@ -434,7 +302,7 @@
           <div align="right">
             <a href="<?php echo base_url('Ass/MasterPasien/update_anamnesis/').$detail->id_anamnesis ?>" class="btn btn-success"><i class="fas fa-pencil-alt"> </i> Update</a>
 
-            <a href="<?php echo base_url('Ass/MasterPasien/delete_pemeriksaan/').$detail->id_anamnesis ?>" class="btn btn-danger tombol-hapus"><i class="fas fa-trash"> </i> Delete</a>
+            <!-- <a href="<?php echo base_url('Ass/MasterPasien/delete_pemeriksaan/').$detail->id_anamnesis ?>" class="btn btn-danger tombol-hapus"><i class="fas fa-trash"> </i> Delete</a> -->
 
             <a href="<?php echo base_url('Ass/MasterPasien/detail_pasien/').$detail->id_pasien ?>" class="btn btn-secondary"><i class="fas fa-arrow-alt-circle-left"></i> Back</a>
           </div>

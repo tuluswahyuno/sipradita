@@ -76,6 +76,7 @@
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
                   <li class="nav-item"><a class="nav-link active" href="#satu" data-toggle="tab">Pemeriksaan Umum</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#tiga" data-toggle="tab">Tanda-tanda Vital</a></li>
                   <li class="nav-item"><a class="nav-link" href="#dua" data-toggle="tab">Prosedur Invasif</a></li>
                 </ul>
               </div>
@@ -83,97 +84,28 @@
                 <div class="tab-content">
                   <div class="active tab-pane" id="satu">
 
-
-                   <div class="timeline timeline-inverse">
-
-                    <div class="time-label">
-                      <span class="bg-primary">
-                        GCS <i class="fas fa-info-circle bg-primary"></i>
-                      </span>
-                    </div>
-
-
-                    <div>
-                      <div class="timeline-item">
-                        <h3 class="timeline-header"><a href="#">E / V / M Pasien?</a></h3>
-                        <div class="timeline-body">
-                          <span class="badge badge-success"><?php echo "E = ".$aaaa->e."</br>" ?></span>
-                          <span class="badge badge-primary"><?php echo "V = ".$aaaa->v."</br>" ?></span>
-                          <span class="badge badge-warning"><?php echo "M = ".$aaaa->m."</br>" ?></span>
-                        </div>
-                      </div>
-                    </div>
-
-
-                    <div>
-                      <div class="timeline-item">
-                        <h3 class="timeline-header"><a href="#">TB / BB Pasien?</a></h3>
-                        <div class="timeline-body">
-                          <span class="badge badge-info"><?php echo "TB = ".$aaaa->tb." Cm </br>" ?></span>
-                          <span class="badge badge-warning"><?php echo "BB = ".$aaaa->bb." Kg </br>" ?></span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="time-label">
-                      <span class="bg-primary">
-                        Kesadaran <i class="fas fa-info-circle bg-primary"></i>
-                      </span>
-                    </div>
-
-
-
-                    <div>
-                      <div class="timeline-item">
-                        <h3 class="timeline-header"><a href="#">Kesadaran</a></h3>
-                        <div class="timeline-body">
-                          <?php echo $aaaa->kesadaran ?>
-                        </div>
-                      </div>
-                    </div>
-
-
-                    <div class="time-label">
-                      <span class="bg-primary">
-                        Tanda-Tanda Vital <i class="fas fa-info-circle bg-primary"></i>
-                      </span>
-                    </div>
-
-                    <div>
-                      <div class="timeline-item">
-                        <h3 class="timeline-header"><a href="#">TD / RR / N / S / SPo2 Pasien?</a></h3>
-                        <div class="timeline-body">
-                          <span class="badge badge-primary"><?php echo "TD = ".$aaaa->td."</br>" ?></span>
-                          <span class="badge badge-success"><?php echo "RR = ".$aaaa->rr."</br>" ?></span>
-                          <span class="badge badge-warning"><?php echo "N = ".$aaaa->n."</br>" ?></span>
-                          <span class="badge badge-secondary"><?php echo "S = ".$aaaa->s."</br>" ?></span>
-                          <span class="badge badge-danger"><?php echo "SPo2 = ".$aaaa->spo."</br>" ?></span>
-                        </div>
-                      </div>
-                    </div>
-
-
-                    <div class="time-label">
-                      <span class="bg-primary">
-                        Keadaan Umum <i class="fas fa-info-circle bg-primary"></i>
-                      </span>
-                    </div>
-
-
-                    <div>
-                      <div class="timeline-item">
-                        <h3 class="timeline-header"><a href="#">Keadaan Umum Pasien?</a></h3>
-                        <div class="timeline-body">
-                          <?php echo $aaaa->keadaan_umum ?>
-                        </div>
-                      </div>
-                    </div>
-
-
-                    <div>
-                      <i class="fas fa-info-circle bg-primary"></i>
-                    </div>
+                  <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">(CGS) E / V / M </label>
+                  <div class="col-sm-10">
+                  <input type="text" class="form-control" value="<?php echo $aaaa->e." / ".$aaaa->v." / ".$aaaa->m; ?>">  
                   </div>
+                  </div>
+
+
+                  <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">TT / TB</label>
+                  <div class="col-sm-10">
+                  <input type="text" class="form-control" value="<?php echo $aaaa->tb." Cm / ".$aaaa->bb." Kg"; ?>">  
+                  </div>
+                  </div>
+
+                  <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Kesadaran</label>
+                  <div class="col-sm-10">
+                  <input type="text" class="form-control" value="<?php echo $aaaa->kesadaran; ?>">  
+                  </div>
+                  </div>
+
 
                   
 
@@ -182,78 +114,99 @@
                 
                 <div class="tab-pane" id="dua">
 
-                 <div class="timeline timeline-inverse">
+                  <div class="form-group row">
+                  <label class="col-sm-4 col-form-label">IV Line, Terpasang di ?</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" value="<?php echo $aaaa->ivline_terpasangdi." sebelah ".$aaaa->lokasi ?>">  
+                  </div>
+                  </div>
 
-                  <div class="time-label">
-                    <span class="bg-primary">
-                      Prosedur Invasif <i class="fas fa-info-circle bg-primary"></i>
-                    </span>
+                  <div class="form-group row">
+                  <label class="col-sm-4 col-form-label">Tanggal Pemasangan</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" value="<?php if ($aaaa->tanggal == "0000-00-00") {
+                          echo "-";
+                        }else{
+                          echo tgl_indo(date($aaaa->tanggal));
+                        } ?> ">  
+                  </div>
+                  </div>
+
+                  <div class="form-group row">
+                  <label class="col-sm-4 col-form-label">Kateter Urine, Terpasang Tanggal</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" value="<?php if ($aaaa->kateter_terpasang_tgl == "0000-00-00") {
+                          echo "-";
+                        }else{
+                          echo tgl_indo(date($aaaa->kateter_terpasang_tgl));
+                        } ?> ">    
+                  </div>
+                  </div>
+
+                  <div class="form-group row">
+                  <label class="col-sm-4 col-form-label">NGT/OGT, Terpasang Tanggal</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" value="<?php if ($aaaa->ngtogt_terpasang_tgl == "0000-00-00") {
+                          echo "-";
+                        }else{
+                          echo tgl_indo(date($aaaa->ngtogt_terpasang_tgl));
+                        } ?> ">    
+                  </div>
+                  </div>
+
+              </div>
+
+              <div class="tab-pane" id="tiga">
+
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">TD</label>
+                  <div class="col-sm-10">
+                  <input type="text" class="form-control" value="<?php echo "TD = ".$aaaa->td." MmHg"; ?>">  
+                  </div>
+                  </div>
+
+                  <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">RR</label>
+                  <div class="col-sm-10">
+                  <input type="text" class="form-control" value="<?php echo $aaaa->rr." x/menit"; ?>">
+                  </div>
                   </div>
 
 
-                  <div>
-                    <div class="timeline-item">
-                      <h3 class="timeline-header"><a href="#">IV Line, Terpasang di ?</a></h3>
-                      <div class="timeline-body">
-                        <?php echo $aaaa->ivline_terpasangdi." Sebelah ".$aaaa->lokasi ?>
-                      </div>
-                    </div>
+                  <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">N</label>
+                  <div class="col-sm-10">
+                  <input type="text" class="form-control" value="<?php echo $aaaa->n." x/menit"; ?>">  
+                  </div>
                   </div>
 
-                  <div>
-                    <div class="timeline-item">
-                      <h3 class="timeline-header"><a href="#">Tanggal Pemasangan</a></h3>
-                      <div class="timeline-body">
-                        <?php echo tgl_indo(date($aaaa->tanggal)) ?>
-                      </div>
-                    </div>
+                  <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">S</label>
+                  <div class="col-sm-10">
+                  <input type="text" class="form-control" value="<?php echo $aaaa->n." C"; ?>">    
+                  </div>
                   </div>
 
 
-                  <div class="time-label">
-                    <span class="bg-primary">
-                      Kateter Urine <i class="fas fa-info-circle bg-primary"></i>
-                    </span>
+                  <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Spo2</label>
+                  <div class="col-sm-10">
+                  <input type="text" class="form-control mb-1" value="<?php echo $aaaa->n." %"; ?>">  
+                  </div>
                   </div>
 
 
-                  <div>
-                    <div class="timeline-item">
-                      <h3 class="timeline-header"><a href="#">Kateter Urine, Terpasang Tanggal</a></h3>
-                      <div class="timeline-body">
-                        <?php echo tgl_indo(date($aaaa->kateter_terpasang_tgl)) ?>
-                      </div>
-                    </div>
+                  <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Keadaan Umum</label>
+                  <div class="col-sm-10">
+                  <input type="text" class="form-control" value="<?php echo $aaaa->keadaan_umum; ?>">  
                   </div>
-
-                  <div class="time-label">
-                    <span class="bg-primary">
-                      NGT/OGT <i class="fas fa-info-circle bg-primary"></i>
-                    </span>
                   </div>
-
-
-                  <div>
-                    <div class="timeline-item">
-                      <h3 class="timeline-header"><a href="#">NGT/OGT, Terpasang Tanggal</a></h3>
-                      <div class="timeline-body">
-                        <?php echo tgl_indo(date($aaaa->ngtogt_terpasang_tgl)) ?>
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <div>
-                    <i class="fas fa-info-circle bg-primary"></i>
-                  </div>
-                </div>
 
               </div>
 
               <div align="right">
                 <a href="<?php echo base_url('Ass/MasterPasien/update_pemeriksaan/').$detail->id_anamnesis ?>" class="btn btn-success"><i class="fas fa-pencil-alt"> </i> Update</a>
-
-                <a href="<?php echo base_url('Ass/MasterPasien/delete_pemeriksaan/').$detail->id_anamnesis ?>" class="btn btn-danger tombol-hapus"><i class="fas fa-trash"> </i> Delete</a>
 
                 <a href="<?php echo base_url('Ass/MasterPasien/detail_pasien/').$detail->id_pasien ?>" class="btn btn-info"><i class="fas fa-arrow-alt-circle-left"></i> Back</a>
               </div>
