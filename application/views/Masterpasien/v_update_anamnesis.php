@@ -6,15 +6,9 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
-          <h2>Update Anamnesis</h2>
-        </div>
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Anamnesis</li>
-          </ol>
+      <div class="row">
+        <div class="col-sm-12">
+          <h4>Update Anamnesis</h4>
         </div>
       </div>
     </div><!-- /.container-fluid -->

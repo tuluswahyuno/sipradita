@@ -100,7 +100,7 @@
 
                    <?php  }elseif($nafas != "0" && $kn == "0" && $hasil_nafas->diagnosa_penafasan != "Tidak Terdiagnosa Masalah Pernafasan"){?>
                       
-                      <hr><p>Tindakan yang akan dilakukan adalah sebagai berikut :</p>
+                      <hr><p><strong>Tindakan</strong> yang akan dilakukan adalah sebagai berikut :</p>
 
                     <?php 
                     $satu = $nafass->satu;
@@ -599,7 +599,7 @@
 
                    <?php  }elseif($mol != "0" && $kmol == "0" && $hasil_mol->diagnosa_moskuloskelental != "Tidak Terdiagnosa Moskuloskeletal"){?>
                       
-                      <hr><p>Tindakan yang akan dilakukan adalah sebagai berikut :</p>
+                      <hr><p><strong>Tindakan</strong> yang akan dilakukan adalah sebagai berikut :</p>
 
                     <?php 
                     $satu = $moll->satu;
@@ -981,7 +981,7 @@
 
                     <?php }else{ ?>
                     
-                    Dari pengkajian sistem moskuloskeletal yang dilakukan diagnosanya adalah : <strong> <?php echo $hasil_proteksi->diagnosa_proteksi; ?></strong><br>
+                    Dari pengkajian sistem proteksi yang dilakukan diagnosanya adalah : <strong> <?php echo $hasil_proteksi->diagnosa_proteksi; ?></strong><br>
 
                     <?php 
                     if ($hasil_proteksi->diagnosa_proteksi == "Tidak Terdiagnosa Masalah Proteksi dan Perlindungan") {?>
@@ -997,7 +997,7 @@
 
                    <?php  }elseif($pro != "0" && $kpro == "0" && $hasil_proteksi->diagnosa_proteksi != "Tidak Terdiagnosa Masalah Proteksi dan Perlindungan"){?>
                       
-                      <hr><p>Tindakan yang akan dilakukan adalah sebagai berikut :</p>
+                      <hr><p><strong>Tindakan</strong> yang akan dilakukan adalah sebagai berikut :</p>
 
                     <?php 
                     $satu = $protek->satu;
@@ -1540,7 +1540,7 @@
 
 
 
-                  <?php if ($sistemnyeri == "0") { ?>
+                    <?php if ($sistemnyeri == "0") { ?>
 
                       <p>Pengkajian Belum Selesai Diinput</p>
 
@@ -1562,10 +1562,10 @@
 
                    <?php  }elseif($nyeri != "0" && $knyeri == "0" && $hasil_nyeri->diagnosa_nyeri != "Tidak Terdiagnosa Nyeri Akut"){?>
                       
-                      <hr><p>Tindakan yang akan dilakukan adalah sebagai berikut :</p>
+                      <hr><p><strong>Tindakan</strong> yang akan dilakukan adalah sebagai berikut :</p>
 
                     <?php 
-                    $satu = $nyeri->satu;
+                    $satu = $nyerii->satu;
                     if ($satu == "Yes") {?>
                       
                       <div class="custom-control custom-checkbox">
@@ -1575,7 +1575,7 @@
                     
 
                     <?php 
-                    $dua = $nyeri->dua;
+                    $dua = $nyerii->dua;
                     if ($dua == "Yes") {?>
 
                     <div class="custom-control custom-checkbox">
@@ -1585,7 +1585,7 @@
 
 
                     <?php 
-                    $tiga = $nyeri->tiga;
+                    $tiga = $nyerii->tiga;
                     if ($tiga == "Yes") {?>
 
                     <div class="custom-control custom-checkbox">
@@ -1595,7 +1595,7 @@
 
 
                     <?php 
-                    $empat = $nyeri->empat;
+                    $empat = $nyerii->empat;
                     if ($empat == "Yes") {?>
 
                     <div class="custom-control custom-checkbox">
@@ -1604,7 +1604,7 @@
                     </div><?php }else{} ?>
 
                     <?php 
-                    $lima = $nyeri->lima;
+                    $lima = $nyerii->lima;
                     if ($lima == "Yes") {?>
 
                     <div class="custom-control custom-checkbox">
@@ -1614,7 +1614,7 @@
 
 
                     <?php 
-                    $enam = $nyeri->enam;
+                    $enam = $nyerii->enam;
                     if ($enam == "Yes") {?>
 
                     <div class="custom-control custom-checkbox">
@@ -1623,7 +1623,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $tujuh = $nyeri->tujuh;
+                    $tujuh = $nyerii->tujuh;
                     if ($tujuh == "Yes") {?>
 
                     <div class="custom-control custom-checkbox">
@@ -1632,7 +1632,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $delapan = $nyeri->delapan;
+                    $delapan = $nyerii->delapan;
                     if ($delapan == "Yes") {?>
 
                     <div class="custom-control custom-checkbox">
@@ -1641,7 +1641,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $sembilan = $nyeri->sembilan;
+                    $sembilan = $nyerii->sembilan;
                     if ($sembilan == "Yes") {?>
 
                     <div class="custom-control custom-checkbox">
@@ -1650,7 +1650,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $sepuluh = $nyeri->sepuluh;
+                    $sepuluh = $nyerii->sepuluh;
                     if ($sepuluh == "Yes") {?>
 
                     <div class="custom-control custom-checkbox">
@@ -1659,7 +1659,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $sebelas = $nyeri->sebelas;
+                    $sebelas = $nyerii->sebelas;
                     if ($sebelas == "Yes") {?>
                     <div class="custom-control custom-checkbox">
                       <input class="custom-control-input" name="sebelas" type="checkbox" id="nyeri11" value="Yes" checked>
@@ -1667,7 +1667,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $duabelas = $nyeri->duabelas;
+                    $duabelas = $nyerii->duabelas;
                     if ($duabelas == "Yes") {?>
                     <div class="custom-control custom-checkbox">
                       <input class="custom-control-input" name="duabelas" type="checkbox" id="nyeri12" value="Yes" checked>
@@ -1675,7 +1675,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $tigabelas = $nyeri->tigabelas;
+                    $tigabelas = $nyerii->tigabelas;
                     if ($tigabelas == "Yes") {?>
                     <div class="custom-control custom-checkbox">
                       <input class="custom-control-input" name="tigabelas" type="checkbox" id="nyeri13" value="Yes" checked>
@@ -1683,7 +1683,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $empatbelas = $nyeri->empatbelas;
+                    $empatbelas = $nyerii->empatbelas;
                     if ($empatbelas == "Yes") {?>
                     <div class="custom-control custom-checkbox">
                       <input class="custom-control-input" name="empatbelas" type="checkbox" id="nyeri14" value="Yes" checked>
@@ -1691,7 +1691,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $limabelas = $nyeri->limabelas;
+                    $limabelas = $nyerii->limabelas;
                     if ($limabelas == "Yes") {?>
                     <div class="custom-control custom-checkbox">
                       <input class="custom-control-input" name="limabelas" type="checkbox" id="nyeri15" value="Yes" checked>
@@ -1699,7 +1699,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $enambelas = $nyeri->enambelas;
+                    $enambelas = $nyerii->enambelas;
                     if ($enambelas == "Yes") {?>
                     <div class="custom-control custom-checkbox">
                       <input class="custom-control-input" name="enambelas" type="checkbox" id="nyeri16" value="Yes" checked>
@@ -1707,7 +1707,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $tujuhbelas = $nyeri->tujuhbelas;
+                    $tujuhbelas = $nyerii->tujuhbelas;
                     if ($tujuhbelas == "Yes") {?>
                     <div class="custom-control custom-checkbox">
                       <input class="custom-control-input" name="tujuhbelas" type="checkbox" id="nyeri17" value="Yes" checked>
@@ -1715,7 +1715,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $delapanbelas = $nyeri->delapanbelas;
+                    $delapanbelas = $nyerii->delapanbelas;
                     if ($delapanbelas == "Yes") {?>
                     <div class="custom-control custom-checkbox">
                       <input class="custom-control-input" name="delapanbelas" type="checkbox" id="nyeri18" value="Yes" checked>
@@ -1723,7 +1723,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $sembilanbelas = $nyeri->sembilanbelas;
+                    $sembilanbelas = $nyerii->sembilanbelas;
                     if ($sembilanbelas == "Yes") {?>
                     <div class="custom-control custom-checkbox">
                       <input class="custom-control-input" name="sembilanbelas" type="checkbox" id="nyeri19" value="Yes" checked>
@@ -1732,7 +1732,7 @@
 
 
                     <div align="right">
-                    <a href="<?php echo base_url('Ass/MasterPasien/update_intervensinyeri/').$nyeri->id_inyeri ?>" class="btn btn-sm btn-success"><i class="fas fa-pencil-alt"> </i> Update Tindakan</a>
+                    <a href="<?php echo base_url('Ass/MasterPasien/update_intervensinyeri/').$nyerii->id_inyeri ?>" class="btn btn-sm btn-success"><i class="fas fa-pencil-alt"> </i> Update Tindakan</a>
                     </div>
 
                     <div align="right">
@@ -1745,7 +1745,7 @@
                     <hr><p><strong>Tindakan</strong> yang akan dilakukan adalah sebagai berikut :</p>
 
                     <?php 
-                    $satu = $nyeri->satu;
+                    $satu = $nyerii->satu;
                     if ($satu == "Yes") {?>
                       
                       <div class="custom-control custom-checkbox">
@@ -1755,7 +1755,7 @@
                     
 
                     <?php 
-                    $dua = $nyeri->dua;
+                    $dua = $nyerii->dua;
                     if ($dua == "Yes") {?>
 
                     <div class="custom-control custom-checkbox">
@@ -1765,7 +1765,7 @@
 
 
                     <?php 
-                    $tiga = $nyeri->tiga;
+                    $tiga = $nyerii->tiga;
                     if ($tiga == "Yes") {?>
 
                     <div class="custom-control custom-checkbox">
@@ -1775,7 +1775,7 @@
 
 
                     <?php 
-                    $empat = $nyeri->empat;
+                    $empat = $nyerii->empat;
                     if ($empat == "Yes") {?>
 
                     <div class="custom-control custom-checkbox">
@@ -1784,7 +1784,7 @@
                     </div><?php }else{} ?>
 
                     <?php 
-                    $lima = $nyeri->lima;
+                    $lima = $nyerii->lima;
                     if ($lima == "Yes") {?>
 
                     <div class="custom-control custom-checkbox">
@@ -1794,7 +1794,7 @@
 
 
                     <?php 
-                    $enam = $nyeri->enam;
+                    $enam = $nyerii->enam;
                     if ($enam == "Yes") {?>
 
                     <div class="custom-control custom-checkbox">
@@ -1803,7 +1803,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $tujuh = $nyeri->tujuh;
+                    $tujuh = $nyerii->tujuh;
                     if ($tujuh == "Yes") {?>
 
                     <div class="custom-control custom-checkbox">
@@ -1812,7 +1812,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $delapan = $nyeri->delapan;
+                    $delapan = $nyerii->delapan;
                     if ($delapan == "Yes") {?>
 
                     <div class="custom-control custom-checkbox">
@@ -1821,7 +1821,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $sembilan = $nyeri->sembilan;
+                    $sembilan = $nyerii->sembilan;
                     if ($sembilan == "Yes") {?>
 
                     <div class="custom-control custom-checkbox">
@@ -1830,7 +1830,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $sepuluh = $nyeri->sepuluh;
+                    $sepuluh = $nyerii->sepuluh;
                     if ($sepuluh == "Yes") {?>
 
                     <div class="custom-control custom-checkbox">
@@ -1839,7 +1839,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $sebelas = $nyeri->sebelas;
+                    $sebelas = $nyerii->sebelas;
                     if ($sebelas == "Yes") {?>
                     <div class="custom-control custom-checkbox">
                       <input class="custom-control-input" name="sebelas" type="checkbox" id="nyeri11" value="Yes" checked>
@@ -1847,7 +1847,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $duabelas = $nyeri->duabelas;
+                    $duabelas = $nyerii->duabelas;
                     if ($duabelas == "Yes") {?>
                     <div class="custom-control custom-checkbox">
                       <input class="custom-control-input" name="duabelas" type="checkbox" id="nyeri12" value="Yes" checked>
@@ -1855,7 +1855,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $tigabelas = $nyeri->tigabelas;
+                    $tigabelas = $nyerii->tigabelas;
                     if ($tigabelas == "Yes") {?>
                     <div class="custom-control custom-checkbox">
                       <input class="custom-control-input" name="tigabelas" type="checkbox" id="nyeri13" value="Yes" checked>
@@ -1863,7 +1863,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $empatbelas = $nyeri->empatbelas;
+                    $empatbelas = $nyerii->empatbelas;
                     if ($empatbelas == "Yes") {?>
                     <div class="custom-control custom-checkbox">
                       <input class="custom-control-input" name="empatbelas" type="checkbox" id="nyeri14" value="Yes" checked>
@@ -1871,7 +1871,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $limabelas = $nyeri->limabelas;
+                    $limabelas = $nyerii->limabelas;
                     if ($limabelas == "Yes") {?>
                     <div class="custom-control custom-checkbox">
                       <input class="custom-control-input" name="limabelas" type="checkbox" id="nyeri15" value="Yes" checked>
@@ -1879,7 +1879,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $enambelas = $nyeri->enambelas;
+                    $enambelas = $nyerii->enambelas;
                     if ($enambelas == "Yes") {?>
                     <div class="custom-control custom-checkbox">
                       <input class="custom-control-input" name="enambelas" type="checkbox" id="nyeri16" value="Yes" checked>
@@ -1887,7 +1887,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $tujuhbelas = $nyeri->tujuhbelas;
+                    $tujuhbelas = $nyerii->tujuhbelas;
                     if ($tujuhbelas == "Yes") {?>
                     <div class="custom-control custom-checkbox">
                       <input class="custom-control-input" name="tujuhbelas" type="checkbox" id="nyeri17" value="Yes" checked>
@@ -1895,7 +1895,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $delapanbelas = $nyeri->delapanbelas;
+                    $delapanbelas = $nyerii->delapanbelas;
                     if ($delapanbelas == "Yes") {?>
                     <div class="custom-control custom-checkbox">
                       <input class="custom-control-input" name="delapanbelas" type="checkbox" id="nyeri18" value="Yes" checked>
@@ -1903,7 +1903,7 @@
                     </div> <?php }else{} ?>
 
                     <?php 
-                    $sembilanbelas = $nyeri->sembilanbelas;
+                    $sembilanbelas = $nyerii->sembilanbelas;
                     if ($sembilanbelas == "Yes") {?>
                     <div class="custom-control custom-checkbox">
                       <input class="custom-control-input" name="sembilanbelas" type="checkbox" id="nyeri19" value="Yes" checked>
@@ -1912,7 +1912,7 @@
 
 
                     <div align="right">
-                    <a href="<?php echo base_url('Ass/MasterPasien/update_intervensinyeri/').$nyeri->id_inyeri ?>" class="btn btn-sm btn-success"><i class="fas fa-pencil-alt"> </i> Update Tindakan</a>
+                    <a href="<?php echo base_url('Ass/MasterPasien/update_intervensinyeri/').$nyerii->id_inyeri ?>" class="btn btn-sm btn-success"><i class="fas fa-pencil-alt"> </i> Update Tindakan</a>
                     </div>
 
 

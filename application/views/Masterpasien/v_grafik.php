@@ -94,12 +94,15 @@
                   </div>
                 </div>
 
-                <!-- <?php 
+                <?php 
 
-                  echo '<pre>';
-                  var_dump($yes);
+                  // echo '<pre>';
+                  // var_dump($yes);
 
-                 ?> -->
+                  // print_r($gr);
+                // echo json_encode($waktuy)
+
+                 ?>
 
                 <div align="right">
 

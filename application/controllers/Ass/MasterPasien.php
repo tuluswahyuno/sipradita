@@ -9,6 +9,53 @@ class MasterPasien extends CI_Controller
         $this->load->model('caramel', 'caramel');
     }
 
+    public function index()
+    {
+        check_not_login();
+
+        $data['pasien'] = $this->pasien_m->get_data_pasien();
+        $data['hitung_antri'] = $this->pasien_m->hitung_antri();
+        $data['antri_obat'] = $this->pasien_m->antri_obat();
+        $data['invoice']=$this->pasien_m->get_no_invoice();
+
+        $data['title'] = " Data Pasien ";
+
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar',$data);
+        $this->load->view('Masterpasien/v_data_pasien',$data);
+        $this->load->view('template/footer');
+    }
+
+    public function cari_pasien()
+    {
+        check_not_login();
+
+        // $data['pasien'] = $this->pasien_m->get_data_pasien();
+        // $data['hitung_antri'] = $this->pasien_m->hitung_antri();
+        // $data['antri_obat'] = $this->pasien_m->antri_obat();
+        // $data['invoice']=$this->pasien_m->get_no_invoice();
+
+        $data['title'] = " Cari Pasien ";
+
+
+
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar');
+        $this->load->view('Masterpasien/v_cari_pasien',$data);
+        $this->load->view('template/footer');
+
+        
+    }
+
+    public function hasil_cari()
+    {
+        $data['cari'] = $this->pasien_m->cariOrang();
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar');
+        $this->load->view('Masterpasien/v_data_pasien_result', $data);
+        $this->load->view('template/footer');
+    }
+
 	public function data_pasien_gos()
 	{
 		check_not_login();
@@ -55,22 +102,7 @@ class MasterPasien extends CI_Controller
         echo $this->caramel->get_json($plain_query);
     }
 
-    public function index()
-    {
-        check_not_login();
-
-        $data['pasien'] = $this->pasien_m->get_data_pasien();
-        $data['hitung_antri'] = $this->pasien_m->hitung_antri();
-        $data['antri_obat'] = $this->pasien_m->antri_obat();
-        $data['invoice']=$this->pasien_m->get_no_invoice();
-
-        $data['title'] = " Data Pasien ";
-
-        $this->load->view('template/header');
-        $this->load->view('template/sidebar',$data);
-        $this->load->view('Masterpasien/v_data_pasien',$data);
-        $this->load->view('template/footer');
-    }
+    
 
 
     public function tambah_anamnesis($id)
@@ -1080,7 +1112,7 @@ public function hasil($idanamnesis)
     $data['kriteriamoll'] = $this->pasien_m->kriteria_mol($idanamnesis);
     $data['protek'] = $this->pasien_m->intervensi_proteksi($idanamnesis);
     $data['kriteriapro'] = $this->pasien_m->kriteria_pro($idanamnesis);
-    $data['nyeri'] = $this->pasien_m->intervensi_nyeri($idanamnesis);
+    $data['nyerii'] = $this->pasien_m->intervensi_nyeri($idanamnesis);
     $data['kriterianyeri'] = $this->pasien_m->kriteria_nyeri($idanamnesis);
 
     $data['title'] = " Hasil Diagnosa ";
@@ -1100,7 +1132,127 @@ public function evaluasi($idanamnesis)
 
     $data['detail'] = $this->pasien_m->get_id_anamnesis($idanamnesis);
     $data['anamnesis'] = $this->pasien_m->detail_anamnesis($idanamnesis);
-    $data['evaluasi'] = $this->pasien_m->get_data_soapnafas($idanamnesis);
+    $data['hevaluasi'] = $this->pasien_m->get_data_soap($idanamnesis);
+
+    $data['hasil_nafas'] = $this->pasien_m->hasil_pernafasan($idanamnesis);
+    $data['hasil_mol'] = $this->pasien_m->hasil_mol($idanamnesis);
+    $data['hasil_proteksi'] = $this->pasien_m->hasil_proteksi($idanamnesis);
+    $data['hasil_nyeri'] = $this->pasien_m->hasil_nyeri($idanamnesis);
+
+    $nafas = $this->pasien_m->cek_intervensipersafasan($idanamnesis);
+    if ($nafas != null) {
+        $hasil = 1;
+    }else{
+        $hasil = 0;
+    }
+    $data['nafas'] = $hasil;
+
+
+    $kn = $this->pasien_m->cek_kriteriapersafasan($idanamnesis);
+    if ($kn != null) {
+        $hasilkn = 1;
+    }else{
+        $hasilkn = 0;
+    }
+    $data['kn'] = $hasilkn;
+
+
+    $sistemnafas = $this->pasien_m->cek_sistempersafasan($idanamnesis);
+    if ($sistemnafas != null) {
+        $hasilnafas = 1;
+    }else{
+        $hasilnafas = 0;
+    }
+    $data['sistemnafas'] = $hasilnafas;
+
+
+    $sistemmol = $this->pasien_m->cek_sistemmol($idanamnesis);
+    if ($sistemmol != null) {
+        $hasilmol = 1;
+    }else{
+        $hasilmol = 0;
+    }
+    $data['sistemmol'] = $hasilmol;
+
+
+    $mol = $this->pasien_m->cek_intervensimos($idanamnesis);
+    if ($mol != null) {
+        $hasmol = 1;
+    }else{
+        $hasmol = 0;
+    }
+    $data['mol'] = $hasmol;
+
+    
+    $kmol = $this->pasien_m->cek_kriteriamol($idanamnesis);
+    if ($kmol != null) {
+        $hamol = 1;
+    }else{
+        $hamol = 0;
+    }
+    $data['kmol'] = $hamol;
+
+
+    $sistempro = $this->pasien_m->cek_sistempro($idanamnesis);
+    if ($sistempro != null) {
+        $aa = 1;
+    }else{
+        $aa = 0;
+    }
+    $data['sistempro'] = $aa;
+
+
+    $pro = $this->pasien_m->cek_intervensipro($idanamnesis);
+    if ($pro != null) {
+        $bb = 1;
+    }else{
+        $bb = 0;
+    }
+    $data['pro'] = $bb;
+
+
+    $kpro = $this->pasien_m->cek_kriteriapro($idanamnesis);
+    if ($kpro != null) {
+        $cc = 1;
+    }else{
+        $cc = 0;
+    }
+    $data['kpro'] = $cc;
+
+
+    $sistemnyeri = $this->pasien_m->cek_sistemnyeri($idanamnesis);
+    if ($sistemnyeri != null) {
+        $dd = 1;
+    }else{
+        $dd = 0;
+    }
+    $data['sistemnyeri'] = $dd;
+
+    $nyeri = $this->pasien_m->cek_intervensinyeri($idanamnesis);
+    if ($nyeri != null) {
+        $ee = 1;
+    }else{
+        $ee = 0;
+    }
+    $data['nyeri'] = $ee;
+
+    $knyeri = $this->pasien_m->cek_kriterianyeri($idanamnesis);
+    if ($knyeri != null) {
+        $ff = 1;
+    }else{
+        $ff = 0;
+    }
+    $data['knyeri'] = $ff;
+
+
+    $data['nafass'] = $this->pasien_m->intervensi_nafas($idanamnesis);
+    $data['kriterianafas'] = $this->pasien_m->kriteria_nafas($idanamnesis);
+    $data['moll'] = $this->pasien_m->intervensi_mol($idanamnesis);
+    $data['kriteriamoll'] = $this->pasien_m->kriteria_mol($idanamnesis);
+    $data['protek'] = $this->pasien_m->intervensi_proteksi($idanamnesis);
+    $data['kriteriapro'] = $this->pasien_m->kriteria_pro($idanamnesis);
+    $data['nyerii'] = $this->pasien_m->intervensi_nyeri($idanamnesis);
+    $data['kriterianyeri'] = $this->pasien_m->kriteria_nyeri($idanamnesis);
 
     $this->load->view('template/header');
     $this->load->view('template/sidebar');
@@ -1118,8 +1270,16 @@ public function grafik($idanamnesis)
     $data['detail'] = $this->pasien_m->get_id_anamnesis($idanamnesis);
     $data['anamnesis'] = $this->pasien_m->detail_anamnesis($idanamnesis);
 
-    $data['yes'] = $this->pasien_m->gr_nadi($idanamnesis);
 
+    $yes = $this->pasien_m->get_data_grafik($idanamnesis);
+    $data['yes'] = array_column($yes, 'nadi');
+
+
+    $suhu = $this->pasien_m->get_data_grafik_suhu($idanamnesis);
+    $data['suhuy'] = array_column($suhu, 'suhu');
+
+    $waktu = $this->pasien_m->get_data_grafik_waktu($idanamnesis);
+    $data['waktuy'] = array_column($waktu, 'create_at');
 
     $this->load->view('template/header');
     $this->load->view('template/sidebar');
@@ -1359,8 +1519,32 @@ public function tambah_evaluasi()
         'o'             => $o,
     );
 
-    $this->pasien_m->insert_data($data,'soap_pernafasan');
+    $this->pasien_m->insert_data($data,'soap');
     $this->session->set_flashdata('flash', 'Ditambahkan');
+    redirect('Ass/MasterPasien/evaluasi/'.$id_anamnesis);  
+}
+
+
+
+public function update_evaluasi()
+{
+    $id_anamnesis   = $this->input->post('id_anamnesis');
+    $id_soap        = $this->input->post('id_soap');
+    $id_grafik      = $this->input->post('id_grafik');
+    $s              = $this->input->post('s');
+    $o              = $this->input->post('o');
+
+    $data = array(
+        's'             => $s,
+        'o'             => $o,
+    );
+
+    $where = array(
+        'id_soap' => $id_soap
+    );
+
+    $this->pasien_m->update_data('soap',$data,$where);
+    $this->session->set_flashdata('flash', 'Diupdate');
     redirect('Ass/MasterPasien/evaluasi/'.$id_anamnesis);  
 }
 

@@ -87,11 +87,12 @@
   // eslint-disable-next-line no-unused-vars
     var visitorsChart = new Chart($visitorsChart, {
       data: {
-        labels: ['8', '16', '24', '8', '16', '24', '8', '16' ,'24','8', '16', '24'],
+        labels: <?php echo json_encode($waktuy) ?>,
+        // labels: ['8', '16', '24', '8', '16', '24', '8', '16' ,'24','8', '16', '24'],
         datasets: [{
           type: 'line',
-          // data: <?php echo json_encode($yes) ?>,
-          data: [80, 110, 120, 75, 80, 130, 160],
+          data: <?php echo json_encode($yes) ?>,
+          // data: [80, 110, 120, 75, 80, 130, 160],
           backgroundColor: 'transparent',
           borderColor: '#007bff',
           pointBorderColor: '#007bff',
@@ -102,7 +103,8 @@
         },
         {
           type: 'line',
-          data: [34, 38, 36, 40, 34, 36, 37],
+          // data: [34, 38, 36, 40, 34, 36, 37],
+          data: <?php echo json_encode($suhuy) ?>,
           backgroundColor: 'tansparent',
           borderColor: '#FF0000',
           pointBorderColor: '#FF0000',

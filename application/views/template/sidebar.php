@@ -48,6 +48,16 @@
           <li class="nav-header">Assesmen Pasien</li>
 
           <li class="nav-item">
+            <a href="<?php echo base_url('Ass/MasterPasien/cari_pasien') ?>" class="nav-link">
+              <!-- <i class="nav-icon fas fa-user-md"></i> -->
+              <i class="nav-icon fas fa-user-tie"></i>
+              <p>
+                Cari Pasien
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="<?php echo base_url('Ass/MasterPasien') ?>" class="nav-link">
               <!-- <i class="nav-icon fas fa-user-md"></i> -->
               <i class="nav-icon fas fa-user-tie"></i>

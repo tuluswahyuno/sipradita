@@ -64,7 +64,6 @@
 
         <div class="flash-data" data-flashdata="<?php echo $this->session->flashdata('flash'); ?>"></div>
 
-        <div class="row">
 
                     <button type="button" class="btn btn-info mb-3" data-toggle="modal" data-target="#tambah-data"> <i class="fas fa-plus-square"> </i> Tambah Evaluasi Pernafasan </a> </button>
 
@@ -84,7 +83,7 @@
                         <?php 
 
                         $no = 1;
-                        foreach ($evaluasi as $us) : ?>
+                        foreach ($hevaluasi as $us) : ?>
 
                           <tr>
                             <td><?php echo $no++; ?></td>
@@ -92,158 +91,1009 @@
                             <td align="left"><?php echo $us->s; ?></td>
                             <td align="left"><?php echo $us->o; ?></td>
                             <td align="left">
+                              <?php if ($sistemnafas == "0") { ?>
+
+                              <p>Pengkajian sistem pernafasan belum selesai diinput</p>
+
+                              <?php }else{ ?>
+                              
+                              Sistem Pernafasan :  <strong><?php echo $hasil_nafas->diagnosa_penafasan; ?></strong><hr>
+
                               <?php 
-                              $satu = $us->siji;
+                              if ($hasil_nafas->diagnosa_penafasan == "Tidak Terdiagnosa Masalah Pernafasan") {?>
+
+                                <p></p>
+                             
+                              <?php  }elseif($kn != "0" && $hasil_nafas->diagnosa_penafasan != "Tidak Terdiagnosa Masalah Pernafasan"){?>
+
+                              <?php 
+                              $satu = $kriterianafas->satu;
                               if ($satu == "Yes") {?>
-                              <i class="far fa-check-circle"></i> Meningkatnya kemampuan pasien dalam melakukan batuk efektif
-                              <?php }else{} ?>
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="satu" type="checkbox" id="kn1" checked>
+                                <label for="kn1" class="custom-control-label">Meningkatnya kemampuan pasien dalam melakukan batuk efektif</label>
+                              </div><?php }else{} ?>
 
                               <?php 
-                              $dua = $us->loro;
+                              $dua = $kriterianafas->dua;
                               if ($dua == "Yes") {?>
-                              <br><i class="far fa-check-circle"></i> Menurunnya produksi sputum<?php }else{} ?>
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="dua" type="checkbox" id="kn2" checked>
+                                <label for="kn2" class="custom-control-label">Menurunnya produksi sputum</label>
+                              </div><?php }else{} ?>
 
                               <?php 
-                              $tiga = $us->telu;
+                              $tiga = $kriterianafas->tiga;
                               if ($tiga == "Yes") {?>
-                              <br><i class="far fa-check-circle"></i> Menurunnya suara nafas tambahan<?php }else{} ?>
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="tiga" type="checkbox" id="kn3" checked>
+                                <label for="kn3" class="custom-control-label">Menurunnya suara nafas tambahan</label>
+                              </div><?php }else{} ?>
 
                               <?php 
-                              $empat = $us->papat;
+                              $empat = $kriterianafas->empat;
                               if ($empat == "Yes") {?>
-                              <br><i class="far fa-check-circle"></i> Menurunnya sesak nafas<?php }else{} ?>
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="empat" type="checkbox" id="kn4" checked>
+                                <label for="kn4" class="custom-control-label">Menurunnya sesak nafas</label>
+                              </div><?php }else{} ?>
 
                               <?php 
-                              $lima = $us->limo;
+                              $lima = $kriterianafas->lima;
                               if ($lima == "Yes") {?>
-                              <br><i class="far fa-check-circle"></i> Menurunnya kesulitan bernafas saat berbaring<?php }else{} ?>
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="lima" type="checkbox" id="kn5" checked>
+                                <label for="kn5" class="custom-control-label">Menurunnya kesulitan bernafas saat berbaring</label>
+                              </div><?php }else{} ?>
 
                               <?php 
-                              $enam = $us->enem;
+                              $enam = $kriterianafas->enam;
                               if ($enam == "Yes") {?>
-                              <br><i class="far fa-check-circle"></i> Menurunnya kesulitan berbicara<?php }else{} ?>
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="enam" type="checkbox" id="kn6" checked>
+                                <label for="kn6" class="custom-control-label">Menurunnya kesulitan berbicara</label>
+                              </div><?php }else{} ?>
 
                               <?php 
-                              $tujuh = $us->pitu;
+                              $tujuh = $kriterianafas->tujuh;
                               if ($tujuh == "Yes") {?>
-                              <br><i class="far fa-check-circle"></i> Menurunnya sianosis<?php }else{} ?>
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="tujuh" type="checkbox" id="kn7" checked>
+                                <label for="kn7" class="custom-control-label">Menurunnya sianosis</label>
+                              </div><?php }else{} ?>
 
                               <?php 
-                              $delapan = $us->wolu;
+                              $delapan = $kriterianafas->delapan;
                               if ($delapan == "Yes") {?>
-                              <br><i class="far fa-check-circle"></i> Menurunnya kegelisahan pasien<?php }else{} ?>
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="delapan" type="checkbox" id="kn8" checked>
+                                <label for="kn8" class="custom-control-label">Menurunnya kegelisahan pasien</label>
+                              </div><?php }else{} ?>
 
                               <?php 
-                              $sembilan = $us->songo;
+                              $sembilan = $kriterianafas->sembilan;
                               if ($sembilan == "Yes") {?>
-                              <br><i class="far fa-check-circle"></i> Meningkatnya frekuensi nafas<?php }else{} ?>
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="sembilan" type="checkbox" id="kn9" checked>
+                                <label for="kn9" class="custom-control-label">Meningkatnya frekuensi nafas</label>
+                              </div><?php }else{} ?>
 
                               <?php 
-                              $sepuluh = $us->sepuloh;
+                              $sepuluh = $kriterianafas->sepuluh;
                               if ($sepuluh == "Yes") {?>
-                              <br><i class="far fa-check-circle"></i> Meingkatnya pola nafas<?php }else{} ?>
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="sepuluh" type="checkbox" id="kn10" checked>
+                                <label for="kn10" class="custom-control-label">Meingkatnya pola nafas</label>
+                              </div><?php }else{} ?>
+
+
+                               <?php }?>
+                               <?php } ?>
+
+
+                               <?php if ($sistemmol == "0") { ?>
+
+                              <p>Pengkajian Belum Selesai Diinput</p>
+
+                            <?php }else{ ?>
+                            
+                            Sistem Moskuloskeletal : <strong> <?php echo $hasil_mol->diagnosa_moskuloskelental; ?></strong><hr>
+
+                            <?php 
+                            if ($hasil_mol->diagnosa_moskuloskelental == "Tidak Terdiagnosa Moskuloskeletal") {?>
+
+                              <p></p>
+                           
+                            <?php  }elseif($kmol != "0" && $hasil_mol->diagnosa_moskuloskelental != "Tidak Terdiagnosa Moskuloskeletal"){?>
+
+                              <hr><p><strong>Sistem Moskuloskeletal</strong></p>
+
+                            <?php 
+                            $satu = $kriteriamoll->satu;
+                            if ($satu == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                              <input class="custom-control-input" name="satu" type="checkbox" id="kn1" checked>
+                              <label for="kn1" class="custom-control-label">Meningkatnya kemampuan pasien dalam melakukan batuk efektif</label>
+                            </div><?php }else{} ?>
+
+                            <?php 
+                            $dua = $kriteriamoll->dua;
+                            if ($dua == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                              <input class="custom-control-input" name="dua" type="checkbox" id="kn2" checked>
+                              <label for="kn2" class="custom-control-label">Menurunnya produksi sputum</label>
+                            </div><?php }else{} ?>
+
+                            <?php 
+                            $tiga = $kriteriamoll->tiga;
+                            if ($tiga == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                              <input class="custom-control-input" name="tiga" type="checkbox" id="kn3" checked>
+                              <label for="kn3" class="custom-control-label">Menurunnya suara nafas tambahan</label>
+                            </div><?php }else{} ?>
+
+                            <?php 
+                            $empat = $kriteriamoll->empat;
+                            if ($empat == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                              <input class="custom-control-input" name="empat" type="checkbox" id="kn4" checked>
+                              <label for="kn4" class="custom-control-label">Menurunnya sesak nafas</label>
+                            </div><?php }else{} ?>
+
+                            <?php 
+                            $lima = $kriteriamoll->lima;
+                            if ($lima == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                              <input class="custom-control-input" name="lima" type="checkbox" id="kn5" checked>
+                              <label for="kn5" class="custom-control-label">Menurunnya kesulitan bernafas saat berbaring</label>
+                            </div><?php }else{} ?>
+
+                            <?php 
+                            $enam = $kriteriamoll->enam;
+                            if ($enam == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                              <input class="custom-control-input" name="enam" type="checkbox" id="kn6" checked>
+                              <label for="kn6" class="custom-control-label">Menurunnya kesulitan berbicara</label>
+                            </div><?php }else{} ?>
+
+                            <?php 
+                            $tujuh = $kriteriamoll->tujuh;
+                            if ($tujuh == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                              <input class="custom-control-input" name="tujuh" type="checkbox" id="kn7" checked>
+                              <label for="kn7" class="custom-control-label">Menurunnya sianosis</label>
+                            </div><?php }else{} ?>
+
+                            <?php 
+                            $delapan = $kriteriamoll->delapan;
+                            if ($delapan == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                              <input class="custom-control-input" name="delapan" type="checkbox" id="kn8" checked>
+                              <label for="kn8" class="custom-control-label">Menurunnya kegelisahan pasien</label>
+                            </div><?php }else{} ?>
+
+                            <?php 
+                            $sembilan = $kriteriamoll->sembilan;
+                            if ($sembilan == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                              <input class="custom-control-input" name="sembilan" type="checkbox" id="kn9" checked>
+                              <label for="kn9" class="custom-control-label">Meningkatnya frekuensi nafas</label>
+                            </div><?php }else{} ?>
+
+                             <?php }?>
+
+                             <?php } ?>
+
+                              <?php if ($sistempro == "0") { ?>
+
+                              <p>Pengkajian belum selesai diinput</p>
+
+                            <?php }else{ ?>
+                            
+                             Sistem Proteksi :<strong> <?php echo $hasil_proteksi->diagnosa_proteksi; ?></strong><br>
+
+                            <?php 
+                            if ($hasil_proteksi->diagnosa_proteksi == "Tidak Terdiagnosa Masalah Proteksi dan Perlindungan") {?>
+
+                              <p></p>
+                            
+                            <?php  }elseif($kpro != "0" && $hasil_proteksi->diagnosa_proteksi != "Tidak Terdiagnosa Masalah Proteksi dan Perlindungan"){?>
+
+
+                            <?php 
+                            $satu = $kriteriapro->satu;
+                            if ($satu == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                              <input class="custom-control-input" name="satu" type="checkbox" id="kpro1" value="Yes" checked>
+                            <label for="kpro1" class="custom-control-label">Tidak terjadi menggigil </label>
+                            </div><?php }else{} ?>
+
+                            <?php 
+                            $dua = $kriteriapro->dua;
+                            if ($dua == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                              <input class="custom-control-input" name="dua" type="checkbox" id="kpro2" value="Yes" checked>
+                            <label for="kpro2" class="custom-control-label">Tidak terjadi kulit memerah </label>
+                            </div><?php }else{} ?>
+
+                            <?php 
+                            $tiga = $kriteriapro->tiga;
+                            if ($tiga == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                              <input class="custom-control-input" name="tiga" type="checkbox" id="kpro3" value="Yes" checked>
+                            <label for="kpro3" class="custom-control-label">Tidak terjadi kejang </label>
+                            </div><?php }else{} ?>
+
+                            <?php 
+                            $empat = $kriteriapro->empat;
+                            if ($empat == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                              <input class="custom-control-input" name="empat" type="checkbox" id="kpro4" value="Yes" checked>
+                            <label for="kpro4" class="custom-control-label">Tidak terjadi akrosianosis  </label>
+                            </div><?php }else{} ?>
+
+                            <?php 
+                            $lima = $kriteriapro->lima;
+                            if ($lima == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                              <input class="custom-control-input" name="lima" type="checkbox" id="kpro5" value="Yes" checked>
+                            <label for="kpro5" class="custom-control-label">Meningkatnya konsumsi oksigen </label>
+                            </div><?php }else{} ?>
+
+                            <?php 
+                            $enam = $kriteriapro->enam;
+                            if ($enam == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                               <input class="custom-control-input" name="enam" type="checkbox" id="kpro6" value="Yes" checked>
+                            <label for="kpro6" class="custom-control-label">Menurnnya vasokontriksi Perifer</label>
+                            </div><?php }else{} ?>
+
+                            <?php 
+                            $tujuh = $kriteriapro->tujuh;
+                            if ($tujuh == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                              <input class="custom-control-input" name="tujuh" type="checkbox" id="kpro7" value="Yes" checked>
+                            <label for="kpro7" class="custom-control-label">Tidak terjadi pucat </label>
+                            </div><?php }else{} ?>
+
+                            <?php 
+                            $delapan = $kriteriapro->delapan;
+                            if ($delapan == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                               <input class="custom-control-input" name="delapan" type="checkbox" id="kpro8" value="Yes" checked>
+                            <label for="kpro8" class="custom-control-label">Tidak terjadi takikardi </label>
+                            </div><?php }else{} ?>
+
+                            <?php 
+                            $sembilan = $kriteriapro->sembilan;
+                            if ($sembilan == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                               <input class="custom-control-input" name="sembilan" type="checkbox" id="kpro9" value="Yes" checked>
+                            <label for="kpro9" class="custom-control-label">Tidak terjadi Takipnea</label>
+                            </div><?php }else{} ?>
+
+                            <?php 
+                            $sepuluh = $kriteriapro->sepuluh;
+                            if ($sepuluh == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                              <input class="custom-control-input" name="sepuluh" type="checkbox" id="kpro10" value="Yes" checked>
+                            <label for="kpro10" class="custom-control-label">Tidak terjadi xbradikardi</label>
+                            </div><?php }else{} ?>
+
+                            <?php 
+                            $sebelas = $kriteriapro->sebelas;
+                            if ($sebelas == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                              <input class="custom-control-input" name="sebelas" type="checkbox" id="kpro11" value="Yes" checked>
+                            <label for="kpro11" class="custom-control-label">Tidak terjadi dasar kuku sianolik</label>
+                            </div><?php }else{} ?>
+
+                            <?php 
+                            $duabelas = $kriteriapro->duabelas;
+                            if ($duabelas == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                              <input class="custom-control-input" name="duabelas" type="checkbox" id="kpro12" value="Yes" checked>
+                            <label for="kpro12" class="custom-control-label">Membaiknya Suhu tubuh </label>
+                            </div><?php }else{} ?>
+
+                            <?php 
+                            $tigabelas = $kriteriapro->tigabelas;
+                            if ($tigabelas == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                              <input class="custom-control-input" name="tigabelas" type="checkbox" id="kpro13" value="Yes" checked>
+                            <label for="kpro13" class="custom-control-label">Membaiknya suhu kulit </label>
+                            </div><?php }else{} ?>
+
+                            <?php 
+                            $empatbelas = $kriteriapro->empatbelas;
+                            if ($empatbelas == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                              <input class="custom-control-input" name="empatbelas" type="checkbox" id="kpro14" value="Yes" checked>
+                            <label for="kpro14" class="custom-control-label">Membaiknya kadar glukosa darah </label>
+                            </div><?php }else{} ?>
+
+                            <?php 
+                            $limabelas = $kriteriapro->limabelas;
+                            if ($limabelas == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                              <input class="custom-control-input" name="limabelas" type="checkbox" id="kpro15" value="Yes" checked>
+                            <label for="kpro15" class="custom-control-label">Membaiknya pengisian kapiler</label>
+                            </div><?php }else{} ?>
+
+                            <?php 
+                            $enambelas = $kriteriapro->enambelas;
+                            if ($enambelas == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                              <input class="custom-control-input" name="enambelas" type="checkbox" id="kpro16" value="Yes" checked>
+                            <label for="kpro16" class="custom-control-label">Membaiknya ventilasi</label>
+                            </div><?php }else{} ?>
+
+                            <?php 
+                            $tujuhbelas = $kriteriapro->tujuhbelas;
+                            if ($tujuhbelas == "Yes") {?>
+                            <div class="custom-control custom-checkbox">
+                              <input class="custom-control-input" name="tujuhbelas" type="checkbox" id="kpro17" value="Yes" checked>
+                            <label for="kpro17" class="custom-control-label">Membaiknya tekanan darah</label>
+                            </div><?php }else{} ?>
+
+                             <?php }?>
+
+                             <?php } ?>
+
+                              <?php if ($sistemnyeri == "0") { ?>
+
+                              <p>Pengkajian belum selesai diinput</p>
+
+                            <?php }else{ ?>
+                            
+                            <hr>Pengkajian Nyeri : <br><strong> <?php echo $hasil_nyeri->diagnosa_nyeri; ?></strong>
+
+                            <?php 
+                            if ($hasil_nyeri->diagnosa_nyeri == "Tidak Terdiagnosa Nyeri Akut") {?>
+
+                              <p></p>
+                            
+                            <?php  }elseif($knyeri != "0" && $hasil_nyeri->diagnosa_nyeri != "Tidak Terdiagnosa Nyeri Akut"){?>
+
+                               <?php 
+                                $satu = $kriterianyeri->satu;
+                                if ($satu == "Yes") {?>
+                                <div class="custom-control custom-checkbox">
+                                  <input class="custom-control-input" name="satu" type="checkbox" id="knyer1" value="Yes" checked>
+                                <label for="knyer1" class="custom-control-label">Meningkatnya kemampuan pasien dalam melaporkan nyeri terkontrol</label>
+                                </div><?php }else{} ?>
+
+                                <?php 
+                                $dua = $kriterianyeri->dua;
+                                if ($dua == "Yes") {?>
+                                <div class="custom-control custom-checkbox">
+                                  <input class="custom-control-input" name="dua" type="checkbox" id="knyer2" value="Yes" checked>
+                                <label for="knyer2" class="custom-control-label">Meningkatnya kemampuan mengenali onset nyeri</label>
+                                </div><?php }else{} ?>
+
+                                <?php 
+                                $tiga = $kriterianyeri->tiga;
+                                if ($tiga == "Yes") {?>
+                                <div class="custom-control custom-checkbox">
+                                  <input class="custom-control-input" name="tiga" type="checkbox" id="knyer3" value="Yes" checked>
+                                <label for="knyer3" class="custom-control-label">Meningkatnya kemampuan pasien mengenali penyebab nyeri</label>
+                                </div><?php }else{} ?>
+
+                                <?php 
+                                $empat = $kriterianyeri->empat;
+                                if ($empat == "Yes") {?>
+                                <div class="custom-control custom-checkbox">
+                                  <input class="custom-control-input" name="empat" type="checkbox" id="knyer4" value="Yes" checked>
+                                <label for="knyer4" class="custom-control-label">Meningkatnya kemampuan teknis non farmakologi</label>
+                                </div><?php }else{} ?>
+
+                                <?php 
+                                $lima = $kriterianyeri->lima;
+                                if ($lima == "Yes") {?>
+                                <div class="custom-control custom-checkbox">
+                                  <input class="custom-control-input" name="lima" type="checkbox" id="knyer5" value="Yes" checked>
+                                <label for="knyer5" class="custom-control-label">Meningkatnya dukungan orang terdekat</label>
+                                </div><?php }else{} ?>
+
+                                <?php 
+                                $enam = $kriterianyeri->enam;
+                                if ($enam == "Yes") {?>
+                                <div class="custom-control custom-checkbox">
+                                   <input class="custom-control-input" name="enam" type="checkbox" id="knyer6" value="Yes" checked>
+                                <label for="knyer6" class="custom-control-label">Menurunnya penggunanan analgesik</label>
+                                </div><?php }else{} ?>
+
+
+                             <?php }?>
+
+                             <?php } ?>
+                                
+
                             </td>
 
 
                             <td align="left">
+                              <?php if ($sistemnafas == "0") { ?>
+
+                                <p>Pengkajian sistem pernafasan belum selesai diinput</p>
+
+                              <?php }else{ ?>
+                              
+                              Sistem Pernafasan : <strong> <?php echo $hasil_nafas->diagnosa_penafasan; ?></strong> <br><hr>
+
                               <?php 
-                                  $satu = $us->satu;
-                                  if ($satu == "Yes") {?>
-                                    <i class="far fa-check-circle"></i> Monitor pola nafas (frekuensi, kedalaman, usaha nafas)
-                                  <?php }else{} ?>
-                                  
+                              if ($hasil_nafas->diagnosa_penafasan == "Tidak Terdiagnosa Masalah Pernafasan") {?>
 
-                                  <?php 
-                                  $dua = $us->dua;
-                                  if ($dua == "Yes") {?>
-                                  <br><i class="far fa-check-circle"></i> Monitor bunyi napas tambahan (mis. gurgling, mengi, wheezing, ronkhi kering)
-                                  <?php }else{} ?>
+                                <p></p>
 
-                                  <?php 
-                                  $tiga = $us->tiga;
-                                  if ($tiga == "Yes") {?>
-                                  <br><i class="far fa-check-circle"></i> Monitor bunyi napas tambahan (mis. gurgling, mengi, wheezing, ronkhi kering)
-                                  <?php }else{} ?>
+                             <?php  }elseif($nafas != "0" && $hasil_nafas->diagnosa_penafasan != "Tidak Terdiagnosa Masalah Pernafasan"){?>
+                                
+                                <hr><p><strong>Sistem Pernafasan</strong></p>
 
-                                  <?php 
-                                  $empat = $us->empat;
-                                  if ($empat == "Yes") {?>
-                                  <br><i class="far fa-check-circle"></i> Pertahankan Kepaten jalan napass dengan head-tilt dan chin-lift
-                                  <?php }else{} ?>
+                              <?php 
+                              $satu = $nafass->satu;
+                              if ($satu == "Yes") {?>
+                                
+                                <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="dua" type="checkbox" id="customCheckbox1" checked>
+                                <label for="customCheckbox1" class="custom-control-label">Monitor pola nafas (frekuensi, kedalaman, usaha nafas)</label>
+                              </div><?php }else{} ?>
+                              
 
-                                  <?php 
-                                  $lima = $us->lima;
-                                  if ($lima == "Yes") {?>
-                                  <br><i class="far fa-check-circle"></i> Posisikan semi-fowler atau fowler
-                                  <?php }else{} ?>
+                              <?php 
+                              $dua = $nafass->dua;
+                              if ($dua == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="dua" type="checkbox" id="customCheckbox2" checked>
+                                <label for="customCheckbox2" class="custom-control-label">Monitor bunyi napas tambahan (mis. gurgling, mengi, wheezing, ronkhi kering)</label>
+                              </div><?php }else{} ?>
 
 
-                                  <?php 
-                                  $enam = $us->enam;
-                                  if ($enam == "Yes") {?>
-                                  <br><i class="far fa-check-circle"></i> Berikan minum hangat
-                                   <?php }else{} ?>
+                              <?php 
+                              $tiga = $nafass->tiga;
+                              if ($tiga == "Yes") {?>
 
-                                  <?php 
-                                  $tujuh = $us->tujuh;
-                                  if ($tujuh == "Yes") {?>
-                                  <br><i class="far fa-check-circle"></i> Berikan minum hangat
-                                   <?php }else{} ?>
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="tiga" type="checkbox" id="customCheckbox3" checked>
+                                <label for="customCheckbox3" class="custom-control-label">Monitor sputum (jumlah, warna, aroma)</label>
+                              </div><?php }else{} ?>
 
-                                  <?php 
-                                  $delapan = $us->delapan;
-                                  if ($delapan == "Yes") {?>
-                                    <br><i class="far fa-check-circle"></i> Lakukan penghisapan lendir kurang dari 15 detik
-                                   <?php }else{} ?>
 
-                                  <?php 
-                                  $sembilan = $us->sembilan;
-                                  if ($sembilan == "Yes") {?>
-                                    <br><i class="far fa-check-circle"></i> Lakukan hiper Oksigenasi sebelum penghisapan Endotrakeal
-                                   <?php }else{} ?>
+                              <?php 
+                              $empat = $nafass->empat;
+                              if ($empat == "Yes") {?>
 
-                                  <?php 
-                                  $sepuluh = $us->sepuluh;
-                                  if ($sepuluh == "Yes") {?>
-                                    <br><i class="far fa-check-circle"></i> Keluarkan Sumbatan benda padat dengan forsep McGill
-                                   <?php }else{} ?>
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="empat" type="checkbox" id="customCheckbox3" checked>
+                                <label for="customCheckbox3" class="custom-control-label">Pertahankan Kepaten jalan napass dengan head-tilt dan chin-lift </label>
+                              </div><?php }else{} ?>
 
-                                  <?php 
-                                  $sebelas = $us->sebelas;
-                                  if ($sebelas == "Yes") {?>
-                                    <br><i class="far fa-check-circle"></i>Berikan oksigen, jika perlu
-                                   <?php }else{} ?>
+                              <?php 
+                              $lima = $nafass->lima;
+                              if ($lima == "Yes") {?>
 
-                                  <?php 
-                                  $duabelas = $us->duabelas;
-                                  if ($duabelas == "Yes") {?>
-                                    <br><i class="far fa-check-circle"></i> Anjurkan asupan cairan 2000 ml/hari jika tidak kontraindikasi
-                                   <?php }else{} ?>
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="lima" type="checkbox" id="customCheckbox3" checked>
+                                <label for="customCheckbox3" class="custom-control-label">Posisikan semi-fowler atau fowler </label>
+                              </div><?php }else{} ?>
 
-                                  <?php 
-                                  $tigabelas = $us->tigabelas;
-                                  if ($tigabelas == "Yes") {?>
-                                    <br><i class="far fa-check-circle"></i> Ajarkan teknik batuk efektif
-                                   <?php }else{} ?>
 
-                                  <?php 
-                                  $empatbelas = $us->empatbelas;
-                                  if ($empatbelas == "Yes") {?>
-                                    <br><i class="far fa-check-circle"></i> Kolaborasi pemberian Bronkodilator, ekspektoran, mukolitik, jika perlu
-                                   <?php }else{} ?>
+                              <?php 
+                              $enam = $nafass->enam;
+                              if ($enam == "Yes") {?>
 
-                              </td>
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="enam" type="checkbox" id="customCheckbox3" checked>
+                                <label for="customCheckbox3" class="custom-control-label">Berikan minum hangat</label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $tujuh = $nafass->tujuh;
+                              if ($tujuh == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="tujuh" type="checkbox" id="customCheckbox3" checked>
+                                <label for="customCheckbox3" class="custom-control-label">Berikan minum hangat</label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $delapan = $nafass->delapan;
+                              if ($delapan == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="delapan" type="checkbox" id="customCheckbox3" checked>
+                                <label for="customCheckbox3" class="custom-control-label">Lakukan penghisapan lendir kurang dari 15 detik</label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $sembilan = $nafass->sembilan;
+                              if ($sembilan == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="sembilan" type="checkbox" id="customCheckbox3" checked>
+                                <label for="customCheckbox3" class="custom-control-label">Lakukan hiper Oksigenasi sebelum penghisapan Endotrakeal</label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $sepuluh = $nafass->sepuluh;
+                              if ($sepuluh == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="sepuluh" type="checkbox" id="customCheckbox3" checked>
+                                <label for="customCheckbox3" class="custom-control-label">Keluarkan Sumbatan benda padat dengan forsep McGill</label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $sebelas = $nafass->sebelas;
+                              if ($sebelas == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="sebelas" type="checkbox" id="customCheckbox3" checked>
+                                <label for="customCheckbox3" class="custom-control-label">Berikan oksigen, jika perlu</label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $duabelas = $nafass->duabelas;
+                              if ($duabelas == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="duabelas" type="checkbox" id="customCheckbox3" checked>
+                                <label for="customCheckbox3" class="custom-control-label">Anjurkan asupan cairan 2000 ml/hari jika tidak kontraindikasi </label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $tigabelas = $nafass->tigabelas;
+                              if ($tigabelas == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="tigabelas" type="checkbox" id="customCheckbox3" checked>
+                                <label for="customCheckbox3" class="custom-control-label">Ajarkan teknik batuk efektif</label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $empatbelas = $nafass->empatbelas;
+                              if ($empatbelas == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="empatbelas" type="checkbox" id="customCheckbox3" checked>
+                                <label for="customCheckbox3" class="custom-control-label">Kolaborasi pemberian Bronkodilator, ekspektoran, mukolitik, jika perlu </label>
+                              </div> <?php }else{} ?>
+
+
+                               <?php }?>
+
+                               <?php } ?>
+
+                               <?php if ($sistemmol == "0") { ?>
+
+                                <p>Pengkajian Belum Selesai Diinput</p>
+
+                              <?php }else{ ?>
+                              
+                             Sistem Moskuloskeletal : <strong> <?php echo $hasil_mol->diagnosa_moskuloskelental; ?></strong><hr> 
+
+                              <?php 
+                              if ($hasil_mol->diagnosa_moskuloskelental == "Tidak Terdiagnosa Moskuloskeletal") {?>
+
+                                <p></p>
+
+                             <?php  }elseif($mol != "0" && $hasil_mol->diagnosa_moskuloskelental != "Tidak Terdiagnosa Moskuloskeletal"){?>
+                                
+
+                              <?php 
+                              $satu = $moll->satu;
+                              if ($satu == "Yes") {?>
+                                
+                                <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="dua" type="checkbox" id="customCheckbox1" checked>
+                                <label for="customCheckbox1" class="custom-control-label">Identifikasi adanya nyeri atau keluhan fisik lainnya</label>
+                              </div><?php }else{} ?>
+                              
+
+                              <?php 
+                              $dua = $moll->dua;
+                              if ($dua == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="dua" type="checkbox" id="customCheckbox2" checked>
+                                <label for="customCheckbox2" class="custom-control-label">Identifikasi toleransi fisik melakukan pergerakan</label>
+                              </div><?php }else{} ?>
+
+
+                              <?php 
+                              $tiga = $moll->tiga;
+                              if ($tiga == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="tiga" type="checkbox" id="customCheckbox3" checked>
+                                <label for="customCheckbox3" class="custom-control-label">Monitor frekuensi jantung dan tekanan darah sebelum memulai mobilisasi</label>
+                              </div><?php }else{} ?>
+
+
+                              <?php 
+                              $empat = $moll->empat;
+                              if ($empat == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="empat" type="checkbox" id="customCheckbox3" checked>
+                                <label for="customCheckbox3" class="custom-control-label">Fasilitasi aktivitas mobilisasi dengan alat bantu</label>
+                              </div><?php }else{} ?>
+
+                              <?php 
+                              $lima = $moll->lima;
+                              if ($lima == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="lima" type="checkbox" id="customCheckbox3" checked>
+                                <label for="customCheckbox3" class="custom-control-label">Fasilitasi melakukan pergerakan</label>
+                              </div><?php }else{} ?>
+
+
+                              <?php 
+                              $enam = $moll->enam;
+                              if ($enam == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="enam" type="checkbox" id="customCheckbox3" checked>
+                                <label for="customCheckbox3" class="custom-control-label">Libatkan keluarga untuk membantu pasien dalam meningkatkan pergerakan</label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $tujuh = $moll->tujuh;
+                              if ($tujuh == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="tujuh" type="checkbox" id="customCheckbox3" checked>
+                                <label for="customCheckbox3" class="custom-control-label">Jelaskan tujuan dan prosedur mobilisasi</label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $delapan = $moll->delapan;
+                              if ($delapan == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="delapan" type="checkbox" id="customCheckbox3" checked>
+                                <label for="customCheckbox3" class="custom-control-label">Anjurkan melakukan mobilisasi dini</label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $sembilan = $moll->sembilan;
+                              if ($sembilan == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="sembilan" type="checkbox" id="customCheckbox3" checked>
+                                <label for="customCheckbox3" class="custom-control-label">Ajarkan mobilisasi sederhana yang harus dilakukan</label>
+                              </div> <?php }else{} ?>
+
+                               <?php }?>
+
+                               <?php } ?>
+
+
+                                <?php if ($sistempro == "0") { ?>
+
+                                <p>Pengkajian belum selesai diinput</p>
+
+                              <?php }else{ ?>
+                              
+                               Sistem Proteksi :<strong> <?php echo $hasil_proteksi->diagnosa_proteksi; ?></strong>
+
+                              <?php 
+                              if ($hasil_proteksi->diagnosa_proteksi == "Tidak Terdiagnosa Masalah Proteksi dan Perlindungan") {?>
+
+                                <p></p>
+
+                             <?php  }elseif($pro != "0" && $hasil_proteksi->diagnosa_proteksi != "Tidak Terdiagnosa Masalah Proteksi dan Perlindungan"){?>
+                                
+
+                              <?php 
+                              $satu = $protek->satu;
+                              if ($satu == "Yes") {?>
+                                
+                                <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="dua" type="checkbox" id="pro1" checked>
+                                <label for="pro1" class="custom-control-label">Monitor tanda tanda vital</label>
+                              </div><?php }else{} ?>
+                              
+
+                              <?php 
+                              $dua = $protek->dua;
+                              if ($dua == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="dua" type="checkbox" id="pro2" value="Yes" checked>
+                              <label for="pro2" class="custom-control-label">Identifikasi toleransi fisik melakukan pergerakan</label>
+                              </div><?php }else{} ?>
+
+
+                              <?php 
+                              $tiga = $protek->tiga;
+                              if ($tiga == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="tiga" type="checkbox" id="pro3" value="Yes" checked>
+                              <label for="pro3" class="custom-control-label">Monitor komplikasi akibat demam (mis.kejang, penurunan kesadaran, kadar elektrolit, abnormal, ketidakseimbangan asam basa, Aritmia)</label>
+                              </div><?php }else{} ?>
+
+
+                              <?php 
+                              $empat = $protek->empat;
+                              if ($empat == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="empat" type="checkbox" id="pro4" value="Yes" checked>
+                              <label for="pro4" class="custom-control-label">Tutupi badan dengan selimut atau pakaian dengan tepat</label>
+                              </div><?php }else{} ?>
+
+                              <?php 
+                              $lima = $protek->lima;
+                              if ($lima == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="lima" type="checkbox" id="pro5" value="Yes" checked>
+                              <label for="pro5" class="custom-control-label">Lakukan tepit Sponge jika perlu</label>
+                              </div><?php }else{} ?>
+
+
+                              <?php 
+                              $enam = $protek->enam;
+                              if ($enam == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="enam" type="checkbox" id="pro6" value="Yes" checked>
+                              <label for="pro6" class="custom-control-label">Berikan oksigen</label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $tujuh = $protek->tujuh;
+                              if ($tujuh == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="tujuh" type="checkbox" id="pro7" value="Yes" checked>
+                              <label for="pro7" class="custom-control-label">Anjurkan tirah Baring</label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $delapan = $protek->delapan;
+                              if ($delapan == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="delapan" type="checkbox" id="pro8" value="Yes" checked>
+                              <label for="pro8" class="custom-control-label">Anjurkan memperbanyak minum </label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $sembilan = $protek->sembilan;
+                              if ($sembilan == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="sembilan" type="checkbox" id="pro9" value="Yes" checked>
+                              <label for="pro9" class="custom-control-label">Kolaborasi pemberian cairan dan elektrolit intravena</label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $sepuluh = $protek->sepuluh;
+                              if ($sepuluh == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="sepuluh" type="checkbox" id="pro10" value="Yes" checked>
+                                <label for="pro10" class="custom-control-label">Kolaborasi pemberian antipiretik</label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $sebelas = $protek->sebelas;
+                              if ($sebelas == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="sebelas" type="checkbox" id="pro11" value="Yes" checked>
+                                <label for="pro11" class="custom-control-label">Kolaborasi pemberian antibiotik</label>
+                              </div> <?php }else{} ?>
+
+                               <?php }?>
+
+                               <?php } ?>
+
+                                <?php if ($sistemnyeri == "0") { ?>
+
+                                <p>Pengkajian belum selesai diinput</p>
+
+                              <?php }else{ ?>
+                              
+                              <hr>Pengkajian Nyeri : <br><strong> <?php echo $hasil_nyeri->diagnosa_nyeri; ?></strong><br>
+
+                              <?php 
+                              if ($hasil_nyeri->diagnosa_nyeri == "Tidak Terdiagnosa Nyeri Akut") {?>
+
+                                <p></p>
+
+                             <?php  }elseif($nyeri != "0" && $hasil_nyeri->diagnosa_nyeri != "Tidak Terdiagnosa Nyeri Akut"){?>
+                                
+                              <?php 
+                              $satu = $nyerii->satu;
+                              if ($satu == "Yes") {?>
+                                
+                                <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="dua" type="checkbox" id="nyeri1" checked>
+                                <label for="nyeri1" class="custom-control-label">Identifikasi lokasi, karakteristik, durasi, frekuensi, kualitas, intensitas nyeri</label>
+                              </div><?php }else{} ?>
+                              
+
+                              <?php 
+                              $dua = $nyerii->dua;
+                              if ($dua == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="dua" type="checkbox" id="nyeri2" value="Yes" checked>
+                              <label for="nyeri2" class="custom-control-label">Identifikasi skala nyeri </label>
+                              </div><?php }else{} ?>
+
+
+                              <?php 
+                              $tiga = $nyerii->tiga;
+                              if ($tiga == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="tiga" type="checkbox" id="nyeri3" value="Yes" checked>
+                              <label for="nyeri3" class="custom-control-label">Identifikasi respon nyeri Nonverbal </label>
+                              </div><?php }else{} ?>
+
+
+                              <?php 
+                              $empat = $nyerii->empat;
+                              if ($empat == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="empat" type="checkbox" id="nyeri4" value="Yes" checked>
+                              <label for="nyeri4" class="custom-control-label">Identifikasi faktor yang memperberat dan memperingan nyeri </label>
+                              </div><?php }else{} ?>
+
+                              <?php 
+                              $lima = $nyerii->lima;
+                              if ($lima == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="lima" type="checkbox" id="nyeri5" value="Yes" checked>
+                              <label for="nyeri5" class="custom-control-label">Identifikasi pengetahuan dan keyakinan tentang nyeri </label>
+                              </div><?php }else{} ?>
+
+
+                              <?php 
+                              $enam = $nyerii->enam;
+                              if ($enam == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="enam" type="checkbox" id="nyeri6" value="Yes" checked>
+                              <label for="nyeri6" class="custom-control-label">Identifikasi pengaruh budaya terhadap respon nyeri </label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $tujuh = $nyerii->tujuh;
+                              if ($tujuh == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="tujuh" type="checkbox" id="nyeri7" value="Yes" checked>
+                              <label for="nyeri7" class="custom-control-label">Identifikasi pengaruh nyeri pada kualitas hidup </label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $delapan = $nyerii->delapan;
+                              if ($delapan == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="delapan" type="checkbox" id="nyeri8" value="Yes" checked>
+                              <label for="nyeri8" class="custom-control-label">Monitor keberhasilan terapi Komplementer yang sudah diberikan </label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $sembilan = $nyerii->sembilan;
+                              if ($sembilan == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="sembilan" type="checkbox" id="nyeri9" value="Yes" checked>
+                              <label for="nyeri9" class="custom-control-label">Monitor efek samping penggunaan analgetik</label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $sepuluh = $nyerii->sepuluh;
+                              if ($sepuluh == "Yes") {?>
+
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="sepuluh" type="checkbox" id="nyeri10" value="Yes" checked>
+                                <label for="nyeri10" class="custom-control-label">Berikan teknik nonfarmakologis untuk mengurangi rasa nyeri</label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $sebelas = $nyerii->sebelas;
+                              if ($sebelas == "Yes") {?>
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="sebelas" type="checkbox" id="nyeri11" value="Yes" checked>
+                                <label for="nyeri11" class="custom-control-label">Kontrol lingkungan yang memperberat rasa nyeri</label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $duabelas = $nyerii->duabelas;
+                              if ($duabelas == "Yes") {?>
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="duabelas" type="checkbox" id="nyeri12" value="Yes" checked>
+                                <label for="nyeri12" class="custom-control-label">Fasilitasi istirahat dan tidur</label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $tigabelas = $nyerii->tigabelas;
+                              if ($tigabelas == "Yes") {?>
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="tigabelas" type="checkbox" id="nyeri13" value="Yes" checked>
+                                <label for="nyeri13" class="custom-control-label">Pertimbangan jenis dan sumber nyeri dalam pemilihan strategi meredakan nyeri</label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $empatbelas = $nyerii->empatbelas;
+                              if ($empatbelas == "Yes") {?>
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="empatbelas" type="checkbox" id="nyeri14" value="Yes" checked>
+                                <label for="nyeri14" class="custom-control-label">Jelaskan penyebab, periode, dan pemicu nyeri</label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $limabelas = $nyerii->limabelas;
+                              if ($limabelas == "Yes") {?>
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="limabelas" type="checkbox" id="nyeri15" value="Yes" checked>
+                                <label for="nyeri15" class="custom-control-label">Jelaskan strategi meredakan nyeri</label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $enambelas = $nyerii->enambelas;
+                              if ($enambelas == "Yes") {?>
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="enambelas" type="checkbox" id="nyeri16" value="Yes" checked>
+                                <label for="nyeri16" class="custom-control-label">Anjurkan memonitor nyari secara mandiri</label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $tujuhbelas = $nyerii->tujuhbelas;
+                              if ($tujuhbelas == "Yes") {?>
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="tujuhbelas" type="checkbox" id="nyeri17" value="Yes" checked>
+                                <label for="nyeri17" class="custom-control-label">Anjurkan menggunakan analgetik secara tepat</label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $delapanbelas = $nyerii->delapanbelas;
+                              if ($delapanbelas == "Yes") {?>
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="delapanbelas" type="checkbox" id="nyeri18" value="Yes" checked>
+                                <label for="nyeri18" class="custom-control-label">Ajarkan teknik non farmakologis untuk mengurangi rasa nyeri </label>
+                              </div> <?php }else{} ?>
+
+                              <?php 
+                              $sembilanbelas = $nyerii->sembilanbelas;
+                              if ($sembilanbelas == "Yes") {?>
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" name="sembilanbelas" type="checkbox" id="nyeri19" value="Yes" checked>
+                                <label for="nyeri19" class="custom-control-label">Kolaborasi pemberian analgetik</label>
+                              </div> <?php }else{} ?>
+
+
+                               <?php }?>
+
+                               <?php } ?>
+                              
+
+                            </td>
+                            
                             <td align="center"><?php echo $us->create_at ?></td>
 
 
                             <td class="project-actions text-center">
                             
-                              <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#editmodal<?php echo $us->id_soapnafas; ?>">
+                              <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#editmodal<?php echo $us->id_soap; ?>">
                               <i class="fas fa-pencil-alt">
                               </i> Edit</a>
 
 
-                              <a class="btn btn-sm btn-danger tombol-hapus" href="<?php echo base_url('Ass/MasterPasien/delete_tekanandarah/').$us->id_soapnafas ?>">
+                              <a class="btn btn-sm btn-danger tombol-hapus" href="<?php echo base_url('Ass/MasterPasien/delete_tekanandarah/').$us->id_soap ?>">
                               <i class="fas fa-trash"></i> Delete</a>
 
                             </td>
@@ -255,8 +1105,7 @@
 
                     </table>
 
-          </div>
-
+        
 
         </section>
         <!-- /.content -->
@@ -314,29 +1163,35 @@
       <!-- MODAL UPDATE DATA -->
           <?php 
           $no = 0;
-          foreach ($evaluasi as $us) : $no++; ?>
-          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" id="editmodal<?php echo $us->id_soapnafas; ?>" class="modal fade">
-            <div class="modal-dialog" role="document">
+          foreach ($hevaluasi as $us) : $no++; ?>
+          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" id="editmodal<?php echo $us->id_soap; ?>" class="modal fade">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title">Update Data Pendidikan</h5>
+                  <h5 class="modal-title">Update Data Evaluasi</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
 
                 <div class="modal-body">
-                <form method="POST" action="<?php echo base_url('pns/pendidikan/update_pendidikan') ?>" enctype="multipart/form-data">
+                <form method="POST" action="<?php echo base_url('Ass/MasterPasien/update_evaluasi') ?>" enctype="multipart/form-data">
 
                     <div class="row">
                     <div class="col-md-12">
-                   
-                    <div class="form-group">
-                       <label>Jenjang Pendidikan</label>
-                       </select>
                     
-
+                    <div class="form-group">
+                    <label>Subjective (S)</label>
+                    <input type="hidden" name="id_soap" value="<?php echo $us->id_soap; ?>">
+                    <input type="hidden" name="id_anamnesis" value="<?php echo $anamnesis->id_anamnesis; ?>">
+                    <textarea class="form-control" name="s" rows="4" required><?php echo $us->s; ?></textarea>
                     </div>
+
+                    <div class="form-group">
+                    <label>Objective (O)</label>
+                    <textarea class="form-control" name="o" rows="4" required><?php echo $us->o; ?></textarea>
+                    </div>
+                    
                     </div>
                     </div>
 
