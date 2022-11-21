@@ -59,7 +59,7 @@
     <div class="card">
       <div class="card-header">
         <h3 class="card-title"></h3>
-        <a>Data Anamnesis Pasien An. <?php echo "<strong>".$anamnesis->nama." (".$anamnesis->no_rm.")"."</strong>" ?></a>
+        <a>Data Anamnesis Pasien An. <?php echo "<strong>".$anamnesis->NAMA." (".$anamnesis->NORM.")"."</strong>" ?></a>
       </div>
       <div class="card-body">
 
@@ -118,7 +118,7 @@
               <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Kapan?</label>
                 <div class="col-sm-10">
-                <input type="text" class="form-control" value="<?php if ($anamnesis->pernah_rawat_kapan== "0000-00-00") {
+                <input type="text" class="form-control" value="<?php if ($anamnesis->pernah_rawat_kapan == null) {
                           echo "-";
                         }else{
                           echo tgl_indo(date($anamnesis->pernah_rawat_kapan));
@@ -155,7 +155,7 @@
               <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Kapan?</label>
                 <div class="col-sm-10">
-                <input type="text" class="form-control" value="<?php if ($anamnesis->pernah_operasi_kapan== "0000-00-00") {
+                <input type="text" class="form-control" value="<?php if ($anamnesis->pernah_operasi_kapan == null) {
                           echo "-";
                         }else{
                           echo tgl_indo(date($anamnesis->pernah_operasi_kapan));

@@ -30,14 +30,7 @@ class MasterPasien extends CI_Controller
     {
         check_not_login();
 
-        // $data['pasien'] = $this->pasien_m->get_data_pasien();
-        // $data['hitung_antri'] = $this->pasien_m->hitung_antri();
-        // $data['antri_obat'] = $this->pasien_m->antri_obat();
-        // $data['invoice']=$this->pasien_m->get_no_invoice();
-
         $data['title'] = " Cari Pasien ";
-
-
 
         $this->load->view('template/header');
         $this->load->view('template/sidebar');
@@ -49,10 +42,13 @@ class MasterPasien extends CI_Controller
 
     public function hasil_cari()
     {
-        $data['cari'] = $this->pasien_m->cariOrang();
+        $data['cari'] = $this->pasien_m->cariOrangGos();
+
+        $data['title'] = " Hasil Pencarian Pasien ";
+
         $this->load->view('template/header');
         $this->load->view('template/sidebar');
-        $this->load->view('Masterpasien/v_data_pasien_result', $data);
+        $this->load->view('Masterpasien/v_data_pasien_result_gos', $data);
         $this->load->view('template/footer');
     }
 
@@ -79,14 +75,9 @@ class MasterPasien extends CI_Controller
 
         $plain_query  = "  
         select 
-        pasien.nama,
-        pasien.norm,
-        pasien.tempat_lahir,
-        pasien.tanggal_lahir,
-        referensi.deskripsi as pekerjaan,
-        pasien.jenis_kelamin,
-        pasien.alamat,
-        kontak_pasien.nomor as nohp,
+        pasien.nama,pasien.norm,pasien.tempat_lahir,pasien.tanggal_lahir,
+        referensi.deskripsi as pekerjaan,pasien.jenis_kelamin,
+        pasien.alamat,kontak_pasien.nomor as nohp,
         kartu_identitas_pasien.nomor as nik,
         pasien.agama
         from master.pasien pasien
@@ -117,7 +108,75 @@ class MasterPasien extends CI_Controller
         $this->load->view('template/header');
         $this->load->view('template/sidebar',$data);
         $this->load->view('Masterpasien/v_input_anamnesis',$data);
-        $this->load->view('template/footer');
+        $this->load->view('template/footer', [
+            'js' => <<< JS
+                $('#id-pernah-dirawat').change(function(e) {
+                    e.preventDefault();
+                    let elem = $(this);
+                    let disableInput = elem.val() == 'Tidak Pernah';
+
+                    $('#id-diagnosa').prop('disabled', disableInput);
+                    // $('#id-diagnosa').prop('readonly', disableInput);
+
+                    $('#id-kapan').prop('disabled', disableInput);
+                    // $('#id-kapan').prop('readonly', disableInput);
+
+                    $('#id-di').prop('disabled', disableInput);
+                    // $('#id-di').prop('readonly', disableInput);
+                });
+
+                $('#id-pernah-operasi').change(function(e) {
+                    e.preventDefault();
+                    let elem = $(this);
+                    let disableInput = elem.val() == 'Tidak Pernah';
+
+                    $('#id-operasi').prop('disabled', disableInput);
+                    // $('#id-operasi').prop('readonly', disableInput);
+
+                    $('#id-kapanoperasi').prop('disabled', disableInput);
+                    // $('#id-kapanoperasi').prop('readonly', disableInput);
+
+                    $('#id-operasidimana').prop('disabled', disableInput);
+                    // $('#id-operasidimana').prop('readonly', disableInput);
+                });
+
+                $('#id-obat').change(function(e) {
+                    e.preventDefault();
+                    let elem = $(this);
+                    let disableInput = elem.val() == 'Tidak';
+
+                    $('#id-jenisobat').prop('disabled', disableInput);
+                    // $('#id-jenisobat').prop('readonly', disableInput);
+                });
+
+                $('#id-penyakitkeluarga').change(function(e) {
+                    e.preventDefault();
+                    let elem = $(this);
+                    let disableInput = elem.val() == 'Tidak';
+
+                    $('#id-penyakitkeluargajenis').prop('disabled', disableInput);
+                    // $('#id-penyakitkeluargajenis').prop('readonly', disableInput);
+
+                    $('#id-penyakitkeluargalain').prop('disabled', disableInput);
+                    // $('#id-penyakitkeluargalain').prop('readonly', disableInput);
+                });
+
+                $('#id-alergi').change(function(e) {
+                    e.preventDefault();
+                    let elem = $(this);
+                    let disableInput = elem.val() == 'Tidak';
+
+                    $('#id-alergimakanan').prop('disabled', disableInput);
+                    // $('#id-alergimakanan').prop('readonly', disableInput);
+
+                    $('#id-alergiobat').prop('disabled', disableInput);
+                    // $('#id-alergiobat').prop('readonly', disableInput);
+
+                    $('#id-alergilain').prop('disabled', disableInput);
+                    // $('#id-alergilain').prop('readonly', disableInput);
+                });
+            JS,
+        ]);
     }
 
 
@@ -758,7 +817,7 @@ public function tambah_nyeri_aksi()
     $region         = $this->input->post('region');
     $menyebar       = $this->input->post('menyebar');
     $skala          = $this->input->post('skala');
-    $hasil          = $this->input->post('hasil');
+    // $hasil          = $this->input->post('hasil');
     $waktu          = $this->input->post('waktu');
         // $diagnosa_proteksi  = $this->input->post('diagnosa_proteksi');
 
@@ -766,6 +825,20 @@ public function tambah_nyeri_aksi()
         $diagnosa_nyeri = 'Nyeri Akut ';
     }else{ 
         $diagnosa_nyeri = 'Tidak Terdiagnosa Nyeri Akut';
+    }
+
+    if ($skala == "0") {
+      $hasil = "Tidak Sakit";
+    }elseif($skala == "2"){
+      $hasil = "Sedikit Sakit";
+    }elseif($skala == "4"){
+      $hasil = "Agak Mengganggu";
+    }elseif($skala == "6"){
+      $hasil = "Mengganggu Aktivitas";
+    }elseif($skala == "8"){
+      $hasil = "Sangat Mengganggu";
+    }elseif($skala == "10"){
+      $hasil = "Tak Tertahankan";
     }
 
     $data = array(
@@ -802,13 +875,28 @@ public function update_nyeri_aksi()
     $region         = $this->input->post('region');
     $menyebar       = $this->input->post('menyebar');
     $skala          = $this->input->post('skala');
-    $hasil          = $this->input->post('hasil');
+    // $hasil          = $this->input->post('hasil');
     $waktu          = $this->input->post('waktu');
 
     if ($nyeri == "Ada" && $deskripsi == "Benturan" || $deskripsi == "Tindakan" || $deskripsi == "Proses Penyakit" && $quality == "Seperti tertusuk-tusuk benda tajam/tumpul" || $quality == "Berdenyut" || $quality == "Terbakar" || $quality == "Diremas" || $quality == "Teriris" || $quality == "Terindih benda berat" && $menyebar == "Tidak" && $hasil < "6" && $waktu == "< 6 Bulan") {
         $diagnosa_nyeri = 'Nyeri Akut ';
     }else{ 
         $diagnosa_nyeri = 'Tidak Terdiagnosa Nyeri Akut';
+    }
+
+
+    if ($skala == "0") {
+      $hasil = "Tidak Sakit";
+    }elseif($skala == "2"){
+      $hasil = "Sedikit Sakit";
+    }elseif($skala == "4"){
+      $hasil = "Agak Mengganggu";
+    }elseif($skala == "6"){
+      $hasil = "Mengganggu Aktivitas";
+    }elseif($skala == "8"){
+      $hasil = "Sangat Mengganggu";
+    }elseif($skala == "10"){
+      $hasil = "Tak Tertahankan";
     }
 
     $data = array(
@@ -851,6 +939,24 @@ public function detail_pasien($id)
     $this->load->view('Masterpasien/v_data_detail_pasien',$data);
     $this->load->view('template/footer');
 }
+
+
+// public function detail_pasien($id)
+// {
+//     check_not_login();
+
+//     $data['anamnesis'] = $this->pasien_m->data_anamnesis($id);
+//     $data['detail'] = $this->pasien_m->get_id_pasien($id);
+//     $data['detailpasien'] = $this->pasien_m->get_data_pasien_personal($id);
+
+
+//     $data['title'] = " Data Pasien ";
+
+//     $this->load->view('template/header');
+//     $this->load->view('template/sidebar',$data);
+//     $this->load->view('Masterpasien/v_data_detail_pasien',$data);
+//     $this->load->view('template/footer');
+// }
 
 
 public function tekanandarah($idanamnesis)
@@ -1765,6 +1871,19 @@ public function delete_tekanandarah($id)
     $this->pasien_m->delete_data($where, 'grafik');
     $this->session->set_flashdata('flash', 'Dihapus');
     redirect('Ass/MasterPasien/tekanandarah/'.$asdf);
+}
+
+
+
+public function delete_soap($id)
+{
+    $asdf = $this->pasien_m->get_data_soap_by_id($id)->id_anamnesis;
+
+    $where = array('id_soap' => $id);
+
+    $this->pasien_m->delete_data($where, 'soap');
+    $this->session->set_flashdata('flash', 'Dihapus');
+    redirect('Ass/MasterPasien/evaluasi/'.$asdf);
 }
 
 

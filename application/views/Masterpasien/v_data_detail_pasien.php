@@ -22,13 +22,13 @@
     <div class="card">
       <div class="card-header">
         <h3 class="card-title"></h3>
-        <a>Riwayat Data Anamnesis Pasien An. <?php echo "<strong>".$detail->nama." (".$detail->no_rm.")"."</strong>" ?></a>
+        <a>Riwayat Data Anamnesis Pasien An. <?php echo "<strong>".$detail->nama." (".$detail->norm.")"."</strong>" ?></a>
       </div>
       <div class="card-body">
 
         <div class="flash-data" data-flashdata="<?php echo $this->session->flashdata('flash'); ?>"></div>
 
-        <a href="<?php echo base_url('Ass/MasterPasien/tambah_anamnesis/').$detail->id_pasien ?>" class="btn btn-info mb-3"><i class="fas fa-plus-square"> </i> Tambah Data Anamnesis</a>
+        <a href="<?php echo base_url('Ass/MasterPasien/tambah_anamnesis/').$detail->norm ?>" class="btn btn-info mb-3"><i class="fas fa-plus-square"> </i> Tambah Data Anamnesis</a>
 
         <table class="table table-hover table-striped table-bordered" id="table1">
           <thead style="text-align: center;">
@@ -50,7 +50,7 @@
               <tr>
                 <td><?php echo $no++; ?></td>
                 
-                <td><?php echo $us->no_rm ?></td>
+                <td><?php echo $us->NORM ?></td>
                 <td><?php echo $us->tgl_pengkajian ?></td>
                 <td><?php echo $us->keluhan_utama ?></td>
                 <td><?php echo $us->riw_penyakit_sekarang ?></td>

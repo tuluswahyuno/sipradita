@@ -73,7 +73,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="form-group">
                   <label>Deskripsi</label>
                   <select class="form-control" name="deskripsi">
@@ -85,10 +85,10 @@
                 </div>
             </div>
 
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="form-group">
                   <label>Lainnya</label>
-                  <input type="text" name="lainnya" class="form-control" value="<?php echo $nyeri->lainnya; ?>" required>
+                  <input type="text" name="lainnya" class="form-control" value="<?php echo $nyeri->lainnya; ?>">
                 </div>
             </div>
 
@@ -97,26 +97,26 @@
                   <label>Quality</label>
                   <select class="form-control" name="quality">
                     <option value="<?php echo $nyeri->quality; ?>"><?php echo $nyeri->quality; ?></option>
-                    <option value="Seperti tertusuk-tusuk benda tajam/tumpul">Seperti tertusuk-tusuk benda tajam/tumpul</option>
                     <option value="Berdenyut">Berdenyut</option>
                     <option value="Terbakar">Terbakar</option>
                     <option value="Diremas">Diremas</option>
                     <option value="Teriris">Teriris</option>
                     <option value="Terindih benda berat">Terindih benda berat</option>
+                    <option value="Seperti tertusuk-tusuk benda tajam/tumpul">Seperti tertusuk-tusuk benda tajam/tumpul</option>
                   </select>
                 </div>
             </div>
 
 
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="form-group">
                   <label>Region</label>
-                  <input type="text" name="region" class="form-control" value="<?php echo $nyeri->region; ?>" required>
+                  <input type="text" name="region" class="form-control" value="<?php echo $nyeri->region; ?>">
                 </div>
             </div>
 
 
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="form-group">
                   <label>Menyebar</label>
                   <select class="form-control" name="menyebar">
@@ -128,50 +128,31 @@
             </div>
 
 
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="form-group">
                   <label>Skala</label>
                   <select class="form-control" name="skala">
-
-                    <?php 
-                    $s = $nyeri->skala;
-                    if ($s = "0") {
-                      $yes = "Tidak Sakit";
-                    }elseif($s = "2"){
-                      $yes = "Sedikit Sakit";
-                    }elseif($s = "4"){
-                      $yes = "Agak Mengganggu";
-                    }elseif($s = "6"){
-                      $yes = "Mengganggu Aktivitas";
-                    }elseif($s = "8"){
-                      $yes = "Sangat Mengganggu";
-                    }elseif($s = "10"){
-                      $yes = "Tak Tertahankan";
-                    }
-
-                   ?>
-
-                    <option value="<?php echo $yes; ?>"><?php echo $yes; ?></option>
-                    <option value="0">Tidak Sakit</option>
-                    <option value="2">Sedikit Sakit</option>
-                    <option value="4">Agak Mengganggu</option>
-                    <option value="6">Mengganggu Aktivitas</option>
-                    <option value="8">Sangat Mengganggu</option>
-                    <option value="10">Tak Tertahankan</option>
+                    <option value="<?php echo $nyeri->skala; ?>"><?php echo $nyeri->skala; ?></option>
+                    <option value="0">0</option>
+                    <option value="2">2</option>
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                    <option value="8">8</option>
+                    <option value="10">10</option>
                   </select>
                 </div>
             </div>
 
 
-            <div class="col-sm-3">
+           <!--  <div class="col-sm-3">
                 <div class="form-group">
                   <label>Hasil</label>
                   <input type="text" name="hasil" class="form-control" value="<?php echo $nyeri->hasil; ?>" required>
                 </div>
-            </div>
+            </div> -->
 
 
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="form-group">
                   <label>Time</label>
                   <select class="form-control" name="waktu">

@@ -125,6 +125,7 @@
                   <label>Alat Bantu</label>
                   <select class="form-control" name="alat_bantu">
                     <option value="<?php echo $pernafasan->alat_bantu; ?>"><?php echo $pernafasan->alat_bantu; ?></option>
+                    <option value="-">-</option>
                     <option value="NK">NK</option>
                     <option value="NRM">NRM</option>
                     <option value="RM">RM</option>

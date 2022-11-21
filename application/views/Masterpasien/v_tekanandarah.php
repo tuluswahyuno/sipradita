@@ -60,7 +60,7 @@
     <div class="card">
       <div class="card-header">
         <h3 class="card-title"></h3>
-        <a>Vital Sign Pasien An. <?php echo "<strong>".$detail->nama." (".$detail->no_rm.")"."</strong>" ?></a>
+        <a>Vital Sign Pasien An. <?php echo "<strong>".$detail->NAMA." (".$detail->NORM.")"."</strong>" ?></a>
       </div>
       <div class="card-body">
 

@@ -58,7 +58,7 @@
     <div class="card">
       <div class="card-header">
         <h3 class="card-title"></h3>
-        <a>Data Pemeriksaan Umum Pasien An. <?php echo "<strong>".$anamnesis->nama." (".$anamnesis->no_rm.")"."</strong>" ?></a>
+        <a>Data Pemeriksaan Umum Pasien An. <?php echo "<strong>".$anamnesis->NAMA." (".$anamnesis->NORM.")"."</strong>" ?></a>
       </div>
       <div class="card-body">
 
@@ -135,7 +135,7 @@
                   <div class="form-group row">
                   <label class="col-sm-4 col-form-label">Kateter Urine, Terpasang Tanggal</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" value="<?php if ($aaaa->kateter_terpasang_tgl == "0000-00-00") {
+                    <input type="text" class="form-control" value="<?php if ($aaaa->kateter_terpasang_tgl == null) {
                           echo "-";
                         }else{
                           echo tgl_indo(date($aaaa->kateter_terpasang_tgl));
@@ -146,7 +146,7 @@
                   <div class="form-group row">
                   <label class="col-sm-4 col-form-label">NGT/OGT, Terpasang Tanggal</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" value="<?php if ($aaaa->ngtogt_terpasang_tgl == "0000-00-00") {
+                    <input type="text" class="form-control" value="<?php if ($aaaa->ngtogt_terpasang_tgl == null) {
                           echo "-";
                         }else{
                           echo tgl_indo(date($aaaa->ngtogt_terpasang_tgl));
@@ -161,7 +161,7 @@
                 <div class="form-group row">
                   <label class="col-sm-2 col-form-label">TD</label>
                   <div class="col-sm-10">
-                  <input type="text" class="form-control" value="<?php echo "TD = ".$aaaa->td." MmHg"; ?>">  
+                  <input type="text" class="form-control" value="<?php echo $aaaa->td." MmHg"; ?>">  
                   </div>
                   </div>
 

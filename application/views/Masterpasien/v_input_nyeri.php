@@ -71,7 +71,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="form-group">
                   <label>Deskripsi</label>
                   <select class="form-control" name="deskripsi">
@@ -82,10 +82,10 @@
                 </div>
             </div>
 
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="form-group">
                   <label>Lainnya</label>
-                  <input type="text" name="lainnya" class="form-control" placeholder="Lainnya ..." required>
+                  <input type="text" name="lainnya" class="form-control" placeholder="Lainnya" >
                 </div>
             </div>
 
@@ -93,26 +93,26 @@
                 <div class="form-group">
                   <label>Quality</label>
                   <select class="form-control" name="quality">
-                    <option value="Seperti tertusuk-tusuk benda tajam/tumpul">Seperti tertusuk-tusuk benda tajam/tumpul</option>
                     <option value="Berdenyut">Berdenyut</option>
                     <option value="Terbakar">Terbakar</option>
                     <option value="Diremas">Diremas</option>
                     <option value="Teriris">Teriris</option>
                     <option value="Terindih benda berat">Terindih benda berat</option>
+                    <option value="Seperti tertusuk-tusuk benda tajam/tumpul">Seperti tertusuk-tusuk benda tajam/tumpul</option>
                   </select>
                 </div>
             </div>
 
 
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="form-group">
                   <label>Region</label>
-                  <input type="text" name="region" class="form-control" placeholder="Lokasi ..." required>
+                  <input type="text" name="region" class="form-control" placeholder="Lokasi">
                 </div>
             </div>
 
 
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="form-group">
                   <label>Menyebar</label>
                   <select class="form-control" name="menyebar">
@@ -123,30 +123,30 @@
             </div>
 
 
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="form-group">
                   <label>Skala</label>
                   <select class="form-control" name="skala">
-                    <option value="0">Tidak Sakit</option>
-                    <option value="2">Sedikit Sakit</option>
-                    <option value="4">Agak Mengganggu</option>
-                    <option value="6">Mengganggu Aktivitas</option>
-                    <option value="8">Sangat Mengganggu</option>
-                    <option value="10">Tak Tertahankan</option>
+                    <option value="0">0</option>
+                    <option value="2">2</option>
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                    <option value="8">8</option>
+                    <option value="10">10</option>
                   </select>
                 </div>
             </div>
 
 
-            <div class="col-sm-3">
+            <!-- <div class="col-sm-3">
                 <div class="form-group">
                   <label>Hasil</label>
                   <input type="text" name="hasil" class="form-control" placeholder="Hasil....." required>
                 </div>
-            </div>
+            </div> -->
 
 
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="form-group">
                   <label>Time</label>
                   <select class="form-control" name="waktu">

@@ -24,8 +24,6 @@
     <div class="card">
 
 
-      <div class="flash-data" data-flashdata="<?php echo $this->session->flashdata('flash'); ?>"></div>
-
       <div class="card card-info">
         <div class="card-header">
           <h3 class="card-title">Pemeriksaan Umum</h3>

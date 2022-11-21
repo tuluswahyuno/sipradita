@@ -58,7 +58,7 @@
     <div class="card">
       <div class="card-header">
         <h3 class="card-title"></h3>
-        <a>Evaluasi Pasien An. <?php echo "<strong>".$anamnesis->nama." (".$anamnesis->no_rm.")"."</strong>" ?></a>
+        <a>Evaluasi Pasien An. <?php echo "<strong>".$anamnesis->NAMA." (".$anamnesis->NORM.")"."</strong>" ?></a>
       </div>
       <div class="card-body">
 
@@ -1091,7 +1091,7 @@
                               </i> Edit</a>
 
 
-                              <a class="btn btn-sm btn-danger tombol-hapus" href="<?php echo base_url('Ass/MasterPasien/delete_tekanandarah/').$us->id_soap ?>">
+                              <a class="btn btn-sm btn-danger tombol-hapus" href="<?php echo base_url('Ass/MasterPasien/delete_soap/').$us->id_soap ?>">
                               <i class="fas fa-trash"></i> Delete</a>
 
                             </td>

@@ -14,7 +14,7 @@
         <div class="col-md-8 offset-md-2">
           <form action="<?php echo base_url('Ass/MasterPasien/hasil_cari')?>" action="GET">
             <div class="input-group">
-              <input type="search" id="cari" name="cari" class="form-control form-control-lg" placeholder="Masukkan Nomor Rekam Medis (RM) Pasien">
+              <input type="search" id="cari" name="cari" class="form-control form-control-lg" placeholder="Masukkan Nomor Rekam Medis (RM) atau Nama Lengkap Pasien">
               <div class="input-group-append">
                 <button type="submit" class="btn btn-lg btn-default" value="Cari">
                   <i class="fa fa-search"></i>

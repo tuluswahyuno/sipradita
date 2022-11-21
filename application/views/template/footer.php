@@ -73,7 +73,15 @@
   });
 </script>
 
+<?php if (isset($js)) : ?>
 
+<script>
+  $(function () {
+    <?php echo $js ?>
+  });
+</script>
+
+<?php endif; ?>
 
 
 <!-- digunakan untuk memanggil sweetalret -->

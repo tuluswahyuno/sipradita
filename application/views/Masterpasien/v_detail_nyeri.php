@@ -58,7 +58,7 @@
     <div class="card">
       <div class="card-header">
         <h3 class="card-title"></h3>
-        <a>Data Pengkajian Nyeri Pasien An. <?php echo "<strong>".$anamnesis->nama." (".$anamnesis->no_rm.")"."</strong>" ?></a>
+        <a>Data Pengkajian Nyeri Pasien An. <?php echo "<strong>".$anamnesis->NAMA." (".$anamnesis->NORM.")"."</strong>" ?></a>
       </div>
       <div class="card-body">
 
@@ -131,26 +131,7 @@
                               <div class="form-group row">
                                 <label for="inputSkills" class="col-sm-4 col-form-label">Skala</label>
                                 <div class="col-sm-7">
-
-                                  <?php 
-                                    $s = $aaaa->skala;
-                                    if ($s = "0") {
-                                      $yes = "Tidak Sakit";
-                                    }elseif($s = "2"){
-                                      $yes = "Sedikit Sakit";
-                                    }elseif($s = "4"){
-                                      $yes = "Agak Mengganggu";
-                                    }elseif($s = "6"){
-                                      $yes = "Mengganggu Aktivitas";
-                                    }elseif($s = "8"){
-                                      $yes = "Sangat Mengganggu";
-                                    }elseif($s = "10"){
-                                      $yes = "Tak Tertahankan";
-                                    }
-
-                                   ?>
-
-                                  <input type="text" class="form-control" value="<?php echo $yes; ?>">
+                                  <input type="text" class="form-control" value="<?php echo $aaaa->skala; ?>">
                                 </div>
                               </div>
 
@@ -171,7 +152,6 @@
                           </div>
                           
                           
-
                         </form>
 
 

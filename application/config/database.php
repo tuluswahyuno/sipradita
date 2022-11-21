@@ -153,16 +153,17 @@ $db['default'] = array(
 	'dsn'	=> '',
 
 	// 'hostname' => '192.168.100.4',
+	'hostname' => '36.67.11.131',
 
-	// 'username' => 'admin',
+	'username' => 'admin',
 
-	// 'password' => 'S!MRSGos2',
+	'password' => 'S!MRSGos2',
 
-	'hostname' => 'localhost',
+	// 'hostname' => 'localhost',
 
-	'username' => 'root',
+	// 'username' => 'root',
 
-	'password' => '',
+	// 'password' => '',
 
 	'database' => 'sipradita',
 

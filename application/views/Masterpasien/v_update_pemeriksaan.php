@@ -145,14 +145,14 @@
             <div class="col-sm-4">
                 <div class="form-group">
                   <label>a. IV Line, Terpasang di</label>
-                  <input type="text" name="ivline_terpasangdi" class="form-control" value="<?php echo $pemeriksaan->ivline_terpasangdi; ?>" required>
+                  <input type="text" name="ivline_terpasangdi" class="form-control" value="<?php echo $pemeriksaan->ivline_terpasangdi; ?>">
                 </div>
             </div>
 
             <div class="col-sm-4">
                 <div class="form-group">
                   <label>Sebelah</label>
-                  <select class="form-control" name="lokasi" required>
+                  <select class="form-control" name="lokasi">
                     <option value="Kanan">Kanan</option>
                     <option value="Kiri">Kiri</option>
                   </select>
@@ -162,7 +162,7 @@
             <div class="col-sm-4">
                 <div class="form-group">
                   <label>Tanggal</label>
-                  <input type="date" name="tanggal" class="form-control" value="<?php echo $pemeriksaan->tanggal; ?>" required>
+                  <input type="date" name="tanggal" class="form-control" value="<?php echo $pemeriksaan->tanggal; ?>">
                 </div>
             </div>
 
@@ -170,7 +170,7 @@
             <div class="col-sm-6">
                 <div class="form-group">
                   <label>b. Kateter Urine, Terpasang Tanggal</label>
-                  <input type="date" name="kateter_terpasang_tgl" class="form-control" value="<?php echo $pemeriksaan->kateter_terpasang_tgl; ?>" required>
+                  <input type="date" name="kateter_terpasang_tgl" class="form-control" value="<?php echo $pemeriksaan->kateter_terpasang_tgl; ?>">
                 </div>
             </div>
 
@@ -178,7 +178,7 @@
             <div class="col-sm-6">
                 <div class="form-group">
                   <label>c. NGT/OGT, Terpasang Tanggal </label>
-                  <input type="date" name="ngtogt_terpasang_tgl" class="form-control" value="<?php echo $pemeriksaan->ngtogt_terpasang_tgl; ?>"required>
+                  <input type="date" name="ngtogt_terpasang_tgl" class="form-control" value="<?php echo $pemeriksaan->ngtogt_terpasang_tgl; ?>">
                 </div>
             </div>
               

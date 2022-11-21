@@ -35,7 +35,7 @@
               <div class="card-body">
                 <div class="form-group">
                   <label>Keluhan Utama</label>
-                  <input type="hidden" name="id_pasien" value="<?php echo $detail->id_pasien; ?>">
+                  <input type="hidden" name="id_pasien" value="<?php echo $detail->norm; ?>">
                   <input type="text" name="keluhan_utama" class="form-control form-control-border" placeholder="keluhan utama" required>
                 </div>
                 <div class="form-group">
@@ -55,7 +55,7 @@
 
                 <div class="form-group">
                   <label>Apakah Pasien Pernah Dirawat?</label>
-                  <select class="custom-select form-control-border" name="pernah_rawat">
+                  <select class="custom-select form-control-border" name="pernah_rawat" id="id-pernah-dirawat">
                    <option value="Pernah">Pernah</option>
                    <option value="Tidak Pernah">Tidak Pernah</option>
                  </select>
@@ -63,17 +63,17 @@
 
                <div class="form-group">
                 <label>Apa Diagnosanya?</label>
-                <input type="text" name="pernah_rawat_diagnosa" class="form-control form-control-border" placeholder="Diagnosa">
+                <input type="text" name="pernah_rawat_diagnosa" class="form-control form-control-border" placeholder="Diagnosa" id="id-diagnosa">
               </div>
 
               <div class="form-group">
                 <label>Kapan Pernah Dirawat?</label>
-                <input type="date" name="pernah_rawat_kapan" class="form-control form-control-border" placeholder="Diagnosa">
+                <input type="date" name="pernah_rawat_kapan" class="form-control form-control-border" placeholder="Kapan Dirawat?" id="id-kapan">
               </div>
 
               <div class="form-group">
                 <label>Pernah Dirawat Dimana?</label>
-                <input type="text" name="pernah_rawat_di" class="form-control form-control-border" placeholder="RS atau Klinik mana?">
+                <input type="text" name="pernah_rawat_di" class="form-control form-control-border" placeholder="RS atau Klinik mana?" id="id-di">
               </div>
 
             </div>
@@ -86,7 +86,7 @@
             <div class="card-body">
               <div class="form-group">
                 <label>Apakah Pasien Pernah Operasi?</label>
-                <select class="custom-select form-control-border" name="pernah_operasi">
+                <select class="custom-select form-control-border" name="pernah_operasi" id="id-pernah-operasi">
                  <option value="Pernah">Pernah</option>
                  <option value="Tidak Pernah">Tidak Pernah</option>
                </select>
@@ -94,17 +94,17 @@
 
              <div class="form-group">
               <label>Jika Pernah, Operasi Apa?</label>
-              <input type="text" name="pernah_operasi_jenis" class="form-control form-control-border" placeholder="Operasi Apa?">
+              <input type="text" name="pernah_operasi_jenis" class="form-control form-control-border" placeholder="Operasi Apa?" id="id-operasi">
             </div>
 
             <div class="form-group">
               <label>Kapan Pernah Operasi?</label>
-              <input type="date" name="pernah_operasi_kapan" class="form-control form-control-border">
+              <input type="date" name="pernah_operasi_kapan" class="form-control form-control-border" id="id-kapanoperasi">
             </div>
 
             <div class="form-group">
               <label>Pernah Operasi Dimana?</label>
-              <input type="text" name="pernah_operasi_di" class="form-control form-control-border" placeholder="RS atau Klinik mana?">
+              <input type="text" name="pernah_operasi_di" class="form-control form-control-border" placeholder="RS atau Klinik mana?" id="id-operasidimana">
             </div>
 
           </div>
@@ -121,7 +121,7 @@
 
             <div class="form-group">
               <label>Apakah saat ini mengkonsumsi obat?</label>
-              <select class="custom-select form-control-border" name="obatygdikonsumsi">
+              <select class="custom-select form-control-border" name="obatygdikonsumsi" id="id-obat">
                <option value="Ya">Ya</option>
                <option value="Tidak">Tidak</option>
              </select>
@@ -129,7 +129,7 @@
 
            <div class="form-group">
             <label>Jika Ya, apa nama obat yang dikonsumsi?</label>
-            <input type="text" name="obatygdikonsumsi_jenis" class="form-control form-control-border" placeholder="apa nama obat yang dikonsumsi?">
+            <input type="text" name="obatygdikonsumsi_jenis" class="form-control form-control-border" placeholder="apa nama obat yang dikonsumsi?" id="id-jenisobat">
           </div>
 
         </div>
@@ -154,7 +154,7 @@
 
           <div class="form-group">
             <label>Apakah pasien memiliki riwayat penyakit keluarga?</label>
-            <select class="custom-select form-control-border" name="riwayat_penyakit_keluarga">
+            <select class="custom-select form-control-border" name="riwayat_penyakit_keluarga" id="id-penyakitkeluarga">
              <option value="Ya">Ya</option>
              <option value="Tidak">Tidak</option>
            </select>
@@ -162,7 +162,7 @@
 
          <div class="form-group">
           <label>Jika Ya, pilihlah jenis penyakit dibawah ini?</label>
-          <select class="custom-select form-control-border" name="riwayat_penyakit_jenis">
+          <select class="custom-select form-control-border" name="riwayat_penyakit_jenis" id="id-penyakitkeluargajenis">
             <option value="-">-</option>
             <option value="Ya">Hipertensi</option>
             <option value="Tidak">Jantung</option>
@@ -174,7 +174,7 @@
 
         <div class="form-group">
           <label>Sebutkan nama penyakitnya, jika tidak ada dalam pilihan</label>
-          <input type="text" name="penyakit_jenis_lainnya" class="form-control form-control-border" placeholder="nama penyakit keluarga">
+          <input type="text" name="penyakit_jenis_lainnya" class="form-control form-control-border" placeholder="nama penyakit keluarga" id="id-penyakitkeluargalain">
         </div>
 
       </div>
@@ -188,7 +188,7 @@
       <div class="card-body">
         <div class="form-group">
           <label>Apakah Pasien Memiliki Riwayat Alergi?</label>
-          <select class="custom-select form-control-border" name="riwayat_alergi">
+          <select class="custom-select form-control-border" name="riwayat_alergi" id="id-alergi">
            <option value="Ya">Ya</option>
            <option value="Tidak">Tidak</option>
          </select>
@@ -196,17 +196,17 @@
 
        <div class="form-group">
         <label>Alergi makanan?</label>
-        <input type="text" name="alergi_makanan" class="form-control form-control-border" placeholder="nama makanan">
+        <input type="text" name="alergi_makanan" class="form-control form-control-border" placeholder="nama makanan" id="id-alergimakanan">
       </div>
 
       <div class="form-group">
         <label>Alergi obat?</label>
-        <input type="text" name="alergi_obat" class="form-control form-control-border" placeholder="nama obat">
+        <input type="text" name="alergi_obat" class="form-control form-control-border" placeholder="nama obat" id="id-alergiobat">
       </div>
 
       <div class="form-group">
         <label>Alergi lainnya?</label>
-        <input type="text" name="alergi_lainnya" class="form-control form-control-border" placeholder="sebutkan jenis alrginya">
+        <input type="text" name="alergi_lainnya" class="form-control form-control-border" placeholder="sebutkan jenis alrginya" id="id-alergilain">
       </div>
 
     </div>

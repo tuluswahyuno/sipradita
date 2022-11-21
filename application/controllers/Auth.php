@@ -52,14 +52,11 @@
 
 					switch ($cek->role) {
 						
-						case 1 : redirect('admin/Dashboard');
+						case 1 : redirect('Ass/MasterPasien/cari_pasien');
 								 break;
 
-						// case 2 : redirect('pns/Dashboard');
-						// 		 break;
-
-						// case 3 : redirect('nonpns/Dashboard');
-						// 		 break;
+						case 2 : redirect('Ass/MasterPasien/cari_pasien');
+								 break;
 
 						default: break;
 					}
