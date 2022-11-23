@@ -124,7 +124,7 @@
                   <div class="form-group row">
                   <label class="col-sm-4 col-form-label">Tanggal Pemasangan</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" value="<?php if ($aaaa->tanggal == "0000-00-00") {
+                    <input type="text" class="form-control" value="<?php if ($aaaa->tanggal == null || $aaaa->tanggal == "0000-00-00") {
                           echo "-";
                         }else{
                           echo tgl_indo(date($aaaa->tanggal));
@@ -135,7 +135,7 @@
                   <div class="form-group row">
                   <label class="col-sm-4 col-form-label">Kateter Urine, Terpasang Tanggal</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" value="<?php if ($aaaa->kateter_terpasang_tgl == null) {
+                    <input type="text" class="form-control" value="<?php if ($aaaa->kateter_terpasang_tgl == null || $aaaa->kateter_terpasang_tgl == "0000-00-00") {
                           echo "-";
                         }else{
                           echo tgl_indo(date($aaaa->kateter_terpasang_tgl));
@@ -146,7 +146,7 @@
                   <div class="form-group row">
                   <label class="col-sm-4 col-form-label">NGT/OGT, Terpasang Tanggal</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" value="<?php if ($aaaa->ngtogt_terpasang_tgl == null) {
+                    <input type="text" class="form-control" value="<?php if ($aaaa->ngtogt_terpasang_tgl == null || $aaaa->ngtogt_terpasang_tgl == "0000-00-00") {
                           echo "-";
                         }else{
                           echo tgl_indo(date($aaaa->ngtogt_terpasang_tgl));
@@ -208,7 +208,7 @@
               <div align="right">
                 <a href="<?php echo base_url('Ass/MasterPasien/update_pemeriksaan/').$detail->id_anamnesis ?>" class="btn btn-success"><i class="fas fa-pencil-alt"> </i> Update</a>
 
-                <a href="<?php echo base_url('Ass/MasterPasien/detail_pasien/').$detail->id_pasien ?>" class="btn btn-info"><i class="fas fa-arrow-alt-circle-left"></i> Back</a>
+                <a href="<?php echo base_url('Ass/MasterPasien/detail_pasien/').$detail->id_pasien ?>" class="btn btn-secondary"><i class="fas fa-arrow-alt-circle-left"></i> Back</a>
               </div>
 
 

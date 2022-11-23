@@ -60,7 +60,7 @@
 
             <div class="row">
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <div class="form-group">
                   <label>Pergerakan Sendi</label>
                   <input type="hidden" name="id_anamnesis" value="<?php echo $detail->id_anamnesis; ?>">
@@ -100,11 +100,25 @@
                 </div>
             </div>
 
+            <div class="col-sm-3">
+                <div class="form-group">
+                  <label>Kekuatan Otot Atas</label>
+                  <input type="text" name="atas" class="form-control" value="<?php echo $mos->atas; ?>">
+                </div>
+            </div>
 
-            <div class="col-sm-5">
+            <div class="col-sm-3">
+                <div class="form-group">
+                  <label>Kekuatan Otot Bawah</label>
+                  <input type="text" name="bawah" class="form-control" value="<?php echo $mos->bawah; ?>">
+                </div>
+            </div>
+
+
+            <div class="col-sm-3">
                 <div class="form-group">
                   <label>Hasil</label>
-                  <input type="text" name="hasil" class="form-control" value="<?php echo $mos->hasil; ?>" required>
+                  <input type="text" name="hasil" class="form-control" value="<?php echo $mos->hasil; ?>">
                 </div>
             </div>
 
@@ -124,7 +138,7 @@
             <div class="col-sm-2">
                 <div class="form-group">
                   <label>Lokasi</label>
-                  <input type="text" name="fraktur_lokasi" class="form-control" value="<?php echo $mos->fraktur_lokasi; ?>" required>
+                  <input type="text" name="fraktur_lokasi" class="form-control" value="<?php echo $mos->fraktur_lokasi; ?>">
                 </div>
             </div>
 
@@ -146,12 +160,12 @@
             <div class="col-sm-3">
                 <div class="form-group">
                   <label>Skore Resiko jatuh</label>
-                  <input type="text" name="skore_resiko_jatuh" class="form-control" value="<?php echo $mos->skore_resiko_jatuh; ?>" required>
+                  <input type="text" name="skore_resiko_jatuh" class="form-control" value="<?php echo $mos->skore_resiko_jatuh; ?>">
                 </div>
             </div>
 
 
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <div class="form-group">
                   <label>Aktivitas Sehari-hari </label>
                   <select class="form-control" name="aktivitas_seharihari">
@@ -205,18 +219,18 @@
                 </div>
             </div>
 
-            <div class="col-sm-2">
+            <div class="col-sm-6">
                 <div class="form-group">
-                  <label>Lama Tdr Sblm Sakit</label>
-                  <input type="number" name="jam_tidur_sebelumsakit" class="form-control" value="<?php echo $mos->jam_tidur_sebelumsakit; ?>" required>
+                  <label>Lama Tidur Sebelum Sakit (Dalam jam)</label>
+                  <input type="number" name="jam_tidur_sebelumsakit" class="form-control" value="<?php echo $mos->jam_tidur_sebelumsakit; ?>">
                 </div>
             </div>
 
 
-            <div class="col-sm-2">
+            <div class="col-sm-6">
                 <div class="form-group">
-                  <label>Lama Tdr Ssdh Sakit</label>
-                  <input type="number" name="jam_tidur_sesudahsakit" class="form-control" value="<?php echo $mos->jam_tidur_sesudahsakit; ?>" required>
+                  <label>Lama Tidur Sesudah Sakit (Dalam jam)</label>
+                  <input type="number" name="jam_tidur_sesudahsakit" class="form-control" value="<?php echo $mos->jam_tidur_sesudahsakit; ?>">
                 </div>
             </div>
 

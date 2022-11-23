@@ -118,7 +118,7 @@
               <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Kapan?</label>
                 <div class="col-sm-10">
-                <input type="text" class="form-control" value="<?php if ($anamnesis->pernah_rawat_kapan == null) {
+                <input type="text" class="form-control" value="<?php if ($anamnesis->pernah_rawat_kapan == null || $anamnesis->pernah_rawat_kapan == "0000-00-00") {
                           echo "-";
                         }else{
                           echo tgl_indo(date($anamnesis->pernah_rawat_kapan));
@@ -155,7 +155,7 @@
               <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Kapan?</label>
                 <div class="col-sm-10">
-                <input type="text" class="form-control" value="<?php if ($anamnesis->pernah_operasi_kapan == null) {
+                <input type="text" class="form-control" value="<?php if ($anamnesis->pernah_operasi_kapan == null || $anamnesis->pernah_operasi_kapan == "0000-00-00") {
                           echo "-";
                         }else{
                           echo tgl_indo(date($anamnesis->pernah_operasi_kapan));

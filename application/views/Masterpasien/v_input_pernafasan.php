@@ -60,7 +60,7 @@
 
             <div class="row">
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <div class="form-group">
                   <label>Pola Napas</label>
                   <input type="hidden" name="id_anamnesis" value="<?php echo $detail->id_anamnesis; ?>">
@@ -74,7 +74,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <div class="form-group">
                   <label>Irama Nafas</label>
                   <select class="form-control" name="irama_nafas">
@@ -88,7 +88,7 @@
             <div class="col-sm-2">
                 <div class="form-group">
                   <label>Retaksi</label>
-                  <select class="form-control" name="retraksi">
+                  <select class="form-control" name="retraksi" id="id-retraksi">
                     <option value="Ya">Ya</option>
                     <option value="Tidak">Tidak</option>
                   </select>
@@ -99,7 +99,7 @@
             <div class="col-sm-4">
                 <div class="form-group">
                   <label>Jika Ya, Sebutkan</label>
-                  <input type="text" name="jenis_retraksi" class="form-control" placeholder="Jenis Retraksi ..." required>
+                  <input type="text" name="jenis_retraksi" class="form-control" placeholder="Jenis Retraksi ..." id="id-jenisretraksi">
                 </div>
             </div>
 
@@ -118,11 +118,11 @@
             <div class="col-sm-2">
                 <div class="form-group">
                   <label>Alat Bantu</label>
-                  <select class="form-control" name="alat_bantu">
-                    <option value="-">-</option>
+                  <select class="form-control" name="alat_bantu" id="id-alatbantu">
                     <option value="NK">NK</option>
                     <option value="NRM">NRM</option>
                     <option value="RM">RM</option>
+                    <option value="Tidak Ada">Tidak Ada</option>
                   </select>
                 </div>
             </div>
@@ -131,15 +131,36 @@
             <div class="col-sm-4">
                 <div class="form-group">
                   <label>Alat Bantu Lainnya, Sebutkan</label>
-                  <input type="text" name="alat_bantu_lainnya" class="form-control" placeholder="Alat Bantu Lainnya ..." required>
+                  <input type="text" name="alat_bantu_lainnya" class="form-control" placeholder="Alat Bantu Lainnya ..." id="id-alatbantulain">
                 </div>
             </div>
 
 
-            <div class="col-sm-4">
+            <div class="col-sm-2">
                 <div class="form-group">
-                  <label>Tekanan</label>
-                  <input type="text" name="tekanan" class="form-control" placeholder="Tekanan ..." required>
+                  <label>Tekanan (LPM)</label>
+                  <select class="form-control" name="tekanan" id="id-tekanan">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                  </select>
                 </div>
             </div>
 
@@ -147,25 +168,25 @@
             <div class="col-sm-2">
                 <div class="form-group">
                   <label>Terpasang WSD</label>
-                  <select class="form-control" name="terpasang_wsd">
+                  <select class="form-control" name="terpasang_wsd" id="id-wsd">
                     <option value="Ya">Ya</option>
                     <option value="Tidak">Tidak</option>
                   </select>
                 </div>
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-2">
                 <div class="form-group">
                   <label>Produksi</label>
-                  <input type="text" name="produksi" class="form-control" placeholder="Produksi ..." required>
+                  <input type="text" name="produksi" class="form-control" placeholder="Produksi ..." id="id-produksi">
                 </div>
             </div>
 
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <div class="form-group">
                   <label>Kesulitan Bernafas?</label>
-                  <select class="form-control" name="kesulitan_bernafas">
+                  <select class="form-control" name="kesulitan_bernafas" id="id-kesulitannafas">
                     <option value="Ya">Ya</option>
                     <option value="Tidak">Tidak</option>
                   </select>
@@ -173,36 +194,30 @@
             </div>
 
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <div class="form-group">
                   <label>Jika Ya</label>
-                  <select class="form-control" name="kesulitan_bernafas_ya">
+                  <select class="form-control" name="kesulitan_bernafas_ya" id="id-kesulitannafasya">
                     <option value="Dispneu">Dispneu</option>
                     <option value="Orthopnea">Orthopnea</option>
+                    <option value="Takipnea">Takipnea</option>
+                    <option value="Bradipnea">Bradipnea</option>
                   </select>
                 </div>
             </div>
 
-
-            <div class="col-sm-6">
-                <div class="form-group">
-                  <label>Lain-lain</label>
-                  <input type="text" name="lain_lain" class="form-control" placeholder="Lain-lain ..." required>
-                </div>
-            </div>
-
-            <div class="col-sm-6">
+            <div class="col-sm-2">
                 <div class="form-group">
                   <label>Saat</label>
-                  <input type="text" name="saat" class="form-control" placeholder="Saat ..." required>
+                  <input type="text" name="saat" class="form-control" placeholder="Saat ..." id="id-saat">
                 </div>
             </div>
 
           
-          <div class="col-sm-3">
+          <div class="col-sm-2">
                 <div class="form-group">
                   <label>Batuk dan Sekresi?</label>
-                  <select class="form-control" name="batukdansekresi">
+                  <select class="form-control" name="batukdansekresi" id="id-batuk">
                     <option value="Ya">Ya</option>
                     <option value="Tidak">Tidak</option>
                   </select>
@@ -210,10 +225,10 @@
           </div>
 
 
-          <div class="col-sm-3">
+          <div class="col-sm-2">
                 <div class="form-group">
                   <label>Jika Ya</label>
-                  <select class="form-control" name="batukdansekresi_ya">
+                  <select class="form-control" name="batukdansekresi_ya" id="id-batukya">
                     <option value="Produktif">Produktif</option>
                     <option value="Non Produktif">Non Produktif</option>
                   </select>
@@ -221,10 +236,11 @@
           </div>
 
 
-          <div class="col-sm-3">
+          <div class="col-sm-2">
                 <div class="form-group">
                   <label>Warna Sputum</label>
-                  <select class="form-control" name="warna_sputum">
+                  <select class="form-control" name="warna_sputum" id="id-sputum">
+                    <option value="Tidak Berwarna">Tidak Berwarna</option>
                     <option value="Putih">Putih</option>
                     <option value="Kuning">Kuning</option>
                     <option value="Merah">Merah</option>
@@ -233,7 +249,7 @@
           </div>
 
 
-          <div class="col-sm-3">
+          <div class="col-sm-4">
                 <div class="form-group">
                   <label>Suara Nafas</label>
                   <select class="form-control" name="suara_nafas">
@@ -246,7 +262,7 @@
           </div>
 
 
-          <div class="col-sm-6">
+          <div class="col-sm-4">
                 <div class="form-group">
                   <label>Perkusi</label>
                   <select class="form-control" name="perkusi">
@@ -258,7 +274,7 @@
           </div>
 
 
-          <div class="col-sm-6">
+          <div class="col-sm-4">
                 <div class="form-group">
                   <label>AGD</label>
                   <select class="form-control" name="agd">

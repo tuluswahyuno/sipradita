@@ -159,7 +159,7 @@
 
                     <div class="form-group">
                     <label>Suhu Tubuh</label>
-                    <input type="number" name="suhu" class="form-control" placeholder="Suhu Tubuh" required>
+                    <input type="text" name="suhu" class="form-control" placeholder="Suhu Tubuh" required>
                     </div>
                     </div>
                   </div>

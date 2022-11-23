@@ -10,7 +10,43 @@
 
         
         <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/detail_anamnesis/').$detail->id_anamnesis ?>">Anamesis</a>
+        </li>
+
+        <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="<?php echo base_url('Ass/MasterPasien/pemeriksaan/').$detail->id_anamnesis ?>">Pemeriksaan</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/pernafasan/').$detail->id_anamnesis ?>">Pernafasan</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/moskuloskelental/').$detail->id_anamnesis ?>">Moskuloskeletal</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/proteksi/').$detail->id_anamnesis ?>">Proteksi</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/nyeri/').$detail->id_anamnesis ?>">Nyeri</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/hasil/').$detail->id_anamnesis ?>">Diagnosa</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/tekanandarah/').$detail->id_anamnesis ?>">Vital Sign</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/grafik/').$detail->id_anamnesis ?>">Grafik</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/evaluasi/').$detail->id_anamnesis ?>">Evaluasi</a>
         </li>
 
       </ul>
@@ -83,35 +119,35 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>TD</label>
-                  <input type="number" name="td" class="form-control" placeholder="TD ... MmHg" required>
+                  <input type="text" name="td" class="form-control" placeholder="TD ... MmHg" required>
                 </div>
               </div>
 
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>RR</label>
-                  <input type="text" name="rr" class="form-control" placeholder="RR ... x/menit" required>
+                  <input type="number" name="rr" class="form-control" placeholder="RR ... x/menit" required>
                 </div>
               </div>
 
               <div class="col-sm-2">
                 <div class="form-group">
                   <label>N</label>
-                  <input type="text" name="n" class="form-control" placeholder="N ... x/menit" required>
+                  <input type="number" name="n" class="form-control" placeholder="N ... x/menit" required>
                 </div>
               </div>
 
               <div class="col-sm-2">
                 <div class="form-group">
                   <label>S</label>
-                  <input type="text" name="s" class="form-control" placeholder="S ... C" required>
+                  <input type="number" name="s" class="form-control" placeholder="S ... C" required>
                 </div>
               </div>
 
               <div class="col-sm-2">
                 <div class="form-group">
                   <label>Spo2</label>
-                  <input type="text" name="spo" class="form-control" placeholder="Spo2 ... %" required>
+                  <input type="number" name="spo" class="form-control" placeholder="Spo2 ... %" required>
                 </div>
               </div>
 

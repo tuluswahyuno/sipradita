@@ -5,14 +5,52 @@
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-12">
-          <h4>Anamnesis Pasien</h4>
-        </div>
-        
-      </div>
-    </div><!-- /.container-fluid -->
+    <div class="col-sm-12">
+      <ul class="nav nav-tabs">
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="<?php echo base_url('Ass/MasterPasien/detail_anamnesis/').$detail->id_anamnesis ?>">Anamesis</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/pemeriksaan/').$detail->id_anamnesis ?>">Pemeriksaan</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link"  href="<?php echo base_url('Ass/MasterPasien/pernafasan/').$detail->id_anamnesis ?>">Pernafasan</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/moskuloskelental/').$detail->id_anamnesis ?>">Moskuloskeletal</a>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/proteksi/').$detail->id_anamnesis ?>">Proteksi</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/nyeri/').$detail->id_anamnesis ?>">Nyeri</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/hasil/').$detail->id_anamnesis ?>">Diagnosa</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/tekanandarah/').$detail->id_anamnesis ?>">Vital Sign</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/grafik/').$detail->id_anamnesis ?>">Grafik</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/evaluasi/').$detail->id_anamnesis ?>">Evaluasi</a>
+        </li>
+
+      </ul>
+    </div> 
   </section>
 
   <!-- Main content -->
@@ -35,12 +73,12 @@
               <div class="card-body">
                 <div class="form-group">
                   <label>Keluhan Utama</label>
-                  <input type="hidden" name="id_anamnesis" class="form-control" value="<?php echo $anamnesis->id_anamnesis; ?>" required>
-                  <input type="text" name="keluhan_utama" class="form-control" value="<?php echo $anamnesis->keluhan_utama; ?>" required>
+                  <input type="hidden" name="id_anamnesis" class="form-control form-control-border" value="<?php echo $anamnesis->id_anamnesis; ?>" required>
+                  <input type="text" name="keluhan_utama" class="form-control form-control-border" value="<?php echo $anamnesis->keluhan_utama; ?>" required>
                 </div>
                 <div class="form-group">
                   <label>Riwayat Penyakit Sekarang</label>
-                  <input type="text" name="riw_penyakit_sekarang" class="form-control" value="<?php echo $anamnesis->riw_penyakit_sekarang; ?>" required>
+                  <input type="text" name="riw_penyakit_sekarang" class="form-control form-control-border" value="<?php echo $anamnesis->riw_penyakit_sekarang; ?>" required>
                 </div>
 
               </div>
@@ -64,17 +102,17 @@
 
                <div class="form-group">
                 <label>Apa Diagnosanya?</label>
-                <input type="text" name="pernah_rawat_diagnosa" class="form-control" value="<?php echo $anamnesis->pernah_rawat_diagnosa; ?>">
+                <input type="text" name="pernah_rawat_diagnosa" class="form-control form-control-border" value="<?php echo $anamnesis->pernah_rawat_diagnosa; ?>">
               </div>
 
               <div class="form-group">
                 <label>Kapan Pernah Dirawat?</label>
-                <input type="date" name="pernah_rawat_kapan" class="form-control" value="<?php echo $anamnesis->pernah_rawat_kapan; ?>">
+                <input type="date" name="pernah_rawat_kapan" class="form-control form-control-border" value="<?php echo $anamnesis->pernah_rawat_kapan; ?>">
               </div>
 
               <div class="form-group">
                 <label>Pernah Dirawat Dimana?</label>
-                <input type="text" name="pernah_rawat_di" class="form-control" value="<?php echo $anamnesis->pernah_rawat_di; ?>">
+                <input type="text" name="pernah_rawat_di" class="form-control form-control-border" value="<?php echo $anamnesis->pernah_rawat_di; ?>">
               </div>
 
             </div>
@@ -96,17 +134,17 @@
 
              <div class="form-group">
               <label>Jika Pernah, Operasi Apa?</label>
-              <input type="text" name="pernah_operasi_jenis" class="form-control" value="<?php echo $anamnesis->pernah_operasi_jenis; ?>">
+              <input type="text" name="pernah_operasi_jenis" class="form-control form-control-border" value="<?php echo $anamnesis->pernah_operasi_jenis; ?>">
             </div>
 
             <div class="form-group">
               <label>Kapan Pernah Operasi?</label>
-              <input type="date" name="pernah_operasi_kapan" class="form-control" value="<?php echo $anamnesis->pernah_operasi_kapan; ?>">
+              <input type="date" name="pernah_operasi_kapan" class="form-control form-control-border" value="<?php echo $anamnesis->pernah_operasi_kapan; ?>">
             </div>
 
             <div class="form-group">
               <label>Pernah Operasi Dimana?</label>
-              <input type="text" name="pernah_operasi_di" class="form-control" value="<?php echo $anamnesis->pernah_operasi_di; ?>">
+              <input type="text" name="pernah_operasi_di" class="form-control form-control-border" value="<?php echo $anamnesis->pernah_operasi_di; ?>">
             </div>
 
           </div>
@@ -132,7 +170,7 @@
 
            <div class="form-group">
             <label>Jika Ya, apa nama obat yang dikonsumsi?</label>
-            <input type="text" name="obatygdikonsumsi_jenis" class="form-control" value="<?php echo $anamnesis->obatygdikonsumsi_jenis; ?>">
+            <input type="text" name="obatygdikonsumsi_jenis" class="form-control form-control-border" value="<?php echo $anamnesis->obatygdikonsumsi_jenis; ?>">
           </div>
 
         </div>
@@ -179,7 +217,7 @@
 
         <div class="form-group">
           <label>Sebutkan nama penyakitnya, jika tidak ada dalam pilihan</label>
-          <input type="text" name="penyakit_jenis_lainnya" class="form-control" value="<?php echo $anamnesis->penyakit_jenis_lainnya; ?>">
+          <input type="text" name="penyakit_jenis_lainnya" class="form-control form-control-border" value="<?php echo $anamnesis->penyakit_jenis_lainnya; ?>">
         </div>
 
       </div>
@@ -202,17 +240,17 @@
 
        <div class="form-group">
         <label>Alergi makanan?</label>
-        <input type="text" name="alergi_makanan" class="form-control" value="<?php echo $anamnesis->alergi_makanan; ?>">
+        <input type="text" name="alergi_makanan" class="form-control form-control-border" value="<?php echo $anamnesis->alergi_makanan; ?>">
       </div>
 
       <div class="form-group">
         <label>Alergi obat?</label>
-        <input type="text" name="alergi_obat" class="form-control" value="<?php echo $anamnesis->alergi_obat; ?>">
+        <input type="text" name="alergi_obat" class="form-control form-control-border" value="<?php echo $anamnesis->alergi_obat; ?>">
       </div>
 
       <div class="form-group">
         <label>Alergi lainnya?</label>
-        <input type="text" name="alergi_lainnya" class="form-control" value="<?php echo $anamnesis->alergi_lainnya; ?>">
+        <input type="text" name="alergi_lainnya" class="form-control form-control-border" value="<?php echo $anamnesis->alergi_lainnya; ?>">
       </div>
 
     </div>
@@ -299,6 +337,8 @@
 </div>
 
 <div align="right">
+  <a href="<?php echo base_url('Ass/MasterPasien/detail_pasien/').$detail->id_pasien ?>" class="btn btn-secondary"><i class="fas fa-arrow-alt-circle-left"></i> Back</a>
+  
   <button type="submit" class="btn btn-primary">Submit</button>
 </div>
 

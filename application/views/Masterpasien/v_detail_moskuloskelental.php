@@ -73,12 +73,6 @@
 
             <div class="col-md-12">
                 <div class="card">
-                  <!-- <div class="card-header p-2">
-                    <ul class="nav nav-pills">
-                      <li class="nav-item"><a class="nav-link active" href="#satu" data-toggle="tab">Sistem Pernafasan</a></li>
-                      <li class="nav-item"><a class="nav-link" href="#dua" data-toggle="tab">Prosedur Invasif</a></li>
-                    </ul>
-                  </div> -->
                   <div class="card-body">
                     <div class="tab-content">
                       <div class="active tab-pane" id="satu">
@@ -106,6 +100,18 @@
                                 </div>
                               </div>
                               <div class="form-group row">
+                                <label for="inputName4" class="col-sm-4 col-form-label">Otot Atas</label>
+                                <div class="col-sm-7">
+                                  <input type="text" class="form-control" value="<?php echo $aaaa->atas; ?>">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="inputName4" class="col-sm-4 col-form-label">Otot Bawah</label>
+                                <div class="col-sm-7">
+                                  <input type="text" class="form-control" value="<?php echo $aaaa->bawah; ?>">
+                                </div>
+                              </div>
+                              <div class="form-group row">
                                 <label for="inputExperience" class="col-sm-4 col-form-label">Hasil</label>
                                 <div class="col-sm-7">
                                   <input type="text" class="form-control" value="<?php echo $aaaa->hasil; ?>">
@@ -124,16 +130,19 @@
                                 </div>
                               </div>
 
+                              
+                              
+                            </div>
+
+                            <div class="col-sm-6">
+
                               <div class="form-group row">
                                 <label for="inputSkills" class="col-sm-4 col-form-label">Postur Tubuh</label>
                                 <div class="col-sm-7">
                                   <input type="text" class="form-control" value="<?php echo $aaaa->postur_tubuh; ?>">
                                 </div>
                               </div>
-                              
-                            </div>
 
-                            <div class="col-sm-6">
                               <div class="form-group row">
                                 <label for="inputSkills" class="col-sm-4 col-form-label">Skore Resiko jatuh</label>
                                 <div class="col-sm-7">

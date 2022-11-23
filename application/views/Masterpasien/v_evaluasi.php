@@ -97,14 +97,16 @@
 
                               <?php }else{ ?>
                               
-                              Sistem Pernafasan :  <strong><?php echo $hasil_nafas->diagnosa_penafasan; ?></strong>
+                              
 
                               <?php 
                               if ($hasil_nafas->diagnosa_penafasan == "Tidak Terdiagnosa Masalah Pernafasan") {?>
 
-                                <p></p>
+                                
                              
                               <?php  }elseif($kn != "0" && $hasil_nafas->diagnosa_penafasan != "Tidak Terdiagnosa Masalah Pernafasan"){?>
+
+                                Sistem Pernafasan :  <strong><?php echo $hasil_nafas->diagnosa_penafasan; ?></strong>
 
                               <?php 
                               $satu = $kriterianafas->satu;
@@ -191,22 +193,21 @@
                                <?php } ?>
 
 
-                               <?php if ($sistemmol == "0") { ?>
+                            <?php if ($sistemmol == "0") { ?>
 
                               <hr><p>Pengkajian <strong>sistem moskuloskeletal</strong> belum selesai diinput</p>
 
                             <?php }else{ ?>
-                            
-                            Sistem Moskuloskeletal : <strong> <?php echo $hasil_mol->diagnosa_moskuloskelental; ?></strong><hr>
+                
 
                             <?php 
                             if ($hasil_mol->diagnosa_moskuloskelental == "Tidak Terdiagnosa Moskuloskeletal") {?>
 
-                              <p></p>
+                              
                            
                             <?php  }elseif($kmol != "0" && $hasil_mol->diagnosa_moskuloskelental != "Tidak Terdiagnosa Moskuloskeletal"){?>
 
-                              <hr><p><strong>Sistem Moskuloskeletal</strong></p>
+                              <hr>Sistem Moskuloskeletal : <strong> <?php echo $hasil_mol->diagnosa_moskuloskelental; ?></strong>
 
                             <?php 
                             $satu = $kriteriamoll->satu;
@@ -290,14 +291,16 @@
 
                             <?php }else{ ?>
                             
-                             Sistem Proteksi :<strong> <?php echo $hasil_proteksi->diagnosa_proteksi; ?></strong><br>
+                             
 
                             <?php 
                             if ($hasil_proteksi->diagnosa_proteksi == "Tidak Terdiagnosa Masalah Proteksi dan Perlindungan") {?>
 
-                              <p></p>
+                              
                             
                             <?php  }elseif($kpro != "0" && $hasil_proteksi->diagnosa_proteksi != "Tidak Terdiagnosa Masalah Proteksi dan Perlindungan"){?>
+
+                              <hr>Sistem Proteksi :<strong> <?php echo $hasil_proteksi->diagnosa_proteksi; ?></strong><br>
 
 
                             <?php 
@@ -446,14 +449,16 @@
 
                             <?php }else{ ?>
                             
-                            <hr>Pengkajian Nyeri : <br><strong> <?php echo $hasil_nyeri->diagnosa_nyeri; ?></strong>
+                            
 
                             <?php 
                             if ($hasil_nyeri->diagnosa_nyeri == "Tidak Terdiagnosa Nyeri Akut") {?>
 
-                              <p></p>
+                              
                             
                             <?php  }elseif($knyeri != "0" && $hasil_nyeri->diagnosa_nyeri != "Tidak Terdiagnosa Nyeri Akut"){?>
+
+                              <hr>Pengkajian Nyeri : <br><strong> <?php echo $hasil_nyeri->diagnosa_nyeri; ?></strong>
 
                                <?php 
                                 $satu = $kriterianyeri->satu;
@@ -519,14 +524,16 @@
 
                               <?php }else{ ?>
                               
-                              Sistem Pernafasan : <strong> <?php echo $hasil_nafas->diagnosa_penafasan; ?></strong> <br>
+                              <!--  -->
 
                               <?php 
                               if ($hasil_nafas->diagnosa_penafasan == "Tidak Terdiagnosa Masalah Pernafasan") {?>
 
-                                <p></p>
+                                
 
                              <?php  }elseif($nafas != "0" && $hasil_nafas->diagnosa_penafasan != "Tidak Terdiagnosa Masalah Pernafasan"){?>
+
+                              Sistem Pernafasan : <strong> <?php echo $hasil_nafas->diagnosa_penafasan; ?></strong> <br>
                                 
                               <?php 
                               $satu = $nafass->satu;
@@ -669,16 +676,17 @@
 
                               <?php }else{ ?>
                               
-                             Sistem Moskuloskeletal : <strong> <?php echo $hasil_mol->diagnosa_moskuloskelental; ?></strong><hr> 
+                              
 
                               <?php 
                               if ($hasil_mol->diagnosa_moskuloskelental == "Tidak Terdiagnosa Moskuloskeletal") {?>
 
-                                <p></p>
-
-                             <?php  }elseif($mol != "0" && $hasil_mol->diagnosa_moskuloskelental != "Tidak Terdiagnosa Moskuloskeletal"){?>
                                 
 
+                             <?php  }elseif($mol != "0" && $hasil_mol->diagnosa_moskuloskelental != "Tidak Terdiagnosa Moskuloskeletal"){?>
+
+                              <hr>Sistem Moskuloskeletal : <strong> <?php echo $hasil_mol->diagnosa_moskuloskelental; ?></strong>
+                                
                               <?php 
                               $satu = $moll->satu;
                               if ($satu == "Yes") {?>
@@ -775,14 +783,16 @@
 
                               <?php }else{ ?>
                               
-                               Sistem Proteksi :<strong> <?php echo $hasil_proteksi->diagnosa_proteksi; ?></strong>
+                               
 
                               <?php 
                               if ($hasil_proteksi->diagnosa_proteksi == "Tidak Terdiagnosa Masalah Proteksi dan Perlindungan") {?>
 
-                                <p></p>
+                                
 
                              <?php  }elseif($pro != "0" && $hasil_proteksi->diagnosa_proteksi != "Tidak Terdiagnosa Masalah Proteksi dan Perlindungan"){?>
+
+                              <hr>Sistem Proteksi :<strong> <?php echo $hasil_proteksi->diagnosa_proteksi; ?></strong>
                                 
 
                               <?php 
@@ -898,14 +908,16 @@
 
                               <?php }else{ ?>
                               
-                              <hr>Pengkajian Nyeri : <br><strong> <?php echo $hasil_nyeri->diagnosa_nyeri; ?></strong><br>
+                              
 
                               <?php 
                               if ($hasil_nyeri->diagnosa_nyeri == "Tidak Terdiagnosa Nyeri Akut") {?>
 
-                                <p></p>
+                                
 
                              <?php  }elseif($nyeri != "0" && $hasil_nyeri->diagnosa_nyeri != "Tidak Terdiagnosa Nyeri Akut"){?>
+
+                              <hr>Pengkajian Nyeri : <br><strong> <?php echo $hasil_nyeri->diagnosa_nyeri; ?></strong><br>
                                 
                               <?php 
                               $satu = $nyerii->satu;

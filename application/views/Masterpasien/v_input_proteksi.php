@@ -75,7 +75,7 @@
             <div class="col-sm-2">
                 <div class="form-group">
                   <label>Terdapat Luka</label>
-                  <select class="form-control" name="terdapat_luka">
+                  <select class="form-control" name="terdapat_luka" id="id-luka">
                     <option value="Ya">Ya</option>
                     <option value="Tidak">Tidak</option>
                   </select>
@@ -85,7 +85,7 @@
             <div class="col-sm-2">
                 <div class="form-group">
                   <label>Lokasi</label>
-                  <input type="text" name="lokasi_luka" class="form-control" placeholder="Lokasi ..." required>
+                  <input type="text" name="lokasi_luka" class="form-control" placeholder="Lokasi ..." id="id-lokasi">
                 </div>
             </div>
 
@@ -93,7 +93,7 @@
             <div class="col-sm-3">
                 <div class="form-group">
                   <label>Kondisi Luka</label>
-                  <input type="text" name="kondisi_luka" class="form-control" placeholder="Kondisi Luka ..." required>
+                  <input type="text" name="kondisi_luka" class="form-control" placeholder="Kondisi Luka ..." id="id-kondisi">
                 </div>
             </div>
 
@@ -101,7 +101,7 @@
             <div class="col-sm-2">
                 <div class="form-group">
                   <label>Kebersihan Luka</label>
-                  <select class="form-control" name="kebersihan_luka">
+                  <select class="form-control" name="kebersihan_luka" id="id-kebersihan">
                     <option value="Bersih">Bersih</option>
                     <option value="Tidak">Tidak</option>
                   </select>
@@ -109,10 +109,10 @@
             </div>
 
 
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="form-group">
                   <label>Riwayat Alergi</label>
-                  <select class="form-control" name="riwayat_alergi">
+                  <select class="form-control" name="riwayat_alergi" id="id-alergi">
                     <option value="Ada">Ada</option>
                     <option value="Tidak">Tidak</option>
                   </select>
@@ -123,7 +123,7 @@
             <div class="col-sm-3">
                 <div class="form-group">
                   <label>Jenis Alergi</label>
-                  <input type="text" name="nama_alergi" class="form-control" placeholder="....." required>
+                  <input type="text" name="nama_alergi" class="form-control" placeholder="Jenis Alergi....." id="id-jenis">
                 </div>
             </div>
 
@@ -131,7 +131,7 @@
             <div class="col-sm-3">
                 <div class="form-group">
                   <label>Nilai Leokosit</label>
-                  <input type="text" name="nilai_leokosit" class="form-control" placeholder=".....ribu/L" required>
+                  <input type="text" name="nilai_leokosit" class="form-control" placeholder=".....ribu/L">
                 </div>
             </div>
 
@@ -139,7 +139,7 @@
             <div class="col-sm-3">
                 <div class="form-group">
                   <label>GDS</label>
-                  <input type="text" name="gds" class="form-control" placeholder="...." required>
+                  <input type="text" name="gds" class="form-control" placeholder="GDS....">
                 </div>
             </div>
           

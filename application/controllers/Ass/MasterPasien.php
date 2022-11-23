@@ -185,6 +185,7 @@ class MasterPasien extends CI_Controller
         check_not_login();
 
         // $data['detail'] = $this->pasien_m->get_id_pasien($id);
+        $data['detail'] = $this->pasien_m->get_id_anamnesis($idanamnesis);
         $data['anamnesis'] = $this->pasien_m->get_anamnesis($idanamnesis);
 
         $data['title'] = " Update Data Anamnesis Pasien ";
@@ -192,7 +193,75 @@ class MasterPasien extends CI_Controller
         $this->load->view('template/header');
         $this->load->view('template/sidebar',$data);
         $this->load->view('Masterpasien/v_update_anamnesis',$data);
-        $this->load->view('template/footer');
+        $this->load->view('template/footer', [
+            'js' => <<< JS
+                $('#id-pernah-dirawat').change(function(e) {
+                    e.preventDefault();
+                    let elem = $(this);
+                    let disableInput = elem.val() == 'Tidak Pernah';
+
+                    $('#id-diagnosa').prop('disabled', disableInput);
+                    // $('#id-diagnosa').prop('readonly', disableInput);
+
+                    $('#id-kapan').prop('disabled', disableInput);
+                    // $('#id-kapan').prop('readonly', disableInput);
+
+                    $('#id-di').prop('disabled', disableInput);
+                    // $('#id-di').prop('readonly', disableInput);
+                });
+
+                $('#id-pernah-operasi').change(function(e) {
+                    e.preventDefault();
+                    let elem = $(this);
+                    let disableInput = elem.val() == 'Tidak Pernah';
+
+                    $('#id-operasi').prop('disabled', disableInput);
+                    // $('#id-operasi').prop('readonly', disableInput);
+
+                    $('#id-kapanoperasi').prop('disabled', disableInput);
+                    // $('#id-kapanoperasi').prop('readonly', disableInput);
+
+                    $('#id-operasidimana').prop('disabled', disableInput);
+                    // $('#id-operasidimana').prop('readonly', disableInput);
+                });
+
+                $('#id-obat').change(function(e) {
+                    e.preventDefault();
+                    let elem = $(this);
+                    let disableInput = elem.val() == 'Tidak';
+
+                    $('#id-jenisobat').prop('disabled', disableInput);
+                    // $('#id-jenisobat').prop('readonly', disableInput);
+                });
+
+                $('#id-penyakitkeluarga').change(function(e) {
+                    e.preventDefault();
+                    let elem = $(this);
+                    let disableInput = elem.val() == 'Tidak';
+
+                    $('#id-penyakitkeluargajenis').prop('disabled', disableInput);
+                    // $('#id-penyakitkeluargajenis').prop('readonly', disableInput);
+
+                    $('#id-penyakitkeluargalain').prop('disabled', disableInput);
+                    // $('#id-penyakitkeluargalain').prop('readonly', disableInput);
+                });
+
+                $('#id-alergi').change(function(e) {
+                    e.preventDefault();
+                    let elem = $(this);
+                    let disableInput = elem.val() == 'Tidak';
+
+                    $('#id-alergimakanan').prop('disabled', disableInput);
+                    // $('#id-alergimakanan').prop('readonly', disableInput);
+
+                    $('#id-alergiobat').prop('disabled', disableInput);
+                    // $('#id-alergiobat').prop('readonly', disableInput);
+
+                    $('#id-alergilain').prop('disabled', disableInput);
+                    // $('#id-alergilain').prop('readonly', disableInput);
+                });
+            JS,
+        ]);
     }
 
 
@@ -501,9 +570,9 @@ class MasterPasien extends CI_Controller
         $agd                    = $this->input->post('agd');
         //$diagnosa_penafasan     = $this->input->post('diagnosa_penafasan');
 
-        if ($pola_nafas == "Tachipneu" && $irama_nafas == "Tidak Teratur" && $retraksi == "Ya" && $kesulitan_bernafas == "Ya" && $kesulitan_bernafas_ya == "Dispneu" && $suara_nafas == "Whizing" && $perkusi == "Sonor" && $agd == "PH 7,35-7,45") {
+        if ($irama_nafas == "Tidak Teratur" && $retraksi == "Ya" && $kesulitan_bernafas == "Ya" && $kesulitan_bernafas_ya == "Dispneu" && $agd == "PH 7,35-7,45") {
             $diagnosa_penafasan = 'Pola Nafas Tidak Efektif';
-        }elseif ($pola_nafas == "Tachipneu" && $irama_nafas == "Tidak Teratur" && $retraksi == "Ya" && $kesulitan_bernafas == "Ya" && $kesulitan_bernafas_ya == "Dispneu" && $batukdansekresi == "Ya" && $batukdansekresi_ya == "Produktif" || $batukdansekresi_ya == "Non Produktif" && $warna_sputum == "Putih" || $warna_sputum == "Kuning" || $warna_sputum == "Merah" && $perkusi == "Redup") {
+        }elseif ($batukdansekresi == "Ya" && $batukdansekresi_ya == "Produktif" || $batukdansekresi_ya == "Non Produktif" && $warna_sputum == "Putih" || $warna_sputum == "Kuning" || $warna_sputum == "Merah" && $perkusi == "Redup") {
             $diagnosa_penafasan = 'Bersihan Jalan Nafas Tidak Efektif';
         }else{ 
          $diagnosa_penafasan = 'Tidak Terdiagnosa Masalah Pernafasan';
@@ -567,13 +636,13 @@ class MasterPasien extends CI_Controller
     $perkusi                = $this->input->post('perkusi');
     $agd                    = $this->input->post('agd');
 
-    if ($pola_nafas == "Tachipneu" && $irama_nafas == "Tidak Teratur" && $retraksi == "Ya" && $kesulitan_bernafas == "Ya" && $kesulitan_bernafas_ya == "Dispneu" && $suara_nafas == "Whizing" && $perkusi == "Sonor" && $agd == "PH 7,35-7,45") {
-        $diagnosa_penafasan = 'Pola Nafas Tidak Efektif';
-    }elseif ($pola_nafas == "Tachipneu" && $irama_nafas == "Tidak Teratur" && $retraksi == "Ya" && $kesulitan_bernafas == "Ya" && $kesulitan_bernafas_ya == "Dispneu" && $batukdansekresi == "Ya" && $batukdansekresi_ya == "Produktif" || $batukdansekresi_ya == "Non Produktif" && $warna_sputum == "Putih" || $warna_sputum == "Kuning" || $warna_sputum == "Merah" && $perkusi == "Redup") {
-        $diagnosa_penafasan = 'Bersihan Jalan Nafas Tidak Efektif';
-    }else{ 
-     $diagnosa_penafasan = 'Tidak Terdiagnosa Masalah Pernafasan';
- }
+    if ($irama_nafas == "Tidak Teratur" && $retraksi == "Ya" && $kesulitan_bernafas == "Ya" && $kesulitan_bernafas_ya == "Dispneu" && $agd == "PH 7,35-7,45") {
+            $diagnosa_penafasan = 'Pola Nafas Tidak Efektif';
+        }elseif ($batukdansekresi == "Ya" && $batukdansekresi_ya == "Produktif" || $batukdansekresi_ya == "Non Produktif" && $warna_sputum == "Putih" || $warna_sputum == "Kuning" || $warna_sputum == "Merah" && $perkusi == "Redup") {
+            $diagnosa_penafasan = 'Bersihan Jalan Nafas Tidak Efektif';
+        }else{ 
+         $diagnosa_penafasan = 'Tidak Terdiagnosa Masalah Pernafasan';
+     }
 
  $data = array(
     'pola_nafas'                => $pola_nafas,
@@ -617,6 +686,8 @@ public function tambah_moskuloskelental_aksi()
     $pergerakan_sendi       = $this->input->post('pergerakan_sendi');
     $mudah_lelah            = $this->input->post('mudah_lelah');
     $kekuatan_otot          = $this->input->post('kekuatan_otot');
+    $atas                   = $this->input->post('atas');
+    $bawah                  = $this->input->post('bawah');
     $hasil                  = $this->input->post('hasil');
     $fraktur                = $this->input->post('fraktur');
     $fraktur_lokasi         = $this->input->post('fraktur_lokasi');
@@ -641,6 +712,8 @@ public function tambah_moskuloskelental_aksi()
         'pergerakan_sendi'          => $pergerakan_sendi,
         'mudah_lelah'               => $mudah_lelah,
         'kekuatan_otot'             => $kekuatan_otot,
+        'atas'                      => $atas,
+        'bawah'                     => $bawah,
         'hasil'                     => $hasil,
         'fraktur'                   => $fraktur,
         'fraktur_lokasi'            => $fraktur_lokasi,
@@ -686,7 +759,7 @@ public function update_moskuloskelental_aksi()
         {$diagnosa_moskuloskelental = "Gangguan Mobilitas Fisik";}
     else
     {
-        $diagnosa_moskuloskelental = "Tidak Terdiagnosa Moskuloskelental";
+        $diagnosa_moskuloskelental = "Tidak Terdiagnosa Moskuloskeletal";
     }
 
     $data = array(
@@ -821,7 +894,7 @@ public function tambah_nyeri_aksi()
     $waktu          = $this->input->post('waktu');
         // $diagnosa_proteksi  = $this->input->post('diagnosa_proteksi');
 
-    if ($nyeri == "Ada" && $deskripsi == "Benturan" || $deskripsi == "Tindakan" || $deskripsi == "Proses Penyakit" && $quality == "Seperti tertusuk-tusuk benda tajam/tumpul" || $quality == "Berdenyut" || $quality == "Terbakar" || $quality == "Diremas" || $quality == "Teriris" || $quality == "Terindih benda berat" && $menyebar == "Tidak" && $hasil < "6" && $waktu == "< 6 Bulan") {
+    if ($nyeri == "Ada") {
         $diagnosa_nyeri = 'Nyeri Akut ';
     }else{ 
         $diagnosa_nyeri = 'Tidak Terdiagnosa Nyeri Akut';
@@ -878,7 +951,7 @@ public function update_nyeri_aksi()
     // $hasil          = $this->input->post('hasil');
     $waktu          = $this->input->post('waktu');
 
-    if ($nyeri == "Ada" && $deskripsi == "Benturan" || $deskripsi == "Tindakan" || $deskripsi == "Proses Penyakit" && $quality == "Seperti tertusuk-tusuk benda tajam/tumpul" || $quality == "Berdenyut" || $quality == "Terbakar" || $quality == "Diremas" || $quality == "Teriris" || $quality == "Terindih benda berat" && $menyebar == "Tidak" && $hasil < "6" && $waktu == "< 6 Bulan") {
+    if ($nyeri == "Ada") {
         $diagnosa_nyeri = 'Nyeri Akut ';
     }else{ 
         $diagnosa_nyeri = 'Tidak Terdiagnosa Nyeri Akut';
@@ -1084,7 +1157,64 @@ public function pernafasann($idanamnesis)
     $this->load->view('template/header');
     $this->load->view('template/sidebar',$data);
     $this->load->view('Masterpasien/v_input_pernafasan',$data);
-    $this->load->view('template/footer');
+    $this->load->view('template/footer', [
+            'js' => <<< JS
+                $('#id-retraksi').change(function(e) {
+                    e.preventDefault();
+                    let elem = $(this);
+                    let disableInput = elem.val() == 'Tidak';
+
+                    $('#id-jenisretraksi').prop('disabled', disableInput);
+                    // $('#id-jenisretraksi').prop('readonly', disableInput);
+                });
+
+                $('#id-alatbantu').change(function(e) {
+                    e.preventDefault();
+                    let elem = $(this);
+                    let disableInput = elem.val() == 'Tidak Ada';
+
+                    $('#id-alatbantulain').prop('disabled', disableInput);
+                    // $('#id-alatbantulain').prop('readonly', disableInput);
+
+                    $('#id-tekanan').prop('disabled', disableInput);
+                    // $('#id-tekanan').prop('readonly', disableInput);
+                });
+
+                $('#id-wsd').change(function(e) {
+                    e.preventDefault();
+                    let elem = $(this);
+                    let disableInput = elem.val() == 'Tidak';
+
+                    $('#id-produksi').prop('disabled', disableInput);
+                    // $('#id-produksi').prop('readonly', disableInput);
+                });
+
+
+                $('#id-kesulitannafas').change(function(e) {
+                    e.preventDefault();
+                    let elem = $(this);
+                    let disableInput = elem.val() == 'Tidak';
+
+                    $('#id-kesulitannafasya').prop('disabled', disableInput);
+                    // $('#id-kesulitannafasya').prop('readonly', disableInput);
+
+                    $('#id-saat').prop('disabled', disableInput);
+                    // $('#id-saat').prop('readonly', disableInput);
+                });
+
+                $('#id-batuk').change(function(e) {
+                    e.preventDefault();
+                    let elem = $(this);
+                    let disableInput = elem.val() == 'Tidak';
+
+                    $('#id-batukya').prop('disabled', disableInput);
+                    // $('#id-batukya').prop('readonly', disableInput);
+
+                    $('#id-sputum').prop('disabled', disableInput);
+                    // $('#id-sputum').prop('readonly', disableInput);
+                });
+            JS,
+        ]);
 }
 
 
@@ -1442,7 +1572,18 @@ public function moskuloskelentall($idanamnesis)
     $this->load->view('template/header');
     $this->load->view('template/sidebar',$data);
     $this->load->view('Masterpasien/v_input_moskuloskelental',$data);
-    $this->load->view('template/footer');
+    $this->load->view('template/footer', [
+            'js' => <<< JS
+                $('#id-fraktur').change(function(e) {
+                    e.preventDefault();
+                    let elem = $(this);
+                    let disableInput = elem.val() == 'Tidak';
+
+                    $('#id_lokasi').prop('disabled', disableInput);
+                    // $('#id-fraktur').prop('readonly', disableInput);
+                });
+            JS,
+        ]);
 }
 
 
@@ -1501,7 +1642,33 @@ public function proteksii($idanamnesis)
     $this->load->view('template/header');
     $this->load->view('template/sidebar');
     $this->load->view('Masterpasien/v_input_proteksi',$data);
-    $this->load->view('template/footer');
+    $this->load->view('template/footer', [
+            'js' => <<< JS
+                $('#id-luka').change(function(e) {
+                    e.preventDefault();
+                    let elem = $(this);
+                    let disableInput = elem.val() == 'Tidak';
+
+                    $('#id-lokasi').prop('disabled', disableInput);
+                    // $('#id-lokasi').prop('readonly', disableInput);
+
+                    $('#id-kondisi').prop('disabled', disableInput);
+                    // $('#id-kondisi').prop('readonly', disableInput);
+
+                    $('#id-kebersihan').prop('disabled', disableInput);
+                    // $('#id-kebersihan').prop('readonly', disableInput);
+                });
+
+                $('#id-alergi').change(function(e) {
+                    e.preventDefault();
+                    let elem = $(this);
+                    let disableInput = elem.val() == 'Tidak';
+
+                    $('#id-jenis').prop('disabled', disableInput);
+                    // $('#id-jenis').prop('readonly', disableInput);
+                });
+            JS,
+        ]);
 }
 
 
@@ -1560,7 +1727,36 @@ public function add_nyeri($idanamnesis)
     $this->load->view('template/header');
     $this->load->view('template/sidebar');
     $this->load->view('Masterpasien/v_input_nyeri',$data);
-    $this->load->view('template/footer');
+     $this->load->view('template/footer', [
+            'js' => <<< JS
+                $('#id-nyeri').change(function(e) {
+                    e.preventDefault();
+                    let elem = $(this);
+                    let disableInput = elem.val() == 'Tidak';
+
+                    $('#id-deskripsi').prop('disabled', disableInput);
+                    // $('#id-deskripsi').prop('readonly', disableInput);
+
+                    $('#id-lainnya').prop('disabled', disableInput);
+                    // $('#id-lainnya').prop('readonly', disableInput);
+
+                    $('#id-quality').prop('disabled', disableInput);
+                    // $('#id-quality').prop('readonly', disableInput);
+
+                    $('#id-region').prop('disabled', disableInput);
+                    // $('#id-region').prop('readonly', disableInput);
+
+                    $('#id-menyebar').prop('disabled', disableInput);
+                    // $('#id-menyebar').prop('readonly', disableInput);
+
+                    $('#id-skala').prop('disabled', disableInput);
+                    // $('#id-skala').prop('readonly', disableInput);
+
+                    $('#id-waktu').prop('disabled', disableInput);
+                    // $('#id-waktu').prop('readonly', disableInput);
+                });
+            JS,
+        ]);
 }
 
 

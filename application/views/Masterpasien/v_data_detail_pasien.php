@@ -55,10 +55,6 @@
                 <td><?php echo $us->keluhan_utama ?></td>
                 <td><?php echo $us->riw_penyakit_sekarang ?></td>
 
-                <!-- <td style="text-align: center;">
-                  <a href="<?php echo base_url('Ass/MasterPasien/detail_anamnesis/').$us->id_anamnesis ?>" class="btn btn-sm btn-success">Detail <i class="fas fa-eye"></i></a>
-                </td> -->
-
                 <td class="project-actions text-right">
                   <a class="btn btn-primary btn-sm" href="<?php echo base_url('Ass/MasterPasien/detail_anamnesis/').$us->id_anamnesis ?>">
                     <i class="fas fa-folder">
@@ -70,11 +66,7 @@
                     </i>
                     Edit
                   </a>
-                  <a class="btn btn-danger btn-sm" href="#">
-                    <i class="fas fa-trash">
-                    </i>
-                    Delete
-                  </a>
+                  
                 </td>
 
               </tr>

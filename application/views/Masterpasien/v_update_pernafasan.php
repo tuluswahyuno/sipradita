@@ -60,7 +60,7 @@
 
             <div class="row">
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <div class="form-group">
                   <label>Pola Napas</label>
                   <input type="hidden" name="id_anamnesis" value="<?php echo $detail->id_anamnesis; ?>">
@@ -76,7 +76,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <div class="form-group">
                   <label>Irama Nafas</label>
                   <select class="form-control" name="irama_nafas">
@@ -103,7 +103,7 @@
             <div class="col-sm-4">
                 <div class="form-group">
                   <label>Jika Ya, Sebutkan</label>
-                  <input type="text" name="jenis_retraksi" class="form-control" value="<?php echo $pernafasan->jenis_retraksi; ?>" required>
+                  <input type="text" name="jenis_retraksi" class="form-control" value="<?php echo $pernafasan->jenis_retraksi; ?>">
                 </div>
             </div>
 
@@ -125,7 +125,6 @@
                   <label>Alat Bantu</label>
                   <select class="form-control" name="alat_bantu">
                     <option value="<?php echo $pernafasan->alat_bantu; ?>"><?php echo $pernafasan->alat_bantu; ?></option>
-                    <option value="-">-</option>
                     <option value="NK">NK</option>
                     <option value="NRM">NRM</option>
                     <option value="RM">RM</option>
@@ -137,15 +136,37 @@
             <div class="col-sm-4">
                 <div class="form-group">
                   <label>Alat Bantu Lainnya, Sebutkan</label>
-                  <input type="text" name="alat_bantu_lainnya" class="form-control" value="<?php echo $pernafasan->alat_bantu_lainnya; ?>" required>
+                  <input type="text" name="alat_bantu_lainnya" class="form-control" value="<?php echo $pernafasan->alat_bantu_lainnya; ?>">
                 </div>
             </div>
 
 
-            <div class="col-sm-4">
+            <div class="col-sm-2">
                 <div class="form-group">
                   <label>Tekanan</label>
-                  <input type="text" name="tekanan" class="form-control" value="<?php echo $pernafasan->tekanan; ?>" required>
+                  <select class="form-control" name="tekanan">
+                    <option value="<?php echo $pernafasan->tekanan; ?>"><?php echo $pernafasan->tekanan; ?></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    </select>
                 </div>
             </div>
 
@@ -161,15 +182,15 @@
                 </div>
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-2">
                 <div class="form-group">
                   <label>Produksi</label>
-                  <input type="text" name="produksi" class="form-control" value="<?php echo $pernafasan->produksi; ?>" required>
+                  <input type="text" name="produksi" class="form-control" value="<?php echo $pernafasan->produksi; ?>">
                 </div>
             </div>
 
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <div class="form-group">
                   <label>Kesulitan Bernafas?</label>
                   <select class="form-control" name="kesulitan_bernafas">
@@ -181,7 +202,7 @@
             </div>
 
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <div class="form-group">
                   <label>Jika Ya</label>
                   <select class="form-control" name="kesulitan_bernafas_ya">
@@ -193,22 +214,22 @@
             </div>
 
 
-            <div class="col-sm-6">
+            <!-- <div class="col-sm-6">
                 <div class="form-group">
                   <label>Lain-lain</label>
-                  <input type="text" name="lain_lain" class="form-control" value="<?php echo $pernafasan->lain_lain; ?>" required>
+                  <input type="text" name="lain_lain" class="form-control" value="<?php echo $pernafasan->lain_lain; ?>">
                 </div>
-            </div>
+            </div> -->
 
-            <div class="col-sm-6">
+            <div class="col-sm-2">
                 <div class="form-group">
                   <label>Saat</label>
-                  <input type="text" name="saat" class="form-control" value="<?php echo $pernafasan->saat; ?>" required>
+                  <input type="text" name="saat" class="form-control" value="<?php echo $pernafasan->saat; ?>">
                 </div>
             </div>
 
           
-          <div class="col-sm-3">
+          <div class="col-sm-2">
                 <div class="form-group">
                   <label>Batuk dan Sekresi?</label>
                   <select class="form-control" name="batukdansekresi">
@@ -220,7 +241,7 @@
           </div>
 
 
-          <div class="col-sm-3">
+          <div class="col-sm-2">
                 <div class="form-group">
                   <label>Jika Ya</label>
                   <select class="form-control" name="batukdansekresi_ya">
@@ -232,7 +253,7 @@
           </div>
 
 
-          <div class="col-sm-3">
+          <div class="col-sm-2">
                 <div class="form-group">
                   <label>Warna Sputum</label>
                   <select class="form-control" name="warna_sputum">
@@ -245,7 +266,7 @@
           </div>
 
 
-          <div class="col-sm-3">
+          <div class="col-sm-4">
                 <div class="form-group">
                   <label>Suara Nafas</label>
                   <select class="form-control" name="suara_nafas">
@@ -259,7 +280,7 @@
           </div>
 
 
-          <div class="col-sm-6">
+          <div class="col-sm-4">
                 <div class="form-group">
                   <label>Perkusi</label>
                   <select class="form-control" name="perkusi">
@@ -272,7 +293,7 @@
           </div>
 
 
-          <div class="col-sm-6">
+          <div class="col-sm-4">
                 <div class="form-group">
                   <label>AGD</label>
                   <select class="form-control" name="agd">

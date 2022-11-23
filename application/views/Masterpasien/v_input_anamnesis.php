@@ -287,6 +287,8 @@
 </div>
 
 <div align="right">
+  <a href="<?php echo base_url('Ass/MasterPasien/detail_pasien/').$detail->norm ?>" class="btn btn-secondary"><i class="fas fa-arrow-alt-circle-left"></i> Back</a>
+
   <button type="submit" class="btn btn-primary">Submit</button>
 </div>
 

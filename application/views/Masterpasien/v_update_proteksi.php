@@ -88,7 +88,7 @@
             <div class="col-sm-2">
                 <div class="form-group">
                   <label>Lokasi</label>
-                  <input type="text" name="lokasi_luka" class="form-control" value="<?php echo $proteksi->lokasi_luka; ?>" required>
+                  <input type="text" name="lokasi_luka" class="form-control" value="<?php echo $proteksi->lokasi_luka; ?>">
                 </div>
             </div>
 
@@ -96,7 +96,7 @@
             <div class="col-sm-3">
                 <div class="form-group">
                   <label>Kondisi Luka</label>
-                  <input type="text" name="kondisi_luka" class="form-control" value="<?php echo $proteksi->kondisi_luka; ?>" required>
+                  <input type="text" name="kondisi_luka" class="form-control" value="<?php echo $proteksi->kondisi_luka; ?>">
                 </div>
             </div>
 
@@ -113,7 +113,7 @@
             </div>
 
 
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="form-group">
                   <label>Riwayat Alergi</label>
                   <select class="form-control" name="riwayat_alergi">
@@ -128,7 +128,7 @@
             <div class="col-sm-3">
                 <div class="form-group">
                   <label>Jenis Alergi</label>
-                  <input type="text" name="nama_alergi" class="form-control" value="<?php echo $proteksi->nama_alergi; ?>" required>
+                  <input type="text" name="nama_alergi" class="form-control" value="<?php echo $proteksi->nama_alergi; ?>">
                 </div>
             </div>
 
@@ -136,7 +136,7 @@
             <div class="col-sm-3">
                 <div class="form-group">
                   <label>Nilai Leokosit</label>
-                  <input type="text" name="nilai_leokosit" class="form-control" value="<?php echo $proteksi->nilai_leokosit; ?>" required>
+                  <input type="text" name="nilai_leokosit" class="form-control" value="<?php echo $proteksi->nilai_leokosit; ?>">
                 </div>
             </div>
 
@@ -144,7 +144,7 @@
             <div class="col-sm-3">
                 <div class="form-group">
                   <label>GDS</label>
-                  <input type="text" name="gds" class="form-control" value="<?php echo $proteksi->gds; ?>" required>
+                  <input type="text" name="gds" class="form-control" value="<?php echo $proteksi->gds; ?>">
                 </div>
             </div>
           
