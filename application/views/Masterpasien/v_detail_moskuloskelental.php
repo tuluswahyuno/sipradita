@@ -82,53 +82,116 @@
                           <div class="row">
                             <div class="col-sm-6">
                               <div class="form-group row">
-                                <label for="inputName" class="col-sm-4 col-form-label">Pergerakan Sendi</label>
+                                <label for="inputName" class="col-sm-5 col-form-label">Pergerakan Sendi</label>
                                 <div class="col-sm-7">
                                   <input type="text" class="form-control" value="<?php echo $aaaa->pergerakan_sendi; ?>">
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label for="inputEmail" class="col-sm-4 col-form-label">Mudah Lelah</label>
+                                <label for="inputEmail" class="col-sm-5 col-form-label">Mudah Lelah</label>
                                 <div class="col-sm-7">
                                   <input type="text" class="form-control" value="<?php echo $aaaa->mudah_lelah; ?>">
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label for="inputName4" class="col-sm-4 col-form-label">Kekuatan Otot</label>
+                                <label for="inputName5" class="col-sm-5 col-form-label">Otot Atas Kanan</label>
                                 <div class="col-sm-7">
-                                  <input type="text" class="form-control" value="<?php echo $aaaa->kekuatan_otot; ?>">
+                                  <?php 
+                                      $kananatas = $aaaa->atas_kanan;
+
+                                      if ($kananatas == "0") {
+                                        $outputkanan = "(0) Otot tak mampu bergerak";
+                                      }elseif($kananatas == "1"){
+                                        $outputkanan = "(1) Jika otot ditekan terasa ada kontraksi";
+                                      }elseif($kananatas == "2"){
+                                        $outputkanan = "(2) Dapat bergerak tetapi tidak mampu ditahan";
+                                      }elseif($kananatas == "3"){
+                                        $outputkanan = "(3) Dapat menggerakkan otot dengan tahanan minimal";
+                                      }elseif($kananatas == "4"){
+                                        $outputkanan = "(4) Dapat bergerak dan melawan hambatan";
+                                      }elseif($kananatas == "5"){
+                                        $outputkanan = "(5) Bebas bergerak dan melawan tahananan yang setimpal";
+                                      }
+                                   ?>
+                                  <textarea class="form-control"><?php echo $outputkanan; ?></textarea>
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label for="inputName4" class="col-sm-4 col-form-label">Otot Atas</label>
+                                <label for="inputName5" class="col-sm-5 col-form-label">Otot Atas Kiri</label>
                                 <div class="col-sm-7">
-                                  <input type="text" class="form-control" value="<?php echo $aaaa->atas; ?>">
+                                  <?php 
+                                      $kiriatas = $aaaa->atas_kiri;
+
+                                      if ($kiriatas == "0") {
+                                        $outputkiri = "(0) Otot tak mampu bergerak";
+                                      }elseif($kiriatas == "1"){
+                                        $outputkiri = "(1) Jika otot ditekan terasa ada kontraksi";
+                                      }elseif($kiriatas == "2"){
+                                        $outputkiri = "(2) Dapat bergerak tetapi tidak mampu ditahan";
+                                      }elseif($kiriatas == "3"){
+                                        $outputkiri = "(3) Dapat menggerakkan otot dengan tahanan minimal";
+                                      }elseif($kiriatas == "4"){
+                                        $outputkiri = "(4) Dapat bergerak dan melawan hambatan";
+                                      }elseif($kiriatas == "5"){
+                                        $outputkiri = "(5) Bebas bergerak dan melawan tahananan yang setimpal";
+                                      }
+                                   ?>
+                                  <textarea class="form-control"><?php echo $outputkiri; ?></textarea>
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label for="inputName4" class="col-sm-4 col-form-label">Otot Bawah</label>
+                                <label for="inputName5" class="col-sm-5 col-form-label">Otot Bawah Kanan</label>
                                 <div class="col-sm-7">
-                                  <input type="text" class="form-control" value="<?php echo $aaaa->bawah; ?>">
+                                  <?php 
+                                      $kananbawah = $aaaa->bawah_kanan;
+
+                                      if ($kananbawah == "0") {
+                                        $bawahkanan = "(0) Otot tak mampu bergerak";
+                                      }elseif($kananbawah == "1"){
+                                        $bawahkanan = "(1) Jika otot ditekan terasa ada kontraksi";
+                                      }elseif($kananbawah == "2"){
+                                        $bawahkanan = "(2) Dapat bergerak tetapi tidak mampu ditahan";
+                                      }elseif($kananbawah == "3"){
+                                        $bawahkanan = "(3) Dapat menggerakkan otot dengan tahanan minimal";
+                                      }elseif($kananbawah == "4"){
+                                        $bawahkanan = "(4) Dapat bergerak dan melawan hambatan";
+                                      }elseif($kananbawah == "5"){
+                                        $bawahkanan = "(5) Bebas bergerak dan melawan tahananan yang setimpal";
+                                      }
+                                   ?>
+                                   <textarea class="form-control"><?php echo $bawahkanan; ?></textarea>
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label for="inputExperience" class="col-sm-4 col-form-label">Hasil</label>
+                                <label for="inputExperience" class="col-sm-5 col-form-label">Otot Bawah Kiri</label>
                                 <div class="col-sm-7">
-                                  <input type="text" class="form-control" value="<?php echo $aaaa->hasil; ?>">
+                                  <?php 
+                                      $kiribawah = $aaaa->bawah_kiri;
+
+                                      if ($kiribawah == "0") {
+                                        $bawahkiri = "(0) Otot tak mampu bergerak";
+                                      }elseif($kiribawah == "1"){
+                                        $bawahkiri = "(1) Jika otot ditekan terasa ada kontraksi";
+                                      }elseif($kiribawah == "2"){
+                                        $bawahkiri = "(2) Dapat bergerak tetapi tidak mampu ditahan";
+                                      }elseif($kiribawah == "3"){
+                                        $bawahkiri = "(3) Dapat menggerakkan otot dengan tahanan minimal";
+                                      }elseif($kiribawah == "4"){
+                                        $bawahkiri = "(4) Dapat bergerak dan melawan hambatan";
+                                      }elseif($kiribawah == "5"){
+                                        $bawahkiri = "(5) Bebas bergerak dan melawan tahananan yang setimpal";
+                                      }
+                                   ?>
+                                  <textarea class="form-control"><?php echo $bawahkiri; ?></textarea>
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label for="inputSkills" class="col-sm-4 col-form-label">Fraktur</label>
+                                <label for="inputSkills" class="col-sm-5 col-form-label">Fraktur</label>
                                 <div class="col-sm-7">
                                   <input type="text" class="form-control" value="<?php echo $aaaa->fraktur; ?>">
                                 </div>
                               </div>
-                              <div class="form-group row">
-                                <label for="inputSkills" class="col-sm-4 col-form-label">Lokasi</label>
-                                <div class="col-sm-7">
-                                  <input type="text" class="form-control" value="<?php echo $aaaa->fraktur_lokasi; ?>">
-                                </div>
-                              </div>
+                              
 
                               
                               
@@ -137,52 +200,59 @@
                             <div class="col-sm-6">
 
                               <div class="form-group row">
-                                <label for="inputSkills" class="col-sm-4 col-form-label">Postur Tubuh</label>
-                                <div class="col-sm-7">
+                                <label for="inputSkills" class="col-sm-5 col-form-label">Lokasi Fraktur</label>
+                                <div class="col-sm-6">
+                                  <input type="text" class="form-control" value="<?php echo $aaaa->fraktur_lokasi; ?>">
+                                </div>
+                              </div>
+
+                              <div class="form-group row">
+                                <label for="inputSkills" class="col-sm-5 col-form-label">Postur Tubuh</label>
+                                <div class="col-sm-6">
                                   <input type="text" class="form-control" value="<?php echo $aaaa->postur_tubuh; ?>">
                                 </div>
                               </div>
 
                               <div class="form-group row">
-                                <label for="inputSkills" class="col-sm-4 col-form-label">Skore Resiko jatuh</label>
-                                <div class="col-sm-7">
+                                <label for="inputSkills" class="col-sm-5 col-form-label">Skore Resiko jatuh</label>
+                                <div class="col-sm-6">
                                   <input type="text" class="form-control" value="<?php echo $aaaa->skore_resiko_jatuh; ?>">
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label for="inputSkills" class="col-sm-4 col-form-label">Aktivitas Se-hari<sup>2</sup></label>
-                                <div class="col-sm-7">
+                                <label for="inputSkills" class="col-sm-5 col-form-label">Aktivitas Se-hari<sup>2</sup></label>
+                                <div class="col-sm-6">
                                   <input type="text" class="form-control" value="<?php echo $aaaa->aktivitas_seharihari; ?>">
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label for="inputSkills" class="col-sm-4 col-form-label">Berjalan</label>
-                                <div class="col-sm-7">
+                                <label for="inputSkills" class="col-sm-5 col-form-label">Berjalan</label>
+                                <div class="col-sm-6">
                                   <input type="text" class="form-control" value="<?php echo $aaaa->berjalan; ?>">
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label for="inputSkills" class="col-sm-4 col-form-label">Alat Ambulasi</label>
-                                <div class="col-sm-7">
+                                <label for="inputSkills" class="col-sm-5 col-form-label">Alat Ambulasi</label>
+                                <div class="col-sm-6">
                                   <input type="text" class="form-control" value="<?php echo $aaaa->alat_ambulasi; ?>">
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label for="inputSkills" class="col-sm-4 col-form-label">Kebiasaan Tidur</label>
-                                <div class="col-sm-7">
+                                <label for="inputSkills" class="col-sm-5 col-form-label">Kebiasaan Tidur</label>
+                                <div class="col-sm-6">
                                   <input type="text" class="form-control" value="<?php echo $aaaa->kebiasaan_tidur; ?>">
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label for="inputSkills" class="col-sm-4 col-form-label">Jam Tdr Sblm Sakit</label>
-                                <div class="col-sm-7">
-                                  <input type="text" class="form-control" value="<?php echo $aaaa->jam_tidur_sebelumsakit; ?>">
+                                <label for="inputSkills" class="col-sm-5 col-form-label">Lama Tidur Sblm Sakit</label>
+                                <div class="col-sm-6">
+                                  <input type="text" class="form-control" value="<?php echo $aaaa->jam_tidur_sebelumsakit." Jam"; ?>">
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label for="inputSkills" class="col-sm-4 col-form-label">Jam Tdr Ssdh Sakit</label>
-                                <div class="col-sm-7">
-                                  <input type="text" class="form-control" value="<?php echo $aaaa->jam_tidur_sesudahsakit; ?>">
+                                <label for="inputSkills" class="col-sm-5 col-form-label">Lama Tidur Ssdh Sakit</label>
+                                <div class="col-sm-6">
+                                  <input type="text" class="form-control" value="<?php echo $aaaa->jam_tidur_sesudahsakit." Jam"; ?>">
                                 </div>
                               </div>
                               

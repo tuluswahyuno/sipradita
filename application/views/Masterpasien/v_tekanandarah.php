@@ -159,6 +159,7 @@
 
                     <div class="form-group">
                     <label>Suhu Tubuh</label>
+                    <label>(Gunakan Titik untuk desimal)</label>
                     <input type="text" name="suhu" class="form-control" placeholder="Suhu Tubuh" required>
                     </div>
                     </div>
@@ -211,7 +212,8 @@
 
                     <div class="form-group">
                     <label>Suhu Tubuh</label>
-                    <input type="number" name="suhu" class="form-control" value="<?php echo $us->suhu; ?>" required>
+                    <label>(Gunakan Titik untuk desimal)</label>
+                    <input type="text" name="suhu" class="form-control" value="<?php echo $us->suhu; ?>" required>
                     </div>
                     </div>
 

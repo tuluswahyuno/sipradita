@@ -13,7 +13,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/pemeriksaan/').$detail->id_anamnesis ?>">Pemeriksaan Umum</a>
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/pemeriksaan/').$detail->id_anamnesis ?>">Pemeriksaan</a>
         </li>
 
         <li class="nav-item">
@@ -33,7 +33,19 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/hasil/').$detail->id_anamnesis ?>">Hasil</a>
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/hasil/').$detail->id_anamnesis ?>">Diagnosa</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/tekanandarah/').$detail->id_anamnesis ?>">Vital Sign</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/grafik/').$detail->id_anamnesis ?>">Grafik</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/evaluasi/').$detail->id_anamnesis ?>">Evaluasi</a>
         </li>
 
       </ul>
@@ -60,7 +72,7 @@
 
             <div class="row">
 
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="form-group">
                   <label>Pergerakan Sendi</label>
                   <input type="hidden" name="id_anamnesis" value="<?php echo $detail->id_anamnesis; ?>">
@@ -71,7 +83,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="form-group">
                   <label>Mudah Lelah</label>
                   <select class="form-control" name="mudah_lelah">
@@ -82,10 +94,10 @@
             </div>
 
 
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="form-group">
-                  <label>Kekuatan Otot</label>
-                  <select class="form-control" name="kekuatan_otot">
+                  <label>Kekuatan Otot Atas Kanan</label>
+                  <select class="form-control" name="atas_kanan">
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -98,23 +110,44 @@
 
             <div class="col-sm-3">
                 <div class="form-group">
-                  <label>Kekuatan Otot Atas</label>
-                  <input type="text" name="atas" class="form-control" placeholder="Kanan / Kiri ...">
+                  <label>Kekuatan Otot Bawah Kanan</label>
+                  <select class="form-control" name="bawah_kanan">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
                 </div>
             </div>
 
             <div class="col-sm-3">
                 <div class="form-group">
-                  <label>Kekuatan Otot Bawah</label>
-                  <input type="text" name="bawah" class="form-control" placeholder="Kanan / Kiri ...">
+                  <label>Kekuatan Otot Atas Kiri</label>
+                  <select class="form-control" name="atas_kiri">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
                 </div>
             </div>
 
 
             <div class="col-sm-3">
                 <div class="form-group">
-                  <label>Hasil</label>
-                  <input type="text" name="hasil" class="form-control" placeholder="Hasil ...">
+                  <label>Kekuatan Otot Bawah Kiri</label>
+                  <select class="form-control" name="bawah_kiri">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
                 </div>
             </div>
 
@@ -159,7 +192,7 @@
             </div>
 
 
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <div class="form-group">
                   <label>Aktivitas Sehari-hari </label>
                   <select class="form-control" name="aktivitas_seharihari">
@@ -171,7 +204,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <div class="form-group">
                   <label>Berjalan</label>
                   <select class="form-control" name="berjalan">
@@ -185,7 +218,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="form-group">
                   <label>Alat Ambulasi</label>
                   <select class="form-control" name="alat_ambulasi">
@@ -199,7 +232,7 @@
 
 
 
-            <div class="col-sm-2">
+            <div class="col-sm-4">
                 <div class="form-group">
                   <label>Kebiasaan Tidur</label>
                   <select class="form-control" name="kebiasaan_tidur">
@@ -209,7 +242,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <div class="form-group">
                   <label>Lama Tidur Sebelum Sakit (Dalam jam)</label>
                   <input type="number" name="jam_tidur_sebelumsakit" class="form-control">
@@ -217,7 +250,7 @@
             </div>
 
 
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <div class="form-group">
                   <label>Lama Tidur Sesudah Sakit (Dalam jam)</label>
                   <input type="number" name="jam_tidur_sesudahsakit" class="form-control">

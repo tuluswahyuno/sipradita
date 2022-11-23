@@ -13,7 +13,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/pemeriksaan/').$detail->id_anamnesis ?>">Pemeriksaan Umum</a>
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/pemeriksaan/').$detail->id_anamnesis ?>">Pemeriksaan</a>
         </li>
 
         <li class="nav-item">
@@ -21,7 +21,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/moskuloskelental/').$detail->id_anamnesis ?>">Moskuloskelental</a>
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/moskuloskelental/').$detail->id_anamnesis ?>">Moskuloskeletal</a>
         </li>
 
         <li class="nav-item">
@@ -33,7 +33,19 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/hasil/').$detail->id_anamnesis ?>">Hasil</a>
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/hasil/').$detail->id_anamnesis ?>">Diagnosa</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/tekanandarah/').$detail->id_anamnesis ?>">Vital Sign</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/grafik/').$detail->id_anamnesis ?>">Grafik</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url('Ass/MasterPasien/evaluasi/').$detail->id_anamnesis ?>">Evaluasi</a>
         </li>
 
       </ul>
@@ -266,7 +278,7 @@
           </div>
 
 
-          <div class="col-sm-4">
+          <div class="col-sm-6">
                 <div class="form-group">
                   <label>Suara Nafas</label>
                   <select class="form-control" name="suara_nafas">
@@ -280,7 +292,7 @@
           </div>
 
 
-          <div class="col-sm-4">
+          <div class="col-sm-6">
                 <div class="form-group">
                   <label>Perkusi</label>
                   <select class="form-control" name="perkusi">
@@ -293,7 +305,7 @@
           </div>
 
 
-          <div class="col-sm-4">
+          <!-- <div class="col-sm-4">
                 <div class="form-group">
                   <label>AGD</label>
                   <select class="form-control" name="agd">
@@ -309,7 +321,7 @@
                     <option value="HCO3>26">HCO3>26</option>
                   </select>
                 </div>
-          </div>
+          </div> -->
 
           
           </div>

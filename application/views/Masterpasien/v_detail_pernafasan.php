@@ -209,12 +209,12 @@
                                   <input type="text" class="form-control" value="<?php echo $aaaa->perkusi; ?>">
                                 </div>
                               </div>
-                              <div class="form-group row">
+                              <!-- <div class="form-group row">
                                 <label for="inputSkills" class="col-sm-4 col-form-label">AGD</label>
                                 <div class="col-sm-7">
                                   <input type="text" class="form-control" value="<?php echo $aaaa->agd; ?>">
                                 </div>
-                              </div>
+                              </div> -->
 
                             </div>
                           </div>

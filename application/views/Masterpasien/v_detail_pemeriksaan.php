@@ -91,6 +91,12 @@
                   </div>
                   </div>
 
+                  <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Kesadaran</label>
+                  <div class="col-sm-10">
+                  <input type="text" class="form-control" value="<?php echo $aaaa->kesadaran; ?>">  
+                  </div>
+                  </div>
 
                   <div class="form-group row">
                   <label class="col-sm-2 col-form-label">TT / TB</label>
@@ -99,12 +105,22 @@
                   </div>
                   </div>
 
+
                   <div class="form-group row">
-                  <label class="col-sm-2 col-form-label">Kesadaran</label>
+                  <label class="col-sm-2 col-form-label">IMT</label>
                   <div class="col-sm-10">
-                  <input type="text" class="form-control" value="<?php echo $aaaa->kesadaran; ?>">  
+                  <?php 
+
+                  $a = $aaaa->tb / 100;
+                  $b = $aaaa->bb;
+
+                  $imt = $b / pow($a,2);
+
+                  ?>
+                  <input type="text" class="form-control" value="<?php echo number_format($imt,1); ?>">  
                   </div>
                   </div>
+
 
 
                   

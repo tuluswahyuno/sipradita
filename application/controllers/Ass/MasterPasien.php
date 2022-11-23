@@ -685,10 +685,10 @@ public function tambah_moskuloskelental_aksi()
     $id_anamnesis           = $this->input->post('id_anamnesis');
     $pergerakan_sendi       = $this->input->post('pergerakan_sendi');
     $mudah_lelah            = $this->input->post('mudah_lelah');
-    $kekuatan_otot          = $this->input->post('kekuatan_otot');
-    $atas                   = $this->input->post('atas');
-    $bawah                  = $this->input->post('bawah');
-    $hasil                  = $this->input->post('hasil');
+    $atas_kanan             = $this->input->post('atas_kanan');
+    $bawah_kanan            = $this->input->post('bawah_kanan');
+    $atas_kiri              = $this->input->post('atas_kiri');
+    $bawah_kiri             = $this->input->post('bawah_kiri');
     $fraktur                = $this->input->post('fraktur');
     $fraktur_lokasi         = $this->input->post('fraktur_lokasi');
     $postur_tubuh           = $this->input->post('postur_tubuh');
@@ -700,7 +700,7 @@ public function tambah_moskuloskelental_aksi()
     $jam_tidur_sebelumsakit = $this->input->post('jam_tidur_sebelumsakit');
     $jam_tidur_sesudahsakit = $this->input->post('jam_tidur_sesudahsakit');
 
-    if ($pergerakan_sendi == "Terbatas" && $mudah_lelah =="Ya" && $kekuatan_otot < "4" && $fraktur == "Ada" && $aktivitas_seharihari == "Ketergantungan Total" && $berjalan == "Kelumpuhan")
+    if ($pergerakan_sendi == "Terbatas" && $mudah_lelah =="Ya" && $atas_kanan <= "4" || $bawah_kanan <= "4" || $bawah_kiri <= "4" || $atas_kiri <= "4" && $fraktur == "Ada" && $aktivitas_seharihari == "Ketergantungan Total" && $berjalan == "Kelumpuhan")
     {
         $diagnosa_moskuloskelental = "Gangguan Mobilitas Fisik";
     }else{
@@ -711,10 +711,10 @@ public function tambah_moskuloskelental_aksi()
         'id_anamnesis'              => $id_anamnesis,
         'pergerakan_sendi'          => $pergerakan_sendi,
         'mudah_lelah'               => $mudah_lelah,
-        'kekuatan_otot'             => $kekuatan_otot,
-        'atas'                      => $atas,
-        'bawah'                     => $bawah,
-        'hasil'                     => $hasil,
+        'atas_kanan'                => $atas_kanan,
+        'bawah_kanan'               => $bawah_kanan,
+        'atas_kiri'                 => $atas_kiri,
+        'bawah_kiri'                => $bawah_kiri,
         'fraktur'                   => $fraktur,
         'fraktur_lokasi'            => $fraktur_lokasi,
         'postur_tubuh'              => $postur_tubuh,
@@ -742,7 +742,10 @@ public function update_moskuloskelental_aksi()
     $id_moskuloskelental    = $this->input->post('id_moskuloskelental');
     $pergerakan_sendi       = $this->input->post('pergerakan_sendi');
     $mudah_lelah            = $this->input->post('mudah_lelah');
-    $kekuatan_otot          = $this->input->post('kekuatan_otot');
+    $atas_kanan             = $this->input->post('atas_kanan');
+    $bawah_kanan            = $this->input->post('bawah_kanan');
+    $atas_kiri              = $this->input->post('atas_kiri');
+    $bawah_kiri             = $this->input->post('bawah_kiri');
     $hasil                  = $this->input->post('hasil');
     $fraktur                = $this->input->post('fraktur');
     $fraktur_lokasi         = $this->input->post('fraktur_lokasi');
@@ -755,7 +758,7 @@ public function update_moskuloskelental_aksi()
     $jam_tidur_sebelumsakit = $this->input->post('jam_tidur_sebelumsakit');
     $jam_tidur_sesudahsakit = $this->input->post('jam_tidur_sesudahsakit');
 
-    if ($pergerakan_sendi == "Terbatas" && $mudah_lelah =="Ya" && $kekuatan_otot < "4" && $fraktur == "Ada" && $aktivitas_seharihari == "Ketergantungan Total" && $berjalan == "Kelumpuhan")
+    if ($pergerakan_sendi == "Terbatas" && $mudah_lelah =="Ya" && $atas_kanan <= "4" || $bawah_kanan <= "4" || $bawah_kiri <= "4" || $atas_kiri <= "4" && $fraktur == "Ada" && $aktivitas_seharihari == "Ketergantungan Total" && $berjalan == "Kelumpuhan")
         {$diagnosa_moskuloskelental = "Gangguan Mobilitas Fisik";}
     else
     {
@@ -765,8 +768,10 @@ public function update_moskuloskelental_aksi()
     $data = array(
         'pergerakan_sendi'          => $pergerakan_sendi,
         'mudah_lelah'               => $mudah_lelah,
-        'kekuatan_otot'             => $kekuatan_otot,
-        'hasil'                     => $hasil,
+        'atas_kanan'                => $atas_kanan,
+        'bawah_kanan'               => $bawah_kanan,
+        'atas_kiri'                 => $atas_kiri,
+        'bawah_kiri'                => $bawah_kiri,
         'fraktur'                   => $fraktur,
         'fraktur_lokasi'            => $fraktur_lokasi,
         'postur_tubuh'              => $postur_tubuh,

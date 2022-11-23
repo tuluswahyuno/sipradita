@@ -123,7 +123,7 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label>TD</label>
-                  <input type="number" name="td" class="form-control" value="<?php echo $pemeriksaan->td; ?>" required>
+                  <input type="text" name="td" class="form-control" value="<?php echo $pemeriksaan->td; ?>" required>
                 </div>
               </div>
 
@@ -144,7 +144,7 @@
               <div class="col-sm-2">
                 <div class="form-group">
                   <label>S</label>
-                  <input type="number" name="s" class="form-control" value="<?php echo $pemeriksaan->s; ?>" required>
+                  <input type="text" name="s" class="form-control" value="<?php echo $pemeriksaan->s; ?>" required>
                 </div>
               </div>
 

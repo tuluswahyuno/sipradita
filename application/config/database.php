@@ -152,8 +152,8 @@ $db['default'] = array(
 
 	'dsn'	=> '',
 
-	'hostname' => '192.168.100.4',
-	// 'hostname' => '36.67.11.131',
+	// 'hostname' => '192.168.100.4',
+	'hostname' => '36.67.11.131',
 
 	'username' => 'admin',
 
