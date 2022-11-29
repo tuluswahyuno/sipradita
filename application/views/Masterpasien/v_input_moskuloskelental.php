@@ -97,6 +97,8 @@
             <div class="col-sm-3">
                 <div class="form-group">
                   <label>Kekuatan Otot Atas Kanan</label>
+                  <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#exampleModalCenter">
+                  <i class="fas fa-info-circle"></i></button>
                   <select class="form-control" name="atas_kanan">
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -110,7 +112,9 @@
 
             <div class="col-sm-3">
                 <div class="form-group">
-                  <label>Kekuatan Otot Bawah Kanan</label>
+                  <label>Kekuatan Otot Bwah Kanan</label>
+                  <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#exampleModalCenter">
+                  <i class="fas fa-info-circle"></i></button>
                   <select class="form-control" name="bawah_kanan">
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -125,6 +129,8 @@
             <div class="col-sm-3">
                 <div class="form-group">
                   <label>Kekuatan Otot Atas Kiri</label>
+                  <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#exampleModalCenter">
+                  <i class="fas fa-info-circle"></i></button>
                   <select class="form-control" name="atas_kiri">
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -140,6 +146,8 @@
             <div class="col-sm-3">
                 <div class="form-group">
                   <label>Kekuatan Otot Bawah Kiri</label>
+                  <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#exampleModalCenter">
+                  <i class="fas fa-info-circle"></i></button>
                   <select class="form-control" name="bawah_kiri">
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -187,6 +195,8 @@
             <div class="col-sm-3">
                 <div class="form-group">
                   <label>Skore Resiko jatuh</label>
+                  <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#ModalResikoJatuh">
+                  <i class="fas fa-info-circle"></i></button>
                   <input type="text" name="skore_resiko_jatuh" class="form-control" placeholder="Skore Resiko jatuh ...">
                 </div>
             </div>
@@ -280,4 +290,153 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Skala Kekuatan Otot</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <style>
+                table {
+                  /*font-family: verdana, sans-serif;*/
+                  border-collapse: collapse;
+                  width: 100%;
+                }
+
+                td, th {
+                  border: 0.5px solid #dddddd;
+                  text-align: left;
+                  padding: 1px;
+                }
+
+                tr:nth-child(even) {
+                  background-color: #dddddd;
+                }
+              </style>
+            </head>
+            <body>
+
+              <table>
+                <tr>
+                  <th style="text-align: center;">SKALA</th>
+                  <th style="text-align: center;">KETERANGAN</th>
+                </tr>
+                <tr>
+                  <td style="text-align: center;">0</td>
+                  <td>Otot tak mampu bergerak</td>
+                </tr>
+                <tr>
+                  <td style="text-align: center;">1</td>
+                  <td>Jika otot ditekan terasa ada kontraksi</td>
+                </tr>
+                <tr>
+                  <td style="text-align: center;">2</td>
+                  <td>Dapat bergerak sesuai perintah tetapi tidak mampu ditahan</td>
+                </tr>
+                <tr>
+                  <td style="text-align: center;">3</td>
+                  <td>Dapat menggerakkan oto dengan tahanan minimal</td>
+                </tr>
+                <tr>
+                  <td style="text-align: center;">4</td>
+                  <td>Dapat bergerak dan melawan hambatan</td>
+                </tr>
+                <tr>
+                  <td style="text-align: center;">5</td>
+                  <td>Bebas bergerak dan melawan tahananan yang setimpal</td>
+                </tr>
+
+              </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="ModalResikoJatuh" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Skala Kekuatan Otot</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <style>
+                table {
+                  /*font-family: verdana, sans-serif;*/
+                  border-collapse: collapse;
+                  width: 100%;
+                }
+
+                td, th {
+                  border: 0.5px solid #dddddd;
+                  text-align: left;
+                  padding: 1px;
+                }
+
+                tr:nth-child(even) {
+                  background-color: #dddddd;
+                }
+              </style>
+            </head>
+            <body>
+
+              <table>
+                <tr>
+                  <th style="text-align: center;">SKALA</th>
+                  <th style="text-align: center;">KETERANGAN</th>
+                </tr>
+                <tr>
+                  <td style="text-align: center;">10</td>
+                  <td>Lemah Tidak Bertenaga</td>
+                </tr>
+                <tr>
+                  <td style="text-align: center;">15</td>
+                  <td>
+                      Memiliki Lebih dari satu panyakit<br>
+                      Pasien Memakai kruk/tongkat/walker<br>
+                      Pasien mengalami keterbatasan daya ingat
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: center;">20</td>
+                  <td>
+                    Pasien terpasang infus<br>
+                    Gangguan/tidak normal (pincang/diseret)
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: center;">25</td>
+                  <td>Pasien pernah jatuh dalam 3 bulan terakhir</td>
+                </tr>
+                <tr>
+                  <td style="text-align: center;">30</td>
+                  <td>Berpegangan pada benda-benda disekitar</td>
+                </tr>
+               
+
+              </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 

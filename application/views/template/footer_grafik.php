@@ -93,10 +93,10 @@
           type: 'line',
           data: <?php echo json_encode($yes) ?>,
           // data: [80, 110, 120, 75, 80, 130, 160],
-          backgroundColor: 'transparent',
-          borderColor: '#007bff',
-          pointBorderColor: '#007bff',
-          pointBackgroundColor: '#007bff',
+          backgroundColor: 'tansparent',
+          borderColor: '#FF0000',
+          pointBorderColor: '#FF0000',
+          pointBackgroundColor: '#FF0000',
           fill: false
         // pointHoverBackgroundColor: '#007bff',
         // pointHoverBorderColor    : '#007bff'
@@ -105,10 +105,10 @@
           type: 'line',
           // data: [34, 38, 36, 40, 34, 36, 37],
           data: <?php echo json_encode($suhuy) ?>,
-          backgroundColor: 'tansparent',
-          borderColor: '#FF0000',
-          pointBorderColor: '#FF0000',
-          pointBackgroundColor: '#FF0000',
+          backgroundColor: 'transparent',
+          borderColor: '#007bff',
+          pointBorderColor: '#007bff',
+          pointBackgroundColor: '#007bff',
           fill: false
         // pointHoverBackgroundColor: '#ced4da',
         // pointHoverBorderColor    : '#ced4da'

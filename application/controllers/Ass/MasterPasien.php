@@ -26,6 +26,19 @@ class MasterPasien extends CI_Controller
         $this->load->view('template/footer');
     }
 
+    public function pemberiasuhan()
+    {
+        check_not_login();
+
+        $data['data'] = $this->pasien_m->get_data_pemberiasuhan();
+        $data['title'] = "Manajemen Data Pemberi Asuhan";
+
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar',$data);
+        $this->load->view('Masterpasien/v_pemberiasuhan',$data);
+        $this->load->view('template/footer');
+    }
+
     public function cari_pasien()
     {
         check_not_login();
@@ -570,7 +583,8 @@ class MasterPasien extends CI_Controller
         $agd                    = $this->input->post('agd');
         //$diagnosa_penafasan     = $this->input->post('diagnosa_penafasan');
 
-        if ($irama_nafas == "Tidak Teratur" && $retraksi == "Ya" && $kesulitan_bernafas == "Ya" && $kesulitan_bernafas_ya == "Dispneu" && $agd == "PH 7,35-7,45") {
+        if ($irama_nafas == "Tidak Teratur" && $retraksi == "Ya" && $kesulitan_bernafas == "Ya" && $kesulitan_bernafas_ya == "Dispneu")
+        {
             $diagnosa_penafasan = 'Pola Nafas Tidak Efektif';
         }elseif ($batukdansekresi == "Ya" && $batukdansekresi_ya == "Produktif" || $batukdansekresi_ya == "Non Produktif" && $warna_sputum == "Putih" || $warna_sputum == "Kuning" || $warna_sputum == "Merah" && $perkusi == "Redup") {
             $diagnosa_penafasan = 'Bersihan Jalan Nafas Tidak Efektif';
@@ -636,7 +650,8 @@ class MasterPasien extends CI_Controller
     $perkusi                = $this->input->post('perkusi');
     $agd                    = $this->input->post('agd');
 
-    if ($irama_nafas == "Tidak Teratur" && $retraksi == "Ya" && $kesulitan_bernafas == "Ya" && $kesulitan_bernafas_ya == "Dispneu" && $agd == "PH 7,35-7,45") {
+    if ($irama_nafas == "Tidak Teratur" && $retraksi == "Ya" && $kesulitan_bernafas == "Ya" && $kesulitan_bernafas_ya == "Dispneu")
+        {
             $diagnosa_penafasan = 'Pola Nafas Tidak Efektif';
         }elseif ($batukdansekresi == "Ya" && $batukdansekresi_ya == "Produktif" || $batukdansekresi_ya == "Non Produktif" && $warna_sputum == "Putih" || $warna_sputum == "Kuning" || $warna_sputum == "Merah" && $perkusi == "Redup") {
             $diagnosa_penafasan = 'Bersihan Jalan Nafas Tidak Efektif';
@@ -1417,6 +1432,9 @@ public function evaluasi($idanamnesis)
     $data['hasil_proteksi'] = $this->pasien_m->hasil_proteksi($idanamnesis);
     $data['hasil_nyeri'] = $this->pasien_m->hasil_nyeri($idanamnesis);
 
+
+    $data['pemberiasuhan'] = $this->pasien_m->get_pemberiasuhan(); 
+
     $nafas = $this->pasien_m->cek_intervensipersafasan($idanamnesis);
     if ($nafas != null) {
         $hasil = 1;
@@ -1855,12 +1873,15 @@ public function tambah_evaluasi()
     $id_anamnesis   = $this->input->post('id_anamnesis');
     $s              = $this->input->post('s');
     $o              = $this->input->post('o');
-
+    // $pemberi_asuhan = $this->input->post('pemberi_asuhan');
+    // $pemberi_asuhan          = json_encode($this->input->post('pemberi_asuhan'));
+    $pemberi_asuhan = implode(',',$this->input->post('pemberi_asuhan'));
 
     $data = array(
         'id_anamnesis'  => $id_anamnesis,
         's'             => $s,
         'o'             => $o,
+        'pemberi_asuhan'=> $pemberi_asuhan,
     );
 
     $this->pasien_m->insert_data($data,'soap');
@@ -1874,13 +1895,14 @@ public function update_evaluasi()
 {
     $id_anamnesis   = $this->input->post('id_anamnesis');
     $id_soap        = $this->input->post('id_soap');
-    $id_grafik      = $this->input->post('id_grafik');
     $s              = $this->input->post('s');
     $o              = $this->input->post('o');
+    $pemberi_asuhan = implode(',',$this->input->post('pemberi_asuhan'));
 
     $data = array(
         's'             => $s,
         'o'             => $o,
+        'pemberi_asuhan'=> $pemberi_asuhan,
     );
 
     $where = array(
@@ -2792,6 +2814,64 @@ public function update_kriteriapro_aksi()
         $this->pasien_m->update_data('kriteria_nyeri',$data,$where);
         $this->session->set_flashdata('flash', 'Diupdate');
         redirect('Ass/MasterPasien/hasil/'.$id_anamnesis);
+    }
+
+
+    public function tambah_pemberiasuhan()
+    {
+        $nama       = $this->input->post('nama');
+        $nip        = $this->input->post('nip');
+        $ttl        = $this->input->post('ttl');
+        $profesi    = $this->input->post('profesi');
+
+        $data = array(
+            'nama'      => $nama,
+            'nip'       => $nip,
+            'ttl'       => $ttl,
+            'profesi'   => $profesi,
+        );
+
+        $this->pasien_m->insert_data($data,'pemberi_asuhan');
+        $this->session->set_flashdata('flash', 'Ditambahkan');
+        redirect('Ass/Masterpasien/pemberiasuhan'); 
+    }
+
+
+    public function update_pemberiasuhan()
+    {
+        $id_pemberiasuhan = $this->input->post('id_pemberiasuhan');
+        $nama       = $this->input->post('nama');
+        $nip        = $this->input->post('nip');
+        $ttl        = $this->input->post('ttl');
+        $profesi    = $this->input->post('profesi');
+        $status_aktif    = $this->input->post('status_aktif');
+
+        $data = array(
+            'nama'      => $nama,
+            'nip'       => $nip,
+            'ttl'       => $ttl,
+            'profesi'   => $profesi,
+            'status_aktif'   => $status_aktif,
+        );
+
+        $where = array(
+            'id_pemberiasuhan'      => $id_pemberiasuhan,
+        );
+
+        $this->pasien_m->update_data('pemberi_asuhan',$data,$where);
+        $this->session->set_flashdata('flash', 'Diupdate');
+        redirect('Ass/Masterpasien/pemberiasuhan'); 
+    }
+
+
+    public function delete_pemberiasuhan($id)
+    {
+
+        $where = array('id_pemberiasuhan' => $id);
+
+        $this->pasien_m->delete_data($where, 'pemberi_asuhan');
+        $this->session->set_flashdata('flash', 'Dihapus');
+        redirect('Ass/MasterPasien/pemberiasuhan');
     }
 
 

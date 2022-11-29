@@ -82,10 +82,10 @@
                         </div>
                         <div class="d-flex flex-row justify-content-end">
                           <span class="mr-2">
-                            <i class="fas fa-square text-primary"></i> Nadi
+                            <i class="fas fa-square text-red"></i> Nadi
                           </span>
                           <span>
-                            <i class="fas fa-square text-red"></i> Suhu
+                            <i class="fas fa-square text-primary"></i> Suhu
                           </span>
                         </div>
                       </div>

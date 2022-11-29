@@ -1,5 +1,13 @@
 <title><?= $title; ?></title>
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha256-OFRAJNoaD8L3Br5lglV7VyLRf0itmoBzWUoM+Sji4/8=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -74,6 +82,7 @@
                         <th>Objective (O)</th>
                         <th>Assessment (A)</th>
                         <th>Plan (P)</th>
+                        <th>Pemberi Asuhan</th>
                         <th>Tgl Input</th>
                         <th>Action</th>
                       </thead>
@@ -97,13 +106,11 @@
 
                               <?php }else{ ?>
                               
-                              
-
+                      
                               <?php 
                               if ($hasil_nafas->diagnosa_penafasan == "Tidak Terdiagnosa Masalah Pernafasan") {?>
 
-                                
-                             
+                                                             
                               <?php  }elseif($kn != "0" && $hasil_nafas->diagnosa_penafasan != "Tidak Terdiagnosa Masalah Pernafasan"){?>
 
                                 Sistem Pernafasan :  <strong><?php echo $hasil_nafas->diagnosa_penafasan; ?></strong>
@@ -1093,9 +1100,10 @@
 
                             </td>
                             
+                            <td><?php echo $us->pemberi_asuhan ?></td>
                             <td align="center"><?php echo $us->create_at ?></td>
 
-
+                            
                             <td class="project-actions text-center">
                             
                               <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#editmodal<?php echo $us->id_soap; ?>">
@@ -1153,6 +1161,18 @@
                     <textarea class="form-control" name="o" rows="4" required></textarea>
                     </div>
 
+                    <div class="form-group">
+                    <label>Pemberi Asuhan</label>
+                    <select class="pemberi_asuhan form-control" name="pemberi_asuhan[]" multiple style="width: 100%;">
+                        <?php foreach($pemberiasuhan as $pb) : ?>
+                            <option value="<?php echo $pb->nama;?>"> <?php echo $pb->nama; ?></option>
+                        <?php endforeach; ?>
+
+                    </select>
+                    </div>
+
+                    
+
                   </div>
                 </div>
 
@@ -1201,6 +1221,23 @@
                     <label>Objective (O)</label>
                     <textarea class="form-control" name="o" rows="4" required><?php echo $us->o; ?></textarea>
                     </div>
+
+
+                    <div class="form-group">
+                    <label>Pemberi Asuhan</label>
+                    <select class="pemberi_asuhan form-control" name="pemberi_asuhan[]" multiple style="width: 100%;">
+
+                        <option value="<?php echo $us->pemberi_asuhan; ?>"><?php echo $us->pemberi_asuhan;?></option>
+
+
+                        <?php foreach($pemberiasuhan as $pb) : ?>
+                          
+                            <option value="<?php echo $pb->nama;?>"> <?php echo $pb->nama; ?></option>
+                        <?php endforeach; ?>
+
+
+                    </select>
+                    </div>
                     
                     </div>
                     </div>
@@ -1218,3 +1255,31 @@
           </div>
           <?php endforeach; ?>
           <!-- AKHIR MODAL UPDATE DATA -->
+
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.pemberi_asuhan').select2();
+        });
+
+        $('body').on('click','.store-data',function (e) {
+            e.preventDefault();
+
+            //Get Text
+            var selected = $('.pemberi_asuhan').select2("data");
+            for (var i = 0; i <= selected.length-1; i++) {
+                console.log(selected[i].text);
+            }
+
+            var selected = $('.pemberi_asuhan').val();
+            console.log(selected);
+        });
+    </script>
+
+
+
+
+
+

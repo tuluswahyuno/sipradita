@@ -30,20 +30,20 @@
             </a>
           </li>
 
-          <!-- <li class="nav-item">
-            <a href="<?php echo base_url('Ass/MasterPasien') ?>" class="nav-link">
-              <i class="nav-icon fas fa-user-tie"></i>
-              <p>
-                Form Assesmen
-              </p>
-            </a>
-          </li> -->
-
-          
-
           <?php $cek = $this->fungsi->user_login()->role;
 
           if ($cek == '1') {?>
+
+          <li class="nav-header">PEMBERI ASUHAN</li>
+          
+          <li class="nav-item">
+            <a href="<?php echo base_url('Ass/Masterpasien/pemberiasuhan') ?>" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Pemberi Asuhan
+              </p>
+            </a>
+          </li>
 
           <li class="nav-header">PENGATURAN USER</li>
           
@@ -75,9 +75,6 @@
               </p>
             </a>
           </li>
-
-
-          
     </nav>
     </div>
   </aside>

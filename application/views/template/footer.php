@@ -63,16 +63,6 @@
   });
 </script>
 
-<script>
-  $(function () {
-    $("#table2").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#table1_wrapper .col-md-6:eq(0)');
-    
-  });
-</script>
-
 <?php if (isset($js)) : ?>
 
 <script>
@@ -82,6 +72,10 @@
 </script>
 
 <?php endif; ?>
+
+
+
+
 
 
 <!-- digunakan untuk memanggil sweetalret -->

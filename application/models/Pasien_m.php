@@ -14,6 +14,19 @@ class Pasien_m extends CI_Model
 
 	}
 
+	public function get_pemberiasuhan(){
+     $query = $this->db->get('pemberi_asuhan')->result();
+     return $query;
+    }
+
+	
+	public function get_data_pemberiasuhan()
+	{
+		$query = $this->db->query("SELECT * FROM pemberi_asuhan;");
+		return $query->result();
+
+	}
+
 
 	public function get_data_grafik_suhu($id_anamnesis)
 	{
