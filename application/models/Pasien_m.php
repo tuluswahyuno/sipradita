@@ -420,7 +420,7 @@ class Pasien_m extends CI_Model
 	public function get_id_anamnesis($idanamnesis)
 	{
 
-		$hasil = $this->db->query("SELECT * FROM data_anamnesis where id_anamnesis='$idanamnesis';");
+		$hasil = $this->db->query("SELECT * FROM data_anamnesis where id_anamnesis=$idanamnesis;");
 
 		if($hasil->num_rows() > 0){
 			return $hasil->row();

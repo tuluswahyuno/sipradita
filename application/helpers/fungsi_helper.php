@@ -6,11 +6,9 @@
 		$user_session = $ci->session->userdata('id_user');
 		$role = $ci->session->userdata('role');
 		if($user_session && $role == 1){
-			redirect('admin/dashboard');
+			redirect('Ass/MasterPasien/cari_pasien');
 		}elseif($user_session && $role == 2){
-			redirect('pns/Dashboard/timeline');
-		}elseif($user_session && $role == 3){
-			redirect('nonpns/Dashboard/timeline');
+			redirect('Ass/MasterPasien/cari_pasien');
 		}
 	}
 
@@ -21,7 +19,7 @@
 		$user_session = $ci->session->userdata('id_user');
 		if(!$user_session)
 		{
-			redirect('auth/login');
+			redirect('Auth/login');
 		}
 	}
 

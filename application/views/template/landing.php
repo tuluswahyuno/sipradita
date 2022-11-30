@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,34 +5,33 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Sistem Digitalisasi Arsip Kepegawaian</title>
+  <title>SI PRADITA - Dokumentasi Keperawatan Digital</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <!-- <link href="<?php echo base_url() ?>assets/lp/assets/img/favicon.png" rel="icon"> -->
-  <link rel="icon" type="image/x-icon" href="<?php echo base_url() ?>assets/landing/assets/ico.ico" />
-  <link href="<?php echo base_url() ?>assets/lp/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <link rel="icon" type="image/x-icon" href="<?php echo base_url() ?>assets/lp-health/assets/img/ico.ico" />
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <!-- href="<?php echo base_url() ?>assets/lp/css/styles.css"> -->
-  <link href="<?php echo base_url() ?>assets/lp/assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="<?php echo base_url() ?>assets/lp/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="<?php echo base_url() ?>assets/lp/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="<?php echo base_url() ?>assets/lp/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="<?php echo base_url() ?>assets/lp/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="<?php echo base_url() ?>assets/lp/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="<?php echo base_url() ?>assets/lp/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="<?php echo base_url() ?>assets/lp-health/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="<?php echo base_url() ?>assets/lp-health/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="<?php echo base_url() ?>assets/lp-health/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?php echo base_url() ?>assets/lp-health/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="<?php echo base_url() ?>assets/lp-health/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="<?php echo base_url() ?>assets/lp-health/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="<?php echo base_url() ?>assets/lp-health/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="<?php echo base_url() ?>assets/lp-health/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="<?php echo base_url() ?>assets/lp/assets/css/style.css" rel="stylesheet">
+  <link href="<?php echo base_url() ?>assets/lp-health/assets/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
-  * Template Name: Arsha - v4.6.0
-  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
+  * Template Name: Medilab - v4.9.1
+  * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
@@ -41,349 +39,272 @@
 
 <body>
 
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex justify-content-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope"></i> <a href="mailto:rsudgemolong@gmail.com">rsudgemolong@gmail.com</a>
+        <i class="bi bi-phone"></i> (0271) 6811839
+      </div>
+      <div class="d-none d-lg-flex social-links align-items-center">
+        <a href="https://web.facebook.com/rsuddrsoeratnogemolong" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/rsudgemolong/" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.youtube.com/@rsudgemolong9671" class="youtube"><i class="bi bi-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top ">
+  <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="<?php echo base_url('Auth/landing') ?>">SI DIAN</a></h1>
+      <h1 class="logo me-auto"><a href="#">SI PRADITA</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
-      <nav id="navbar" class="navbar">
+      <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">Tentang</a></li>
-          <li><a class="nav-link scrollto" href="#why-us">Keuntungan</a></li>
-          <li><a class="nav-link scrollto" href="#skills">Keunggulan</a></li>
-          <li><a class="nav-link   scrollto" href="#services">Cara Penggunaan</a></li>
-          <li><a class="getstarted scrollto" href="<?php echo base_url('Auth/login') ?>">Login</a></li>
+          <li><a class="nav-link scrollto" href="#why-us">Profile</a></li>
+          <li><a class="nav-link scrollto" href="#about">Kelebihan</a></li>
+          <li><a class="nav-link scrollto" href="#testimonials">Testimoni</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
+
+      <a href="<?php echo base_url('Auth/login') ?>" class="appointment-btn scrollto"><span class="d-none d-md-inline">Log in</span> to Sistem</a>
 
     </div>
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
-
     <div class="container">
-      <div class="row">
-        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h1>Sistem Digitalisasi Arsip Kepegawaian</h1>
-          <h2>Arsip menjadi lebih mudah, cepat dan aman</h2>
-          <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
-            <a href="#linkyoutube" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Video Tutorial</span></a>
-          </div>
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-          <img src="<?php echo base_url() ?>assets/lp/assets/img/hero-img.png" class="img-fluid animated" alt="">
-        </div>
-      </div>
+      <!-- <h1>SI PRADITA</h1> -->
+      <h1>Dokumentasi</h1>
+      <h1>Keperawatan Digital</h1>
+      <h2>Nurses are the He(art) of Healthcare</h2>
+      <a href="#about" class="btn-get-started scrollto">Get Started</a>
     </div>
-
   </section><!-- End Hero -->
 
   <main id="main">
 
-    <!-- ======= Cliens Section ======= -->
-    <section id="cliens" class="cliens section-bg">
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
       <div class="container">
 
-        <div class="row" data-aos="zoom-in">
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <!-- <img src="<?php echo base_url() ?>assets/lp/assets/img/clients/client-1.png" class="img-fluid" alt=""> -->
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <!-- <img src="<?php echo base_url() ?>assets/lp/assets/img/clients/client-2.png" class="img-fluid" alt=""> -->
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <!-- <img src="<?php echo base_url() ?>assets/lp/assets/img/clients/client-3.png" class="img-fluid" alt=""> -->
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <!-- <img src="<?php echo base_url() ?>assets/lp/assets/img/clients/client-4.png" class="img-fluid" alt=""> -->
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <!-- <img src="<?php echo base_url() ?>assets/lp/assets/img/clients/client-5.png" class="img-fluid" alt=""> -->
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <!-- <img src="<?php echo base_url() ?>assets/lp/assets/img/clients/client-6.png" class="img-fluid" alt=""> -->
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Cliens Section -->
-
-    <!-- ======= About Us Section ======= -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>About Us</h2>
-        </div>
-
-        <div class="row content">
-          <div class="col-lg-6">
-            <p>
-              SI DIAN adalah Sistem Digitalasisi Arsip Kepegawaian, sistem ini memberikan kemudahan dalam :
-            </p>
-            <ul>
-              <li><i class="ri-check-double-line"></i> Pengarsipan Dokumen Kepegawaian</li>
-              <li><i class="ri-check-double-line"></i> Pencarian Dokumen Kepegawaian</li>
-              <li><i class="ri-check-double-line"></i> Penjagaan Kenaikan Pangkat dan Kenaikan Gaji Berkala</li>
-            </ul>
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>
-              Pengarsipan Dokumen Kepegawaian yang awalanya dilakukan secara konvensional kini telah berubah menjadi berbasis digital, dengan demikian proses pengarsipan dan pencarian dokumen menjadi lebih mudah, cepat, aman, dan fleksibel.
-            </p>
-            <a href="#why-us" class="btn-learn-more">Selengkapnya</a>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End About Us Section -->
-
-    <!-- ======= Why Us Section ======= -->
-    <section id="why-us" class="why-us section-bg">
-      <div class="container-fluid" data-aos="fade-up">
-
         <div class="row">
-
-          <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
-
+          <div class="col-lg-4 d-flex align-items-stretch">
             <div class="content">
-              <h3>Apa keuntungan menggunakan <strong>Sistem Digitalisasi Arsip Kepegawaian</strong> ini?</h3>
+              <h3>Mengapa Si Pradita?</h3>
               <p>
-                Ada beberapa keuntungan dengan menggunakan Sistem Digitalisasi Arsip Kepegawaian ini, diantaranya adalah :
+                Dengan menggunakan Si Pradita dokumentasi keperawatan menjadi lebih mudah dan akurat, lebih seragam sesuai standart, dan memudahkan perawat karena semua dilakukan menggunakan sistem dan terdigitalisasi oleh sistem. 
               </p>
+              <div class="text-center">
+                <a href="#about" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+              </div>
             </div>
-
-            <div class="accordion-list">
-              <ul>
-                <li>
-                  <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"><span>01</span> Memudahkan Pegawai Dalam Menyimpan Arsip Kepegawaian <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                  <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
-                    <p>
-                      Proses arsip yang biasanya dilakukan secara konvensional memiliki resiko rusak dan hilang, dengan adanya Si Dian ini proses arsip dokumen kepegawaian menjadi lebih <strong>mudah, cepat, aman, dan fleksibel </strong> karena bisa diakses dimana saja dan kapan saja.
-                    </p>
-                  </div>
-                </li>
-
-                <li>
-                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> Menghemat Kertas dan Ruang Penyimpanan Arsip Dokumen<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                  <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
-                    <p>
-                      Dengan adanya sistem digitalisasi arsip kepegawaian ini dapat <strong>menghemat penggunaan kertas</strong> karena semua berkas disimpan dalam bentuk digital sehingga <strong>mendukung program pemerintah yaitu Go Green</strong>, selain itu juga menghemat ruangan tempat penyimpanan dokumen karena <strong>berkas fisik sudah diganti menjadi berkas digital</strong>.
-                    </p>
-                  </div>
-                </li>
-
-                <li>
-                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span> Memudahkan Bidang Kepegawaian Dalam Pencarian Berkas<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                  <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
-                    <p>
-                      Proses pencarian berkas pegawei yang selama ini dilakukan secara konvensional kini berubah menjadi <strong>lebih cepat dan mudah </strong>dengan adanya Si Dian ini, bagian kepegawaian cukup melakukan pencarian data pegawai dari sistem kemudian mendownload berkas pegawai yang dicari, dengan demikian pekerjaan menjadi lebih <strong>efektif dan efisien</strong>.
-                    </p>
-                  </div>
-                </li>
-
-              </ul>
-            </div>
-
           </div>
-
-          <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("<?php echo base_url() ?>assets/lp/assets/img/why-us.png");' data-aos="zoom-in" data-aos-delay="150">&nbsp;</div>
+          <div class="col-lg-8 d-flex align-items-stretch">
+            <div class="icon-boxes d-flex flex-column justify-content-center">
+              <div class="row">
+                <div class="col-xl-4 d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-receipt"></i>
+                    <h4>Dokumen Keperawatan Seragam</h4>
+                    <p>Dengan menggunakan Si Pradita pengisian dokumen keperawatan menjadi seragam sesuai dengan standar</p>
+                  </div>
+                </div>
+                <div class="col-xl-4 d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-laptop"></i>
+                    <h4>Dokumentasi Keperawatan Digital</h4>
+                    <p>Dengan menggunakan Si Pradita memungkinkan tersediannya dokumentasi keperawatan berbasis digital</p>
+                  </div>
+                </div>
+                <div class="col-xl-4 d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-server"></i>
+                    <h4>Mudah dan Akurat</h4>
+                    <p>Tenaga keperawatan melengkapi dokumentasi keperawatan dengan mudah dan akurat, semua tenaga perawat juga memahami panduan sehingga mudah mengisi dokumentasi</p>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End .content-->
+          </div>
         </div>
 
       </div>
     </section><!-- End Why Us Section -->
 
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills">
-      <div class="container" data-aos="fade-up">
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container-fluid">
 
         <div class="row">
-          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
-            <img src="<?php echo base_url() ?>assets/lp/assets/img/skills.png" class="img-fluid" alt="">
+          <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch position-relative">
           </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
-            <h3>Keunggulan dari <strong>Si Dian</strong></h3>
-            <p class="fst-italic">
-              Keunggulan dari Sistem Digitalisasi Arsip Kepegawaian ini adalah :
-            </p>
 
-            <div class="skills-content">
+          <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
+            <h3>Dokumentasi Keperawatan Digital</h3>
+            <p>Dengan menggunakan sistem dokumentasi keperawatan digital, dokumentasi hasil keperawatan menjadi lebih tersusun dengan rapi dan bisa diakses dengan mudah apabila ingin mencari riwayat tindakan medis yang pernah dilakukan kepada pasien, selain itu meminimalisir resiko kehilangan catatan dokumentasi keperawatan karena sistem berbasis digital.</p>
 
-              <div class="progress">
-                <span class="skill">Keamanan <i class="val">100%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-
-              <div class="progress">
-                <span class="skill">Kemudahan <i class="val">100%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-
-              <div class="progress">
-                <span class="skill">Kecepatan <i class="val">100%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-
-              <div class="progress">
-                <span class="skill">Fleksibilitas <i class="val">100%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Skills Section -->
-
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>4 Lengkah Mudah Menggunakan Si Dian</h2>
-          <p>Berikut ini adalah empat langkah dalam menggunakan Sistem Digitalisasi Arsip Kepegawaian ini : </p>
-        </div>
-
-        <div class="row">
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-user-pin"></i></div>
-              <h4><a href="">Login</a></h4>
-              <p>Login dengan menggunakan username dan password yang telah diberikan oleh admin</p>
+              <div class="icon"><i class="bx bx-laptop"></i></div>
+              <h4 class="title"><a href="">Berbasis Digital</a></h4>
+              <p class="description">Sistem bisa diakses kapan saja dan dimana  saja 24/7 tanpa berbatas ruang dan waktu dengan menggunakan laptop, personal computer maupuan smartphone.</p>
             </div>
-          </div>
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Lengkapi Data</a></h4>
-              <p>Lengkapi data kepegawaian mulai dari profile, pendidikan, pangkat, jabatan dan keluarga</p>
+              <h4 class="title"><a href="">Lebih Aman</a></h4>
+              <p class="description">Dengan sistem ini catatan keperawatan menjadi lebih aman dari resiko hilang maupun rusak, karena catatan keperawatan yang awalnya manual berubah menjadi menggunakan sistem yang menggantikan cara kerja konvensional.</p>
             </div>
-          </div>
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-cloud-upload"></i></div>
-              <h4><a href="">Upload Berkas</a></h4>
-              <p>Upload berkas dokumen kepegawaian kedalam sistem dalam bentuk pdf atau gambar</p>
+              <div class="icon"><i class="bx bx-pencil"></i></div>
+              <h4 class="title"><a href="">Mudah Digunakan</a></h4>
+              <p class="description">Sistem ini dirancang dengan user interface yang mudah digunakan oleh pengguna (user friendly), sehingga dapat dipastikan pengguna tidak akan mengalami kesulitan ketika menggunakan sistem ini.</p>
             </div>
-          </div>
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-layer"></i></div>
-              <h4><a href="">Dokumen Aman</a></h4>
-              <p>Dokumen yang telah diupload dilengkapi dengan sistem enkripsi data, sehingga dokumen anda terjamin keamanannya</p>
+              <div class="icon"><i class="bx bx-atom"></i></div>
+              <h4 class="title"><a href="">Diagnosa by Sistem</a></h4>
+              <p class="description">Ketika pengkajian sudah dilakukan dan sudah diinput oleh perawat kedalam sistem, maka sistem akan menterjemahkan pengkajian tersebut menjadi diagnosa yang dapat menjadi acuan perawat untuk melakukan tindakan.</p>
             </div>
-          </div>
 
+
+
+          </div>
         </div>
 
       </div>
-    </section><!-- End Services Section -->
+    </section><!-- End About Section -->
 
-    <!-- ======= Cta Section ======= -->
-    <section id="cta" class="cta">
-      <div class="container" data-aos="zoom-in">
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+      <div class="container">
 
         <div class="row">
-          <div class="col-lg-9 text-center text-lg-start">
-            <h3>Ayo Gunakan Sekarang</h3>
-            <p> Proses pengarsipan dokumen kepegawaian akan menjadi lebih mudah cepat dan efisien serta ketika membutuhkan dokumen cukup mendowload dari file yang sudah diupload di Sistem Digitalisasi Kepegawaian ini.</p>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="count-box">
+              <i class="fas fa-user-md"></i>
+              <span data-purecounter-start="0" data-purecounter-end="23" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Dokter</p>
+            </div>
           </div>
-          <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Login</a>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+            <div class="count-box">
+              <i class="fas fa-user-nurse"></i>
+              <span data-purecounter-start="0" data-purecounter-end="84" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Perawat</p>
+            </div>
           </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="count-box">
+              <i class="fas fa-hospital-user"></i>
+              <span data-purecounter-start="0" data-purecounter-end="57" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Bidan</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="count-box">
+              <i class="fas fa-hospital"></i>
+              <span data-purecounter-start="0" data-purecounter-end="9" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Bangsal</p>
+            </div>
+          </div>
+
         </div>
 
       </div>
-    </section><!-- End Cta Section -->
+    </section><!-- End Counts Section -->
 
-    <!-- ======= Frequently Asked Questions Section ======= -->
-    <!-- <section id="faq" class="faq section-bg">
-      <div class="container" data-aos="fade-up">
+    
 
-        <div class="section-title">
-          <h2>Frequently Asked Questions</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+      <div class="container">
 
-        <div class="faq-list">
-          <ul>
-            <li data-aos="fade-up" data-aos-delay="100">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Non consectetur a erat nam at lectus urna duis? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
-                <p>
-                  Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
-                </p>
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="#" class="testimonial-img" alt="">
+                  <h3>dr. Kinik Darsono, M.Pd.Ked</h3>
+                  <h4>Direktur</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Si Pradita adalah sistem yang dapat mengefisiensi pekerjaan perawat sehingga perawat dapat lebih prima dalam memberikan pelayanan kepada pasien, sehingga harapannya RSUD dr. Soeratno Gemolong dapat terus meningkatkan mutu dan pelayanan kepada masyrakat.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
               </div>
-            </li>
+            </div><!-- End testimonial item -->
 
-            <li data-aos="fade-up" data-aos-delay="200">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Feugiat scelerisque varius morbi enim nunc? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-                </p>
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <!-- <img src="<?php echo base_url() ?>assets/lp-health/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt=""> -->
+                  <h3>dr. Mayasari Ayu Hendrawati</h3>
+                  <h4>Kabid Pelayanan dan Penunjang</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Dengan menggunakan Si Pradita harapannya seluruh proses pendokumentasian keperawatan dapat dilakukan secara digital sehingga lebih seragam dan terstruktur.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
               </div>
-            </li>
+            </div><!-- End testimonial item -->
 
-            <li data-aos="fade-up" data-aos-delay="300">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">Dolor sit amet consectetur adipiscing elit? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
-                </p>
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <h3>dr. Nofi Kusumaningrum</h3>
+                  <h4>Kasi Pelayanan</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Sistem ini mudah digunakan dan sangat user friendly, sehingga yang menggunakan sistem ini tidak kebingungan saat mengisi data dokumentasi keperawatan pasien.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
               </div>
-            </li>
+            </div><!-- End testimonial item -->
 
-            <li data-aos="fade-up" data-aos-delay="400">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in.
-                </p>
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <h3>Imas Wulandari, S.Kom, M.Eng</h3>
+                  <h4>Kabid Pengembangan dan Informasi</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Sistem ini akan membantu menemukan diagnosa yang tepat dari hasil pengkajian yang telah perawat inputkan, dengan demikian perawat dapat memilih tindakan yang tepat untuk menyembuhkan penyakit pasien sesuai dengan diagnosanya.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
               </div>
-            </li>
+            </div><!-- End testimonial item -->
 
-            <li data-aos="fade-up" data-aos-delay="500">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque.
-                </p>
-              </div>
-            </li>
 
-          </ul>
+
+           
+
+            
+          </div>
+          <div class="swiper-pagination"></div>
         </div>
 
       </div>
-    </section> --><!-- End Frequently Asked Questions Section -->
+    </section><!-- End Testimonials Section -->
+
+    
 
     
 
@@ -392,71 +313,22 @@
   <!-- ======= Footer ======= -->
   <footer id="footer">
 
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
+   
+    <div class="container d-md-flex py-4">
 
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>RSUD</h3>
-            <h3>dr. Soeratno</h3>
-            <p>
-              Jl. Dr. Soetomo <br>
-              No. 792 Gemolong<br>
-              Sragen <br><br>
-              <strong>Phone:</strong> (0271) 6811839<br>
-              <strong>Email:</strong> rsudgemolong@gmail.com<br>
-            </p>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Main Menu</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#hero">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#about">Tentang</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#why-us">Keuntungan</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#skills">Keunggulan</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#services">Cara Penggunaan</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>5 Manfaat Si Dian</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Mudah</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Cepat</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Efektif</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Efisien</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Fleksibel</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Sosial Media</h4>
-            <p>Ikuti sosial media kami untuk mendapatkan informasi seputar RSUD dr. Soeratno</p>
-            <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <!-- <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a> -->
-            </div>
-          </div>
-
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Medilab</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/ -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
         </div>
       </div>
-    </div>
-
-    <div class="container footer-bottom clearfix">
-      <div class="copyright">
-        &copy; Copyright Theme <strong><span>Arsha</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
+      
     </div>
   </footer><!-- End Footer -->
 
@@ -464,17 +336,17 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="<?php echo base_url() ?>assets/lp/assets/vendor/aos/aos.js"></script>
-  <script src="<?php echo base_url() ?>assets/lp/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="<?php echo base_url() ?>assets/lp/assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="<?php echo base_url() ?>assets/lp/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="<?php echo base_url() ?>assets/lp/assets/vendor/php-email-form/validate.js"></script>
-  <script src="<?php echo base_url() ?>assets/lp/assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="<?php echo base_url() ?>assets/lp/assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="<?php echo base_url() ?>assets/lp-health/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="<?php echo base_url() ?>assets/lp-health/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?php echo base_url() ?>assets/lp-health/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="<?php echo base_url() ?>assets/lp-health/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="<?php echo base_url() ?>assets/lp-health/assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="<?php echo base_url() ?>assets/lp/assets/js/main.js"></script>
+  <script src="<?php echo base_url() ?>assets/lp-health/assets/js/main.js"></script>
 
 </body>
 
 </html>
+
+  

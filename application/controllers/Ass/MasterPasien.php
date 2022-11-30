@@ -114,7 +114,6 @@ class MasterPasien extends CI_Controller
         check_not_login();
 
         $data['detail'] = $this->pasien_m->get_id_pasien($id);
-        // $data['detailpasien'] = $this->pasien_m->get_data_pasien_personal($id);
 
         $data['title'] = " Data Anamnesis Pasien ";
 
@@ -129,13 +128,10 @@ class MasterPasien extends CI_Controller
                     let disableInput = elem.val() == 'Tidak Pernah';
 
                     $('#id-diagnosa').prop('disabled', disableInput);
-                    // $('#id-diagnosa').prop('readonly', disableInput);
 
                     $('#id-kapan').prop('disabled', disableInput);
-                    // $('#id-kapan').prop('readonly', disableInput);
 
                     $('#id-di').prop('disabled', disableInput);
-                    // $('#id-di').prop('readonly', disableInput);
                 });
 
                 $('#id-pernah-operasi').change(function(e) {
@@ -144,13 +140,10 @@ class MasterPasien extends CI_Controller
                     let disableInput = elem.val() == 'Tidak Pernah';
 
                     $('#id-operasi').prop('disabled', disableInput);
-                    // $('#id-operasi').prop('readonly', disableInput);
 
                     $('#id-kapanoperasi').prop('disabled', disableInput);
-                    // $('#id-kapanoperasi').prop('readonly', disableInput);
 
                     $('#id-operasidimana').prop('disabled', disableInput);
-                    // $('#id-operasidimana').prop('readonly', disableInput);
                 });
 
                 $('#id-obat').change(function(e) {
@@ -159,7 +152,6 @@ class MasterPasien extends CI_Controller
                     let disableInput = elem.val() == 'Tidak';
 
                     $('#id-jenisobat').prop('disabled', disableInput);
-                    // $('#id-jenisobat').prop('readonly', disableInput);
                 });
 
                 $('#id-penyakitkeluarga').change(function(e) {
@@ -168,10 +160,8 @@ class MasterPasien extends CI_Controller
                     let disableInput = elem.val() == 'Tidak';
 
                     $('#id-penyakitkeluargajenis').prop('disabled', disableInput);
-                    // $('#id-penyakitkeluargajenis').prop('readonly', disableInput);
 
                     $('#id-penyakitkeluargalain').prop('disabled', disableInput);
-                    // $('#id-penyakitkeluargalain').prop('readonly', disableInput);
                 });
 
                 $('#id-alergi').change(function(e) {
@@ -180,13 +170,10 @@ class MasterPasien extends CI_Controller
                     let disableInput = elem.val() == 'Tidak';
 
                     $('#id-alergimakanan').prop('disabled', disableInput);
-                    // $('#id-alergimakanan').prop('readonly', disableInput);
 
                     $('#id-alergiobat').prop('disabled', disableInput);
-                    // $('#id-alergiobat').prop('readonly', disableInput);
 
                     $('#id-alergilain').prop('disabled', disableInput);
-                    // $('#id-alergilain').prop('readonly', disableInput);
                 });
             JS,
         ]);
@@ -197,7 +184,6 @@ class MasterPasien extends CI_Controller
     {
         check_not_login();
 
-        // $data['detail'] = $this->pasien_m->get_id_pasien($id);
         $data['detail'] = $this->pasien_m->get_id_anamnesis($idanamnesis);
         $data['anamnesis'] = $this->pasien_m->get_anamnesis($idanamnesis);
 
@@ -214,13 +200,10 @@ class MasterPasien extends CI_Controller
                     let disableInput = elem.val() == 'Tidak Pernah';
 
                     $('#id-diagnosa').prop('disabled', disableInput);
-                    // $('#id-diagnosa').prop('readonly', disableInput);
 
                     $('#id-kapan').prop('disabled', disableInput);
-                    // $('#id-kapan').prop('readonly', disableInput);
 
                     $('#id-di').prop('disabled', disableInput);
-                    // $('#id-di').prop('readonly', disableInput);
                 });
 
                 $('#id-pernah-operasi').change(function(e) {
@@ -229,13 +212,10 @@ class MasterPasien extends CI_Controller
                     let disableInput = elem.val() == 'Tidak Pernah';
 
                     $('#id-operasi').prop('disabled', disableInput);
-                    // $('#id-operasi').prop('readonly', disableInput);
 
                     $('#id-kapanoperasi').prop('disabled', disableInput);
-                    // $('#id-kapanoperasi').prop('readonly', disableInput);
 
                     $('#id-operasidimana').prop('disabled', disableInput);
-                    // $('#id-operasidimana').prop('readonly', disableInput);
                 });
 
                 $('#id-obat').change(function(e) {
@@ -244,7 +224,6 @@ class MasterPasien extends CI_Controller
                     let disableInput = elem.val() == 'Tidak';
 
                     $('#id-jenisobat').prop('disabled', disableInput);
-                    // $('#id-jenisobat').prop('readonly', disableInput);
                 });
 
                 $('#id-penyakitkeluarga').change(function(e) {
@@ -253,10 +232,8 @@ class MasterPasien extends CI_Controller
                     let disableInput = elem.val() == 'Tidak';
 
                     $('#id-penyakitkeluargajenis').prop('disabled', disableInput);
-                    // $('#id-penyakitkeluargajenis').prop('readonly', disableInput);
 
                     $('#id-penyakitkeluargalain').prop('disabled', disableInput);
-                    // $('#id-penyakitkeluargalain').prop('readonly', disableInput);
                 });
 
                 $('#id-alergi').change(function(e) {
@@ -265,13 +242,10 @@ class MasterPasien extends CI_Controller
                     let disableInput = elem.val() == 'Tidak';
 
                     $('#id-alergimakanan').prop('disabled', disableInput);
-                    // $('#id-alergimakanan').prop('readonly', disableInput);
 
                     $('#id-alergiobat').prop('disabled', disableInput);
-                    // $('#id-alergiobat').prop('readonly', disableInput);
 
                     $('#id-alergilain').prop('disabled', disableInput);
-                    // $('#id-alergilain').prop('readonly', disableInput);
                 });
             JS,
         ]);
@@ -424,7 +398,6 @@ class MasterPasien extends CI_Controller
         $m                      = $this->input->post('m');
         $bb                     = $this->input->post('bb');
         $tb                     = $this->input->post('tb');
-        // $kesadaran              = $this->input->post('kesadaran');
         $td                     = $this->input->post('td');
         $rr                     = $this->input->post('rr');
         $n                      = $this->input->post('n');
@@ -494,7 +467,6 @@ class MasterPasien extends CI_Controller
         $m                      = $this->input->post('m');
         $bb                     = $this->input->post('bb');
         $tb                     = $this->input->post('tb');
-        // $kesadaran              = $this->input->post('kesadaran');
         $td                     = $this->input->post('td');
         $rr                     = $this->input->post('rr');
         $n                      = $this->input->post('n');
@@ -581,7 +553,6 @@ class MasterPasien extends CI_Controller
         $suara_nafas            = $this->input->post('suara_nafas');
         $perkusi                = $this->input->post('perkusi');
         $agd                    = $this->input->post('agd');
-        //$diagnosa_penafasan     = $this->input->post('diagnosa_penafasan');
 
         if ($irama_nafas == "Tidak Teratur" && $retraksi == "Ya" && $kesulitan_bernafas == "Ya" && $kesulitan_bernafas_ya == "Dispneu")
         {
@@ -910,9 +881,7 @@ public function tambah_nyeri_aksi()
     $region         = $this->input->post('region');
     $menyebar       = $this->input->post('menyebar');
     $skala          = $this->input->post('skala');
-    // $hasil          = $this->input->post('hasil');
     $waktu          = $this->input->post('waktu');
-        // $diagnosa_proteksi  = $this->input->post('diagnosa_proteksi');
 
     if ($nyeri == "Ada") {
         $diagnosa_nyeri = 'Nyeri Akut ';
@@ -968,7 +937,6 @@ public function update_nyeri_aksi()
     $region         = $this->input->post('region');
     $menyebar       = $this->input->post('menyebar');
     $skala          = $this->input->post('skala');
-    // $hasil          = $this->input->post('hasil');
     $waktu          = $this->input->post('waktu');
 
     if ($nyeri == "Ada") {
@@ -1033,23 +1001,6 @@ public function detail_pasien($id)
     $this->load->view('template/footer');
 }
 
-
-// public function detail_pasien($id)
-// {
-//     check_not_login();
-
-//     $data['anamnesis'] = $this->pasien_m->data_anamnesis($id);
-//     $data['detail'] = $this->pasien_m->get_id_pasien($id);
-//     $data['detailpasien'] = $this->pasien_m->get_data_pasien_personal($id);
-
-
-//     $data['title'] = " Data Pasien ";
-
-//     $this->load->view('template/header');
-//     $this->load->view('template/sidebar',$data);
-//     $this->load->view('Masterpasien/v_data_detail_pasien',$data);
-//     $this->load->view('template/footer');
-// }
 
 
 public function tekanandarah($idanamnesis)
@@ -1134,7 +1085,6 @@ public function update_pemeriksaan($idanamnesis)
 {
     check_not_login();
 
-        // $data['anamnesis'] = $this->pasien_m->get_anamnesis($idanamnesis);
     $data['detail'] = $this->pasien_m->get_id_anamnesis($idanamnesis);
     $data['pemeriksaan'] = $this->pasien_m->data_pemeriksaan($idanamnesis);
 
@@ -1185,7 +1135,6 @@ public function pernafasann($idanamnesis)
                     let disableInput = elem.val() == 'Tidak';
 
                     $('#id-jenisretraksi').prop('disabled', disableInput);
-                    // $('#id-jenisretraksi').prop('readonly', disableInput);
                 });
 
                 $('#id-alatbantu').change(function(e) {
@@ -1194,10 +1143,8 @@ public function pernafasann($idanamnesis)
                     let disableInput = elem.val() == 'Tidak Ada';
 
                     $('#id-alatbantulain').prop('disabled', disableInput);
-                    // $('#id-alatbantulain').prop('readonly', disableInput);
 
                     $('#id-tekanan').prop('disabled', disableInput);
-                    // $('#id-tekanan').prop('readonly', disableInput);
                 });
 
                 $('#id-wsd').change(function(e) {
@@ -1206,7 +1153,6 @@ public function pernafasann($idanamnesis)
                     let disableInput = elem.val() == 'Tidak';
 
                     $('#id-produksi').prop('disabled', disableInput);
-                    // $('#id-produksi').prop('readonly', disableInput);
                 });
 
 
@@ -1216,10 +1162,8 @@ public function pernafasann($idanamnesis)
                     let disableInput = elem.val() == 'Tidak';
 
                     $('#id-kesulitannafasya').prop('disabled', disableInput);
-                    // $('#id-kesulitannafasya').prop('readonly', disableInput);
 
                     $('#id-saat').prop('disabled', disableInput);
-                    // $('#id-saat').prop('readonly', disableInput);
                 });
 
                 $('#id-batuk').change(function(e) {
@@ -1228,10 +1172,8 @@ public function pernafasann($idanamnesis)
                     let disableInput = elem.val() == 'Tidak';
 
                     $('#id-batukya').prop('disabled', disableInput);
-                    // $('#id-batukya').prop('readonly', disableInput);
 
                     $('#id-sputum').prop('disabled', disableInput);
-                    // $('#id-sputum').prop('readonly', disableInput);
                 });
             JS,
         ]);
@@ -1603,7 +1545,6 @@ public function moskuloskelentall($idanamnesis)
                     let disableInput = elem.val() == 'Tidak';
 
                     $('#id_lokasi').prop('disabled', disableInput);
-                    // $('#id-fraktur').prop('readonly', disableInput);
                 });
             JS,
         ]);
@@ -1673,13 +1614,10 @@ public function proteksii($idanamnesis)
                     let disableInput = elem.val() == 'Tidak';
 
                     $('#id-lokasi').prop('disabled', disableInput);
-                    // $('#id-lokasi').prop('readonly', disableInput);
 
                     $('#id-kondisi').prop('disabled', disableInput);
-                    // $('#id-kondisi').prop('readonly', disableInput);
 
                     $('#id-kebersihan').prop('disabled', disableInput);
-                    // $('#id-kebersihan').prop('readonly', disableInput);
                 });
 
                 $('#id-alergi').change(function(e) {
@@ -1688,7 +1626,6 @@ public function proteksii($idanamnesis)
                     let disableInput = elem.val() == 'Tidak';
 
                     $('#id-jenis').prop('disabled', disableInput);
-                    // $('#id-jenis').prop('readonly', disableInput);
                 });
             JS,
         ]);
@@ -1758,25 +1695,18 @@ public function add_nyeri($idanamnesis)
                     let disableInput = elem.val() == 'Tidak';
 
                     $('#id-deskripsi').prop('disabled', disableInput);
-                    // $('#id-deskripsi').prop('readonly', disableInput);
 
                     $('#id-lainnya').prop('disabled', disableInput);
-                    // $('#id-lainnya').prop('readonly', disableInput);
 
                     $('#id-quality').prop('disabled', disableInput);
-                    // $('#id-quality').prop('readonly', disableInput);
 
                     $('#id-region').prop('disabled', disableInput);
-                    // $('#id-region').prop('readonly', disableInput);
 
                     $('#id-menyebar').prop('disabled', disableInput);
-                    // $('#id-menyebar').prop('readonly', disableInput);
 
                     $('#id-skala').prop('disabled', disableInput);
-                    // $('#id-skala').prop('readonly', disableInput);
 
                     $('#id-waktu').prop('disabled', disableInput);
-                    // $('#id-waktu').prop('readonly', disableInput);
                 });
             JS,
         ]);
@@ -1873,8 +1803,6 @@ public function tambah_evaluasi()
     $id_anamnesis   = $this->input->post('id_anamnesis');
     $s              = $this->input->post('s');
     $o              = $this->input->post('o');
-    // $pemberi_asuhan = $this->input->post('pemberi_asuhan');
-    // $pemberi_asuhan          = json_encode($this->input->post('pemberi_asuhan'));
     $pemberi_asuhan = implode(',',$this->input->post('pemberi_asuhan'));
 
     $data = array(
@@ -2117,7 +2045,6 @@ public function update_intervensipernafasan($id)
     check_not_login();
 
     $data['detail'] = $this->pasien_m->get_data_innafas_by_id($id);
-        // $data['innafas'] = $this->pasien_m->show_innafas($id);
 
     $data['title'] = " Update Intervensi Pernafasan ";
 

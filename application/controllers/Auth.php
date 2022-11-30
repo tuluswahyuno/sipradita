@@ -68,7 +68,7 @@
 
 		public function logout(){
 			$this->session->sess_destroy();
-			redirect('Auth/login');
+			redirect('Auth/landing');
 		}
 
 		public function ganti_password()
